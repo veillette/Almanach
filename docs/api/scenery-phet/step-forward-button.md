@@ -9,7 +9,6 @@ related:
   - /api/scenery-phet/time-control-node
   - /api/scenery-phet/play-pause-button
   - /api/scenery-phet/step-backward-button
-  - /api/sun/rectangular-push-button
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

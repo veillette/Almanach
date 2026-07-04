@@ -7,7 +7,6 @@ tags: [scenery-phet, InfoButton, button]
 status: complete
 related:
   - /api/scenery-phet/reset-all-button
-  - /api/sun/rectangular-push-button
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
