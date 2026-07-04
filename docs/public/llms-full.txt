@@ -1,0 +1,560 @@
+# Almanach — SceneryStack Knowledge Base
+
+> A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.
+
+This file contains the full text of all 7 pages. Each page begins with a "===" separator line.
+
+
+========================================================================
+Page: What is SceneryStack?
+URL: https://veillette.github.io/Almanach/getting-started/what-is-scenerystack
+Source: docs/getting-started/what-is-scenerystack.md
+Category: Getting Started | Tags: overview, installation, scenery, axon, dot, sun, joist | Status: complete
+========================================================================
+
+# What is SceneryStack?
+
+SceneryStack is the open-source TypeScript framework behind [PhET Interactive Simulations](https://phet.colorado.edu). It provides everything needed to build accessible, multi-modal, interactive HTML5 applications: a scene graph renderer, a reactive state system, math utilities, UI components, and an application shell.
+
+It is published as a single npm package, [`scenerystack`](https://www.npmjs.com/package/scenerystack), with each library exposed as a subpath export.
+
+## The libraries
+
+| Library | Import path | Purpose |
+| --- | --- | --- |
+| **axon** | `scenerystack/axon` | Reactive state: `Property`, `DerivedProperty`, `Emitter`, `Multilink` |
+| **dot** | `scenerystack/dot` | Math: `Vector2`, `Bounds2`, `Matrix3`, `Range`, `Utils` |
+| **kite** | `scenerystack/kite` | Geometric shapes and boolean operations: `Shape`, `LineStyles` |
+| **scenery** | `scenerystack/scenery` | Scene graph: `Node`, `Path`, `Text`, input listeners, accessibility (PDOM) |
+| **sun** | `scenerystack/sun` | UI components: buttons, sliders, checkboxes, combo boxes |
+| **scenery-phet** | `scenerystack/scenery-phet` | Simulation-specific reusable components: arrows, thermometers, `PhetFont` |
+| **twixt** | `scenerystack/twixt` | Animation and easing |
+| **joist** | `scenerystack/joist` | Application shell: `Sim`, `Screen`, `ScreenView`, navigation bar |
+| **tandem** | `scenerystack/tandem` | PhET-iO instrumentation and serialization |
+| **phetcommon** | `scenerystack/phetcommon` | Shared utilities, notably `ModelViewTransform2` |
+
+## Installation
+
+```bash
+npm install scenerystack
+```
+
+## A minimal example
+
+```ts
+import { Property } from 'scenerystack/axon';
+import { Circle, Node } from 'scenerystack/scenery';
+import { Vector2 } from 'scenerystack/dot';
+
+// Model: reactive state, no view knowledge
+const positionProperty = new Property( new Vector2( 0, 0 ) );
+
+// View: a scenery Node that observes the model
+const ball = new Circle( 20, { fill: 'crimson' } );
+positionProperty.link( position => {
+  ball.translation = position;
+} );
+```
+
+This model/view split is the foundational pattern of every SceneryStack application — see [Model-View Separation](/patterns/model-view-separation).
+
+## Where to go next
+
+- [Model-View Separation](/patterns/model-view-separation) — the architecture every page in this wiki assumes
+- [ModelViewTransform2](/api/model-view-transform) — mapping between model and view coordinates
+- [Drag Listeners](/patterns/drag-listeners) — making nodes interactive
+- [The Parallel DOM (PDOM)](/accessibility/pdom) — building accessible simulations
+
+
+========================================================================
+Page: ModelViewTransform2
+URL: https://veillette.github.io/Almanach/api/model-view-transform
+Source: docs/api/model-view-transform.md
+Category: API | Tags: phetcommon, dot, coordinates, transform, ModelViewTransform2 | Status: complete
+========================================================================
+
+# ModelViewTransform2
+
+`ModelViewTransform2` (from `scenerystack/phetcommon`) converts between **model coordinates** — meters, moles, whatever your physics uses, typically with **y pointing up** — and **view coordinates** — scenery pixels, with **y pointing down**. Keeping the model in physical units and doing all conversion at the view boundary is a core SceneryStack convention; the model should never know about pixels.
+
+```ts
+import { ModelViewTransform2 } from 'scenerystack/phetcommon';
+import { Vector2 } from 'scenerystack/dot';
+```
+
+## Creating a transform
+
+The most common factory for physics-style simulations maps a single model point to a view point, applies a uniform scale, and inverts the y axis:
+
+```ts
+// Model origin at the horizontal center, 100 px from the bottom of the layout
+// bounds; 1 model unit (e.g. 1 meter) = 50 view pixels; +y up in the model.
+const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+  Vector2.ZERO,                                             // model point
+  new Vector2( layoutBounds.centerX, layoutBounds.maxY - 100 ), // view point
+  50                                                        // view units per model unit
+);
+```
+
+Other factory methods:
+
+| Factory | Use case |
+| --- | --- |
+| `createIdentity()` | Model units are view units (still useful as a placeholder) |
+| `createOffsetScaleMapping( offset, scale )` | Translate + uniform scale, no y inversion |
+| `createSinglePointScaleMapping( modelPoint, viewPoint, scale )` | Like the inverted-y version, but y-down in the model too |
+| `createSinglePointScaleInvertedYMapping( modelPoint, viewPoint, scale )` | The standard choice for physics (y-up model) |
+| `createRectangleMapping( modelBounds, viewBounds )` | Fit a model rectangle onto a view rectangle |
+| `createRectangleInvertedYMapping( modelBounds, viewBounds )` | Same, with y inversion |
+
+## Converting values
+
+```ts
+// Positions (affected by translation, scale, and y inversion)
+const viewPosition = modelViewTransform.modelToViewPosition( body.positionProperty.value );
+const modelPosition = modelViewTransform.viewToModelPosition( viewPoint );
+
+// Deltas and distances (affected by scale only — no translation)
+const viewDx = modelViewTransform.modelToViewDeltaX( body.radius );
+const viewDelta = modelViewTransform.modelToViewDelta( velocity );
+
+// Bounds and shapes
+const viewBounds = modelViewTransform.modelToViewBounds( model.wallBounds );
+const viewShape = modelViewTransform.modelToViewShape( orbitShape );
+```
+
+::: warning Positions vs. deltas
+`modelToViewPosition` applies the full transform including translation. For *sizes*, *radii*, and *velocities*, use the delta methods (`modelToViewDeltaX`, `modelToViewDelta`, …) — otherwise the offset of the model origin gets baked into your lengths, and with an inverted-y mapping `modelToViewDeltaY` of a positive height is correctly **negative**.
+:::
+
+## Typical wiring in a view component
+
+```ts
+class BodyNode extends Circle {
+  public constructor( body: Body, modelViewTransform: ModelViewTransform2 ) {
+    super( modelViewTransform.modelToViewDeltaX( body.radius ), { fill: 'teal' } );
+
+    body.positionProperty.link( position => {
+      this.translation = modelViewTransform.modelToViewPosition( position );
+    } );
+  }
+}
+```
+
+The same transform instance is passed to [drag listeners](/patterns/drag-listeners) via their `transform` option, so pointer motion in view coordinates updates the model in model coordinates.
+
+
+========================================================================
+Page: Drag Listeners
+URL: https://veillette.github.io/Almanach/patterns/drag-listeners
+Source: docs/patterns/drag-listeners.md
+Category: Patterns | Tags: scenery, input, DragListener, KeyboardDragListener, RichDragListener, interaction | Status: complete
+========================================================================
+
+# Drag Listeners
+
+Dragging in SceneryStack follows the [model-view separation](/patterns/model-view-separation) pattern: the listener writes to a model `positionProperty` (in model coordinates), and the node's position updates through the normal observer wiring — the listener never moves the node directly.
+
+## DragListener (pointer input)
+
+```ts
+import { DragListener } from 'scenerystack/scenery';
+
+bodyNode.addInputListener( new DragListener( {
+
+  // The model Property to write, in MODEL coordinates...
+  positionProperty: body.positionProperty,
+
+  // ...which works because the listener converts through this transform.
+  transform: modelViewTransform,
+
+  // Constrain dragging to a region, in model coordinates.
+  dragBoundsProperty: model.dragBoundsProperty,
+
+  start: () => body.userControlledProperty.set( true ),
+  end: () => body.userControlledProperty.set( false )
+} ) );
+bodyNode.cursor = 'pointer';
+```
+
+Key options:
+
+| Option | Effect |
+| --- | --- |
+| `positionProperty` | Property written during the drag (model coordinates when `transform` is provided) |
+| `transform` | A `ModelViewTransform2`; converts pointer motion into model units |
+| `dragBoundsProperty` | Clamps the position to bounds (same frame as `positionProperty`) |
+| `start` / `drag` / `end` | Callbacks around the drag lifecycle |
+| `useParentOffset` | Keeps the grab point fixed relative to the node instead of jumping its origin to the pointer |
+| `allowTouchSnag` | Lets a touch that starts on the node immediately begin dragging (default `true`) |
+| `targetNode` | Node whose coordinate frame is used, when the listener is attached elsewhere |
+
+Setting `userControlledProperty` in `start`/`end` is the standard way to tell the model to stop animating a body while the user holds it.
+
+## KeyboardDragListener (alternative input)
+
+Pointer dragging alone is not accessible. `KeyboardDragListener` moves the same Property with arrow keys and WASD, and requires the node to be focusable in the [PDOM](/accessibility/pdom):
+
+```ts
+import { KeyboardDragListener } from 'scenerystack/scenery';
+
+bodyNode.addInputListener( new KeyboardDragListener( {
+  positionProperty: body.positionProperty,
+  transform: modelViewTransform,
+  dragBoundsProperty: model.dragBoundsProperty,
+  dragSpeed: 150,       // model units per second while a key is held
+  shiftDragSpeed: 50    // finer motion with shift held
+} ) );
+
+// PDOM: focusable with a meaningful accessible name
+bodyNode.tagName = 'div';
+bodyNode.focusable = true;
+bodyNode.accessibleName = 'Planet';
+```
+
+## RichDragListener (both at once)
+
+`RichDragListener` bundles a `DragListener` and a `KeyboardDragListener` behind one API, so every draggable gets pointer and keyboard support from a single declaration. Prefer it for new code:
+
+```ts
+import { RichDragListener } from 'scenerystack/scenery';
+
+bodyNode.addInputListener( new RichDragListener( {
+  positionProperty: body.positionProperty,
+  transform: modelViewTransform,
+  dragBoundsProperty: model.dragBoundsProperty,
+  keyboardDragListenerOptions: {
+    dragSpeed: 150
+  }
+} ) );
+```
+
+::: tip Checklist for a well-behaved draggable
+1. Listener writes a **model** Property through `transform` — the node observes it back.
+2. `dragBoundsProperty` keeps the object reachable (nothing draggable off-screen).
+3. Keyboard path exists (`RichDragListener`, or `KeyboardDragListener` + focusable PDOM).
+4. `cursor = 'pointer'` and, for touch, adequate `touchArea` / `mouseArea` dilation.
+5. `userControlledProperty` toggled in `start`/`end` if the model animates the object.
+:::
+
+
+========================================================================
+Page: Model-View Separation
+URL: https://veillette.github.io/Almanach/patterns/model-view-separation
+Source: docs/patterns/model-view-separation.md
+Category: Patterns | Tags: architecture, axon, Property, DerivedProperty, MVC | Status: complete
+========================================================================
+
+# Model-View Separation
+
+Every SceneryStack application is built around a strict one-way dependency: the **model** is a plain TypeScript object graph whose state lives in axon `Property` instances, and the **view** is a scenery `Node` tree that *observes* the model. The model never imports from the view, never mentions pixels, and can run headless in a unit test.
+
+## The model: axon Properties
+
+```ts
+import { NumberProperty, Property, DerivedProperty } from 'scenerystack/axon';
+import { Vector2 } from 'scenerystack/dot';
+
+export class ProjectileModel {
+
+  // Mutable state is a Property. Physical units only — meters, seconds.
+  public readonly positionProperty = new Property( new Vector2( 0, 0 ) );
+  public readonly massProperty = new NumberProperty( 5 ); // kg
+
+  // Derived state is a DerivedProperty: never stored redundantly, never stale.
+  public readonly weightProperty: DerivedProperty<number, [ number ]>;
+
+  public constructor() {
+    this.weightProperty = new DerivedProperty( [ this.massProperty ], mass => mass * 9.8 );
+  }
+
+  public step( dt: number ): void {
+    // Advance physics in model units; observers update automatically.
+  }
+
+  public reset(): void {
+    this.positionProperty.reset();
+    this.massProperty.reset();
+  }
+}
+```
+
+Guidelines:
+
+- Expose Properties as `public readonly`; mutate their `.value`, not the field.
+- Anything computable from other state should be a `DerivedProperty`, not a second source of truth.
+- Discrete events that aren't state (a collision, a reset) use `Emitter`.
+- Provide a `reset()` that resets every Property — the standard Reset All button calls it.
+
+## The view: observing, never owning state
+
+```ts
+import { Circle } from 'scenerystack/scenery';
+import { ModelViewTransform2 } from 'scenerystack/phetcommon';
+
+export class ProjectileNode extends Circle {
+  public constructor( model: ProjectileModel, modelViewTransform: ModelViewTransform2 ) {
+    super( 15, { fill: 'orange' } );
+
+    // View subscribes to the model. Conversion to pixels happens here, at the
+    // boundary, via the transform — see /api/model-view-transform.
+    model.positionProperty.link( position => {
+      this.translation = modelViewTransform.modelToViewPosition( position );
+    } );
+  }
+}
+```
+
+When the view needs to *change* the model (a slider, a [drag listener](/patterns/drag-listeners)), it writes to the model's Properties — it does not keep its own copy:
+
+```ts
+massSlider = new HSlider( model.massProperty, model.massProperty.range );
+```
+
+The Property is the single source of truth; the slider both writes it and reacts to it, so external changes (reset, PhET-iO, another control) stay consistent for free.
+
+## Why this matters at scale
+
+- **Testability** — the model runs and is assertable without a DOM.
+- **Multiple views** — a chart, a readout, and the scene graph can all observe the same Property without coordination.
+- **Reset, undo, PhET-iO serialization** — all become mechanical when state is enumerable Properties instead of scattered fields.
+
+
+========================================================================
+Page: Color Profiles
+URL: https://veillette.github.io/Almanach/styling/color-profiles
+Source: docs/styling/color-profiles.md
+Category: Styling | Tags: scenery, ProfileColorProperty, colorProfileProperty, projector-mode, colors | Status: complete
+========================================================================
+
+# Color Profiles
+
+SceneryStack applications support multiple **color profiles** — named color schemes that can be switched at runtime. The canonical example is *projector mode*: a light-background scheme that stays legible on a washed-out classroom projector, versus the default dark-background scheme designed for screens.
+
+The mechanism is `ProfileColorProperty` (from `scenerystack/scenery`): a `Property<Color>` whose value switches automatically when the global `colorProfileProperty` changes.
+
+## The pattern: one Colors file per project
+
+All colors live in a single namespace-style file, never inline in view code:
+
+```ts
+// MySimColors.ts
+import { ProfileColorProperty } from 'scenerystack/scenery';
+import mySim from './mySim.js';
+
+const MySimColors = {
+
+  screenBackgroundColorProperty: new ProfileColorProperty( mySim, 'screenBackground', {
+    default: 'black',
+    projector: 'white'
+  } ),
+
+  bodyFillProperty: new ProfileColorProperty( mySim, 'bodyFill', {
+    default: 'rgb( 255, 200, 60 )',
+    projector: 'rgb( 200, 130, 0 )'
+  } ),
+
+  gridLineColorProperty: new ProfileColorProperty( mySim, 'gridLine', {
+    default: 'rgba( 255, 255, 255, 0.4 )',
+    projector: 'rgba( 0, 0, 0, 0.4 )'
+  } )
+};
+
+export default MySimColors;
+```
+
+Every entry must define `default`; other profiles (like `projector`) fall back to `default` when they don't override.
+
+## Using the colors
+
+Scenery fills and strokes accept a `Property<Color>` directly, so views stay declarative and update automatically on profile switches:
+
+```ts
+import { Circle } from 'scenerystack/scenery';
+import MySimColors from './MySimColors.js';
+
+const bodyNode = new Circle( 25, {
+  fill: MySimColors.bodyFillProperty,          // live — no .value, no link needed
+  stroke: MySimColors.gridLineColorProperty
+} );
+```
+
+Screens take the background the same way:
+
+```ts
+new Screen( createModel, createView, {
+  backgroundColorProperty: MySimColors.screenBackgroundColorProperty
+} );
+```
+
+## Switching profiles
+
+The active profile is the global `colorProfileProperty` (a `Property<string>` in `scenerystack/scenery`). In PhET simulations it is toggled from Preferences or the `colorProfile` query parameter; you can also set it programmatically:
+
+```ts
+import { colorProfileProperty } from 'scenerystack/scenery';
+
+colorProfileProperty.value = 'projector';
+```
+
+::: tip Why not plain constants?
+A `static readonly COLOR = 'black'` can never change at runtime and scatters color decisions across files. `ProfileColorProperty` gives you a single audit point for every color in the project, live profile switching for free, and (in PhET-iO contexts) external color customization — for the cost of one extra file.
+:::
+
+
+========================================================================
+Page: The Parallel DOM (PDOM)
+URL: https://veillette.github.io/Almanach/accessibility/pdom
+Source: docs/accessibility/pdom.md
+Category: Accessibility | Tags: scenery, pdom, accessibility, a11y, screen-reader, tagName, accessibleName | Status: complete
+========================================================================
+
+# The Parallel DOM (PDOM)
+
+Scenery draws to Canvas/SVG/WebGL — surfaces that are invisible to screen readers. To make applications accessible, scenery maintains a **Parallel DOM**: a hidden tree of real HTML elements that mirrors the interactive structure of the scene graph. Screen readers read it, keyboard focus moves through it, and input events on it are routed back to the corresponding Nodes.
+
+You opt each Node into the PDOM with accessibility options — no separate accessibility tree to maintain.
+
+## Basic options
+
+```ts
+import { Node, Rectangle } from 'scenerystack/scenery';
+
+// A heading + paragraph in the PDOM
+const infoSection = new Node( {
+  tagName: 'div',
+  labelTagName: 'h3',
+  labelContent: 'Mass Controls',
+  descriptionContent: 'Adjust the mass of each body, in kilograms.'
+} );
+
+// An interactive element: focusable, named, with help text
+const resetShape = new Rectangle( 0, 0, 40, 40, {
+  tagName: 'button',
+  accessibleName: 'Reset Masses',
+  helpText: 'Return both masses to their starting values.'
+} );
+```
+
+| Option | Meaning |
+| --- | --- |
+| `tagName` | HTML element representing this Node (`'div'`, `'button'`, `'ul'`, …). Setting it is what places the Node in the PDOM |
+| `innerContent` | Text content inside the element |
+| `labelTagName` / `labelContent` | A sibling label element (e.g. an `h3` before the content) |
+| `descriptionContent` | A sibling description paragraph |
+| `accessibleName` | The name announced by screen readers (higher-level API; prefer this) |
+| `helpText` | Supplementary guidance announced with the element |
+| `focusable` | Whether the element is in the tab order (interactive `tagName`s like `'button'` already are) |
+
+Common UI components from `sun` (buttons, sliders, checkboxes) come with sensible PDOM structure built in — you typically only supply `accessibleName` and `helpText`.
+
+## Focus order with pdomOrder
+
+By default, PDOM order follows scene-graph order, which is a *rendering* order and often wrong for traversal. Set `pdomOrder` on a parent to control it explicitly:
+
+```ts
+screenView.pdomOrder = [
+  massControlPanel,
+  bodyNode,        // draggable — see /patterns/drag-listeners
+  gridCheckbox,
+  resetAllButton
+];
+```
+
+Nodes omitted from `pdomOrder` follow afterwards in their natural order; `null` may be used as a placeholder for "everything else here".
+
+## Custom interactions
+
+A Node that implements its own interaction (like a custom draggable) needs three things:
+
+```ts
+bodyNode.tagName = 'div';
+bodyNode.focusable = true;
+bodyNode.accessibleName = 'Movable planet';
+bodyNode.addInputListener( new KeyboardDragListener( { /* ... */ } ) );
+```
+
+1. A `tagName` so it exists in the PDOM,
+2. `focusable: true` so keyboard users can reach it,
+3. listeners that respond to keyboard input, not just pointers — see [Drag Listeners](/patterns/drag-listeners).
+
+::: tip Test with the keyboard first
+Before reaching for a screen reader, unplug your mouse: every interactive element should be reachable with <kbd>Tab</kbd>, operable with <kbd>Enter</kbd>/<kbd>Space</kbd>/arrows, and show a visible focus highlight (scenery draws these automatically for focusable Nodes).
+:::
+
+
+========================================================================
+Page: Authoring Guide
+URL: https://veillette.github.io/Almanach/meta/authoring-guide
+Source: docs/meta/authoring-guide.md
+Category: Meta | Tags: conventions, frontmatter, contributing | Status: complete
+========================================================================
+
+# Authoring Guide
+
+This wiki is designed to grow to hundreds of documents without any configuration edits. Everything — the sidebar, `llms.txt`, `llms-full.txt`, and `manifest.json` — is generated from the Markdown files and their frontmatter. Follow the conventions below and your page appears everywhere automatically.
+
+## Adding a page
+
+1. Create a `.md` file in the folder matching its category (see taxonomy below). Use kebab-case filenames: `model-view-transform.md`.
+2. Fill in the required frontmatter (schema below).
+3. Run `npm run generate` — it validates every page and regenerates the LLM artifacts, failing loudly on schema violations.
+4. Preview with `npm run dev`.
+
+## Folder taxonomy
+
+| Folder | Contents |
+| --- | --- |
+| `getting-started/` | Orientation, installation, first steps |
+| `api/` | Reference pages for specific classes and APIs |
+| `patterns/` | Recommended software patterns and architectures |
+| `styling/` | Colors, layout, visual design conventions |
+| `accessibility/` | PDOM, keyboard input, screen reader support |
+| `meta/` | Documentation about this wiki itself |
+
+New top-level folders may be added as the wiki grows; they appear in the sidebar automatically (add an entry to the `SECTIONS` maps in `docs/.vitepress/sidebar.ts` and `scripts/generate-llm-artifacts.ts` only to control their label and ordering).
+
+## Frontmatter schema
+
+Every page **must** begin with this frontmatter:
+
+```yaml
+---
+title: ModelViewTransform2                  # required — page title, used in sidebar and indexes
+description: One-sentence summary.          # required — shown in llms.txt and manifest.json
+category: api                               # required — MUST equal the containing folder name
+tags: [dot, coordinates, transform]         # required — non-empty list of lowercase keywords
+status: complete                            # required — "draft" or "complete"
+related:                                    # optional — site-absolute paths to related pages
+  - /patterns/model-view-separation
+---
+```
+
+Validation rules (enforced by `npm run generate`, and by CI on every push):
+
+- `title` and `description` are non-empty strings.
+- `category` matches the top-level folder the file lives in.
+- `tags` is a non-empty array of strings.
+- `status` is `draft` or `complete`.
+- Every `related` entry resolves to an existing document — broken cross-references fail the build.
+
+VitePress additionally fails the build on dead Markdown links, so inline links like `[Drag Listeners](/patterns/drag-listeners)` are also checked.
+
+## Writing style
+
+- **One concept per page.** Small, focused pages retrieve better — for search engines, humans, and LLM context windows alike.
+- **Lead with what and why**, then show a complete, runnable TypeScript snippet using real `scenerystack/*` imports.
+- **Cross-link generously** with site-absolute paths (`/api/model-view-transform`), and mirror the most important links in `related`.
+- Use tables for option/method summaries and `::: tip` / `::: warning` containers for the one thing readers must not miss.
+
+## Generated artifacts
+
+`npm run generate` (also run automatically as part of `npm run build`) writes three files into `docs/public/`, which are served at the site root:
+
+| File | Contents |
+| --- | --- |
+| `/llms.txt` | Per-page links + descriptions, grouped by category ([llms.txt convention](https://llmstxt.org/)) |
+| `/llms-full.txt` | Full text of every page with source-path headers |
+| `/manifest.json` | All frontmatter metadata plus URLs and word counts |
+
+These files are committed to the repository so agents browsing GitHub get them without a build step; regenerate them whenever content changes (CI verifies the build regardless).

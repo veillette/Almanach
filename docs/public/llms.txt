@@ -1,0 +1,30 @@
+# Almanach — SceneryStack Knowledge Base
+
+> A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.
+
+Full content of every page is available at https://veillette.github.io/Almanach/llms-full.txt and structured metadata at https://veillette.github.io/Almanach/manifest.json. Raw Markdown sources live at https://github.com/veillette/Almanach under docs/.
+
+## Getting Started
+
+- [What is SceneryStack?](https://veillette.github.io/Almanach/getting-started/what-is-scenerystack): Overview of the SceneryStack framework, its constituent libraries, and how to install and import it.
+
+## API
+
+- [ModelViewTransform2](https://veillette.github.io/Almanach/api/model-view-transform): Mapping between model coordinates (physical units, y-up) and view coordinates (pixels, y-down) with ModelViewTransform2.
+
+## Patterns
+
+- [Drag Listeners](https://veillette.github.io/Almanach/patterns/drag-listeners): Making nodes draggable with DragListener, KeyboardDragListener, and RichDragListener, wired to a model positionProperty through a transform.
+- [Model-View Separation](https://veillette.github.io/Almanach/patterns/model-view-separation): The foundational SceneryStack architecture - axon Properties form the model, scenery Nodes observe it, and nothing flows the other way.
+
+## Styling
+
+- [Color Profiles](https://veillette.github.io/Almanach/styling/color-profiles): Centralizing colors with ProfileColorProperty so an application can switch between default and projector color schemes at runtime.
+
+## Accessibility
+
+- [The Parallel DOM (PDOM)](https://veillette.github.io/Almanach/accessibility/pdom): How scenery renders an invisible, semantic HTML tree alongside the canvas so screen readers and keyboards can use the application.
+
+## Meta
+
+- [Authoring Guide](https://veillette.github.io/Almanach/meta/authoring-guide): Conventions for adding documents to this wiki - folder taxonomy, required frontmatter schema, and how the generated indexes work.

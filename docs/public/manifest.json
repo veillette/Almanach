@@ -1,0 +1,155 @@
+{
+  "site": "https://veillette.github.io/Almanach",
+  "title": "Almanach — SceneryStack Knowledge Base",
+  "description": "A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
+  "generated": "2026-07-04T03:39:50.720Z",
+  "documentCount": 7,
+  "documents": [
+    {
+      "path": "/getting-started/what-is-scenerystack",
+      "sourceFile": "docs/getting-started/what-is-scenerystack.md",
+      "title": "What is SceneryStack?",
+      "description": "Overview of the SceneryStack framework, its constituent libraries, and how to install and import it.",
+      "category": "getting-started",
+      "tags": [
+        "overview",
+        "installation",
+        "scenery",
+        "axon",
+        "dot",
+        "sun",
+        "joist"
+      ],
+      "status": "complete",
+      "related": [
+        "/patterns/model-view-separation",
+        "/api/model-view-transform"
+      ],
+      "wordCount": 331,
+      "url": "https://veillette.github.io/Almanach/getting-started/what-is-scenerystack"
+    },
+    {
+      "path": "/api/model-view-transform",
+      "sourceFile": "docs/api/model-view-transform.md",
+      "title": "ModelViewTransform2",
+      "description": "Mapping between model coordinates (physical units, y-up) and view coordinates (pixels, y-down) with ModelViewTransform2.",
+      "category": "api",
+      "tags": [
+        "phetcommon",
+        "dot",
+        "coordinates",
+        "transform",
+        "ModelViewTransform2"
+      ],
+      "status": "complete",
+      "related": [
+        "/patterns/model-view-separation",
+        "/patterns/drag-listeners"
+      ],
+      "wordCount": 447,
+      "url": "https://veillette.github.io/Almanach/api/model-view-transform"
+    },
+    {
+      "path": "/patterns/drag-listeners",
+      "sourceFile": "docs/patterns/drag-listeners.md",
+      "title": "Drag Listeners",
+      "description": "Making nodes draggable with DragListener, KeyboardDragListener, and RichDragListener, wired to a model positionProperty through a transform.",
+      "category": "patterns",
+      "tags": [
+        "scenery",
+        "input",
+        "DragListener",
+        "KeyboardDragListener",
+        "RichDragListener",
+        "interaction"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/model-view-transform",
+        "/patterns/model-view-separation",
+        "/accessibility/pdom"
+      ],
+      "wordCount": 458,
+      "url": "https://veillette.github.io/Almanach/patterns/drag-listeners"
+    },
+    {
+      "path": "/patterns/model-view-separation",
+      "sourceFile": "docs/patterns/model-view-separation.md",
+      "title": "Model-View Separation",
+      "description": "The foundational SceneryStack architecture - axon Properties form the model, scenery Nodes observe it, and nothing flows the other way.",
+      "category": "patterns",
+      "tags": [
+        "architecture",
+        "axon",
+        "Property",
+        "DerivedProperty",
+        "MVC"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/model-view-transform",
+        "/getting-started/what-is-scenerystack"
+      ],
+      "wordCount": 430,
+      "url": "https://veillette.github.io/Almanach/patterns/model-view-separation"
+    },
+    {
+      "path": "/styling/color-profiles",
+      "sourceFile": "docs/styling/color-profiles.md",
+      "title": "Color Profiles",
+      "description": "Centralizing colors with ProfileColorProperty so an application can switch between default and projector color schemes at runtime.",
+      "category": "styling",
+      "tags": [
+        "scenery",
+        "ProfileColorProperty",
+        "colorProfileProperty",
+        "projector-mode",
+        "colors"
+      ],
+      "status": "complete",
+      "related": [
+        "/patterns/model-view-separation"
+      ],
+      "wordCount": 349,
+      "url": "https://veillette.github.io/Almanach/styling/color-profiles"
+    },
+    {
+      "path": "/accessibility/pdom",
+      "sourceFile": "docs/accessibility/pdom.md",
+      "title": "The Parallel DOM (PDOM)",
+      "description": "How scenery renders an invisible, semantic HTML tree alongside the canvas so screen readers and keyboards can use the application.",
+      "category": "accessibility",
+      "tags": [
+        "scenery",
+        "pdom",
+        "accessibility",
+        "a11y",
+        "screen-reader",
+        "tagName",
+        "accessibleName"
+      ],
+      "status": "complete",
+      "related": [
+        "/patterns/drag-listeners"
+      ],
+      "wordCount": 468,
+      "url": "https://veillette.github.io/Almanach/accessibility/pdom"
+    },
+    {
+      "path": "/meta/authoring-guide",
+      "sourceFile": "docs/meta/authoring-guide.md",
+      "title": "Authoring Guide",
+      "description": "Conventions for adding documents to this wiki - folder taxonomy, required frontmatter schema, and how the generated indexes work.",
+      "category": "meta",
+      "tags": [
+        "conventions",
+        "frontmatter",
+        "contributing"
+      ],
+      "status": "complete",
+      "related": [],
+      "wordCount": 537,
+      "url": "https://veillette.github.io/Almanach/meta/authoring-guide"
+    }
+  ]
+}
