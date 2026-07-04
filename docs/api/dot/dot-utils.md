@@ -4,7 +4,7 @@ description: "dot's numeric helper functions: clamp, linear, roundSymmetric, and
 category: api
 library: dot
 tags: [dot, Utils, math]
-status: complete
+status: verified
 related:
   - /api/dot/range
   - /api/dot/vector2

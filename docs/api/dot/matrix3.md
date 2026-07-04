@@ -4,7 +4,7 @@ description: The 3x3 transform matrix behind Node transforms and ModelViewTransf
 category: api
 library: dot
 tags: [dot, Matrix3, transform]
-status: complete
+status: verified
 related:
   - /api/dot/vector2
   - /api/dot/bounds2

@@ -3,7 +3,7 @@ title: Standalone Scenery App Example
 description: Using scenery as a standalone rendering library outside the joist shell.
 category: examples
 tags: [example, scenery, standalone]
-status: complete
+status: verified
 related:
   - /patterns/model-view-separation
   - /patterns/drag-listeners

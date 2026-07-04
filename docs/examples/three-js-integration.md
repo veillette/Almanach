@@ -3,7 +3,7 @@ title: Three.js Integration
 description: Embedding a Three.js WebGL scene inside a scenery Node.
 category: examples
 tags: [example, three.js, webgl]
-status: draft
+status: verified
 related:
   - /getting-started/your-first-simulation
   - /patterns/model-view-separation
@@ -95,8 +95,8 @@ const cubeScreen = new Screen(
 );
 ```
 
-::: warning This page is a draft
-`mobius` is verified against the real SceneryStack source (`MobiusScreenView`, `ThreeIsometricNode`, and `ThreeStage` all exist as shown, and mobius does re-export `three` as `THREE`), but the exact runtime behavior of the isometric camera, the WebGL-unavailable fallback (`MobiusScreenView.showWebGLWarning`), and how `phet.joist.sim.dimensionProperty` feeds `layout()` were not exercised end-to-end for this page. Treat the shapes of the classes and imports as accurate, but verify the animation/render timing against a running sim before relying on it. See [`phetsims/mobius`](https://github.com/phetsims/mobius) for the canonical source.
+::: tip Checked against source, not against a running sim
+Every class, method, and option shown here (`MobiusScreenView.sceneNode`/`step`/`showWebGLWarning`, `ThreeIsometricNode.stage`, `ThreeStage.threeScene`, `cameraPosition` on `ThreeIsometricNodeOptions` via `ThreeStageOptions`, mobius's re-export of `three` as `THREE`, and `phet.joist.sim.dimensionProperty` feeding `MobiusScreenView.layout()`) was independently confirmed against the real `mobius`/`joist` source, not just this page's own prior claims. What hasn't been exercised is the actual rendered output in a browser — the isometric camera framing and animation timing are worth a visual check in a running sim before relying on exact values.
 :::
 
 ## Where to go next

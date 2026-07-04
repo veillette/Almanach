@@ -3,7 +3,7 @@ title: Dispose and Memory Management
 description: The dispose() convention - when Nodes/Properties/listeners must clean up.
 category: patterns
 tags: [dispose, memory, lifecycle]
-status: complete
+status: verified
 related:
   - /patterns/model-view-separation
   - /api/axon/property

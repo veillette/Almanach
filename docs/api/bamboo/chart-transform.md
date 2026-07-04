@@ -4,14 +4,15 @@ description: Maps chart data between model coordinates and view (pixel) coordina
 category: api
 library: bamboo
 tags: [bamboo, ChartTransform, coordinates, chart]
-status: complete
+status: verified
+prerequisites:
+  - /api/dot/range
+  - /api/dot/vector2
 related:
   - /api/bamboo/line-plot
   - /api/bamboo/bar-plot
   - /api/bamboo/scatter-plot
   - /api/bamboo/axis-nodes
-  - /api/dot/range
-  - /api/dot/vector2
   - /patterns/dispose-and-memory-management
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

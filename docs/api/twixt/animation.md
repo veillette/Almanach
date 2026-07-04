@@ -4,10 +4,13 @@ description: Animating a Property's value smoothly over time instead of setting 
 category: api
 library: twixt
 tags: [twixt, Animation, Easing]
-status: complete
+status: verified
+prerequisites:
+  - /api/axon/property
 related:
   - /api/axon/property
   - /api/axon/number-property
+  - /api/twixt/transition-node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
@@ -60,7 +63,7 @@ Exactly one target-binding style and exactly one length source are required; `An
 | `delta` | — | Animates by this much relative to the starting value, instead of to an absolute value |
 | `duration` | `null` | Length of the animation in seconds — provide this **or** a `speed` on a target, never both |
 | `delay` | `0` | Seconds to wait after `start()` before the value actually begins changing |
-| `easing` | `Easing.LINEAR` (via `AnimationTarget`) | Controls the rate of change over the animation's course |
+| `easing` | `Easing.CUBIC_IN_OUT` (via `AnimationTarget`) | Controls the rate of change over the animation's course |
 | `from` | — | Overrides the starting value instead of reading the current value |
 | `stepEmitter` | axon's `stepTimer` | The `Emitter<[number]>` that drives stepping; pass `null` to step manually via `.step( dt )` |
 

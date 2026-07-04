@@ -4,7 +4,9 @@ description: phetcommon's small collection of string-handling helpers for transl
 category: api
 library: phetcommon
 tags: [phetcommon, StringUtils, i18n, strings]
-status: complete
+status: verified
+prerequisites:
+  - /guides/internationalization-deep-dive
 related:
   - /api/axon/pattern-string-property
   - /patterns/query-parameters-pattern

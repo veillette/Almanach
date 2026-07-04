@@ -4,7 +4,7 @@ description: The trait that shows a highlight on pointer hover for interactive N
 category: api
 library: scenery
 tags: [scenery, InteractiveHighlighting, highlight, accessibility, pointer]
-status: complete
+status: verified
 related:
   - /accessibility/focus-highlights
   - /api/scenery/voicing

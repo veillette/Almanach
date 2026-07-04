@@ -4,7 +4,9 @@ description: The model for a container UI element that other model objects can b
 category: api
 library: phetcommon
 tags: [phetcommon, Bucket, SphereBucket, model]
-status: complete
+status: verified
+prerequisites:
+  - /api/tandem/phetio-object
 related:
   - /api/phetcommon/model-view-transform
   - /api/phetcommon/phetcommon-query-parameters

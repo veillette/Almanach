@@ -4,11 +4,13 @@ description: A rectangular button with a leftward arrow icon, used for navigatin
 category: api
 library: scenery-phet
 tags: [scenery-phet, BackButton, button]
-status: complete
+status: verified
 related:
   - /api/sun/rectangular-push-button
   - /api/scenery-phet/eraser-button
   - /api/scenery-phet/close-button
+prerequisites:
+  - /api/sun/rectangular-push-button
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

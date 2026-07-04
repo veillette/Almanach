@@ -3,9 +3,15 @@ title: Color Profiles
 description: Centralizing colors with ProfileColorProperty so an application can switch between default and projector color schemes at runtime.
 category: styling
 tags: [scenery, ProfileColorProperty, colorProfileProperty, projector-mode, colors]
-status: complete
+status: verified
 related:
   - /patterns/model-view-separation
+  - /styling/high-contrast-projector-mode
+  - /api/scenery/color
+prerequisites:
+  - /api/scenery/node
+sourceRefs:
+  - https://www.npmjs.com/package/scenerystack
 ---
 
 # Color Profiles

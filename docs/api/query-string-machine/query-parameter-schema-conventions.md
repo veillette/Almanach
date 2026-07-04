@@ -4,7 +4,9 @@ description: The shape of an individual QueryStringMachine schema entry - requir
 category: api
 library: query-string-machine
 tags: [query-string-machine, QSMSchemaObject, schema, validValues, elementSchema, query-parameters]
-status: complete
+status: verified
+prerequisites:
+  - /patterns/query-parameters-pattern
 related:
   - /api/query-string-machine/query-string-machine-getall
   - /patterns/query-parameters-pattern
@@ -31,7 +33,7 @@ import type { QSMSchemaObject } from 'scenerystack/query-string-machine';
 | `'array'` | `T[]` | `elementSchema: Schema` (required), `separator?: string` (single character, default `','`), `defaultValue?: readonly T[] \| null` |
 | `'custom'` | Whatever `parse` returns | `parse: ( str: string ) => T` (required) |
 
-All types additionally accept `validValues`, `isValidValue`, `public`, and `private` (below).
+All types additionally accept `public` and `private` (below). `validValues`/`isValidValue` are supported only on `'number'`, `'string'`, `'array'`, and `'custom'` schemas — `'flag'` and `'boolean'` schemas do not accept either (their only two possible values, `true`/`false`, make an extra validity check redundant).
 
 ## Shared optional fields
 

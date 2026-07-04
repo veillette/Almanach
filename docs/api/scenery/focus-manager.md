@@ -4,7 +4,7 @@ description: The static class that tracks DOM focus, pointer focus, and reading-
 category: api
 library: scenery
 tags: [scenery, FocusManager, focus, accessibility, pdomFocus]
-status: complete
+status: verified
 related:
   - /api/scenery/parallel-dom-deep-dive
   - /api/scenery/interactive-highlighting

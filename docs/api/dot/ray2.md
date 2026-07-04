@@ -4,7 +4,7 @@ description: A 2D ray (origin position plus a unit direction vector), used for h
 category: api
 library: dot
 tags: [dot, Ray2, math, hit-testing]
-status: complete
+status: verified
 related:
   - /api/dot/vector2
   - /api/dot/transform3

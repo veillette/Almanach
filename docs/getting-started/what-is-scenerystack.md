@@ -3,10 +3,12 @@ title: What is SceneryStack?
 description: Overview of the SceneryStack framework, its constituent libraries, and how to install and import it.
 category: getting-started
 tags: [overview, installation, scenery, axon, dot, sun, joist]
-status: complete
+status: verified
 related:
   - /patterns/model-view-separation
   - /api/phetcommon/model-view-transform
+sourceRefs:
+  - https://www.npmjs.com/package/scenerystack
 ---
 
 # What is SceneryStack?
@@ -26,7 +28,7 @@ It is published as a single npm package, [`scenerystack`](https://www.npmjs.com/
 | **sun** | `scenerystack/sun` | UI components: buttons, sliders, checkboxes, combo boxes |
 | **scenery-phet** | `scenerystack/scenery-phet` | Simulation-specific reusable components: arrows, thermometers, `PhetFont` |
 | **twixt** | `scenerystack/twixt` | Animation and easing |
-| **joist** | `scenerystack/joist` | Application shell: `Sim`, `Screen`, `ScreenView`, navigation bar |
+| **joist** | `scenerystack/sim` (app shell classes) / `scenerystack/joist` (preferences panels, locale utilities) | Application shell: `Sim`, `Screen`, `ScreenView`, navigation bar — see [Troubleshooting](/getting-started/troubleshooting-common-setup-errors) for why the import subpath differs from the library name |
 | **tandem** | `scenerystack/tandem` | PhET-iO instrumentation and serialization |
 | **phetcommon** | `scenerystack/phetcommon` | Shared utilities, notably `ModelViewTransform2` |
 

@@ -4,10 +4,12 @@ description: PreferencesModel declares which Preferences tabs a Sim supports; Pr
 category: api
 library: joist
 tags: [joist, PreferencesModel, PreferencesDialog, Sim, preferences]
-status: complete
+status: verified
 related:
   - /api/joist/sim
   - /guides/preferences-and-feature-flags
+prerequisites:
+  - /api/joist/sim
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

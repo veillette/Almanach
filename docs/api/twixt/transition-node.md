@@ -4,11 +4,12 @@ description: A Node that swaps between two child Nodes using an animated slide, 
 category: api
 library: twixt
 tags: [twixt, TransitionNode, Transition, Animation, Node]
-status: complete
+status: verified
 prerequisites:
   - /api/twixt/animation
 related:
   - /api/twixt/animation
+  - /api/scenery/node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

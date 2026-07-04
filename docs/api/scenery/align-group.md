@@ -4,7 +4,7 @@ description: Coordinates multiple independent AlignBoxes so they all share one c
 category: api
 library: scenery
 tags: [scenery, AlignGroup, AlignBox, layout]
-status: complete
+status: verified
 related:
   - /api/scenery/align-box
   - /api/scenery/node

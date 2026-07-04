@@ -4,12 +4,14 @@ description: The 2D vector/point class used throughout SceneryStack's math and p
 category: api
 library: dot
 tags: [dot, Vector2, math]
-status: complete
+status: verified
 related:
   - /api/dot/vector3
   - /api/dot/bounds2
   - /api/dot/matrix3
   - /api/phetcommon/model-view-transform
+prerequisites:
+  - /getting-started/what-is-scenerystack
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

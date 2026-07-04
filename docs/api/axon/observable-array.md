@@ -4,7 +4,7 @@ description: "createObservableArray: a Property-like array with add/remove item 
 category: api
 library: axon
 tags: [axon, observable-array, collections]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/property
   - /api/axon/emitter

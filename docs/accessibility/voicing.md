@@ -3,7 +3,7 @@ title: Voicing
 description: Speech-synthesis descriptions triggered by interaction, layered on the PDOM.
 category: accessibility
 tags: [scenery, voicing, speech]
-status: complete
+status: verified
 related:
   - /accessibility/pdom
   - /accessibility/describing-dynamic-state
@@ -85,7 +85,7 @@ Each speak call still respects the user's response-category preferences (via `re
 
 ## Voicing vs. the PDOM
 
-Voicing content and PDOM content (`accessibleName`, `descriptionContent`, `helpText`; see [The Parallel DOM](/accessibility/pdom)) are deliberately separate systems that often carry *similar but not identical* wording — the PDOM is read by conventional screen readers with their own navigation model, while Voicing content is spoken directly by the sim in response to specific gestures/focus. Most components set both, and it's fine (often correct) for the phrasing to differ slightly given the different context each is heard in.
+Voicing content and PDOM content (`accessibleName`, `descriptionContent`, `accessibleHelpText`; see [The Parallel DOM](/accessibility/pdom)) are deliberately separate systems that often carry *similar but not identical* wording — the PDOM is read by conventional screen readers with their own navigation model, while Voicing content is spoken directly by the sim in response to specific gestures/focus. Most components set both, and it's fine (often correct) for the phrasing to differ slightly given the different context each is heard in.
 
 ::: tip Voicing requires an explicit user opt-in
 Voicing speech only plays once the user has enabled it via preferences (it is not the same as a screen reader, and is off by default) — during development, remember that a `Voicing`-enabled Node's responses are silent until Voicing is turned on, even though the response strings are already assigned.

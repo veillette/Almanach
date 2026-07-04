@@ -4,11 +4,13 @@ description: A ruler graphic with major/minor tick marks and a units label, for 
 category: api
 library: scenery-phet
 tags: [scenery-phet, RulerNode, ruler, measurement, ticks]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/phet-font
   - /styling/typography-and-fonts
   - /patterns/dispose-and-memory-management
+prerequisites:
+  - /api/scenery/node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

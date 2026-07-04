@@ -4,7 +4,7 @@ description: A low-level layout constraint for one-off imperative positioning lo
 category: api
 library: scenery
 tags: [scenery, ManualConstraint, layout, constraint]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/flow-box

@@ -4,7 +4,7 @@ description: A complex number type with immutable and mutable arithmetic, includ
 category: api
 library: dot
 tags: [dot, Complex, math]
-status: complete
+status: verified
 related:
   - /api/dot/dot-utils
 sourceRefs:

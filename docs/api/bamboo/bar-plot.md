@@ -4,9 +4,10 @@ description: Draws one rectangular bar per data point on a bamboo chart, growing
 category: api
 library: bamboo
 tags: [bamboo, BarPlot, chart, plot]
-status: complete
-related:
+status: verified
+prerequisites:
   - /api/bamboo/chart-transform
+related:
   - /api/bamboo/line-plot
   - /api/bamboo/scatter-plot
   - /api/bamboo/axis-nodes

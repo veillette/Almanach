@@ -4,7 +4,7 @@ description: A reusable object that maps values between two linear numeric domai
 category: api
 library: dot
 tags: [dot, LinearFunction, math]
-status: complete
+status: verified
 related:
   - /api/dot/dot-utils
   - /api/dot/range

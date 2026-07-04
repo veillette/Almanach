@@ -4,7 +4,7 @@ description: The popup list-box Panel that ComboBox creates internally to displa
 category: api
 library: sun
 tags: [sun, ComboBoxListBox, ComboBox, listbox]
-status: complete
+status: verified
 related:
   - /api/sun/combo-box
   - /api/sun/panel

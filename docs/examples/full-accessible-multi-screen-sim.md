@@ -3,7 +3,7 @@ title: A Full Accessible Multi-Screen Sim
 description: Threading PDOM, keyboard, and Voicing support through every screen of a multi-screen sim from the first line of code, instead of retrofitting it later.
 category: examples
 tags: [example, accessibility, joist, pdom, voicing, multi-screen]
-status: complete
+status: verified
 related:
   - /examples/building-a-two-screen-simulation
   - /examples/accessible-control-panel-example
@@ -94,7 +94,7 @@ export default class BallNode extends Voicing( Circle ) {
       tagName: 'div',
       focusable: true,
       accessibleName: 'Ball',
-      helpText: 'Move with arrow keys, or drag with a mouse or touch.',
+      accessibleHelpText: 'Move with arrow keys, or drag with a mouse or touch.',
 
       // Voicing: spoken automatically on focus, once the user enables Voicing
       voicingNameResponse: 'Ball',
@@ -145,7 +145,7 @@ Passed as `providedOptions.screenSummaryContent` up to `super()`, this content i
 
 ## Screen 2: "Forces" — an accessible control panel
 
-[Accessible Control Panel Example](/examples/accessible-control-panel-example) already builds a fully-labeled panel (slider, checkbox, radio group, reset button) with `accessibleName`/`helpText` on every control — reuse that pattern verbatim for this screen's panel rather than duplicating it here. The only two things specific to *this* screen's accessibility layer are:
+[Accessible Control Panel Example](/examples/accessible-control-panel-example) already builds a fully-labeled panel (slider, checkbox, radio group, reset button) with `accessibleName`/`accessibleHelpText` on every control — reuse that pattern verbatim for this screen's panel rather than duplicating it here. The only two things specific to *this* screen's accessibility layer are:
 
 1. Ordering the panel under `pdomControlAreaNode`, alongside whatever's in the play area:
 
@@ -198,6 +198,6 @@ The checklist from [Accessible Interaction Tutorial](/guides/accessible-interact
 - [Building a Two-Screen Simulation](/examples/building-a-two-screen-simulation) — the model/view structure this page's accessibility layer runs through
 - [Accessible Control Panel Example](/examples/accessible-control-panel-example) — the full panel-labeling pattern reused by the "Forces" screen
 - [Migrating a Legacy Sim to RichDragListener](/examples/migrating-to-rich-drag-listener) — what it costs to retrofit a pointer-only screen instead of building it accessible from the start
-- [The Parallel DOM (PDOM)](/accessibility/pdom) — the option reference behind `accessibleName`/`helpText`/`descriptionContent`
+- [The Parallel DOM (PDOM)](/accessibility/pdom) — the option reference behind `accessibleName`/`accessibleHelpText`/`descriptionContent`
 - [Voicing](/accessibility/voicing) — the four response categories used on `BallNode` above
 - [Describing Dynamic State](/accessibility/describing-dynamic-state) — the derived-Property pattern behind `positionDescriptionProperty` and `addAccessibleResponse`

@@ -4,7 +4,7 @@ description: A min/max pair used for NumberProperty validation and slider ranges
 category: api
 library: dot
 tags: [dot, Range]
-status: complete
+status: verified
 related:
   - /api/axon/number-property
   - /api/dot/bounds2

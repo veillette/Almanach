@@ -4,12 +4,13 @@ description: The singleton that registers tambo sound generators, routes them to
 category: api
 library: tambo
 tags: [tambo, soundManager, sound, singleton, WebAudio]
-status: complete
+status: verified
+prerequisites:
+  - /api/tambo/sound-generation-guide
 related:
   - /api/tambo/sound-clip
   - /api/tambo/sound-clip-player
   - /api/tambo/pitched-pop-generator
-  - /api/tambo/sound-generation-guide
   - /accessibility/sound-design
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

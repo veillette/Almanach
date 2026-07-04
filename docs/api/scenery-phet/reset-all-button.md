@@ -4,10 +4,13 @@ description: The standard circular reset control wired to a model's reset() meth
 category: api
 library: scenery-phet
 tags: [scenery-phet, ResetAllButton]
-status: complete
+status: verified
 related:
   - /api/joist/screen-view
   - /api/tandem/tandem
+  - /patterns/reset-all-pattern
+prerequisites:
+  - /api/joist/screen-view
   - /patterns/reset-all-pattern
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

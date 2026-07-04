@@ -4,11 +4,12 @@ description: A tambo sound generator that plays a decoded audio buffer as a one-
 category: api
 library: tambo
 tags: [tambo, SoundClip, sound, WebAudio]
-status: complete
+status: verified
+prerequisites:
+  - /api/tambo/sound-generation-guide
 related:
   - /api/tambo/sound-manager
   - /api/tambo/sound-clip-player
-  - /api/tambo/sound-generation-guide
   - /accessibility/sound-design
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

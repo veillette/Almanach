@@ -4,7 +4,7 @@ description: A paint type for straight-line color gradients, usable anywhere a N
 category: api
 library: scenery
 tags: [scenery, LinearGradient, gradient, paint, fill, stroke]
-status: complete
+status: verified
 related:
   - /api/scenery/color
   - /api/scenery/radial-gradient

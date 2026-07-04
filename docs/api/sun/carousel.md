@@ -4,7 +4,7 @@ description: A paged, scrollable strip of items with next/previous buttons, anim
 category: api
 library: sun
 tags: [sun, Carousel, layout]
-status: complete
+status: verified
 related:
   - /api/sun/panel
   - /api/sun/combo-box

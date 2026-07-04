@@ -4,7 +4,7 @@ description: A checkbox bound to a BooleanProperty, with label-Node composition.
 category: api
 library: sun
 tags: [sun, Checkbox, BooleanProperty]
-status: complete
+status: verified
 related:
   - /api/sun/hslider
   - /api/sun/radio-button-group

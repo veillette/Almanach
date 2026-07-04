@@ -4,7 +4,9 @@ description: The model layer for a single atom - immutable per-element physical 
 category: api
 library: nitroglycerin
 tags: [nitroglycerin, Atom, Element, AtomNode, chemistry]
-status: complete
+status: verified
+prerequisites:
+  - /getting-started/what-is-scenerystack
 related:
   - /api/nitroglycerin/molecule-node
   - /patterns/model-view-separation

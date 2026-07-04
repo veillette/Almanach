@@ -4,7 +4,7 @@ description: A single-child container for alignment and fixed-size placement wit
 category: api
 library: scenery
 tags: [scenery, AlignBox, layout]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/flow-box

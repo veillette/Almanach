@@ -3,7 +3,7 @@ title: PhET-iO Instrumented Sim Example
 description: A minimal simulation instrumented end-to-end with Tandem.
 category: examples
 tags: [example, tandem, phet-io]
-status: complete
+status: verified
 related:
   - /getting-started/your-first-simulation
   - /examples/demo-simulation-walkthrough

@@ -4,12 +4,14 @@ description: A Property restricted to the values of an EnumerationValue subclass
 category: api
 library: axon
 tags: [axon, EnumerationProperty]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/property
 related:
   - /api/axon/string-property
   - /api/axon/derived-property
+  - /patterns/enumeration-pattern
+  - /api/phet-core/enumeration-value
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

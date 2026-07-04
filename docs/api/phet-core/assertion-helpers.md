@@ -4,7 +4,9 @@ description: Two development-time assertion helpers for validating shape - that 
 category: api
 library: phet-core
 tags: [phet-core, assertHasProperties, assertMutuallyExclusiveOptions, assertions, options]
-status: complete
+status: verified
+prerequisites:
+  - /patterns/options-pattern
 related:
   - /patterns/options-pattern
   - /api/phet-core/optionize-and-merge

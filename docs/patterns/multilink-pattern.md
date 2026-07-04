@@ -3,7 +3,7 @@ title: The Multilink Pattern
 description: Combining multiple Properties into one derived reaction.
 category: patterns
 tags: [axon, Multilink, DerivedProperty]
-status: complete
+status: verified
 related:
   - /api/axon/multilink
   - /api/axon/derived-property
@@ -38,7 +38,7 @@ const multilink = Multilink.multilink(
 Multilink.unmultilink( multilink );
 ```
 
-`new Multilink( dependencies, callback, lazy? )` is the equivalent instance form — reach for it only when you need a handle without going through the static helper (for example, to pass `lazy: true` and skip the initial call). Prefer `Multilink.multilink` for the common case; ESLint flags `new Multilink(...)` used only for its side effect and an unused variable otherwise.
+`new Multilink( dependencies, callback, lazy? )` is the equivalent instance form — reach for it only when you need a handle without going through the static helper (for example, to pass `lazy: true` and skip the initial call). Prefer `Multilink.multilink` for the common case, since constructing a `Multilink` you never reference is just an unused variable with no compensating benefit.
 
 ## Multilink vs. DerivedProperty
 

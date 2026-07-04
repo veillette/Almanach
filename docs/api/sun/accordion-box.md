@@ -4,10 +4,11 @@ description: An expandable/collapsible titled container bound to an expandedProp
 category: api
 library: sun
 tags: [sun, AccordionBox]
-status: complete
+status: verified
 related:
   - /api/sun/panel
   - /api/axon/boolean-property
+  - /api/sun/expand-collapse-button
 prerequisites:
   - /api/sun/panel
 sourceRefs:

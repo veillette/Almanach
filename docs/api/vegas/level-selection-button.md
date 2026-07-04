@@ -4,9 +4,10 @@ description: A push button for a game's level-selection screen, combining an ico
 category: api
 library: vegas
 tags: [vegas, LevelSelectionButton, game, button, RectangularPushButton]
-status: complete
-related:
+status: verified
+prerequisites:
   - /api/vegas/score-display-number-and-star
+related:
   - /api/vegas/game-audio-player
   - /api/tambo/sound-clip
 sourceRefs:
@@ -54,7 +55,9 @@ new LevelSelectionButton( icon: Node, scoreProperty: ReadOnlyProperty<number>, p
 | `scoreDisplayMinXMargin` / `scoreDisplayMinYMargin` | `10` / `5` | Minimum margin between the score display and its background panel |
 | `iconToScoreDisplayYSpace` | `10` | Vertical gap between the icon and the score-display panel |
 | `soundPlayerIndex` | `0` | Selects a pitch-shifted variant of the default level-selection sound (semitone steps via `soundConstants.TWELFTH_ROOT_OF_TWO`); ignored if `soundPlayer` is provided directly |
-| `cornerRadius`, `baseColor`, `xMargin`, `yMargin`, ... | (`RectangularPushButtonOptions` defaults) | Standard `RectangularPushButton` styling options |
+| `cornerRadius` | `10` | `RectangularPushButtonOptions` styling, overridden here (not the plain `RectangularPushButton` default) |
+| `baseColor` | `'rgb( 242, 255, 204 )'` | Pale yellow-green, `LevelSelectionButton`'s own default rather than `RectangularPushButton`'s |
+| `xMargin` / `yMargin` | `10` / `10` | Also overridden by `LevelSelectionButton`, not inherited unchanged from `RectangularPushButtonOptions` |
 
 ## Static methods
 

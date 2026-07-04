@@ -3,7 +3,7 @@ title: Scenery Input
 description: Overview of scenery's input system - pointers, listeners, and event phases.
 category: guides
 tags: [scenery, input, pointers, listeners]
-status: complete
+status: verified
 related:
   - /guides/scenery-basics
   - /patterns/drag-listeners

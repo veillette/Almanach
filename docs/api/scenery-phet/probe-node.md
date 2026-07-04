@@ -4,10 +4,12 @@ description: A physical-looking sensor probe graphic — a circular sensing head
 category: api
 library: scenery-phet
 tags: [scenery-phet, ProbeNode, sensor, probe]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/wire-node
   - /styling/color-profiles
+prerequisites:
+  - /api/scenery/node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
@@ -50,7 +52,7 @@ There are no required positional arguments — everything, including size, is an
 | `handleWidth` | `50` | Width of the handle at the bottom |
 | `handleHeight` | `30` | Height of the handle |
 | `handleCornerRadius` | `10` | Corner radius of the handle |
-| `lightAngle` | `1.35 * Math.PI` | Angle (radians) the simulated light comes from, used to place the gradient highlight; `0` is from the right, increasing counterclockwise |
+| `lightAngle` | `1.35 * Math.PI` | Angle (radians) the simulated light comes from, used to place the gradient highlight; `0` is from the right, `PI/2` from the bottom — since scenery's y-axis points down, increasing angle rotates clockwise on screen (right → bottom → left → top) |
 | `color` | `'#008541'` (dark green) | Base color of the probe body; all gradient shades are derived from it |
 | `sensorTypeFunction` | `ProbeNode.glass()` | A `(radius) => Node` factory that produces what's drawn inside the sensor cut-out; pass `null` to leave it empty |
 

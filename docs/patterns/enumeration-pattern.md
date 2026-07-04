@@ -3,10 +3,13 @@ title: The Enumeration Pattern
 description: Modeling closed sets of values instead of string literals.
 category: patterns
 tags: [axon, EnumerationProperty, enumeration]
-status: complete
+status: verified
 related:
   - /api/axon/enumeration-property
   - /patterns/options-pattern
+  - /patterns/model-view-separation
+  - /api/phet-core/enumeration-value
+prerequisites:
   - /patterns/model-view-separation
 ---
 

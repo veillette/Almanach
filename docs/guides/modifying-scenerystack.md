@@ -3,7 +3,7 @@ title: Modifying SceneryStack
 description: Workflow for patching or contributing to the underlying common-code libraries.
 category: guides
 tags: [contributing, open-source, workflow]
-status: complete
+status: verified
 related:
   - /getting-started/installation-and-setup
   - /getting-started/what-is-scenerystack

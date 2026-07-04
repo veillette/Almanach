@@ -4,7 +4,7 @@ description: The root object that turns a Node tree into rendered/attached DOM o
 category: api
 library: scenery
 tags: [scenery, Display, rendering, input]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /guides/scenery-input

@@ -4,13 +4,16 @@ description: The base class giving any object PhET-iO instrumentation - a tandem
 category: api
 library: tandem
 tags: [tandem, phet-io, PhetioObject]
-status: complete
+status: verified
 related:
   - /api/tandem/tandem
   - /api/tandem/io-type
   - /api/tandem/disposable
   - /guides/phet-io-and-instrumentation
   - /patterns/phet-io-instrumentation-pattern
+prerequisites:
+  - /api/tandem/tandem
+  - /guides/phet-io-and-instrumentation
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

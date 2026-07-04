@@ -4,10 +4,13 @@ description: The base class instances of a PhET-style closed enumeration extend,
 category: api
 library: phet-core
 tags: [phet-core, EnumerationValue, Enumeration, enumeration]
-status: complete
+status: verified
+prerequisites:
+  - /patterns/enumeration-pattern
 related:
   - /patterns/enumeration-pattern
   - /api/phet-core/optionize-and-merge
+  - /api/axon/enumeration-property
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

@@ -4,10 +4,13 @@ description: The standard font class used across every SceneryStack simulation.
 category: api
 library: scenery-phet
 tags: [scenery-phet, PhetFont, typography]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/number-control
   - /api/scenery-phet/stopwatch-node
+  - /api/scenery-phet/math-symbol-font
+prerequisites:
+  - /api/scenery/node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

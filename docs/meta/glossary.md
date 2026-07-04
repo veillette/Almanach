@@ -4,15 +4,22 @@ description: Alphabetical definitions of SceneryStack and PhET-specific terms us
 category: meta
 tags: [glossary, reference, terminology, conventions]
 status: complete
+prerequisites:
+  - /getting-started/what-is-scenerystack
 related:
   - /meta/faq
   - /meta/authoring-guide
+  - /meta/page-template
   - /getting-started/what-is-scenerystack
 ---
 
 # Glossary
 
 Definitions for terms this wiki uses repeatedly without re-explaining every time. Each entry links to the page where the concept is covered in full — this page is for "what does that word mean," not a replacement for reading the linked page.
+
+## accessibleHelpText
+
+Supplementary guidance announced alongside an element's `accessibleName`, for detail the visible label doesn't already convey. Supplements the accessible name; it never replaces it. See [Accessible Control Panel Example](/examples/accessible-control-panel-example).
 
 ## accessibleName
 
@@ -45,10 +52,6 @@ An axon primitive for a momentary event with no persisted value — "did X just 
 ## EnumerationValue / Enumeration
 
 The pattern for modeling a closed set of values (a mode, a phase) as real object instances with identity, instead of a string-literal union — gives runtime-validated `EnumerationProperty` writes and automatic PhET-iO serialization. See [The Enumeration Pattern](/patterns/enumeration-pattern).
-
-## helpText
-
-Supplementary guidance announced alongside an element's `accessibleName`, for detail the visible label doesn't already convey. Supplements the accessible name; it never replaces it. See [Accessible Control Panel Example](/examples/accessible-control-panel-example).
 
 ## Hotkey
 

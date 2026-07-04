@@ -4,7 +4,7 @@ description: Scenery's immutable font-description object used by Text and RichTe
 category: api
 library: scenery
 tags: [scenery, Font, typography, text]
-status: complete
+status: verified
 related:
   - /api/scenery/text
   - /styling/typography-and-fonts

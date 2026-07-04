@@ -4,10 +4,13 @@ description: Answers to the questions a newcomer to this wiki or to SceneryStack
 category: meta
 tags: [faq, conventions, contributing]
 status: complete
+prerequisites:
+  - /getting-started/what-is-scenerystack
 related:
   - /meta/glossary
   - /meta/roadmap
   - /meta/authoring-guide
+  - /meta/page-template
   - /getting-started/what-is-scenerystack
 ---
 

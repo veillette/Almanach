@@ -4,7 +4,7 @@ description: An indexed path of Nodes from a root to a descendant, used for hit-
 category: api
 library: scenery
 tags: [scenery, Trail, scene-graph, hit-testing, coordinates]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/display

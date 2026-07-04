@@ -4,7 +4,9 @@ description: A wrapper around alert content that tracks stability, priority, and
 category: api
 library: utterance-queue
 tags: [utterance-queue, Utterance, voicing, description, accessibility]
-status: complete
+status: verified
+prerequisites:
+  - /accessibility/voicing
 related:
   - /api/utterance-queue/utterance-queue
   - /api/utterance-queue/response-packet-and-patterns
@@ -65,7 +67,8 @@ new Utterance( providedOptions?: UtteranceOptions )
 
 | Member | Description |
 | --- | --- |
-| `getAlertText( respectResponseCollectorProperties? )` / `.alert` (getter) | Resolves the current alert to text (running functions/reading Properties as needed) |
+| `getAlertText( respectResponseCollectorProperties? )` | Resolves the current alert to text (running functions/reading Properties/collecting the `ResponsePacket` as needed) |
+| `.alert` (getter) / `getAlert()` | Returns the raw wrapped content **unresolved** — whatever was set (a string, `TReadOnlyProperty`, function, or `ResponsePacket`), not text. Use `getAlertText()` to resolve to a string |
 | `.alert` (setter) / `setAlert( alert )` | Replaces the wrapped content |
 | `priorityProperty` | `TProperty<number>` — mutate live to reprioritize an Utterance already sitting in a queue |
 | `setAlertStableDelay( delay )` | Changes `alertStableDelay` after construction |

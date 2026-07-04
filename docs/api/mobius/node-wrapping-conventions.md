@@ -4,12 +4,16 @@ description: The scenery Node that hosts a fixed-size three.js viewport, and the
 category: api
 library: mobius
 tags: [mobius, ThreeNode, ThreeInstrumentable, ThreeObject3DPhetioObject, three.js, phet-io]
-status: complete
+status: verified
+prerequisites:
+  - /api/mobius/scene-and-camera-setup
+  - /examples/three-js-integration
 related:
   - /api/mobius/scene-and-camera-setup
   - /api/mobius/three-utils-helpers
   - /patterns/phet-io-instrumentation-pattern
   - /examples/three-js-integration
+  - /api/tandem/phetio-object
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
@@ -84,12 +88,12 @@ A `PhetioObject` subclass with no extra state of its own: `phetioType` defaults 
 
 ### `ThreeInstrumentable( type )`
 
-A memoized mixin function: `ThreeInstrumentable( SomeThreeClass )` returns a subclass of `SomeThreeClass` whose constructor takes the usual three.js constructor arguments plus a trailing `PhetioObjectOptions` object, and which exposes a `phetioObject: ThreeObject3DPhetioObject` (constructed from those options). Its overridden `dispose()` disposes `phetioObject` in addition to whatever `SomeThreeClass.dispose` does.
+A memoized mixin function: `ThreeInstrumentable( SomeThreeClass )` returns a subclass of `SomeThreeClass` whose constructor takes the usual three.js constructor arguments plus a trailing `PhetioObjectOptions` object, and which exposes a `phetioObject: ThreeObject3DPhetioObject` (constructed from those options). Its overridden `dispose()` calls the wrapped type's own `dispose()` first, then disposes `phetioObject`.
 
 | Member | Description |
 | --- | --- |
 | `phetioObject` | The `ThreeObject3DPhetioObject` instrumented for this instance |
-| `dispose()` | Disposes `phetioObject`, then calls the wrapped type's own `dispose()` if present |
+| `dispose()` | Calls the wrapped type's own `dispose()` first (if present), then disposes `phetioObject` |
 
 ::: warning Instrumenting a three.js object does not capture its state
 `ThreeObject3DIO`'s `toStateObject`/`stateSchema` are both empty (`{}`) — wrapping a `THREE.Object3D` with `ThreeInstrumentable` only gives it an address in the PhET-iO tree for Studio to select and reference. It does **not** serialize or restore position, rotation, material, or any other three.js state on PhET-iO save/load. If your sim needs 3D object state to survive a state restore, you must model that state separately (e.g. as `Property`s on your own model) and use it to drive the three.js object, rather than relying on this instrumentation.

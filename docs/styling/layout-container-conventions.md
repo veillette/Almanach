@@ -3,7 +3,7 @@ title: Layout Container Conventions
 description: Styling conventions when composing FlowBox/GridBox/AlignBox layouts.
 category: styling
 tags: [scenery, layout, styling]
-status: complete
+status: verified
 related:
   - /styling/panels-and-backgrounds
   - /styling/typography-and-fonts

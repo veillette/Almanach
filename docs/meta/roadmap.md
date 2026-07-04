@@ -64,7 +64,13 @@ Two kinds of work, both in `roadmap.manifest.json`'s `phase2.targets` array:
 
 ### Phase 3 — Maintenance (ongoing, no fixed page count)
 
-Once Phases 1-2 are substantially built: a cross-link densification pass (add `related`/`prerequisites` now that more targets exist), upgrading `complete` → `verified` pages via an independent source-check pass, and pruning or merging pages that turn out to overlap.
+Once Phases 1-2 are substantially built: a cross-link densification pass (add `related`/`prerequisites` now that more targets exist), upgrading `complete` → `verified` pages via an independent source-check pass, and pruning or merging pages that turn out to overlap. `npm run roadmap:status` reports live counts for all three (status breakdown across every page, plus how many pages still lack `prerequisites`/`related`/`sourceRefs`) — there's no separate manifest for Phase 3 since the targets are "drive the gaps to zero," not a fixed list.
+
+A first full pass (against the real `scenerystack@3.0.0` package source) took every `api/` page and most narrative pages from `complete` to `verified`, fixing real inaccuracies along the way (wrong defaults, invented/renamed options, misattributed behavior — see the git history for specifics) and filling in most missing `prerequisites`/`related` links. Left for a future pass:
+
+- **Known overlap candidates** (flagged during verification, not merged — each pair reads as intentionally layered rather than duplicated, but worth a second look): `api/sun/list-box.md` vs. `api/sun/combo-box.md` (the former is thin and almost entirely "see ComboBox instead"); `guides/phet-io-and-instrumentation.md` vs. `guides/phet-io-deep-dive.md` vs. `patterns/phet-io-instrumentation-pattern.md`; `patterns/state-persistence-and-save-restore-patterns.md` vs. `patterns/phet-io-instrumentation-pattern.md`/`patterns/reset-all-pattern.md`; `api/scenery/parallel-dom-deep-dive.md` vs. `accessibility/pdom.md`.
+- **Stale filenames** (title/content already correct and self-documented in-page, but the filename predates a scope correction from Phase 2): `api/phetcommon/phetcommon-query-parameters.md` actually documents `StringUtils`; `api/scenery-phet/heat-cool-control.md` actually documents `HeaterCoolerNode`. Renaming either requires auditing every cross-link and the Phase 1/2 manifest entries that reference the old path.
+- The 5 `meta/*` pages (`authoring-guide`, `faq`, `glossary`, `page-template`, this file) stay at `complete` rather than `verified` — that status is about checking claims against SceneryStack source, which doesn't apply to pages that are about the wiki itself.
 
 ## Totals
 

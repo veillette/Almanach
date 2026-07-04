@@ -4,11 +4,13 @@ description: An invisible, childless Node that reserves a fixed rectangular area
 category: api
 library: scenery
 tags: [scenery, Spacer, layout, bounds]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/flow-box
   - /api/scenery/grid-box
+  - /api/scenery/v-box
+  - /api/scenery/h-box
   - /guides/scenery-layout
 prerequisites:
   - /api/scenery/node
@@ -38,6 +40,10 @@ const row = new HBox( {
 `new Spacer( width, height, options? )` — `width` and `height` must both be finite numbers; they set `localBounds` to `Bounds2( 0, 0, width, height )` before any `options` (standard [`Node`](/api/scenery/node) options like `x`/`y`/`layoutOptions`) are applied via `mutate()`.
 
 `SpacerOptions` is just `NodeOptions` — `Spacer` adds no options of its own beyond the `width`/`height` constructor arguments.
+
+## `HStrut` and `VStrut`
+
+`HStrut` and `VStrut` (also from `scenerystack/scenery`) are thin `Spacer` subclasses for the common one-dimensional case: `new HStrut( width, options? )` is exactly `new Spacer( width, 0, options )`, and `new VStrut( height, options? )` is exactly `new Spacer( 0, height, options )`. Reach for these when you only need to reserve space along one axis — e.g. a horizontal gap inside a [`VBox`](/api/scenery/v-box) — since the intent reads more clearly than a `Spacer` with an explicit `0`.
 
 ::: warning A Spacer can never have children
 `Spacer` is built with scenery's `Leaf` mixin, which throws if you try to `addChild()` to it — it is always and only a leaf in the scene graph. If you need an invisible *container* (something that can hold other Nodes but isn't itself drawn), use a plain [`Node`](/api/scenery/node) with no visible content instead of `Spacer`.

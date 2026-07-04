@@ -3,7 +3,7 @@ title: Panels and Backgrounds
 description: Conventions for grouping controls with Panel/AccordionBox.
 category: styling
 tags: [sun, Panel, styling]
-status: complete
+status: verified
 related:
   - /api/sun/panel
   - /api/sun/accordion-box

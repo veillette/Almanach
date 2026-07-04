@@ -4,7 +4,7 @@ description: A Property that re-points itself to follow whichever inner Property
 category: api
 library: axon
 tags: [axon, DynamicProperty, Property, MappedProperty]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/property
 related:

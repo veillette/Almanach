@@ -4,7 +4,7 @@ description: The dependency-free, no-PhET-iO Emitter core that axon uses interna
 category: api
 library: axon
 tags: [axon, TinyEmitter, Emitter, events, performance]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/emitter
 related:

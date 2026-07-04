@@ -3,7 +3,7 @@ title: The Reset-All Pattern
 description: Wiring every model Property's reset() through one ResetAllButton.
 category: patterns
 tags: [reset, ResetAllButton, Property]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/reset-all-button
   - /api/axon/property

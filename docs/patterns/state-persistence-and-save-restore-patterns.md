@@ -3,7 +3,7 @@ title: State Persistence and Save/Restore Patterns
 description: Structuring model state as enumerable Properties so it can be saved and restored, whether by PhET-iO or by a simulation's own save/load feature.
 category: patterns
 tags: [tandem, phet-io, Property, state, persistence]
-status: complete
+status: verified
 related:
   - /patterns/phet-io-instrumentation-pattern
   - /patterns/model-view-separation

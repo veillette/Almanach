@@ -4,11 +4,12 @@ description: Reacting to several Properties at once without manually chaining li
 category: api
 library: axon
 tags: [axon, Multilink]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/property
 related:
   - /api/axon/derived-property
+  - /patterns/multilink-pattern
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

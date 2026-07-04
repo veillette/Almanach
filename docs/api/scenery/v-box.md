@@ -4,7 +4,7 @@ description: A FlowBox convenience subclass fixed to vertical orientation, for s
 category: api
 library: scenery
 tags: [scenery, VBox, HBox, FlowBox, layout]
-status: complete
+status: verified
 related:
   - /api/scenery/flow-box
   - /api/scenery/h-box

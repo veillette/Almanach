@@ -4,7 +4,7 @@ description: The base class of every item in the scene graph and its core option
 category: api
 library: scenery
 tags: [scenery, Node, scene-graph, transform, bounds]
-status: complete
+status: verified
 related:
   - /api/scenery/path
   - /api/scenery/display

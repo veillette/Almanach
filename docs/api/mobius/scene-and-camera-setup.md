@@ -4,7 +4,10 @@ description: The three.js scene, camera, and WebGLRenderer that every mobius 3D 
 category: api
 library: mobius
 tags: [mobius, ThreeStage, three.js, webgl, 3d]
-status: complete
+status: verified
+prerequisites:
+  - /getting-started/what-is-scenerystack
+  - /getting-started/scenery-application-vs-standalone-library
 related:
   - /api/mobius/three-utils-helpers
   - /api/mobius/node-wrapping-conventions
@@ -58,7 +61,7 @@ new ThreeStage( providedOptions?: ThreeStageOptions )
 | --- | --- | --- |
 | `backgroundColorProperty` | `new Property( Color.BLACK )` | `TReadOnlyProperty<Color>` — sets `threeRenderer`'s clear color/alpha whenever it changes |
 | `cameraPosition` | `new Vector3( 0, 0, 10 )` | Initial position of `threeCamera` |
-| `threeRendererOptions` | antialias/alpha/`preserveDrawingBuffer` from `MobiusQueryParameters` | Forwarded to `new THREE.WebGLRenderer(...)` |
+| `threeRendererOptions` | `{ antialias, alpha: true, preserveDrawingBuffer }`, with `antialias`/`preserveDrawingBuffer` sourced from `MobiusQueryParameters` (`threeRendererAntialias`, `threeRendererPreserveDrawingBuffer`) — `alpha` is always hardcoded `true` | Forwarded to `new THREE.WebGLRenderer(...)` |
 | `threeRendererPixelRatio` | from `MobiusQueryParameters` | Forwarded to `threeRenderer.setPixelRatio(...)` |
 
 ## Properties and methods
@@ -71,7 +74,7 @@ new ThreeStage( providedOptions?: ThreeStageOptions )
 | `canvasWidth` / `canvasHeight`, `width`/`height` getters | Current renderer dimensions |
 | `activeScale` | Scale factor applied to non-screen-coordinate interactions (e.g. rotation drags); maintained by the hosting Node's layout |
 | `dimensionsChangedEmitter` / `contextLostEmitter` / `contextRestoredEmitter` | `TEmitter`s for size changes and WebGL context loss/restore |
-| `setDimensions( width, height )` | Resizes the renderer and camera aspect, and fires `dimensionsChangedEmitter` |
+| `setDimensions( width, height )` | Sets `canvasWidth`/`canvasHeight`, resizes the renderer, calls `threeCamera.updateProjectionMatrix()`, and fires `dimensionsChangedEmitter` — it does **not** itself change `threeCamera.aspect`; the hosting Node (or `adjustViewOffset`) is responsible for that |
 | `render( target, autoClear )` | Renders `threeScene`/`threeCamera` into `target` (or the canvas, if `target` is `undefined`) |
 | `renderToCanvas( supersampleMultiplier?, backingMultiplier?, scale? )` | Renders offscreen into a returned `HTMLCanvasElement` (used for screenshots) |
 | `projectPoint( Vector3 )` → `Vector2` | Projects a 3D world point to a 2D global (screen) point |

@@ -3,7 +3,7 @@ title: Project Structure Conventions
 description: Standard folder/file layout of a SceneryStack repo (model/view split, strings, images).
 category: getting-started
 tags: [conventions, project-structure, repo-layout]
-status: draft
+status: verified
 related:
   - /getting-started/running-and-building-a-simulation
   - /patterns/model-view-separation

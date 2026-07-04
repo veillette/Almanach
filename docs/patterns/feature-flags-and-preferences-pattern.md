@@ -3,7 +3,7 @@ title: Feature Flags and Preferences Pattern
 description: The narrow convention of gating an in-development or optional feature behind a single, consistently-named boolean Property.
 category: patterns
 tags: [query-parameters, Property, feature-flag, preferences]
-status: complete
+status: verified
 related:
   - /guides/preferences-and-feature-flags
   - /patterns/model-view-separation

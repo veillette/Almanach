@@ -3,7 +3,7 @@ title: Translation and Localization
 description: String management with StringProperty and the PhET translation pipeline.
 category: guides
 tags: [localization, i18n, strings]
-status: draft
+status: verified
 related:
   - /api/axon/string-property
   - /guides/preferences-and-feature-flags

@@ -4,12 +4,14 @@ description: A quadratic Bezier curve segment defined by a start point, one cont
 category: api
 library: kite
 tags: [kite, Quadratic, bezier, segment, path]
-status: complete
+status: verified
 related:
   - /api/kite/shape
   - /api/kite/cubic
   - /api/kite/line-segment
   - /api/dot/vector2
+prerequisites:
+  - /api/kite/shape
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

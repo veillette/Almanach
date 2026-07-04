@@ -3,7 +3,7 @@ title: Demo Simulation Walkthrough
 description: Annotated tour of a minimal end-to-end demo sim.
 category: examples
 tags: [example, joist, walkthrough]
-status: complete
+status: verified
 related:
   - /getting-started/your-first-simulation
   - /patterns/model-view-separation

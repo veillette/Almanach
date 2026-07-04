@@ -3,7 +3,7 @@ title: Migrating a Legacy Sim to RichDragListener
 description: A before/after walkthrough of replacing a pointer-only DragListener with RichDragListener to add keyboard dragging without restructuring the model.
 category: examples
 tags: [example, scenery, DragListener, RichDragListener, KeyboardDragListener, migration, accessibility]
-status: complete
+status: verified
 related:
   - /patterns/drag-listeners
   - /api/scenery/rich-drag-listener

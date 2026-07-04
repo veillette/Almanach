@@ -4,7 +4,7 @@ description: A Node that renders a kite Shape with fill/stroke.
 category: api
 library: scenery
 tags: [scenery, Path, Shape, fill, stroke]
-status: complete
+status: verified
 related:
   - /api/kite/shape
   - /api/scenery/circle

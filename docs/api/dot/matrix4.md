@@ -4,7 +4,7 @@ description: The 4x4 homogeneous transform matrix used for 3D affine math.
 category: api
 library: dot
 tags: [dot, Matrix4, transform]
-status: complete
+status: verified
 related:
   - /api/dot/matrix3
   - /api/dot/vector3

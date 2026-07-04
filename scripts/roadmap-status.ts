@@ -23,6 +23,33 @@ type Manifest = {
   phase2: { targets: Phase2Target[] };
 };
 
+type PageMeta = { relPath: string; status: string; hasPrerequisites: boolean; hasRelated: boolean; hasSourceRefs: boolean };
+
+function walk( dir: string, out: string[] = [] ): string[] {
+  for ( const name of fs.readdirSync( dir ) ) {
+    const full = path.join( dir, name );
+    if ( fs.statSync( full ).isDirectory() ) { walk( full, out ); }
+    else if ( name.endsWith( '.md' ) ) { out.push( full ); }
+  }
+  return out;
+}
+
+function collectAllPages(): PageMeta[] {
+  return walk( DOCS_DIR )
+    .filter( full => !full.includes( `${path.sep}.vitepress${path.sep}` ) )
+    .filter( full => path.relative( DOCS_DIR, full ) !== 'index.md' ) // VitePress homepage, not a content page
+    .map( full => {
+      const { data } = matter( fs.readFileSync( full, 'utf-8' ) );
+      return {
+        relPath: path.relative( DOCS_DIR, full ),
+        status: typeof data.status === 'string' ? data.status : 'unknown',
+        hasPrerequisites: Array.isArray( data.prerequisites ) && data.prerequisites.length > 0,
+        hasRelated: Array.isArray( data.related ) && data.related.length > 0,
+        hasSourceRefs: Array.isArray( data.sourceRefs ) && data.sourceRefs.length > 0,
+      };
+    } );
+}
+
 const manifest: Manifest = JSON.parse( fs.readFileSync( MANIFEST_PATH, 'utf-8' ) );
 
 function readStatus( relativePath: string ): string {
@@ -74,3 +101,26 @@ for ( const target of manifest.phase2.targets ) {
 }
 
 console.log( `\nPhase 2 total target: ${totalPhase2Target} additional pages` );
+
+// ---------- Phase 3: maintenance (no fixed manifest) ----------
+console.log( '\n=== Phase 3: maintenance (cross-links, verification, pruning) ===\n' );
+
+const allPages = collectAllPages();
+const phase3StatusCounts: Record<string, number> = {};
+for ( const page of allPages ) {
+  phase3StatusCounts[ page.status ] = ( phase3StatusCounts[ page.status ] ?? 0 ) + 1;
+}
+
+console.log( `${allPages.length} total pages` );
+for ( const [ status, count ] of Object.entries( phase3StatusCounts ).sort( ( a, b ) => a[ 0 ].localeCompare( b[ 0 ] ) ) ) {
+  console.log( `  ${status}: ${count}` );
+}
+
+const missingPrereqs = allPages.filter( p => !p.hasPrerequisites ).length;
+const missingRelated = allPages.filter( p => !p.hasRelated ).length;
+const missingSourceRefs = allPages.filter( p => !p.hasSourceRefs ).length;
+console.log( `\nCross-link coverage:` );
+console.log( `  missing prerequisites: ${missingPrereqs}/${allPages.length}` );
+console.log( `  missing related:       ${missingRelated}/${allPages.length}` );
+console.log( `  missing sourceRefs:    ${missingSourceRefs}/${allPages.length}` );
+console.log( `\nGoal: drive 'complete' -> 'verified' via independent source-check, and shrink the cross-link gaps above.` );

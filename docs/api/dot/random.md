@@ -4,11 +4,13 @@ description: A seedable pseudo-random number generator class, plus the shared do
 category: api
 library: dot
 tags: [dot, Random, dotRandom, math]
-status: complete
+status: verified
 related:
   - /api/dot/vector2
   - /api/dot/bounds2
   - /api/dot/range
+prerequisites:
+  - /api/dot/vector2
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

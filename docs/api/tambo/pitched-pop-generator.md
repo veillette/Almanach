@@ -4,11 +4,12 @@ description: A tambo sound generator that synthesizes a short "pop" sound at a c
 category: api
 library: tambo
 tags: [tambo, PitchedPopGenerator, sound, WebAudio, oscillator]
-status: complete
+status: verified
+prerequisites:
+  - /api/tambo/sound-generation-guide
 related:
   - /api/tambo/sound-manager
   - /api/tambo/sound-clip
-  - /api/tambo/sound-generation-guide
   - /accessibility/sound-design
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

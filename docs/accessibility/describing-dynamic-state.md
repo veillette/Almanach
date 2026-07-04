@@ -3,10 +3,11 @@ title: Describing Dynamic State
 description: Writing description content that updates as model state changes.
 category: accessibility
 tags: [pdom, description, accessibility]
-status: complete
+status: verified
 related:
   - /accessibility/pdom
   - /accessibility/voicing
+  - /accessibility/internationalized-accessible-names
 prerequisites:
   - /accessibility/pdom
 sourceRefs:
@@ -41,11 +42,11 @@ const ballNode = new Node( {
 
 `StringUtils.fillIn` (from `scenerystack/phetcommon`) fills `{{placeholder}}` tokens in a template string — the standard way to build description sentences that embed a formatted value, and it composes cleanly with i18n since the template itself can be a translated `StringProperty`.
 
-Because `descriptionContent` is just bound to the `Property`, this same pattern works for `accessibleParagraph`, `helpText`, or `accessibleName` on any Node.
+Because `descriptionContent` is just bound to the `Property`, this same pattern works for `accessibleParagraph`, `accessibleHelpText`, or `accessibleName` on any Node.
 
 ## Announcing changes as they happen with addAccessibleResponse
 
-A reactive description only gets *read* the next time something visits it (focus, PDOM tab order, a screen reader's virtual cursor). Some state changes need to be spoken immediately, regardless of where focus is — e.g. "Boundary reached" when a draggable object hits the edge of its play area. For that, call `addAccessibleResponse` on any Node, which queues the text as an assertive announcement (an aria-live region) for every accessible `Display` the Node is connected to:
+A reactive description only gets *read* the next time something visits it (focus, PDOM tab order, a screen reader's virtual cursor). Some state changes need to be spoken immediately, regardless of where focus is — e.g. "Boundary reached" when a draggable object hits the edge of its play area. For that, call `addAccessibleResponse` on any Node, which queues the text on that `Display`'s `descriptionUtteranceQueue` (an `aria-live="polite"` region by default — pass an `Utterance` with `announcerOptions: { ariaLivePriority: AriaLive.ASSERTIVE }` if a response must interrupt) for every accessible `Display` the Node is connected to:
 
 ```ts
 class BallNode extends Node {

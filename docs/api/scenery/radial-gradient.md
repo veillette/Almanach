@@ -4,7 +4,7 @@ description: A paint type for circular color gradients between two circles, usab
 category: api
 library: scenery
 tags: [scenery, RadialGradient, gradient, paint, fill, stroke]
-status: complete
+status: verified
 related:
   - /api/scenery/color
   - /api/scenery/linear-gradient

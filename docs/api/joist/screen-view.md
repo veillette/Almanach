@@ -4,12 +4,14 @@ description: The root Node of a Screen's view, with layoutBounds and visibleBoun
 category: api
 library: joist
 tags: [joist, ScreenView]
-status: complete
+status: verified
 related:
   - /api/joist/screen
   - /api/joist/sim
   - /api/scenery-phet/reset-all-button
   - /getting-started/your-first-simulation
+prerequisites:
+  - /api/joist/screen
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

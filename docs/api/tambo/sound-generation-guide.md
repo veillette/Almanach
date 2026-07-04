@@ -4,7 +4,9 @@ description: A conceptual overview of how soundManager, SoundGenerator subclasse
 category: api
 library: tambo
 tags: [tambo, sound, WebAudio, soundManager, SoundGenerator, overview]
-status: draft
+status: verified
+prerequisites:
+  - /guides/working-with-sound
 related:
   - /api/tambo/sound-manager
   - /api/tambo/sound-clip

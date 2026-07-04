@@ -4,12 +4,15 @@ description: Pairing a model factory and view factory into one selectable unit o
 category: api
 library: joist
 tags: [joist, Screen]
-status: complete
+status: verified
 related:
   - /api/joist/sim
   - /api/joist/screen-view
   - /api/tandem/tandem
   - /getting-started/your-first-simulation
+prerequisites:
+  - /api/joist/sim
+  - /api/joist/screen-view
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

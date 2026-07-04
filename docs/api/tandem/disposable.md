@@ -4,9 +4,11 @@ description: The base dispose-lifecycle class that PhetioObject (and therefore N
 category: api
 library: tandem
 tags: [tandem, axon, Disposable, dispose, lifecycle]
-status: complete
+status: verified
 related:
   - /api/tandem/phetio-object
+  - /patterns/dispose-and-memory-management
+prerequisites:
   - /patterns/dispose-and-memory-management
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

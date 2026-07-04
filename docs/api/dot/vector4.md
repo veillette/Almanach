@@ -4,7 +4,7 @@ description: The 4D vector class used for homogeneous coordinates and RGBA-style
 category: api
 library: dot
 tags: [dot, Vector4, math]
-status: complete
+status: verified
 related:
   - /api/dot/vector2
   - /api/dot/vector3

@@ -4,7 +4,7 @@ description: Mutually-exclusive selection bound to a Property (rectangular and A
 category: api
 library: sun
 tags: [sun, radio-button-group]
-status: complete
+status: verified
 related:
   - /api/sun/combo-box
   - /api/sun/checkbox

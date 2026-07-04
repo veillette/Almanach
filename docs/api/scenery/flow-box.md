@@ -4,7 +4,7 @@ description: A single-axis (row/column) auto-layout container.
 category: api
 library: scenery
 tags: [scenery, FlowBox, HBox, VBox, layout]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/grid-box
@@ -42,11 +42,11 @@ Adding, removing, or reordering `row.children` afterward re-lays-out the remaini
 | --- | --- | --- |
 | `orientation` | `'horizontal'` | `'horizontal'` (row) or `'vertical'` (column) — fixed by `HBox`/`VBox` |
 | `spacing` | `0` | Gap between adjacent children along the main axis |
-| `lineSpacing` | — | Gap between wrapped lines, when `wrap: true` |
+| `lineSpacing` | `0` | Gap between wrapped lines, when `wrap: true` |
 | `align` | `'center'` | Cross-axis alignment for children — for a horizontal `FlowBox`: `'top'`, `'bottom'`, `'center'`, or `'origin'`; for a vertical one: `'left'`, `'right'`, `'center'`, or `'origin'` |
 | `stretch` | `false` | Whether children grow to fill the cross axis (requires the child to be resizable on that axis) |
-| `grow` | — | How much a child should grow to fill leftover main-axis space, relative to other children's `grow` |
-| `justify` | — | How extra main-axis space is distributed, e.g. `'left'`/`'right'`/`'center'` (horizontal) or `'top'`/`'bottom'`/`'center'` (vertical), plus `'spaceBetween'`, `'spaceAround'`, `'spaceEvenly'` |
+| `grow` | `0` | How much a child should grow to fill leftover main-axis space, relative to other children's `grow` |
+| `justify` | `'spaceBetween'` | How extra main-axis space is distributed, e.g. `'left'`/`'right'`/`'center'` (horizontal) or `'top'`/`'bottom'`/`'center'` (vertical), plus `'spaceBetween'`, `'spaceAround'`, `'spaceEvenly'` |
 | `wrap` | `false` | Whether children flow onto additional lines instead of overflowing |
 | `resize` | `true` | Whether the FlowBox keeps re-running layout after construction; set `false` and call `updateLayout()` manually for performance-sensitive cases |
 | `forward` | `true` | If `false`, children are laid out in reverse order (useful for RTL locales via `forwardProperty`) |
@@ -56,7 +56,7 @@ Adding, removing, or reordering `row.children` afterward re-lays-out the remaini
 Per-child overrides (`align`, `stretch`, `grow`, `margin`, …) can also be set on an individual child via that child's `layoutOptions`, taking precedence over the FlowBox-wide value:
 
 ```ts
-someChild.layoutOptions = { grow: 1, align: 'stretch' };
+someChild.layoutOptions = { grow: 1, stretch: true };
 ```
 
 ## Methods

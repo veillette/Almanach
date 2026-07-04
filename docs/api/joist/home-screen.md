@@ -4,12 +4,15 @@ description: The auto-created Screen showing icon buttons for every screen in a 
 category: api
 library: joist
 tags: [joist, HomeScreen, Screen, Sim]
-status: complete
+status: verified
 related:
   - /api/joist/sim
   - /api/joist/screen
   - /api/joist/screen-icon
   - /api/joist/navigation-bar
+prerequisites:
+  - /api/joist/sim
+  - /api/joist/screen
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

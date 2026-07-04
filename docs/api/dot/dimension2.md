@@ -4,7 +4,7 @@ description: A plain width/height pair, like Bounds2 without a position.
 category: api
 library: dot
 tags: [dot, Dimension2, bounds]
-status: complete
+status: verified
 related:
   - /api/dot/bounds2
 prerequisites:

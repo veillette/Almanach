@@ -4,9 +4,10 @@ description: Draws a bamboo chart's x or y axis as a plain line or an arrow-tipp
 category: api
 library: bamboo
 tags: [bamboo, AxisLine, AxisArrowNode, chart, axis]
-status: complete
-related:
+status: verified
+prerequisites:
   - /api/bamboo/chart-transform
+related:
   - /api/bamboo/line-plot
   - /api/bamboo/bar-plot
   - /api/bamboo/scatter-plot

@@ -4,12 +4,14 @@ description: An animated bicycle-pump graphic whose handle, when dragged down, i
 category: api
 library: scenery-phet
 tags: [scenery-phet, BicyclePumpNode, pump, particles]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/faucet-node
   - /api/dot/range
   - /api/axon/boolean-property
   - /patterns/drag-listeners
+prerequisites:
+  - /api/axon/number-property
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
@@ -20,8 +22,8 @@ sourceRefs:
 
 ```ts
 import { BicyclePumpNode } from 'scenerystack/scenery-phet';
-import { NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { NumberProperty, Property } from 'scenerystack/axon';
+import { Range, Vector2 } from 'scenerystack/dot';
 ```
 
 ## A minimal example

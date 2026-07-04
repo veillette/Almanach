@@ -3,7 +3,7 @@ title: Responsive Layout Strategies
 description: How a ScreenView's fixed layoutBounds and scenery's layout containers together handle windows of different sizes and aspect ratios.
 category: styling
 tags: [scenery, ScreenView, layoutBounds, FlowBox, GridBox, responsive]
-status: complete
+status: verified
 related:
   - /styling/layout-container-conventions
   - /guides/building-your-first-screen

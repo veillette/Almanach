@@ -4,7 +4,7 @@ description: A Text-like Node supporting a constrained markup subset for mixed s
 category: api
 library: scenery
 tags: [scenery, RichText, markup, links]
-status: complete
+status: verified
 related:
   - /api/scenery/text
   - /api/scenery-phet/phet-font

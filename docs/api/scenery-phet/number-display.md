@@ -4,7 +4,7 @@ description: A labeled, fixed-width numeric readout in a background rectangle, b
 category: api
 library: scenery-phet
 tags: [scenery-phet, NumberDisplay]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/number-control
   - /api/scenery-phet/phet-font

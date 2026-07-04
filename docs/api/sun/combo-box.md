@@ -4,10 +4,11 @@ description: A dropdown selector bound to a Property over an enumerated set of i
 category: api
 library: sun
 tags: [sun, ComboBox]
-status: complete
+status: verified
 related:
   - /api/sun/radio-button-group
   - /api/sun/checkbox
+  - /api/sun/list-box
 prerequisites:
   - /api/axon/property
 sourceRefs:

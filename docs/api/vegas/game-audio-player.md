@@ -4,7 +4,9 @@ description: A small helper class that plays the standard set of vegas game-feed
 category: api
 library: vegas
 tags: [vegas, GameAudioPlayer, sound, game, tambo]
-status: complete
+status: verified
+prerequisites:
+  - /api/tambo/sound-generation-guide
 related:
   - /api/vegas/score-display-number-and-star
   - /api/tambo/sound-clip

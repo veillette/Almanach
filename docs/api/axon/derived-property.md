@@ -4,7 +4,7 @@ description: A read-only Property computed from one or more dependencies.
 category: api
 library: axon
 tags: [axon, DerivedProperty]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/property
 related:

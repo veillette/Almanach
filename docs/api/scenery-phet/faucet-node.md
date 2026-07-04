@@ -4,12 +4,14 @@ description: A faucet control with a draggable pinball-shooter-style handle that
 category: api
 library: scenery-phet
 tags: [scenery-phet, FaucetNode, faucet, fluid, flow-rate]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/bicycle-pump-node
   - /api/dot/range
   - /patterns/drag-listeners
   - /patterns/phet-io-instrumentation-pattern
+prerequisites:
+  - /api/axon/property
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

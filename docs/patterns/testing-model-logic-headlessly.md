@@ -3,7 +3,7 @@ title: Testing Model Logic Headlessly
 description: Unit-testing model classes without instantiating scenery Nodes or a Display, so tests run fast and in plain Node.js.
 category: patterns
 tags: [testing, axon, Property, model, node.js]
-status: complete
+status: verified
 related:
   - /patterns/model-view-separation
   - /patterns/dispose-and-memory-management
@@ -51,6 +51,10 @@ QUnit.test( 'reset restores every Property to its initial value', assert => {
 ```
 
 Nothing here touches `scenerystack/scenery`. `ProjectileModel` is constructed the same way a real screen would construct it, `step` is called directly with an explicit `dt` instead of waiting on `requestAnimationFrame`, and assertions read `Property.value` — the same public surface the view observes.
+
+::: tip Any test runner works — `QUnit` isn't part of the `scenerystack` package
+`QUnit` is shown above because it's the convention in PhET's own repos, not because `scenerystack` bundles or requires it — it's not one of `scenerystack`'s own dependencies. A model built this way is equally testable from Jest, Vitest, `node:test`, or anything else that can call a constructor and read a `.value` — the headless-testability property comes from the model having no `scenery`/DOM imports, not from which test runner you point at it.
+:::
 
 ## Why not test through the rendered view
 

@@ -4,7 +4,9 @@ description: Parsing every URL query parameter for a sim in one call, plus the r
 category: api
 library: query-string-machine
 tags: [query-string-machine, QueryStringMachine, getAll, query-parameters]
-status: complete
+status: verified
+prerequisites:
+  - /patterns/query-parameters-pattern
 related:
   - /patterns/query-parameters-pattern
   - /api/query-string-machine/query-parameter-schema-conventions

@@ -4,11 +4,13 @@ description: A Node wrapper that centers and scales an icon onto a fixed-size ba
 category: api
 library: joist
 tags: [joist, ScreenIcon, Screen]
-status: complete
+status: verified
 related:
   - /api/joist/screen
   - /api/joist/home-screen
   - /api/joist/navigation-bar
+prerequisites:
+  - /api/joist/screen
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
@@ -48,7 +50,7 @@ new ScreenIcon( iconNode: Node, providedOptions?: ScreenIconOptions )
 
 | Option | Default | Effect |
 | --- | --- | --- |
-| `size` | `ScreenIcon.MINIMUM_HOME_SCREEN_ICON_SIZE` (`Dimension2( 548, 373 )`) | Size of the background rectangle. Pass `Screen.MINIMUM_NAVBAR_ICON_SIZE` when building a `navigationBarIcon` specifically, so it matches the navigation bar's smaller aspect |
+| `size` | `Screen.MINIMUM_HOME_SCREEN_ICON_SIZE` (`Dimension2( 548, 373 )`) | Size of the background rectangle. There's no `ScreenIcon.MINIMUM_HOME_SCREEN_ICON_SIZE` static — the default value is mirrored on `Screen` (and also importable as the standalone `MINIMUM_HOME_SCREEN_ICON_SIZE` export). Pass `Screen.MINIMUM_NAVBAR_ICON_SIZE` when building a `navigationBarIcon` specifically, so it matches the navigation bar's smaller aspect |
 | `maxIconWidthProportion` | `0.85` | Max proportion of the background's width the icon is scaled to fill |
 | `maxIconHeightProportion` | `0.85` | Max proportion of the background's height the icon is scaled to fill |
 | `fill` | `'white'` | Background rectangle fill |

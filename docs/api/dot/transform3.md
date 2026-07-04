@@ -4,7 +4,7 @@ description: A cached, observable wrapper around a Matrix3, providing forward/in
 category: api
 library: dot
 tags: [dot, Transform3, transform, matrix]
-status: complete
+status: verified
 related:
   - /api/dot/matrix3
   - /api/dot/vector2

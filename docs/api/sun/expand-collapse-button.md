@@ -4,7 +4,7 @@ description: The square plus/minus toggle button that AccordionBox uses internal
 category: api
 library: sun
 tags: [sun, ExpandCollapseButton, button]
-status: complete
+status: verified
 related:
   - /api/sun/accordion-box
   - /api/sun/toggle-button

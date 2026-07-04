@@ -4,7 +4,7 @@ description: A two-dimensional grid auto-layout container.
 category: api
 library: scenery
 tags: [scenery, GridBox, layout]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/flow-box

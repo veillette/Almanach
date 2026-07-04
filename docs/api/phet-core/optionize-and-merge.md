@@ -4,10 +4,13 @@ description: The two building blocks behind the options pattern - optionize for 
 category: api
 library: phet-core
 tags: [phet-core, optionize, merge, combineOptions, options]
-status: complete
+status: verified
+prerequisites:
+  - /patterns/options-pattern
 related:
   - /patterns/options-pattern
   - /api/phet-core/enumeration-value
+  - /api/phet-core/assertion-helpers
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

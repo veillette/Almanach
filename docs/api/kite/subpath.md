@@ -4,13 +4,15 @@ description: An ordered, connected run of segments within a Shape — the contai
 category: api
 library: kite
 tags: [kite, Subpath, path]
-status: complete
+status: verified
 related:
   - /api/kite/shape
   - /api/kite/line-segment
   - /api/kite/line-styles
   - /api/dot/vector2
   - /api/dot/matrix3
+prerequisites:
+  - /api/kite/shape
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
@@ -55,7 +57,7 @@ You'll rarely construct a `Subpath` directly — build shapes through `Shape`'s 
 | `getFirstPoint()` / `getLastPoint()` | The subpath's first and last points |
 | `getFirstSegment()` / `getLastSegment()` | The subpath's first and last segments |
 | `isClosed()` | Same as reading `.closed` |
-| `hasClosingSegment()` / `getClosingSegment()` | Whether (and what) synthetic segment connects the last point back to the first, for a closed subpath |
+| `hasClosingSegment()` / `getClosingSegment()` | A purely geometric check — whether (and what) synthetic `Line` segment would connect the last point back to the first. This is independent of the `closed` flag: it returns `true` whenever the first and last points differ by more than a tiny epsilon, even on a subpath that never called `.close()` |
 | `isDrawable()` | Whether there's at least one segment to draw |
 | `getArcLength()` | Sum of every contained segment's arc length |
 | `getFillSegments()` | Segments to use for filling — includes the closing segment even if `.close()` was never explicitly called, since fills always implicitly close |

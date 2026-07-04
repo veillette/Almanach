@@ -4,7 +4,7 @@ description: A Property constrained to a fixed union of string literal values, w
 category: api
 library: axon
 tags: [axon, StringUnionProperty, Property, enumeration, TypeScript]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/property
 related:

@@ -4,13 +4,14 @@ description: A derived string Property that fills a translated pattern string's 
 category: api
 library: axon
 tags: [axon, PatternStringProperty, DerivedProperty, i18n, strings]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/derived-property
 related:
   - /api/axon/derived-property
   - /api/axon/string-property
   - /api/phetcommon/phetcommon-query-parameters
+  - /guides/internationalization-deep-dive
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

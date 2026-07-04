@@ -4,9 +4,12 @@ description: A configurable arrow shape used for vectors, force diagrams, and ca
 category: api
 library: scenery-phet
 tags: [scenery-phet, ArrowNode]
-status: complete
+status: verified
 related:
   - /api/phetcommon/model-view-transform
+  - /api/dot/vector2
+prerequisites:
+  - /getting-started/what-is-scenerystack
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

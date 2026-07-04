@@ -4,11 +4,14 @@ description: A PhET-iO-aware container for a dynamically-growing/shrinking colle
 category: api
 library: tandem
 tags: [tandem, phet-io, PhetioGroup, dynamic-elements]
-status: complete
+status: verified
 related:
   - /api/tandem/phetio-capsule
   - /api/tandem/phetio-object
   - /api/tandem/io-type
+prerequisites:
+  - /api/tandem/phetio-object
+  - /guides/phet-io-and-instrumentation
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

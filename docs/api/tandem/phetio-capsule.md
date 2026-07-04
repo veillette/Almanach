@@ -4,10 +4,13 @@ description: A PhET-iO-aware container for a single, lazily-created instrumented
 category: api
 library: tandem
 tags: [tandem, phet-io, PhetioCapsule, dynamic-elements]
-status: complete
+status: verified
 related:
   - /api/tandem/phetio-group
   - /api/tandem/phetio-object
+prerequisites:
+  - /api/tandem/phetio-object
+  - /guides/phet-io-and-instrumentation
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

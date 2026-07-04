@@ -3,7 +3,7 @@ title: Building a Two-Screen Simulation
 description: Full example wiring two Screens with shared and per-screen model code.
 category: examples
 tags: [example, joist, multi-screen]
-status: complete
+status: verified
 related:
   - /getting-started/your-first-simulation
   - /examples/demo-simulation-walkthrough
@@ -225,8 +225,8 @@ onReadyToLaunch( () => {
 } );
 ```
 
-::: warning `homeScreenIcon` and `navigationBarIcon` are optional in the types but required at runtime once there is more than one screen
-With a single screen, `Sim` skips the home screen and navigation bar entirely, so icons are never read. The moment a second `Screen` is added, `Sim` asserts that *every* screen has both icons — the failure only shows up when you add that second screen, not when you write the first one, so it's worth supplying icons from the start if you expect a sim to grow.
+::: warning `homeScreenIcon` and `navigationBarIcon` are optional, but the fallback is a plain colored rectangle
+If you omit either icon, `Screen` synthesizes a default from `backgroundColorProperty` (a bare rectangle, no `navigationBarIcon` falls back to whatever `homeScreenIcon` resolved to) rather than throwing — so a multi-screen sim without real icons still runs, it just shows indistinguishable blank rectangles on the home screen and nav bar. Supply real icons for any sim with more than one screen so it stays usable, even though nothing enforces it for you.
 :::
 
 ## What's shared vs. per-screen

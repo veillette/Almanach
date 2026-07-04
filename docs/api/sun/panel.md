@@ -4,11 +4,14 @@ description: A bordered/background container used to group related controls.
 category: api
 library: sun
 tags: [sun, Panel]
-status: complete
+status: verified
 related:
   - /api/sun/accordion-box
   - /api/sun/checkbox
   - /api/sun/hslider
+  - /styling/panels-and-backgrounds
+prerequisites:
+  - /guides/scenery-basics
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

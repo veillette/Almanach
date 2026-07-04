@@ -4,11 +4,12 @@ description: A lightweight, self-registering wrapper around SoundClip for sounds
 category: api
 library: tambo
 tags: [tambo, SoundClipPlayer, sound, WebAudio]
-status: complete
-related:
-  - /api/tambo/sound-clip
-  - /api/tambo/sound-manager
+status: verified
+prerequisites:
   - /api/tambo/sound-generation-guide
+  - /api/tambo/sound-clip
+related:
+  - /api/tambo/sound-manager
   - /accessibility/sound-design
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

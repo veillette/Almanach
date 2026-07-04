@@ -4,7 +4,7 @@ description: A Path subclass for drawing circles by radius.
 category: api
 library: scenery
 tags: [scenery, Circle, Path]
-status: complete
+status: verified
 related:
   - /api/scenery/path
   - /api/scenery/rectangle

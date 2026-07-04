@@ -3,7 +3,7 @@ title: Keyboard Input and Hotkeys
 description: KeyboardListener and Hotkey for custom keyboard shortcuts beyond dragging.
 category: accessibility
 tags: [scenery, KeyboardListener, keyboard]
-status: complete
+status: verified
 related:
   - /accessibility/pdom
   - /accessibility/alternative-input-overview

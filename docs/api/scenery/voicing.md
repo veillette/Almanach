@@ -4,7 +4,7 @@ description: The Voicing trait's class-level API - response Properties, speak me
 category: api
 library: scenery
 tags: [scenery, Voicing, voicing, speech, accessibility]
-status: complete
+status: verified
 related:
   - /accessibility/voicing
   - /api/scenery/interactive-highlighting

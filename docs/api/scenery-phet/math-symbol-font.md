@@ -4,8 +4,10 @@ description: The italic serif font PhET sims use for math symbols and variables,
 category: api
 library: scenery-phet
 tags: [scenery-phet, MathSymbolFont, typography]
-status: complete
+status: verified
 related:
+  - /api/scenery-phet/phet-font
+prerequisites:
   - /api/scenery-phet/phet-font
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

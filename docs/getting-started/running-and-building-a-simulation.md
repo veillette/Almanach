@@ -3,7 +3,7 @@ title: Running and Building a Simulation
 description: Dev server workflow and production build output for a SceneryStack sim.
 category: getting-started
 tags: [build, tooling, dev-server]
-status: draft
+status: verified
 related:
   - /getting-started/installation-and-setup
   - /getting-started/project-structure-conventions

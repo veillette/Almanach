@@ -4,7 +4,9 @@ description: Discrete events that are not state.
 category: api
 library: axon
 tags: [axon, Emitter, events]
-status: complete
+status: verified
+prerequisites:
+  - /api/axon/property
 related:
   - /api/axon/property
   - /api/axon/derived-property

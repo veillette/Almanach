@@ -4,7 +4,7 @@ description: An axis-aligned cuboid (3D bounding box), the 3D counterpart to Bou
 category: api
 library: dot
 tags: [dot, Bounds3, bounds]
-status: complete
+status: verified
 related:
   - /api/dot/bounds2
   - /api/dot/vector3

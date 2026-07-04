@@ -3,7 +3,7 @@ title: Avoiding Property Leaks
 description: Listener-unlinking discipline for Properties, DerivedProperties, and Multilinks so dynamically created objects don't leak their whole dependency chain.
 category: patterns
 tags: [axon, Property, memory, dispose, listeners]
-status: complete
+status: verified
 related:
   - /patterns/dispose-and-memory-management
   - /patterns/multilink-pattern

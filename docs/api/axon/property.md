@@ -4,7 +4,9 @@ description: The base observable value wrapper underlying all reactive state.
 category: api
 library: axon
 tags: [axon, Property, reactive]
-status: complete
+status: verified
+prerequisites:
+  - /getting-started/what-is-scenerystack
 related:
   - /api/axon/boolean-property
   - /api/axon/number-property

@@ -4,10 +4,12 @@ description: A red rectangular button with a white "X" icon, the standard contro
 category: api
 library: scenery-phet
 tags: [scenery-phet, CloseButton, button]
-status: complete
+status: verified
 related:
   - /api/sun/rectangular-push-button
   - /api/scenery-phet/back-button
+prerequisites:
+  - /api/sun/rectangular-push-button
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

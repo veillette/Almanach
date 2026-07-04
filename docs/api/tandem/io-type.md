@@ -4,12 +4,15 @@ description: Declares a class's PhET-iO serialization - state schema, methods, a
 category: api
 library: tandem
 tags: [tandem, phet-io, IOType]
-status: complete
+status: verified
 related:
   - /api/tandem/phetio-object
   - /api/tandem/phetio-group
   - /api/tandem/phetio-capsule
   - /guides/phet-io-and-instrumentation
+prerequisites:
+  - /guides/phet-io-and-instrumentation
+  - /api/tandem/phetio-object
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

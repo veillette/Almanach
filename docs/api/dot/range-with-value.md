@@ -4,7 +4,7 @@ description: A Range subclass that also tracks a required default value within t
 category: api
 library: dot
 tags: [dot, RangeWithValue, Range]
-status: complete
+status: verified
 related:
   - /api/dot/range
   - /api/axon/number-property

@@ -3,7 +3,7 @@ title: Internationalization Deep Dive
 description: Runtime locale switching, right-to-left layout, and PatternStringProperty for pluralization and placeholders, building on the translation pipeline basics.
 category: guides
 tags: [localization, i18n, rtl, strings]
-status: complete
+status: verified
 related:
   - /guides/translation-and-localization
   - /api/axon/pattern-string-property

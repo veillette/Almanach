@@ -4,12 +4,14 @@ description: The stroke-rendering options (width, cap, join, dash, miter limit) 
 category: api
 library: kite
 tags: [kite, LineStyles, stroke, path]
-status: complete
+status: verified
 related:
   - /api/kite/shape
   - /api/kite/arc
   - /api/kite/line-segment
   - /api/kite/subpath
+prerequisites:
+  - /api/kite/shape
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

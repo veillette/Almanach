@@ -4,7 +4,7 @@ description: A Property<boolean> with a toggle() convenience method.
 category: api
 library: axon
 tags: [axon, BooleanProperty]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/property
 related:

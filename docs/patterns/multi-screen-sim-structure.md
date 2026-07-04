@@ -3,7 +3,7 @@ title: Multi-Screen Sim Structure
 description: Structuring model/view code across multiple Screens in one Sim.
 category: patterns
 tags: [joist, Screen, Sim, architecture]
-status: complete
+status: verified
 related:
   - /api/joist/sim
   - /api/joist/screen
@@ -111,6 +111,6 @@ onReadyToLaunch( () => {
 
 Each screen also gets its own `Tandem` subtree (`introTandem`, `advancedTandem` above), created from `Tandem.ROOT`, so PhET-iO's element tree mirrors the screen boundaries — see [The PhET-iO Instrumentation Pattern](/patterns/phet-io-instrumentation-pattern).
 
-::: warning `name` and the icons become required once there is more than one screen
-`Screen`'s `name` (a `TReadOnlyProperty<string>`, not a plain string) and its `homeScreenIcon`/`navigationBarIcon` may be `null` for a single-screen sim, since there is no home screen or navigation bar to show them in. As soon as a second screen exists, `Sim` builds a home screen and navigation bar from these, so every screen must supply a real `name` and a `homeScreenIcon` (the `navigationBarIcon` falls back to a scaled copy of the home screen icon if omitted).
+::: warning `name` and the icons are optional in the types, but silently degrade if omitted on a multi-screen sim
+`Screen`'s `name` (a `TReadOnlyProperty<string>`, not a plain string) and its `homeScreenIcon`/`navigationBarIcon` may be omitted for a single-screen sim, since there is no home screen or navigation bar to show them in. Nothing throws if you omit them on a multi-screen sim either — `Screen` falls back to a blank name and a plain colored-rectangle icon (`navigationBarIcon` further falls back to a scaled copy of `homeScreenIcon`) — but the home screen and navigation bar become genuinely unusable that way, so supply a real `name` and `homeScreenIcon` for every screen once there's more than one.
 :::

@@ -3,9 +3,14 @@ title: The Parallel DOM (PDOM)
 description: How scenery renders an invisible, semantic HTML tree alongside the canvas so screen readers and keyboards can use the application.
 category: accessibility
 tags: [scenery, pdom, accessibility, a11y, screen-reader, tagName, accessibleName]
-status: complete
+status: verified
 related:
   - /patterns/drag-listeners
+  - /accessibility/focus-highlights
+  - /accessibility/alternative-input-overview
+  - /accessibility/internationalized-accessible-names
+prerequisites:
+  - /getting-started/what-is-scenerystack
 ---
 
 # The Parallel DOM (PDOM)
@@ -31,7 +36,7 @@ const infoSection = new Node( {
 const resetShape = new Rectangle( 0, 0, 40, 40, {
   tagName: 'button',
   accessibleName: 'Reset Masses',
-  helpText: 'Return both masses to their starting values.'
+  accessibleHelpText: 'Return both masses to their starting values.'
 } );
 ```
 
@@ -42,10 +47,10 @@ const resetShape = new Rectangle( 0, 0, 40, 40, {
 | `labelTagName` / `labelContent` | A sibling label element (e.g. an `h3` before the content) |
 | `descriptionContent` | A sibling description paragraph |
 | `accessibleName` | The name announced by screen readers (higher-level API; prefer this) |
-| `helpText` | Supplementary guidance announced with the element |
+| `accessibleHelpText` | Supplementary guidance announced with the element |
 | `focusable` | Whether the element is in the tab order (interactive `tagName`s like `'button'` already are) |
 
-Common UI components from `sun` (buttons, sliders, checkboxes) come with sensible PDOM structure built in — you typically only supply `accessibleName` and `helpText`.
+Common UI components from `sun` (buttons, sliders, checkboxes) come with sensible PDOM structure built in — you typically only supply `accessibleName` and `accessibleHelpText`.
 
 ## Focus order with pdomOrder
 

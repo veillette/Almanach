@@ -3,7 +3,7 @@ title: Focus Highlights
 description: Customizing focus highlights for focusable Nodes.
 category: accessibility
 tags: [scenery, focus, accessibility]
-status: complete
+status: verified
 related:
   - /accessibility/pdom
   - /accessibility/alternative-input-overview

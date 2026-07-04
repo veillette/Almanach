@@ -3,7 +3,7 @@ title: Scenery Layout Examples
 description: Worked FlowBox/GridBox layouts for common UI arrangements.
 category: examples
 tags: [example, scenery, layout]
-status: complete
+status: verified
 related:
   - /patterns/options-pattern
   - /accessibility/pdom

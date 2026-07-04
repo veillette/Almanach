@@ -4,9 +4,12 @@ description: Small, dependency-free array helpers for mutation-in-place, set-sty
 category: api
 library: phet-core
 tags: [phet-core, arrayRemove, arrayDifference, cleanArray, array, collections]
-status: complete
+status: verified
+prerequisites:
+  - /getting-started/what-is-scenerystack
 related:
   - /api/phet-core/optionize-and-merge
+  - /api/phet-core/assertion-helpers
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

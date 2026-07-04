@@ -4,9 +4,10 @@ description: Draws a polyline through a dataset of points on a bamboo chart, wit
 category: api
 library: bamboo
 tags: [bamboo, LinePlot, chart, plot]
-status: complete
-related:
+status: verified
+prerequisites:
   - /api/bamboo/chart-transform
+related:
   - /api/bamboo/bar-plot
   - /api/bamboo/scatter-plot
   - /api/bamboo/axis-nodes

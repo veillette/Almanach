@@ -3,7 +3,7 @@ title: Performance and Profiling
 description: Finding and fixing slow rendering or update-loop performance in a SceneryStack simulation - profiling query parameters, Node/Property overhead, and Canvas/SVG/WebGL tradeoffs.
 category: guides
 tags: [scenery, performance, profiling, rendering]
-status: complete
+status: verified
 related:
   - /guides/scenery-basics
   - /guides/scenery-layout

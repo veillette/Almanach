@@ -3,7 +3,7 @@ title: High-Contrast / Projector-Mode Deep Dive
 description: Palette-design considerations specific to projector mode - contrast ratios, saturation, and what breaks on a washed-out classroom projector.
 category: styling
 tags: [scenery, ProfileColorProperty, projector-mode, contrast, colors]
-status: complete
+status: verified
 related:
   - /styling/color-profiles
   - /guides/preferences-and-feature-flags

@@ -4,11 +4,15 @@ description: The naming/instrumentation handle giving every PhET-iO-tracked elem
 category: api
 library: tandem
 tags: [tandem, phet-io, Tandem]
-status: complete
+status: verified
+prerequisites:
+  - /guides/phet-io-and-instrumentation
 related:
   - /api/joist/sim
   - /api/joist/screen
   - /api/scenery-phet/reset-all-button
+  - /api/tandem/phetio-object
+  - /guides/phet-io-deep-dive
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

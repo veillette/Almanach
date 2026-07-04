@@ -4,7 +4,7 @@ description: An axis-aligned rectangle used for layout, drag bounds, and hit-tes
 category: api
 library: dot
 tags: [dot, Bounds2, bounds]
-status: complete
+status: verified
 related:
   - /api/dot/vector2
   - /api/dot/range

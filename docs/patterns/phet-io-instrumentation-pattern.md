@@ -3,7 +3,7 @@ title: PhET-iO Instrumentation Pattern
 description: Deciding what to instrument with Tandem and structuring a PhET-iO-ready model.
 category: patterns
 tags: [tandem, phet-io, architecture]
-status: complete
+status: verified
 related:
   - /api/tandem/tandem
   - /api/joist/sim
@@ -24,7 +24,7 @@ A `Tandem` is a stable, hierarchical name (like a file path) that a `PhetioObjec
 ## The core idea
 
 ```ts
-import { NumberProperty, BooleanProperty, DerivedProperty } from 'scenerystack/axon';
+import { NumberProperty, BooleanProperty, DerivedProperty, type TReadOnlyProperty } from 'scenerystack/axon';
 import { Tandem, NumberIO } from 'scenerystack/tandem';
 import { Range } from 'scenerystack/dot';
 
@@ -38,7 +38,9 @@ class ProjectileModel {
 
   // Recomputed automatically from angleProperty - no independent state to save, so it needs
   // a phetioValueType but is marked phetioReadOnly (it is never *set* directly by a client).
-  public readonly heightAtLaunchProperty: DerivedProperty<number>;
+  // Typed as TReadOnlyProperty, not DerivedProperty<...>, since DerivedProperty's own generic
+  // parameters are positional per-dependency (T, T1, T2, ... T15), not a single type argument.
+  public readonly heightAtLaunchProperty: TReadOnlyProperty<number>;
 
   public constructor( tandem: Tandem ) {
 

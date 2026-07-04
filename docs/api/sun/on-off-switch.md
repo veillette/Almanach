@@ -4,7 +4,7 @@ description: The iOS-style sliding toggle for a boolean Property, one of three s
 category: api
 library: sun
 tags: [sun, OnOffSwitch, BooleanProperty]
-status: complete
+status: verified
 related:
   - /api/sun/checkbox
   - /api/sun/toggle-button

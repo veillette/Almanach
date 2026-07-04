@@ -4,7 +4,7 @@ description: A pan/zoom listener supporting trackpad, wheel, and keyboard gestur
 category: api
 library: scenery
 tags: [scenery, AnimatedPanZoomListener, input, pan, zoom, accessibility]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/display

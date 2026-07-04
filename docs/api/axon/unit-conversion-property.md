@@ -4,7 +4,7 @@ description: A derived, bidirectional Property that converts a numeric Property'
 category: api
 library: axon
 tags: [axon, UnitConversionProperty, MappedProperty, Property, units]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/property
 related:

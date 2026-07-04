@@ -4,7 +4,7 @@ description: kite's path-description class behind Path, and its common construct
 category: api
 library: kite
 tags: [kite, Shape, path]
-status: complete
+status: verified
 related:
   - /api/scenery/path
   - /api/dot/bounds2
