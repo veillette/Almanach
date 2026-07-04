@@ -45,6 +45,7 @@ Use `RichDragListener` so pointer and keyboard dragging are wired from one decla
 
 ```ts
 import { RichDragListener } from 'scenerystack/scenery';
+import { Bounds2 } from 'scenerystack/dot';
 
 planetNode.addInputListener( new RichDragListener( {
   positionProperty: positionProperty,
@@ -96,8 +97,7 @@ screenView.pdomOrder = [
 
 ```ts
 import { Property } from 'scenerystack/axon';
-import { Vector2 } from 'scenerystack/dot';
-import { Bounds2 } from 'scenerystack/dot';
+import { Vector2, Bounds2 } from 'scenerystack/dot';
 import { Circle, RichDragListener } from 'scenerystack/scenery';
 
 const positionProperty = new Property( new Vector2( 0, 0 ) );
