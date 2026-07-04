@@ -2,7 +2,7 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-04T21:53:08.174Z",
+  "generated": "2026-07-04T21:53:27.696Z",
   "documentCount": 231,
   "documents": [
     {
@@ -5320,12 +5320,16 @@
         "DerivedProperty",
         "MVC"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/phetcommon/model-view-transform",
-        "/getting-started/what-is-scenerystack"
+        "/getting-started/what-is-scenerystack",
+        "/patterns/multilink-pattern",
+        "/patterns/reset-all-pattern"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/getting-started/your-first-simulation"
+      ],
       "sourceRefs": [],
       "wordCount": 473,
       "url": "https://veillette.github.io/Almanach/patterns/model-view-separation"

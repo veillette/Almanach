@@ -12469,7 +12469,7 @@ Resist the temptation to special-case a flag's name ("just this one is `showFoo`
 Page: Model-View Separation
 URL: https://veillette.github.io/Almanach/patterns/model-view-separation
 Source: docs/patterns/model-view-separation.md
-Category: Patterns | Tags: architecture, axon, Property, DerivedProperty, MVC | Status: complete
+Category: Patterns | Tags: architecture, axon, Property, DerivedProperty, MVC | Status: verified
 ========================================================================
 
 # Model-View Separation
