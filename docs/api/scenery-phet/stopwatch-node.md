@@ -4,11 +4,13 @@ description: A draggable digital stopwatch bound to a Stopwatch model element.
 category: api
 library: scenery-phet
 tags: [scenery-phet, StopwatchNode]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/time-control-node
   - /api/dot/bounds2
   - /patterns/model-view-separation
+prerequisites:
+  - /api/dot/bounds2
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

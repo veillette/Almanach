@@ -3,7 +3,7 @@ title: PhET-iO and Instrumentation
 description: Conceptual guide to PhET-iO - what instrumentation buys you and how Tandem fits in.
 category: guides
 tags: [phet-io, tandem, instrumentation]
-status: draft
+status: verified
 related:
   - /getting-started/your-first-simulation
   - /patterns/model-view-separation

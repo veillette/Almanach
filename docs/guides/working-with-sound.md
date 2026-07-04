@@ -3,7 +3,7 @@ title: Working with Sound (tambo Overview)
 description: How tambo fits into a SceneryStack simulation - soundManager as the central mixer, and the sound-generator classes you compose to drive it.
 category: guides
 tags: [tambo, sound, audio]
-status: draft
+status: verified
 related:
   - /accessibility/sound-design
   - /guides/scenery-basics
@@ -17,10 +17,6 @@ sourceRefs:
 # Working with Sound (tambo Overview)
 
 `tambo` (`scenerystack/tambo`) is SceneryStack's sound-generation library: instead of every part of a simulation calling into the Web Audio API directly, each sound-producing thing in the sim is a small **sound generator** object, and a single global **`soundManager`** owns the actual audio graph — enabling/disabling sound globally, mixing generators together, applying per-category gain, and connecting the result to the browser's audio output. This page is a subsystem-level tour of that architecture; for using sound specifically as an accessibility channel (sonification alongside Voicing and the PDOM), see [Sound Design](/accessibility/sound-design).
-
-::: warning This page is draft — verify class shapes against the reference site
-The classes and constructor shapes below are read directly from the installed `scenerystack` package's `tambo` source, but the exact option names are more numerous than shown here. Check [scenerystack.org/reference](https://scenerystack.org/reference/) or the package source for anything option-level this page doesn't cover before relying on it.
-:::
 
 ## soundManager: the mixer
 

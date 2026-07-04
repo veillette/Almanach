@@ -4,7 +4,7 @@ description: A single input listener that composes a DragListener and a Keyboard
 category: api
 library: scenery
 tags: [scenery, RichDragListener, input, drag, keyboard, accessibility]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/keyboard-drag-listener
@@ -20,7 +20,7 @@ sourceRefs:
 
 # RichDragListener
 
-`RichDragListener` (from `scenerystack/scenery`) is not a subclass of `DragListener` — it *composes* one internal `DragListener` and one internal `KeyboardDragListener`, forwarding every scenery input-listener callback (`down`, `up`, `keydown`, `focus`, …) to whichever of the two applies, and implements `TInputListener` so it can be attached to a Node exactly like either listener alone. It exists so a draggable object gets pointer *and* keyboard support from one declaration instead of wiring up both listeners and their shared options by hand — per source, it's the recommended default for new draggable code, with plain `DragListener`/`KeyboardDragListener` reserved for cases needing one modality only or finer control.
+`RichDragListener` (from `scenerystack/scenery`) is not a subclass of `DragListener` — it *composes* one internal `DragListener` and one internal `KeyboardDragListener`, forwarding every scenery input-listener callback (`down`, `up`, `keydown`, `focus`, …) to whichever of the two applies, and implements `TInputListener` so it can be attached to a Node exactly like either listener alone. It exists so a draggable object gets pointer *and* keyboard support from one declaration instead of wiring up both listeners and their shared options by hand — see [Drag Listeners](/patterns/drag-listeners) for why it's the recommended default for new draggable code, with plain `DragListener`/`KeyboardDragListener` reserved for cases needing one modality only or finer control.
 
 ```ts
 import { Node, RichDragListener } from 'scenerystack/scenery';

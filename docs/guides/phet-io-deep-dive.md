@@ -3,7 +3,7 @@ title: PhET-iO Deep Dive
 description: PhetioGroup and PhetioCapsule for dynamically created elements, authoring a custom IOType, and how PhET-iO state save/restore actually works.
 category: guides
 tags: [phet-io, tandem, instrumentation, phetio-group, phetio-capsule]
-status: complete
+status: verified
 related:
   - /guides/phet-io-and-instrumentation
   - /patterns/phet-io-instrumentation-pattern

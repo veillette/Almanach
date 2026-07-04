@@ -4,9 +4,12 @@ description: A fluid-level thermometer visualization bound to a temperature Prop
 category: api
 library: scenery-phet
 tags: [scenery-phet, ThermometerNode]
-status: complete
+status: verified
 related:
   - /api/axon/derived-property
+  - /api/scenery-phet/gauge-node
+prerequisites:
+  - /api/axon/property
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
@@ -67,6 +70,6 @@ new ThermometerNode(
 | `temperatureToYPos( temperature )` | Converts a temperature (or `null`) to the internal y-coordinate used for tick placement |
 | `yPosToTemperature( y )` | Inverse of the above, useful for mapping a draggable thumb position back to a temperature |
 
-::: tip A `null` temperature is treated as the minimum
-`temperatureProperty` accepts `number | null`. A `null` value is displayed the same as `minTemperature` (a legacy requirement carried over from States of Matter) — it does **not** hide the fluid or throw. If you need "no reading" to look visually distinct, handle that in a sibling Node rather than expecting `ThermometerNode` to do it.
+::: tip A `null` temperature is treated as the literal value `0`, not `minTemperature`
+`temperatureProperty` accepts `number | null`. Internally, `ThermometerNode` substitutes the literal number `0` for `null` before mapping it through the temperature-to-height function (a legacy requirement carried over from States of Matter) — it does **not** hide the fluid or throw. This only reads the same as `minTemperature` when `minTemperature` happens to be `0`; with a non-zero `minTemperature` (e.g. a negative range), a `null` reading shows the fluid level for temperature `0`, not the bottom of the tube. If you need "no reading" to look visually distinct, handle that in a sibling Node rather than expecting `ThermometerNode` to do it.
 :::

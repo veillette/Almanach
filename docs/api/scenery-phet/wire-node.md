@@ -4,12 +4,14 @@ description: A cubic-bezier wire Path that continuously reconnects two moving po
 category: api
 library: scenery-phet
 tags: [scenery-phet, WireNode, wire, cable, circuit]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/probe-node
   - /api/axon/multilink
   - /patterns/multilink-pattern
   - /api/axon/derived-property
+prerequisites:
+  - /api/scenery-phet/probe-node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

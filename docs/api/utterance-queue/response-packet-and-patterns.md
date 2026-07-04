@@ -4,7 +4,10 @@ description: Structuring a spoken response into name/object/context/hint categor
 category: api
 library: utterance-queue
 tags: [utterance-queue, ResponsePacket, ResponsePatternCollection, voicing, accessibility]
-status: complete
+status: verified
+prerequisites:
+  - /api/utterance-queue/utterance
+  - /api/utterance-queue/utterance-queue
 related:
   - /api/utterance-queue/utterance
   - /api/utterance-queue/utterance-queue

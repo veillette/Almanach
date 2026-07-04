@@ -4,7 +4,7 @@ description: A Node that renders a single string of plain text.
 category: api
 library: scenery
 tags: [scenery, Text, PhetFont, font]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/phet-font
   - /api/scenery/rich-text

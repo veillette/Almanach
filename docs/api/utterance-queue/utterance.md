@@ -4,7 +4,9 @@ description: A wrapper around alert content that tracks stability, priority, and
 category: api
 library: utterance-queue
 tags: [utterance-queue, Utterance, voicing, description, accessibility]
-status: complete
+status: verified
+prerequisites:
+  - /accessibility/voicing
 related:
   - /api/utterance-queue/utterance-queue
   - /api/utterance-queue/response-packet-and-patterns

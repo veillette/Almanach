@@ -2,7 +2,7 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-04T21:48:29.291Z",
+  "generated": "2026-07-04T21:49:47.385Z",
   "documentCount": 231,
   "documents": [
     {
@@ -355,7 +355,7 @@
         "rtl",
         "strings"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/guides/translation-and-localization",
         "/api/axon/pattern-string-property",
@@ -436,7 +436,7 @@
         "tandem",
         "instrumentation"
       ],
-      "status": "draft",
+      "status": "verified",
       "related": [
         "/getting-started/your-first-simulation",
         "/patterns/model-view-separation",
@@ -464,7 +464,7 @@
         "phetio-group",
         "phetio-capsule"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/guides/phet-io-and-instrumentation",
         "/patterns/phet-io-instrumentation-pattern",
@@ -600,7 +600,7 @@
         "i18n",
         "strings"
       ],
-      "status": "draft",
+      "status": "verified",
       "related": [
         "/api/axon/string-property",
         "/guides/preferences-and-feature-flags",
@@ -663,7 +663,7 @@
         "sound",
         "audio"
       ],
-      "status": "draft",
+      "status": "verified",
       "related": [
         "/accessibility/sound-design",
         "/guides/scenery-basics",
@@ -675,7 +675,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 953,
+      "wordCount": 894,
       "url": "https://veillette.github.io/Almanach/guides/working-with-sound"
     },
     {
@@ -1677,14 +1677,17 @@
         "Screen",
         "Sim"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/joist/sim",
         "/api/joist/screen",
         "/api/joist/screen-icon",
         "/api/joist/navigation-bar"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/joist/sim",
+        "/api/joist/screen"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
@@ -1704,14 +1707,17 @@
         "Screen",
         "Sim"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/joist/sim",
         "/api/joist/screen",
         "/api/joist/screen-icon",
         "/api/joist/home-screen"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/joist/sim",
+        "/api/joist/screen"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
@@ -1732,12 +1738,14 @@
         "Sim",
         "preferences"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/joist/sim",
         "/guides/preferences-and-feature-flags"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/joist/sim"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
@@ -2060,7 +2068,7 @@
         "Shape",
         "path"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/scenery/path",
         "/api/dot/bounds2",
@@ -2088,7 +2096,7 @@
         "Subpath",
         "path"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/kite/shape",
         "/api/kite/line-segment",
@@ -2096,11 +2104,13 @@
         "/api/dot/vector2",
         "/api/dot/matrix3"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/kite/shape"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 546,
+      "wordCount": 580,
       "url": "https://veillette.github.io/Almanach/api/kite/subpath"
     },
     {
@@ -3237,7 +3247,7 @@
         "keyboard",
         "accessibility"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/scenery/node",
         "/api/scenery/keyboard-drag-listener",
@@ -3252,7 +3262,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 391,
+      "wordCount": 394,
       "url": "https://veillette.github.io/Almanach/api/scenery/rich-drag-listener"
     },
     {
@@ -3268,7 +3278,7 @@
         "markup",
         "links"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/scenery/text",
         "/api/scenery-phet/phet-font"
@@ -3296,11 +3306,13 @@
         "layout",
         "bounds"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/scenery/node",
         "/api/scenery/flow-box",
         "/api/scenery/grid-box",
+        "/api/scenery/v-box",
+        "/api/scenery/h-box",
         "/guides/scenery-layout"
       ],
       "prerequisites": [
@@ -3309,7 +3321,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 257,
+      "wordCount": 338,
       "url": "https://veillette.github.io/Almanach/api/scenery/spacer"
     },
     {
@@ -3443,7 +3455,7 @@
         "rendering",
         "renderer"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/scenery/node",
         "/api/scenery/display"
@@ -3933,13 +3945,15 @@
         "measurement",
         "ticks"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/scenery-phet/phet-font",
         "/styling/typography-and-fonts",
         "/patterns/dispose-and-memory-management"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/scenery/node"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
@@ -4011,13 +4025,15 @@
         "scenery-phet",
         "StopwatchNode"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/scenery-phet/time-control-node",
         "/api/dot/bounds2",
         "/patterns/model-view-separation"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/dot/bounds2"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
@@ -4035,15 +4051,18 @@
         "scenery-phet",
         "ThermometerNode"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
-        "/api/axon/derived-property"
+        "/api/axon/derived-property",
+        "/api/scenery-phet/gauge-node"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/axon/property"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 441,
+      "wordCount": 489,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/thermometer-node"
     },
     {
@@ -4057,12 +4076,15 @@
         "scenery-phet",
         "TimeControlNode"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/scenery-phet/stopwatch-node",
-        "/api/axon/property"
+        "/api/axon/property",
+        "/api/scenery-phet/play-pause-button"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/scenery-phet/play-pause-button"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
@@ -4083,7 +4105,7 @@
         "cable",
         "circuit"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/scenery-phet/probe-node",
         "/api/axon/multilink",
@@ -4910,14 +4932,17 @@
         "voicing",
         "accessibility"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/utterance-queue/utterance",
         "/api/utterance-queue/utterance-queue",
         "/accessibility/voicing",
         "/accessibility/describing-dynamic-state"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/utterance-queue/utterance",
+        "/api/utterance-queue/utterance-queue"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
@@ -4938,14 +4963,16 @@
         "description",
         "accessibility"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/utterance-queue/utterance-queue",
         "/api/utterance-queue/response-packet-and-patterns",
         "/accessibility/voicing",
         "/accessibility/describing-dynamic-state"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/accessibility/voicing"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
@@ -4967,14 +4994,16 @@
         "description",
         "accessibility"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/utterance-queue/utterance",
         "/api/utterance-queue/response-packet-and-patterns",
         "/accessibility/voicing",
         "/accessibility/describing-dynamic-state"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/utterance-queue/utterance"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
@@ -5053,17 +5082,18 @@
         "button",
         "RectangularPushButton"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
-        "/api/vegas/score-display-number-and-star",
         "/api/vegas/game-audio-player",
         "/api/tambo/sound-clip"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/vegas/score-display-number-and-star"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 396,
+      "wordCount": 433,
       "url": "https://veillette.github.io/Almanach/api/vegas/level-selection-button"
     },
     {
@@ -5080,16 +5110,18 @@
         "game",
         "HBox"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/vegas/level-selection-button",
         "/api/vegas/game-audio-player"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/scenery/h-box"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 287,
+      "wordCount": 308,
       "url": "https://veillette.github.io/Almanach/api/vegas/score-display-number-and-star"
     },
     {
@@ -5803,7 +5835,7 @@
         "focus",
         "accessibility"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/accessibility/pdom",
         "/accessibility/alternative-input-overview",
@@ -5832,7 +5864,7 @@
         "i18n",
         "StringProperty"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/guides/translation-and-localization",
         "/accessibility/pdom",
@@ -6119,7 +6151,7 @@
         "migration",
         "accessibility"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/patterns/drag-listeners",
         "/api/scenery/rich-drag-listener",
@@ -6148,7 +6180,7 @@
         "tandem",
         "phet-io"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/getting-started/your-first-simulation",
         "/examples/demo-simulation-walkthrough",

@@ -4,12 +4,15 @@ description: The bar of screen buttons, title, and PhET menu shown at the bottom
 category: api
 library: joist
 tags: [joist, NavigationBar, Screen, Sim]
-status: complete
+status: verified
 related:
   - /api/joist/sim
   - /api/joist/screen
   - /api/joist/screen-icon
   - /api/joist/home-screen
+prerequisites:
+  - /api/joist/sim
+  - /api/joist/screen
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

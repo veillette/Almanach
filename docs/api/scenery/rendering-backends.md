@@ -4,7 +4,7 @@ description: The three alternate rendering-backend Node subclasses for custom dr
 category: api
 library: scenery
 tags: [scenery, WebGLNode, CanvasNode, DOM, rendering, renderer]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/display

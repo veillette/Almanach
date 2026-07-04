@@ -4,7 +4,9 @@ description: The FIFO queue that manages timing, priority, and interruption for 
 category: api
 library: utterance-queue
 tags: [utterance-queue, UtteranceQueue, Announcer, voicing, description, accessibility]
-status: complete
+status: verified
+prerequisites:
+  - /api/utterance-queue/utterance
 related:
   - /api/utterance-queue/utterance
   - /api/utterance-queue/response-packet-and-patterns

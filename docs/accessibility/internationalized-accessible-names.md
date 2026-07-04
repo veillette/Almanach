@@ -3,7 +3,7 @@ title: Internationalized Accessible Names
 description: Routing accessibleName and other PDOM strings through the same StringProperty translation pipeline as visible text, instead of hardcoding them in English.
 category: accessibility
 tags: [accessibility, pdom, accessibleName, localization, i18n, StringProperty]
-status: complete
+status: verified
 related:
   - /guides/translation-and-localization
   - /accessibility/pdom
@@ -15,7 +15,7 @@ prerequisites:
 
 # Internationalized Accessible Names
 
-[Translation and Localization](/guides/translation-and-localization) establishes the rule for visible text: every user-facing string is a `StringProperty`, never a literal, so translation is a matter of swapping the value underneath an existing Property. PDOM strings — `accessibleName`, `helpText`, `descriptionContent`, `labelContent` — are just as user-facing as a `Text` node's content, and are exactly as easy to accidentally leave outside that pipeline, because they're set as string-shaped options rather than displayed inline where a translation review would notice them.
+[Translation and Localization](/guides/translation-and-localization) establishes the rule for visible text: every user-facing string is a `StringProperty`, never a literal, so translation is a matter of swapping the value underneath an existing Property. PDOM strings — `accessibleName`, `accessibleHelpText`, `descriptionContent`, `labelContent` — are just as user-facing as a `Text` node's content, and are exactly as easy to accidentally leave outside that pipeline, because they're set as string-shaped options rather than displayed inline where a translation review would notice them.
 
 ## The mechanism already supports it
 
@@ -30,7 +30,7 @@ import MySimStrings from '../MySimStrings.js'; // generated StringProperty modul
 const resetButton = new Rectangle( 0, 0, 40, 40, {
   tagName: 'button',
   accessibleName: MySimStrings.resetMassesStringProperty,
-  helpText: MySimStrings.resetMassesHelpTextStringProperty
+  accessibleHelpText: MySimStrings.resetMassesHelpTextStringProperty
 } );
 ```
 
@@ -56,7 +56,7 @@ Every PDOM string option that accepts `PDOMValueType` is in scope, not just `acc
 | Option | Also needs a `StringProperty`, not a literal |
 | --- | --- |
 | `accessibleName` | Yes — same string pipeline as any visible label |
-| `helpText` | Yes — supplementary guidance is still user-facing text |
+| `accessibleHelpText` | Yes — supplementary guidance is still user-facing text |
 | `labelContent` / `descriptionContent` | Yes |
 | [Voicing](/accessibility/voicing) response strings (`voicingNameResponse`, etc.) | Yes — these are spoken words, subject to the same localization requirement as PDOM strings, even though they're a separate system from the PDOM |
 

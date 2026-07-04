@@ -4,7 +4,9 @@ description: A compact vegas score display showing a number and a single star, u
 category: api
 library: vegas
 tags: [vegas, ScoreDisplayNumberAndStar, score, game, HBox]
-status: complete
+status: verified
+prerequisites:
+  - /api/scenery/h-box
 related:
   - /api/vegas/level-selection-button
   - /api/vegas/game-audio-player
@@ -51,5 +53,5 @@ new ScoreDisplayNumberAndStar( scoreProperty: ReadOnlyProperty<number>, provided
 | `spacing` (HBox) | `5` | Horizontal space between the number and the star |
 
 ::: tip It's an HBox, so it participates in layout like any other Node
-`ScoreDisplayNumberAndStar extends HBox` — you can set `maxWidth`/`maxHeight` on it to constrain it inside a fixed-size background (which is exactly how `LevelSelectionButton` uses it), and its `boundsProperty` fires whenever the score changes and the child count (0 vs. 2 children) flips.
+`ScoreDisplayNumberAndStar extends HBox` — you can set `maxWidth`/`maxHeight` on it to constrain it inside a fixed-size background (which is exactly how `LevelSelectionButton` uses it), and its `boundsProperty` fires whenever the score changes and the child count (1 child — just the grayed-out star — when the score is `0`, vs. 2 children — the number plus a filled star — otherwise) flips.
 :::

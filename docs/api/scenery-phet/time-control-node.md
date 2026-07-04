@@ -4,10 +4,13 @@ description: The standard play/pause/step-forward control for time-based simulat
 category: api
 library: scenery-phet
 tags: [scenery-phet, TimeControlNode]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/stopwatch-node
   - /api/axon/property
+  - /api/scenery-phet/play-pause-button
+prerequisites:
+  - /api/scenery-phet/play-pause-button
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
