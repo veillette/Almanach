@@ -10,7 +10,6 @@ related:
   - /api/dot/bounds2
   - /api/dot/matrix3
   - /api/phetcommon/model-view-transform
-prerequisites: []
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
