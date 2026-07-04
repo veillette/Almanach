@@ -4648,7 +4648,7 @@ Everything a sim author controls — which tabs appear, which toggles are in the
 Page: Screen
 URL: https://veillette.github.io/Almanach/api/joist/screen
 Source: docs/api/joist/screen.md
-Category: API | Tags: joist, Screen | Status: complete
+Category: API | Tags: joist, Screen | Status: verified
 ========================================================================
 
 # Screen
@@ -4961,7 +4961,7 @@ Constructed once, internally, by `Sim`.
 | --- | --- |
 | `simName`, `simVersion`, `repoName` | The sim's display name, version string, and repository name |
 | `screens` | One `{ name, phetioID? }` entry per entry in `sim.screens` |
-| `url`, `userAgent`, `language`, `referrer` | Captured from `location`/`navigator`/`document` at startup |
+| `url`, `userAgent`, `language`, `referrer`, `randomSeed` | Captured from `location`/`navigator`/`document`/the `randomSeed` query parameter at startup |
 | `window` | The browser viewport size at startup, as a `"widthxheight"` string |
 | `pixelRatio`, `isWebGLSupported`, `checkIE11StencilSupport`, `flags` | Rendering-capability diagnostics (device pixel ratio vs. backing-store ratio, WebGL availability, assorted browser input-capability flags) |
 | `screenPropertyValue`, `wrapperMetadata`, `dataStreamVersion`, `phetioCommandProcessorProtocol` | Populated only when running under PhET-iO |
@@ -14368,7 +14368,7 @@ Some key combinations can't be physically pressed together on certain keyboards 
 Page: Screen-Reader Testing Checklist
 URL: https://veillette.github.io/Almanach/accessibility/screen-reader-testing-checklist
 Source: docs/accessibility/screen-reader-testing-checklist.md
-Category: Accessibility | Tags: accessibility, pdom, screen-reader, voiceover, nvda, testing | Status: complete
+Category: Accessibility | Tags: accessibility, pdom, screen-reader, voiceover, nvda, testing | Status: verified
 ========================================================================
 
 # Screen-Reader Testing Checklist
@@ -14390,7 +14390,7 @@ Category: Accessibility | Tags: accessibility, pdom, screen-reader, voiceover, n
 
 **Naming and description**
 - [ ] Every interactive element announces a name (`accessibleName`) that identifies what it does without requiring the visual label as context — "Reset Masses" reads correctly on its own; "Button" or a name duplicated across three unrelated controls does not.
-- [ ] `helpText`/description content is heard when expected and isn't redundant with the name (a help text that just repeats the accessible name verbatim is noise, not guidance).
+- [ ] `accessibleHelpText`/description content is heard when expected and isn't redundant with the name (a help text that just repeats the accessible name verbatim is noise, not guidance).
 - [ ] Headings (`labelTagName: 'h3'`, etc.) let a screen-reader user jump between sections using heading navigation, the way they would on a well-structured web page.
 
 **State changes**
@@ -14419,15 +14419,15 @@ A validator can confirm every interactive element has a `tagName` and an `access
 Page: Sound Design
 URL: https://veillette.github.io/Almanach/accessibility/sound-design
 Source: docs/accessibility/sound-design.md
-Category: Accessibility | Tags: tambo, sound, accessibility | Status: draft
+Category: Accessibility | Tags: tambo, sound, accessibility | Status: verified
 ========================================================================
 
 # Sound Design
 
 Non-speech sound ("sonification") is a third accessibility channel alongside the [PDOM](/accessibility/pdom) and [Voicing](/accessibility/voicing): short audio cues that confirm an interaction happened or reflect continuous state, independent of whether the user is looking at the screen or using a screen reader. `tambo` (`scenerystack/tambo`) is the sound-generation library used for this; it registers individual **sound generators** with a single global `soundManager`, which owns overall enable/disable, per-category gain, and visibility-based muting.
 
-::: warning Verify against the reference site before relying on this page
-This page is marked `draft` — the classes and imports below (`SoundClip`, `soundManager`, `sharedSoundPlayers`) are confirmed to exist in the installed `scenerystack` package, but the surrounding sim-lifecycle wiring (initializing `soundManager` itself) is normally handled automatically by the simulation framework (`joist`), and hasn't been independently verified end-to-end here. Cross-check against [scenerystack.org/reference](https://scenerystack.org/reference/) before treating this as authoritative.
+::: tip soundManager is a ready-made singleton
+`soundManager` (and the `sharedSoundPlayers` registry built on top of it) is instantiated once per module and registered by `tambo` itself — a simulation doesn't construct or initialize it; `joist`'s sim-lifecycle code enables it based on the `supportsSound`/`extraSoundInitiallyEnabled` query parameters. View code just imports the singleton and calls `addSoundGenerator`/`get` on it, as below.
 :::
 
 ## Reuse a shared sound player for common UI sounds
@@ -15832,7 +15832,7 @@ By default (`resize: true`), a `FlowBox`/`GridBox` re-runs layout whenever a chi
 Page: Standalone Scenery App Example
 URL: https://veillette.github.io/Almanach/examples/standalone-scenery-app-example
 Source: docs/examples/standalone-scenery-app-example.md
-Category: Examples | Tags: example, scenery, standalone | Status: complete
+Category: Examples | Tags: example, scenery, standalone | Status: verified
 ========================================================================
 
 # Standalone Scenery App Example

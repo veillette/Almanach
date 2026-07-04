@@ -3,7 +3,7 @@ title: Screen-Reader Testing Checklist
 description: A practical checklist for manually testing a sim's PDOM with a real screen reader instead of relying on automated checks alone.
 category: accessibility
 tags: [accessibility, pdom, screen-reader, voiceover, nvda, testing]
-status: complete
+status: verified
 related:
   - /accessibility/pdom
   - /accessibility/voicing

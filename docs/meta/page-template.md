@@ -4,9 +4,12 @@ description: A copy-pasteable frontmatter and section skeleton for authors start
 category: meta
 tags: [template, contributing, conventions]
 status: complete
+prerequisites:
+  - /meta/authoring-guide
 related:
   - /meta/authoring-guide
   - /meta/roadmap
+  - /meta/faq
 ---
 
 # Page Template

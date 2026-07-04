@@ -38,7 +38,7 @@ Constructed once, internally, by `Sim`.
 | --- | --- |
 | `simName`, `simVersion`, `repoName` | The sim's display name, version string, and repository name |
 | `screens` | One `{ name, phetioID? }` entry per entry in `sim.screens` |
-| `url`, `userAgent`, `language`, `referrer` | Captured from `location`/`navigator`/`document` at startup |
+| `url`, `userAgent`, `language`, `referrer`, `randomSeed` | Captured from `location`/`navigator`/`document`/the `randomSeed` query parameter at startup |
 | `window` | The browser viewport size at startup, as a `"widthxheight"` string |
 | `pixelRatio`, `isWebGLSupported`, `checkIE11StencilSupport`, `flags` | Rendering-capability diagnostics (device pixel ratio vs. backing-store ratio, WebGL availability, assorted browser input-capability flags) |
 | `screenPropertyValue`, `wrapperMetadata`, `dataStreamVersion`, `phetioCommandProcessorProtocol` | Populated only when running under PhET-iO |

@@ -4,9 +4,12 @@ description: Alphabetical definitions of SceneryStack and PhET-specific terms us
 category: meta
 tags: [glossary, reference, terminology, conventions]
 status: complete
+prerequisites:
+  - /getting-started/what-is-scenerystack
 related:
   - /meta/faq
   - /meta/authoring-guide
+  - /meta/page-template
   - /getting-started/what-is-scenerystack
 ---
 
