@@ -2,7 +2,7 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-04T12:04:25.365Z",
+  "generated": "2026-07-04T12:06:54.796Z",
   "documentCount": 102,
   "documents": [
     {
@@ -2442,7 +2442,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 773,
+      "wordCount": 801,
       "url": "https://veillette.github.io/Almanach/examples/accessible-control-panel-example"
     },
     {
@@ -2559,7 +2559,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 950,
+      "wordCount": 941,
       "url": "https://veillette.github.io/Almanach/examples/scenery-layout-examples"
     },
     {

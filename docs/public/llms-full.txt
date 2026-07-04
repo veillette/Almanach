@@ -6810,8 +6810,9 @@ import { NumberProperty, BooleanProperty, StringProperty } from 'scenerystack/ax
 import { Range } from 'scenerystack/dot';
 import { Tandem } from 'scenerystack/tandem';
 
-type Shape = 'circle' | 'square';
-
+// 'circle' | 'square' are this Property's only ever-valid values (enforced at runtime by
+// validValues below), but the Property itself is still typed as StringProperty (Property<string>)
+// so it lines up with RectangularRadioButtonGroupItem<string> below without extra casting.
 class PanelModel {
   public readonly speedProperty: NumberProperty;
   public readonly gravityEnabledProperty: BooleanProperty;
@@ -6826,7 +6827,7 @@ class PanelModel {
       tandem: tandem.createTandem( 'gravityEnabledProperty' )
     } );
     this.shapeProperty = new StringProperty( 'circle', {
-      validValues: [ 'circle', 'square' ] as Shape[],
+      validValues: [ 'circle', 'square' ],
       tandem: tandem.createTandem( 'shapeProperty' )
     } );
   }
@@ -6870,7 +6871,7 @@ function createPanelContent( model: PanelModel, tandem: Tandem ) {
     }
   );
 
-  const shapeItems: RectangularRadioButtonGroupItem<'circle' | 'square'>[] = [
+  const shapeItems: RectangularRadioButtonGroupItem<string>[] = [
     { value: 'circle', createNode: () => new Text( 'Circle' ) },
     { value: 'square', createNode: () => new Text( 'Square' ) }
   ];
@@ -7271,10 +7272,10 @@ class DemoScreenView extends ScreenView {
 
     circle.center = this.layoutBounds.center;
 
+    this.children = [ circle, controls ];
+
     // Explicit PDOM traversal order: circle isn't interactive, so it's left out entirely.
     this.pdomOrder = [ slider, resetAllButton ];
-
-    this.children = [ circle, controls ];
   }
 }
 ```
@@ -7596,7 +7597,7 @@ const settingsGrid = new GridBox( {
 Every child's `layoutOptions.row`/`layoutOptions.column` places it in the grid; `xAlign`/`yAlign` control alignment *within* each cell, and `xSpacing`/`ySpacing` control the gaps between columns/rows.
 
 ::: tip `row`/`column` live in `layoutOptions`, not on the child directly
-`GridBox` reads placement from each child's `layoutOptions` object (`{ row, column }`, or `{ x, y, horizontalSpan, verticalSpan }` for the lower-level form), not from a constructor argument to `GridBox` itself. Setting `someNode.layoutOptions = { row: 2, column: 0 }` after construction re-triggers layout the same way changing `children` does.
+`GridBox` reads placement from each child's `layoutOptions` object (`{ row, column, horizontalSpan, verticalSpan }`), not from a constructor argument to `GridBox` itself. Setting `someNode.layoutOptions = { row: 2, column: 0 }` after construction re-triggers layout the same way changing `children` does.
 :::
 
 ## Nesting FlowBox inside GridBox
