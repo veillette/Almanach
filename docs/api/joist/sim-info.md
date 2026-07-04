@@ -4,8 +4,10 @@ description: A snapshot of runtime/browser/simulation diagnostic data, built onc
 category: api
 library: joist
 tags: [joist, SimInfo, Sim, phet-io]
-status: complete
+status: verified
 related:
+  - /api/joist/sim
+prerequisites:
   - /api/joist/sim
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

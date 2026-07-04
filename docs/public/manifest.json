@@ -2,7 +2,7 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-04T21:51:28.834Z",
+  "generated": "2026-07-04T21:51:55.479Z",
   "documentCount": 231,
   "documents": [
     {
@@ -1872,11 +1872,13 @@
         "Sim",
         "phet-io"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/joist/sim"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/joist/sim"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
@@ -6018,7 +6020,7 @@
         "voicing",
         "speech"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/accessibility/pdom",
         "/accessibility/describing-dynamic-state",
@@ -6291,7 +6293,7 @@
         "three.js",
         "webgl"
       ],
-      "status": "draft",
+      "status": "verified",
       "related": [
         "/getting-started/your-first-simulation",
         "/patterns/model-view-separation",

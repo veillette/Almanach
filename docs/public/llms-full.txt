@@ -4931,7 +4931,7 @@ new Sim(
 Page: SimInfo
 URL: https://veillette.github.io/Almanach/api/joist/sim-info
 Source: docs/api/joist/sim-info.md
-Category: API | Tags: joist, SimInfo, Sim, phet-io | Status: complete
+Category: API | Tags: joist, SimInfo, Sim, phet-io | Status: verified
 ========================================================================
 
 # SimInfo
@@ -14575,7 +14575,7 @@ Before reaching for a screen reader, unplug your mouse: every interactive elemen
 Page: Voicing
 URL: https://veillette.github.io/Almanach/accessibility/voicing
 Source: docs/accessibility/voicing.md
-Category: Accessibility | Tags: scenery, voicing, speech | Status: complete
+Category: Accessibility | Tags: scenery, voicing, speech | Status: verified
 ========================================================================
 
 # Voicing
@@ -14649,7 +14649,7 @@ Each speak call still respects the user's response-category preferences (via `re
 
 ## Voicing vs. the PDOM
 
-Voicing content and PDOM content (`accessibleName`, `descriptionContent`, `helpText`; see [The Parallel DOM](/accessibility/pdom)) are deliberately separate systems that often carry *similar but not identical* wording — the PDOM is read by conventional screen readers with their own navigation model, while Voicing content is spoken directly by the sim in response to specific gestures/focus. Most components set both, and it's fine (often correct) for the phrasing to differ slightly given the different context each is heard in.
+Voicing content and PDOM content (`accessibleName`, `descriptionContent`, `accessibleHelpText`; see [The Parallel DOM](/accessibility/pdom)) are deliberately separate systems that often carry *similar but not identical* wording — the PDOM is read by conventional screen readers with their own navigation model, while Voicing content is spoken directly by the sim in response to specific gestures/focus. Most components set both, and it's fine (often correct) for the phrasing to differ slightly given the different context each is heard in.
 
 ::: tip Voicing requires an explicit user opt-in
 Voicing speech only plays once the user has enabled it via preferences (it is not the same as a screen reader, and is off by default) — during development, remember that a `Voicing`-enabled Node's responses are silent until Voicing is turned on, even though the response strings are already assigned.
@@ -15927,7 +15927,7 @@ A `Sim` listens for window resizes and lays out the navigation bar and current s
 Page: Three.js Integration
 URL: https://veillette.github.io/Almanach/examples/three-js-integration
 Source: docs/examples/three-js-integration.md
-Category: Examples | Tags: example, three.js, webgl | Status: draft
+Category: Examples | Tags: example, three.js, webgl | Status: verified
 ========================================================================
 
 # Three.js Integration
@@ -16009,8 +16009,8 @@ const cubeScreen = new Screen(
 );
 ```
 
-::: warning This page is a draft
-`mobius` is verified against the real SceneryStack source (`MobiusScreenView`, `ThreeIsometricNode`, and `ThreeStage` all exist as shown, and mobius does re-export `three` as `THREE`), but the exact runtime behavior of the isometric camera, the WebGL-unavailable fallback (`MobiusScreenView.showWebGLWarning`), and how `phet.joist.sim.dimensionProperty` feeds `layout()` were not exercised end-to-end for this page. Treat the shapes of the classes and imports as accurate, but verify the animation/render timing against a running sim before relying on it. See [`phetsims/mobius`](https://github.com/phetsims/mobius) for the canonical source.
+::: tip Checked against source, not against a running sim
+Every class, method, and option shown here (`MobiusScreenView.sceneNode`/`step`/`showWebGLWarning`, `ThreeIsometricNode.stage`, `ThreeStage.threeScene`, `cameraPosition` on `ThreeIsometricNodeOptions` via `ThreeStageOptions`, mobius's re-export of `three` as `THREE`, and `phet.joist.sim.dimensionProperty` feeding `MobiusScreenView.layout()`) was independently confirmed against the real `mobius`/`joist` source, not just this page's own prior claims. What hasn't been exercised is the actual rendered output in a browser — the isometric camera framing and animation timing are worth a visual check in a running sim before relying on exact values.
 :::
 
 ## Where to go next
