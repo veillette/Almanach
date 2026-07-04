@@ -84,12 +84,12 @@ class DemoScreenView extends ScreenView {
     // The one place radiusProperty IS written: user interaction with the slider.
     const slider = new HSlider( model.radiusProperty, new Range( 10, 100 ), {
       accessibleName: 'Circle radius',
-      tandem: providedOptions.tandem.createTandem( 'slider' )
+      tandem: this.tandem.createTandem( 'slider' )
     } );
 
     const resetAllButton = new ResetAllButton( {
       listener: () => model.reset(),
-      tandem: providedOptions.tandem.createTandem( 'resetAllButton' )
+      tandem: this.tandem.createTandem( 'resetAllButton' )
     } );
 
     const controls = new VBox( {

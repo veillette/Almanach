@@ -99,7 +99,7 @@ import { Hotkey, globalHotkeyRegistry } from 'scenerystack/scenery';
 import { Property } from 'scenerystack/axon';
 
 const helpHotkey = new Hotkey( {
-  keyStringProperty: new Property( 'shift+slash' ), // Shift+? for "help"
+  keyStringProperty: new Property( 'shift+h' ),
   fire: () => model.showHelp()
 } );
 
