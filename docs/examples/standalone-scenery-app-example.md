@@ -47,22 +47,22 @@ Unlike a `Sim`, nothing about `Display` assumes there is only one on the page â€
 ```ts
 import { NumberProperty } from 'scenerystack/axon';
 import { Range } from 'scenerystack/dot';
+import { Vector2 } from 'scenerystack/dot';
 
 const angleProperty = new NumberProperty( 0, {
   range: new Range( 0, 2 * Math.PI )
 } );
 
+// The Display's own center, in its 640x480 layout - independent of rootNode's (initially empty) bounds.
+const origin = new Vector2( 320, 240 );
+
 const dot = new Circle( 8, { fill: 'orange' } );
 angleProperty.link( angle => {
-  dot.center = rootNode.center.plus( new Vector2( Math.cos( angle ), Math.sin( angle ) ).timesScalar( 100 ) );
+  dot.center = origin.plus( new Vector2( Math.cos( angle ), Math.sin( angle ) ).timesScalar( 100 ) );
 } );
-```
-
-```ts
-import { Vector2 } from 'scenerystack/dot';
 
 rootNode.addChild( dot );
-rootNode.addChild( new Circle( 2, { fill: 'white', center: rootNode.center } ) ); // origin marker
+rootNode.addChild( new Circle( 2, { fill: 'white', center: origin } ) ); // origin marker
 ```
 
 ## Driving input and animation
