@@ -4,12 +4,14 @@ description: An animated bicycle-pump graphic whose handle, when dragged down, i
 category: api
 library: scenery-phet
 tags: [scenery-phet, BicyclePumpNode, pump, particles]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/faucet-node
   - /api/dot/range
   - /api/axon/boolean-property
   - /patterns/drag-listeners
+prerequisites:
+  - /api/axon/number-property
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

@@ -2,7 +2,7 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-04T21:53:27.696Z",
+  "generated": "2026-07-04T22:01:53.379Z",
   "documentCount": 231,
   "documents": [
     {
@@ -3557,14 +3557,16 @@
         "pump",
         "particles"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/scenery-phet/faucet-node",
         "/api/dot/range",
         "/api/axon/boolean-property",
         "/patterns/drag-listeners"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/axon/number-property"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
@@ -5346,7 +5348,7 @@
         "Sim",
         "architecture"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/joist/sim",
         "/api/joist/screen",
@@ -5360,7 +5362,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 636,
+      "wordCount": 660,
       "url": "https://veillette.github.io/Almanach/patterns/multi-screen-sim-structure"
     },
     {
@@ -5374,7 +5376,7 @@
         "phet-io",
         "architecture"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/tandem/tandem",
         "/api/joist/sim",
@@ -5389,7 +5391,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 631,
+      "wordCount": 658,
       "url": "https://veillette.github.io/Almanach/patterns/phet-io-instrumentation-pattern"
     },
     {
@@ -5402,17 +5404,20 @@
         "query-parameters",
         "conventions"
       ],
-      "status": "draft",
+      "status": "verified",
       "related": [
         "/patterns/phet-io-instrumentation-pattern",
-        "/patterns/model-view-separation"
+        "/patterns/model-view-separation",
+        "/patterns/feature-flags-and-preferences-pattern"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/getting-started/what-is-scenerystack"
+      ],
       "sourceRefs": [
         "https://github.com/phetsims/query-string-machine",
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 429,
+      "wordCount": 479,
       "url": "https://veillette.github.io/Almanach/patterns/query-parameters-pattern"
     },
     {
@@ -5428,7 +5433,7 @@
         "state",
         "persistence"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/patterns/phet-io-instrumentation-pattern",
         "/patterns/model-view-separation",
@@ -5455,7 +5460,7 @@
         "model",
         "node.js"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/patterns/model-view-separation",
         "/patterns/dispose-and-memory-management"
@@ -5464,7 +5469,7 @@
         "/patterns/model-view-separation"
       ],
       "sourceRefs": [],
-      "wordCount": 575,
+      "wordCount": 662,
       "url": "https://veillette.github.io/Almanach/patterns/testing-model-logic-headlessly"
     },
     {
@@ -5503,7 +5508,7 @@
         "Multilink",
         "DerivedProperty"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/axon/multilink",
         "/api/axon/derived-property",
@@ -5514,7 +5519,7 @@
         "/patterns/model-view-separation"
       ],
       "sourceRefs": [],
-      "wordCount": 427,
+      "wordCount": 428,
       "url": "https://veillette.github.io/Almanach/patterns/multilink-pattern"
     },
     {
@@ -5528,12 +5533,15 @@
         "typescript",
         "conventions"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/patterns/model-view-separation",
-        "/patterns/dispose-and-memory-management"
+        "/patterns/dispose-and-memory-management",
+        "/api/scenery-phet/arrow-node"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/getting-started/what-is-scenerystack"
+      ],
       "sourceRefs": [],
       "wordCount": 469,
       "url": "https://veillette.github.io/Almanach/patterns/options-pattern"
@@ -5549,7 +5557,7 @@
         "ResetAllButton",
         "Property"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/scenery-phet/reset-all-button",
         "/api/axon/property",
@@ -6432,7 +6440,7 @@
       ],
       "prerequisites": [],
       "sourceRefs": [],
-      "wordCount": 1104,
+      "wordCount": 1287,
       "url": "https://veillette.github.io/Almanach/meta/roadmap"
     }
   ]

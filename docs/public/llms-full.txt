@@ -8437,7 +8437,7 @@ const backButton = new BackButton( {
 Page: BicyclePumpNode
 URL: https://veillette.github.io/Almanach/api/scenery-phet/bicycle-pump-node
 Source: docs/api/scenery-phet/bicycle-pump-node.md
-Category: API | Tags: scenery-phet, BicyclePumpNode, pump, particles | Status: complete
+Category: API | Tags: scenery-phet, BicyclePumpNode, pump, particles | Status: verified
 ========================================================================
 
 # BicyclePumpNode
@@ -12554,7 +12554,7 @@ The Property is the single source of truth; the slider both writes it and reacts
 Page: Multi-Screen Sim Structure
 URL: https://veillette.github.io/Almanach/patterns/multi-screen-sim-structure
 Source: docs/patterns/multi-screen-sim-structure.md
-Category: Patterns | Tags: joist, Screen, Sim, architecture | Status: complete
+Category: Patterns | Tags: joist, Screen, Sim, architecture | Status: verified
 ========================================================================
 
 # Multi-Screen Sim Structure
@@ -12652,8 +12652,8 @@ onReadyToLaunch( () => {
 
 Each screen also gets its own `Tandem` subtree (`introTandem`, `advancedTandem` above), created from `Tandem.ROOT`, so PhET-iO's element tree mirrors the screen boundaries — see [The PhET-iO Instrumentation Pattern](/patterns/phet-io-instrumentation-pattern).
 
-::: warning `name` and the icons become required once there is more than one screen
-`Screen`'s `name` (a `TReadOnlyProperty<string>`, not a plain string) and its `homeScreenIcon`/`navigationBarIcon` may be `null` for a single-screen sim, since there is no home screen or navigation bar to show them in. As soon as a second screen exists, `Sim` builds a home screen and navigation bar from these, so every screen must supply a real `name` and a `homeScreenIcon` (the `navigationBarIcon` falls back to a scaled copy of the home screen icon if omitted).
+::: warning `name` and the icons are optional in the types, but silently degrade if omitted on a multi-screen sim
+`Screen`'s `name` (a `TReadOnlyProperty<string>`, not a plain string) and its `homeScreenIcon`/`navigationBarIcon` may be omitted for a single-screen sim, since there is no home screen or navigation bar to show them in. Nothing throws if you omit them on a multi-screen sim either — `Screen` falls back to a blank name and a plain colored-rectangle icon (`navigationBarIcon` further falls back to a scaled copy of `homeScreenIcon`) — but the home screen and navigation bar become genuinely unusable that way, so supply a real `name` and `homeScreenIcon` for every screen once there's more than one.
 :::
 
 
@@ -12661,7 +12661,7 @@ Each screen also gets its own `Tandem` subtree (`introTandem`, `advancedTandem` 
 Page: PhET-iO Instrumentation Pattern
 URL: https://veillette.github.io/Almanach/patterns/phet-io-instrumentation-pattern
 Source: docs/patterns/phet-io-instrumentation-pattern.md
-Category: Patterns | Tags: tandem, phet-io, architecture | Status: complete
+Category: Patterns | Tags: tandem, phet-io, architecture | Status: verified
 ========================================================================
 
 # PhET-iO Instrumentation Pattern
@@ -12671,7 +12671,7 @@ A `Tandem` is a stable, hierarchical name (like a file path) that a `PhetioObjec
 ## The core idea
 
 ```ts
-import { NumberProperty, BooleanProperty, DerivedProperty } from 'scenerystack/axon';
+import { NumberProperty, BooleanProperty, DerivedProperty, type TReadOnlyProperty } from 'scenerystack/axon';
 import { Tandem, NumberIO } from 'scenerystack/tandem';
 import { Range } from 'scenerystack/dot';
 
@@ -12685,7 +12685,9 @@ class ProjectileModel {
 
   // Recomputed automatically from angleProperty - no independent state to save, so it needs
   // a phetioValueType but is marked phetioReadOnly (it is never *set* directly by a client).
-  public readonly heightAtLaunchProperty: DerivedProperty<number>;
+  // Typed as TReadOnlyProperty, not DerivedProperty<...>, since DerivedProperty's own generic
+  // parameters are positional per-dependency (T, T1, T2, ... T15), not a single type argument.
+  public readonly heightAtLaunchProperty: TReadOnlyProperty<number>;
 
   public constructor( tandem: Tandem ) {
 
@@ -12756,7 +12758,7 @@ Passing `Tandem.REQUIRED` (or a real tandem) into every constructor and only act
 Page: Query Parameters Pattern
 URL: https://veillette.github.io/Almanach/patterns/query-parameters-pattern
 Source: docs/patterns/query-parameters-pattern.md
-Category: Patterns | Tags: query-parameters, conventions | Status: draft
+Category: Patterns | Tags: query-parameters, conventions | Status: verified
 ========================================================================
 
 # Query Parameters Pattern
@@ -12805,14 +12807,14 @@ Reading `?speed=2&showAnswers` from the URL yields `{ backgroundColor: 'white', 
 | Field | Effect |
 | --- | --- |
 | `type` | `'flag'` \| `'boolean'` \| `'number'` \| `'string'` \| `'array'` \| `'custom'` — determines parsing and the resulting TypeScript type |
-| `defaultValue` | Value used when the parameter is absent from the URL (required unless `type: 'flag'`) |
+| `defaultValue` | Value used when the parameter is absent from the URL — omitting it is only safe for `type: 'flag'` (which defaults to `false`); for every other type, a parameter that's both absent from the URL and missing a `defaultValue` throws at parse time |
 | `validValues` | Restrict to an enumerated set of values |
 | `isValidValue` | Custom predicate the parsed value must satisfy |
 | `public` | If `true`, an invalid value warns and falls back to the default instead of throwing |
 | `private` | Only read from the URL for team members (gated by a `phetTeamMember` local-storage check) |
 
-::: warning This page is a draft — the schema shape above is confirmed against source, but conventions around it are not independently verified
-The exact call — `QueryStringMachine.getAll({ ... })` with `type`/`defaultValue`/`validValues`/`isValidValue`/`public`/`private` fields — was checked directly against `QueryStringMachineModule.ts` and against real per-library usages (e.g. `sunQueryParameters.ts`, `SceneryQueryParameters.ts`) in the installed `scenerystack` package, so the API shown here is real. What's *not* independently verified is the broader convention for where a sim-author-facing query-parameters module should live and how it should be named in application code outside the PhET repos themselves — treat that part as a reasonable default, not a confirmed house style, until a `verified` pass checks it against [scenerystack.org/reference](https://scenerystack.org/reference/).
+::: tip Verified against source; the module-location convention is still a reasonable default, not a confirmed house style
+The exact call — `QueryStringMachine.getAll({ ... })` with `type`/`defaultValue`/`validValues`/`isValidValue`/`public`/`private` fields, including the runtime behavior of each (an absent `defaultValue` on a non-flag type throws unless the URL supplies the value; `public: true` downgrades an invalid value to a warning-plus-fallback instead of throwing; `private: true` gates URL reads on a `phetTeamMember` local-storage check) — was checked directly against `QueryStringMachineModule.ts` and real per-library usages (e.g. `sunQueryParameters.ts`, `SceneryQueryParameters.ts`) in the real `scenerystack` package source. What's *not* independently verified is the broader convention for where a sim-author-facing query-parameters module should live and how it should be named in application code outside the PhET repos themselves — treat that part as a reasonable default, not a confirmed house style.
 :::
 
 
@@ -12820,7 +12822,7 @@ The exact call — `QueryStringMachine.getAll({ ... })` with `type`/`defaultValu
 Page: State Persistence and Save/Restore Patterns
 URL: https://veillette.github.io/Almanach/patterns/state-persistence-and-save-restore-patterns
 Source: docs/patterns/state-persistence-and-save-restore-patterns.md
-Category: Patterns | Tags: tandem, phet-io, Property, state, persistence | Status: complete
+Category: Patterns | Tags: tandem, phet-io, Property, state, persistence | Status: verified
 ========================================================================
 
 # State Persistence and Save/Restore Patterns
@@ -12895,7 +12897,7 @@ Keeping every piece of mutable state in a `Property` costs nothing extra to writ
 Page: Testing Model Logic Headlessly
 URL: https://veillette.github.io/Almanach/patterns/testing-model-logic-headlessly
 Source: docs/patterns/testing-model-logic-headlessly.md
-Category: Patterns | Tags: testing, axon, Property, model, node.js | Status: complete
+Category: Patterns | Tags: testing, axon, Property, model, node.js | Status: verified
 ========================================================================
 
 # Testing Model Logic Headlessly
@@ -12938,6 +12940,10 @@ QUnit.test( 'reset restores every Property to its initial value', assert => {
 ```
 
 Nothing here touches `scenerystack/scenery`. `ProjectileModel` is constructed the same way a real screen would construct it, `step` is called directly with an explicit `dt` instead of waiting on `requestAnimationFrame`, and assertions read `Property.value` — the same public surface the view observes.
+
+::: tip Any test runner works — `QUnit` isn't part of the `scenerystack` package
+`QUnit` is shown above because it's the convention in PhET's own repos, not because `scenerystack` bundles or requires it — it's not one of `scenerystack`'s own dependencies. A model built this way is equally testable from Jest, Vitest, `node:test`, or anything else that can call a constructor and read a `.value` — the headless-testability property comes from the model having no `scenery`/DOM imports, not from which test runner you point at it.
+:::
 
 ## Why not test through the rendered view
 
@@ -13028,7 +13034,7 @@ function describe( intensity: Intensity ): string {
 Page: The Multilink Pattern
 URL: https://veillette.github.io/Almanach/patterns/multilink-pattern
 Source: docs/patterns/multilink-pattern.md
-Category: Patterns | Tags: axon, Multilink, DerivedProperty | Status: complete
+Category: Patterns | Tags: axon, Multilink, DerivedProperty | Status: verified
 ========================================================================
 
 # The Multilink Pattern
@@ -13056,7 +13062,7 @@ const multilink = Multilink.multilink(
 Multilink.unmultilink( multilink );
 ```
 
-`new Multilink( dependencies, callback, lazy? )` is the equivalent instance form — reach for it only when you need a handle without going through the static helper (for example, to pass `lazy: true` and skip the initial call). Prefer `Multilink.multilink` for the common case; ESLint flags `new Multilink(...)` used only for its side effect and an unused variable otherwise.
+`new Multilink( dependencies, callback, lazy? )` is the equivalent instance form — reach for it only when you need a handle without going through the static helper (for example, to pass `lazy: true` and skip the initial call). Prefer `Multilink.multilink` for the common case, since constructing a `Multilink` you never reference is just an unused variable with no compensating benefit.
 
 ## Multilink vs. DerivedProperty
 
@@ -13085,7 +13091,7 @@ const weightProperty = new DerivedProperty(
 Page: The Options Pattern
 URL: https://veillette.github.io/Almanach/patterns/options-pattern
 Source: docs/patterns/options-pattern.md
-Category: Patterns | Tags: options, typescript, conventions | Status: complete
+Category: Patterns | Tags: options, typescript, conventions | Status: verified
 ========================================================================
 
 # The Options Pattern
@@ -13159,7 +13165,7 @@ Every configurable class exports its options type (`ArrowNodeOptions`, `ScreenOp
 Page: The Reset-All Pattern
 URL: https://veillette.github.io/Almanach/patterns/reset-all-pattern
 Source: docs/patterns/reset-all-pattern.md
-Category: Patterns | Tags: reset, ResetAllButton, Property | Status: complete
+Category: Patterns | Tags: reset, ResetAllButton, Property | Status: verified
 ========================================================================
 
 # The Reset-All Pattern
@@ -16203,6 +16209,10 @@ Category: Meta | Tags: glossary, reference, terminology, conventions | Status: c
 
 Definitions for terms this wiki uses repeatedly without re-explaining every time. Each entry links to the page where the concept is covered in full — this page is for "what does that word mean," not a replacement for reading the linked page.
 
+## accessibleHelpText
+
+Supplementary guidance announced alongside an element's `accessibleName`, for detail the visible label doesn't already convey. Supplements the accessible name; it never replaces it. See [Accessible Control Panel Example](/examples/accessible-control-panel-example).
+
 ## accessibleName
 
 The string a screen reader announces for a focusable element in the PDOM — the accessibility equivalent of a visible label, set as a `Node` option. See [The Parallel DOM](/accessibility/pdom).
@@ -16234,10 +16244,6 @@ An axon primitive for a momentary event with no persisted value — "did X just 
 ## EnumerationValue / Enumeration
 
 The pattern for modeling a closed set of values (a mode, a phase) as real object instances with identity, instead of a string-literal union — gives runtime-validated `EnumerationProperty` writes and automatic PhET-iO serialization. See [The Enumeration Pattern](/patterns/enumeration-pattern).
-
-## helpText
-
-Supplementary guidance announced alongside an element's `accessibleName`, for detail the visible label doesn't already convey. Supplements the accessible name; it never replaces it. See [Accessible Control Panel Example](/examples/accessible-control-panel-example).
 
 ## Hotkey
 
@@ -16455,6 +16461,12 @@ Two kinds of work, both in `roadmap.manifest.json`'s `phase2.targets` array:
 ### Phase 3 — Maintenance (ongoing, no fixed page count)
 
 Once Phases 1-2 are substantially built: a cross-link densification pass (add `related`/`prerequisites` now that more targets exist), upgrading `complete` → `verified` pages via an independent source-check pass, and pruning or merging pages that turn out to overlap. `npm run roadmap:status` reports live counts for all three (status breakdown across every page, plus how many pages still lack `prerequisites`/`related`/`sourceRefs`) — there's no separate manifest for Phase 3 since the targets are "drive the gaps to zero," not a fixed list.
+
+A first full pass (against the real `scenerystack@3.0.0` package source) took every `api/` page and most narrative pages from `complete` to `verified`, fixing real inaccuracies along the way (wrong defaults, invented/renamed options, misattributed behavior — see the git history for specifics) and filling in most missing `prerequisites`/`related` links. Left for a future pass:
+
+- **Known overlap candidates** (flagged during verification, not merged — each pair reads as intentionally layered rather than duplicated, but worth a second look): `api/sun/list-box.md` vs. `api/sun/combo-box.md` (the former is thin and almost entirely "see ComboBox instead"); `guides/phet-io-and-instrumentation.md` vs. `guides/phet-io-deep-dive.md` vs. `patterns/phet-io-instrumentation-pattern.md`; `patterns/state-persistence-and-save-restore-patterns.md` vs. `patterns/phet-io-instrumentation-pattern.md`/`patterns/reset-all-pattern.md`; `api/scenery/parallel-dom-deep-dive.md` vs. `accessibility/pdom.md`.
+- **Stale filenames** (title/content already correct and self-documented in-page, but the filename predates a scope correction from Phase 2): `api/phetcommon/phetcommon-query-parameters.md` actually documents `StringUtils`; `api/scenery-phet/heat-cool-control.md` actually documents `HeaterCoolerNode`. Renaming either requires auditing every cross-link and the Phase 1/2 manifest entries that reference the old path.
+- The 5 `meta/*` pages (`authoring-guide`, `faq`, `glossary`, `page-template`, this file) stay at `complete` rather than `verified` — that status is about checking claims against SceneryStack source, which doesn't apply to pages that are about the wiki itself.
 
 ## Totals
 
