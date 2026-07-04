@@ -32,4 +32,4 @@ See the [Authoring Guide](docs/meta/authoring-guide.md): drop a Markdown file wi
 
 ## Deployment
 
-Pushes to `main` build and deploy the site to GitHub Pages via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) (requires the repository's **Settings → Pages → Source** set to *GitHub Actions*). All other pushes and pull requests run the validation/build check in [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
+Pushes to `main` build and deploy the site to GitHub Pages via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) 
