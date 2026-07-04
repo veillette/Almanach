@@ -7,6 +7,7 @@ status: verified
 related:
   - /accessibility/pdom
   - /accessibility/voicing
+  - /accessibility/internationalized-accessible-names
 prerequisites:
   - /accessibility/pdom
 sourceRefs:
@@ -41,7 +42,7 @@ const ballNode = new Node( {
 
 `StringUtils.fillIn` (from `scenerystack/phetcommon`) fills `{{placeholder}}` tokens in a template string — the standard way to build description sentences that embed a formatted value, and it composes cleanly with i18n since the template itself can be a translated `StringProperty`.
 
-Because `descriptionContent` is just bound to the `Property`, this same pattern works for `accessibleParagraph`, `helpText`, or `accessibleName` on any Node.
+Because `descriptionContent` is just bound to the `Property`, this same pattern works for `accessibleParagraph`, `accessibleHelpText`, or `accessibleName` on any Node.
 
 ## Announcing changes as they happen with addAccessibleResponse
 

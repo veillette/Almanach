@@ -2,7 +2,7 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-04T21:51:55.479Z",
+  "generated": "2026-07-04T21:53:08.174Z",
   "documentCount": 231,
   "documents": [
     {
@@ -1845,18 +1845,21 @@
         "joist",
         "Sim"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/joist/screen",
         "/api/joist/screen-view",
         "/api/tandem/tandem",
         "/getting-started/your-first-simulation"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/getting-started/your-first-simulation",
+        "/api/joist/screen"
+      ],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 577,
+      "wordCount": 592,
       "url": "https://veillette.github.io/Almanach/api/joist/sim"
     },
     {
@@ -5291,7 +5294,7 @@
         "feature-flag",
         "preferences"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/guides/preferences-and-feature-flags",
         "/patterns/model-view-separation",
@@ -5324,7 +5327,7 @@
       ],
       "prerequisites": [],
       "sourceRefs": [],
-      "wordCount": 430,
+      "wordCount": 473,
       "url": "https://veillette.github.io/Almanach/patterns/model-view-separation"
     },
     {
@@ -5835,7 +5838,8 @@
       "status": "verified",
       "related": [
         "/accessibility/pdom",
-        "/accessibility/voicing"
+        "/accessibility/voicing",
+        "/accessibility/internationalized-accessible-names"
       ],
       "prerequisites": [
         "/accessibility/pdom"
@@ -5968,7 +5972,8 @@
       "status": "verified",
       "related": [
         "/accessibility/voicing",
-        "/accessibility/describing-dynamic-state"
+        "/accessibility/describing-dynamic-state",
+        "/accessibility/screen-reader-testing-checklist"
       ],
       "prerequisites": [
         "/accessibility/pdom"

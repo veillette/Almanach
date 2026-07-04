@@ -7,6 +7,7 @@ status: verified
 related:
   - /accessibility/voicing
   - /accessibility/describing-dynamic-state
+  - /accessibility/screen-reader-testing-checklist
 prerequisites:
   - /accessibility/pdom
 sourceRefs:

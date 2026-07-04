@@ -16,17 +16,20 @@ Every SceneryStack application is built around a strict one-way dependency: the 
 ## The model: axon Properties
 
 ```ts
-import { NumberProperty, Property, DerivedProperty } from 'scenerystack/axon';
-import { Vector2 } from 'scenerystack/dot';
+import { NumberProperty, Property, DerivedProperty, type TReadOnlyProperty } from 'scenerystack/axon';
+import { Vector2, Range } from 'scenerystack/dot';
 
 export class ProjectileModel {
 
   // Mutable state is a Property. Physical units only — meters, seconds.
   public readonly positionProperty = new Property( new Vector2( 0, 0 ) );
-  public readonly massProperty = new NumberProperty( 5 ); // kg
+  public readonly massProperty = new NumberProperty( 5, { range: new Range( 1, 20 ) } ); // kg
 
   // Derived state is a DerivedProperty: never stored redundantly, never stale.
-  public readonly weightProperty: DerivedProperty<number, [ number ]>;
+  // Typed as TReadOnlyProperty, not DerivedProperty<...>, because DerivedProperty's own
+  // generic parameters are positional per-dependency (T, T1, T2, ... T15), not a single
+  // tuple - TReadOnlyProperty<number> is what you actually want to expose here.
+  public readonly weightProperty: TReadOnlyProperty<number>;
 
   public constructor() {
     this.weightProperty = new DerivedProperty( [ this.massProperty ], mass => mass * 9.8 );

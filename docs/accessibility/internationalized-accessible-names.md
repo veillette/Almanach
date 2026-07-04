@@ -78,5 +78,5 @@ slider.accessibleName = sliderAccessibleNameProperty;
 ```
 
 ::: tip Review PDOM strings the same way you'd review visible strings
-When checking a PR (your own or someone else's) for stray hardcoded English, grep for `accessibleName:`, `helpText:`, `labelContent:`, `descriptionContent:`, and `voicing*Response:` followed by a quoted literal, the same way you'd look for a bare string passed to `new Text(...)`. Nothing about these options makes a literal *look* wrong at a glance — the only way to catch it is to specifically look.
+When checking a PR (your own or someone else's) for stray hardcoded English, grep for `accessibleName:`, `accessibleHelpText:`, `labelContent:`, `descriptionContent:`, and `voicing*Response:` followed by a quoted literal, the same way you'd look for a bare string passed to `new Text(...)`. Nothing about these options makes a literal *look* wrong at a glance — the only way to catch it is to specifically look.
 :::

@@ -4855,7 +4855,7 @@ new ScreenView( providedOptions?: ScreenViewOptions )
 Page: Sim
 URL: https://veillette.github.io/Almanach/api/joist/sim
 Source: docs/api/joist/sim.md
-Category: API | Tags: joist, Sim | Status: complete
+Category: API | Tags: joist, Sim | Status: verified
 ========================================================================
 
 # Sim
@@ -4915,7 +4915,7 @@ new Sim(
 | `screens` | All screens in the running sim, with the auto-created `HomeScreen` first if one exists |
 | `simScreens` | Just the sim-specific screens (excludes the `HomeScreen`) |
 | `selectedScreenProperty` | `Property<AnyScreen>` — which screen is currently showing |
-| `activeProperty` | `Property<boolean>` — whether the browser tab is active/visible; screens should generally pause work when this is `false` |
+| `activeProperty` | `Property<boolean>` — settable; whether the whole sim is running and processing user input. Setting it to `false` pauses the sim. Distinct from `browserTabVisibleProperty` (`TReadOnlyProperty<boolean>`), which tracks the actual browser tab's visibility state |
 | `isConstructionCompleteProperty` | `TReadOnlyProperty<boolean>` — becomes `true` once every screen's model and view have been constructed (useful for PhET-iO tooling) |
 | `dimensionProperty` | `TReadOnlyProperty<Dimension2>` — current browser viewport size |
 | `lookAndFeel` | A `LookAndFeel` instance controlling navigation bar fill/text colors |
@@ -12398,7 +12398,7 @@ A common anti-pattern is a `collidedProperty: BooleanProperty` that gets set to 
 Page: Feature Flags and Preferences Pattern
 URL: https://veillette.github.io/Almanach/patterns/feature-flags-and-preferences-pattern
 Source: docs/patterns/feature-flags-and-preferences-pattern.md
-Category: Patterns | Tags: query-parameters, Property, feature-flag, preferences | Status: complete
+Category: Patterns | Tags: query-parameters, Property, feature-flag, preferences | Status: verified
 ========================================================================
 
 # Feature Flags and Preferences Pattern
@@ -12479,17 +12479,20 @@ Every SceneryStack application is built around a strict one-way dependency: the 
 ## The model: axon Properties
 
 ```ts
-import { NumberProperty, Property, DerivedProperty } from 'scenerystack/axon';
-import { Vector2 } from 'scenerystack/dot';
+import { NumberProperty, Property, DerivedProperty, type TReadOnlyProperty } from 'scenerystack/axon';
+import { Vector2, Range } from 'scenerystack/dot';
 
 export class ProjectileModel {
 
   // Mutable state is a Property. Physical units only — meters, seconds.
   public readonly positionProperty = new Property( new Vector2( 0, 0 ) );
-  public readonly massProperty = new NumberProperty( 5 ); // kg
+  public readonly massProperty = new NumberProperty( 5, { range: new Range( 1, 20 ) } ); // kg
 
   // Derived state is a DerivedProperty: never stored redundantly, never stale.
-  public readonly weightProperty: DerivedProperty<number, [ number ]>;
+  // Typed as TReadOnlyProperty, not DerivedProperty<...>, because DerivedProperty's own
+  // generic parameters are positional per-dependency (T, T1, T2, ... T15), not a single
+  // tuple - TReadOnlyProperty<number> is what you actually want to expose here.
+  public readonly weightProperty: TReadOnlyProperty<number>;
 
   public constructor() {
     this.weightProperty = new DerivedProperty( [ this.massProperty ], mass => mass * 9.8 );
@@ -14068,7 +14071,7 @@ const ballNode = new Node( {
 
 `StringUtils.fillIn` (from `scenerystack/phetcommon`) fills `{{placeholder}}` tokens in a template string — the standard way to build description sentences that embed a formatted value, and it composes cleanly with i18n since the template itself can be a translated `StringProperty`.
 
-Because `descriptionContent` is just bound to the `Property`, this same pattern works for `accessibleParagraph`, `helpText`, or `accessibleName` on any Node.
+Because `descriptionContent` is just bound to the `Property`, this same pattern works for `accessibleParagraph`, `accessibleHelpText`, or `accessibleName` on any Node.
 
 ## Announcing changes as they happen with addAccessibleResponse
 
@@ -14254,7 +14257,7 @@ slider.accessibleName = sliderAccessibleNameProperty;
 ```
 
 ::: tip Review PDOM strings the same way you'd review visible strings
-When checking a PR (your own or someone else's) for stray hardcoded English, grep for `accessibleName:`, `helpText:`, `labelContent:`, `descriptionContent:`, and `voicing*Response:` followed by a quoted literal, the same way you'd look for a bare string passed to `new Text(...)`. Nothing about these options makes a literal *look* wrong at a glance — the only way to catch it is to specifically look.
+When checking a PR (your own or someone else's) for stray hardcoded English, grep for `accessibleName:`, `accessibleHelpText:`, `labelContent:`, `descriptionContent:`, and `voicing*Response:` followed by a quoted literal, the same way you'd look for a bare string passed to `new Text(...)`. Nothing about these options makes a literal *look* wrong at a glance — the only way to catch it is to specifically look.
 :::
 
 

@@ -4,12 +4,15 @@ description: The top-level application object owning Screens, the navigation bar
 category: api
 library: joist
 tags: [joist, Sim]
-status: complete
+status: verified
 related:
   - /api/joist/screen
   - /api/joist/screen-view
   - /api/tandem/tandem
   - /getting-started/your-first-simulation
+prerequisites:
+  - /getting-started/your-first-simulation
+  - /api/joist/screen
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
@@ -71,7 +74,7 @@ new Sim(
 | `screens` | All screens in the running sim, with the auto-created `HomeScreen` first if one exists |
 | `simScreens` | Just the sim-specific screens (excludes the `HomeScreen`) |
 | `selectedScreenProperty` | `Property<AnyScreen>` — which screen is currently showing |
-| `activeProperty` | `Property<boolean>` — whether the browser tab is active/visible; screens should generally pause work when this is `false` |
+| `activeProperty` | `Property<boolean>` — settable; whether the whole sim is running and processing user input. Setting it to `false` pauses the sim. Distinct from `browserTabVisibleProperty` (`TReadOnlyProperty<boolean>`), which tracks the actual browser tab's visibility state |
 | `isConstructionCompleteProperty` | `TReadOnlyProperty<boolean>` — becomes `true` once every screen's model and view have been constructed (useful for PhET-iO tooling) |
 | `dimensionProperty` | `TReadOnlyProperty<Dimension2>` — current browser viewport size |
 | `lookAndFeel` | A `LookAndFeel` instance controlling navigation bar fill/text colors |
