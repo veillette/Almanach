@@ -2,8 +2,8 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-04T03:39:50.720Z",
-  "documentCount": 7,
+  "generated": "2026-07-04T04:31:43.283Z",
+  "documentCount": 9,
   "documents": [
     {
       "path": "/getting-started/what-is-scenerystack",
@@ -23,17 +23,20 @@
       "status": "complete",
       "related": [
         "/patterns/model-view-separation",
-        "/api/model-view-transform"
+        "/api/phetcommon/model-view-transform"
       ],
+      "prerequisites": [],
+      "sourceRefs": [],
       "wordCount": 331,
       "url": "https://veillette.github.io/Almanach/getting-started/what-is-scenerystack"
     },
     {
-      "path": "/api/model-view-transform",
-      "sourceFile": "docs/api/model-view-transform.md",
+      "path": "/api/phetcommon/model-view-transform",
+      "sourceFile": "docs/api/phetcommon/model-view-transform.md",
       "title": "ModelViewTransform2",
       "description": "Mapping between model coordinates (physical units, y-up) and view coordinates (pixels, y-down) with ModelViewTransform2.",
       "category": "api",
+      "library": "phetcommon",
       "tags": [
         "phetcommon",
         "dot",
@@ -46,8 +49,12 @@
         "/patterns/model-view-separation",
         "/patterns/drag-listeners"
       ],
+      "prerequisites": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
       "wordCount": 447,
-      "url": "https://veillette.github.io/Almanach/api/model-view-transform"
+      "url": "https://veillette.github.io/Almanach/api/phetcommon/model-view-transform"
     },
     {
       "path": "/patterns/drag-listeners",
@@ -65,10 +72,12 @@
       ],
       "status": "complete",
       "related": [
-        "/api/model-view-transform",
+        "/api/phetcommon/model-view-transform",
         "/patterns/model-view-separation",
         "/accessibility/pdom"
       ],
+      "prerequisites": [],
+      "sourceRefs": [],
       "wordCount": 458,
       "url": "https://veillette.github.io/Almanach/patterns/drag-listeners"
     },
@@ -87,9 +96,11 @@
       ],
       "status": "complete",
       "related": [
-        "/api/model-view-transform",
+        "/api/phetcommon/model-view-transform",
         "/getting-started/what-is-scenerystack"
       ],
+      "prerequisites": [],
+      "sourceRefs": [],
       "wordCount": 430,
       "url": "https://veillette.github.io/Almanach/patterns/model-view-separation"
     },
@@ -110,6 +121,8 @@
       "related": [
         "/patterns/model-view-separation"
       ],
+      "prerequisites": [],
+      "sourceRefs": [],
       "wordCount": 349,
       "url": "https://veillette.github.io/Almanach/styling/color-profiles"
     },
@@ -132,6 +145,8 @@
       "related": [
         "/patterns/drag-listeners"
       ],
+      "prerequisites": [],
+      "sourceRefs": [],
       "wordCount": 468,
       "url": "https://veillette.github.io/Almanach/accessibility/pdom"
     },
@@ -148,8 +163,53 @@
       ],
       "status": "complete",
       "related": [],
-      "wordCount": 537,
+      "prerequisites": [],
+      "sourceRefs": [],
+      "wordCount": 985,
       "url": "https://veillette.github.io/Almanach/meta/authoring-guide"
+    },
+    {
+      "path": "/meta/page-template",
+      "sourceFile": "docs/meta/page-template.md",
+      "title": "Page Template",
+      "description": "A copy-pasteable frontmatter and section skeleton for authors starting a new wiki page.",
+      "category": "meta",
+      "tags": [
+        "template",
+        "contributing",
+        "conventions"
+      ],
+      "status": "complete",
+      "related": [
+        "/meta/authoring-guide",
+        "/meta/roadmap"
+      ],
+      "prerequisites": [],
+      "sourceRefs": [],
+      "wordCount": 325,
+      "url": "https://veillette.github.io/Almanach/meta/page-template"
+    },
+    {
+      "path": "/meta/roadmap",
+      "sourceFile": "docs/meta/roadmap.md",
+      "title": "Roadmap",
+      "description": "The phased plan for growing Almanach from a handful of pages to a comprehensive SceneryStack wiki, and how to track and claim work against it.",
+      "category": "meta",
+      "tags": [
+        "roadmap",
+        "planning",
+        "contributing",
+        "conventions"
+      ],
+      "status": "complete",
+      "related": [
+        "/meta/authoring-guide",
+        "/meta/page-template"
+      ],
+      "prerequisites": [],
+      "sourceRefs": [],
+      "wordCount": 1050,
+      "url": "https://veillette.github.io/Almanach/meta/roadmap"
     }
   ]
 }

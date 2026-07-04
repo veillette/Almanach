@@ -10,7 +10,10 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 
 ## API
 
-- [ModelViewTransform2](https://veillette.github.io/Almanach/api/model-view-transform): Mapping between model coordinates (physical units, y-up) and view coordinates (pixels, y-down) with ModelViewTransform2.
+
+### phetcommon
+
+- [ModelViewTransform2](https://veillette.github.io/Almanach/api/phetcommon/model-view-transform): Mapping between model coordinates (physical units, y-up) and view coordinates (pixels, y-down) with ModelViewTransform2.
 
 ## Patterns
 
@@ -28,3 +31,5 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 ## Meta
 
 - [Authoring Guide](https://veillette.github.io/Almanach/meta/authoring-guide): Conventions for adding documents to this wiki - folder taxonomy, required frontmatter schema, and how the generated indexes work.
+- [Page Template](https://veillette.github.io/Almanach/meta/page-template): A copy-pasteable frontmatter and section skeleton for authors starting a new wiki page.
+- [Roadmap](https://veillette.github.io/Almanach/meta/roadmap): The phased plan for growing Almanach from a handful of pages to a comprehensive SceneryStack wiki, and how to track and claim work against it.

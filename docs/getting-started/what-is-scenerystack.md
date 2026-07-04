@@ -6,7 +6,7 @@ tags: [overview, installation, scenery, axon, dot, sun, joist]
 status: complete
 related:
   - /patterns/model-view-separation
-  - /api/model-view-transform
+  - /api/phetcommon/model-view-transform
 ---
 
 # What is SceneryStack?
@@ -58,6 +58,6 @@ This model/view split is the foundational pattern of every SceneryStack applicat
 ## Where to go next
 
 - [Model-View Separation](/patterns/model-view-separation) — the architecture every page in this wiki assumes
-- [ModelViewTransform2](/api/model-view-transform) — mapping between model and view coordinates
+- [ModelViewTransform2](/api/phetcommon/model-view-transform) — mapping between model and view coordinates
 - [Drag Listeners](/patterns/drag-listeners) — making nodes interactive
 - [The Parallel DOM (PDOM)](/accessibility/pdom) — building accessible simulations

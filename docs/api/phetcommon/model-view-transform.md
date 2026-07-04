@@ -2,11 +2,14 @@
 title: ModelViewTransform2
 description: Mapping between model coordinates (physical units, y-up) and view coordinates (pixels, y-down) with ModelViewTransform2.
 category: api
+library: phetcommon
 tags: [phetcommon, dot, coordinates, transform, ModelViewTransform2]
 status: complete
 related:
   - /patterns/model-view-separation
   - /patterns/drag-listeners
+sourceRefs:
+  - https://www.npmjs.com/package/scenerystack
 ---
 
 # ModelViewTransform2

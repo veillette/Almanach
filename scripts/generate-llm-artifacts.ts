@@ -26,25 +26,30 @@ const SITE_SUMMARY = 'A file-based wiki of SceneryStack knowledge: API guides, s
 // Category order and labels, mirrored in docs/.vitepress/sidebar.ts
 const CATEGORIES: Record<string, string> = {
   'getting-started': 'Getting Started',
+  'guides': 'Guides',
   'api': 'API',
   'patterns': 'Patterns',
   'styling': 'Styling',
   'accessibility': 'Accessibility',
+  'examples': 'Examples',
   'meta': 'Meta'
 };
 
 const EXCLUDED_DIRS = new Set( [ '.vitepress', 'public', 'node_modules' ] );
-const VALID_STATUSES = new Set( [ 'draft', 'complete' ] );
+const VALID_STATUSES = new Set( [ 'stub', 'draft', 'complete', 'verified' ] );
 
 type PageRecord = {
-  path: string;        // site-absolute route, e.g. /api/model-view-transform
-  sourceFile: string;  // repo-relative source, e.g. docs/api/model-view-transform.md
+  path: string;        // site-absolute route, e.g. /api/phetcommon/model-view-transform
+  sourceFile: string;  // repo-relative source, e.g. docs/api/phetcommon/model-view-transform.md
   title: string;
   description: string;
   category: string;
+  library?: string;    // required when category === 'api'; the scenerystack/* subpath, e.g. "phetcommon"
   tags: string[];
   status: string;
   related: string[];
+  prerequisites: string[];
+  sourceRefs: string[];
   wordCount: number;
   content: string;
 };
@@ -78,7 +83,8 @@ for ( const file of walkMarkdownFiles( DOCS_DIR ) ) {
 
   const { data, content } = matter( fs.readFileSync( file, 'utf-8' ) );
   const fileErrors: string[] = [];
-  const category = relative.split( path.sep )[ 0 ];
+  const segments = relative.split( path.sep );
+  const category = segments[ 0 ];
 
   if ( typeof data.title !== 'string' || data.title.trim() === '' ) {
     fileErrors.push( 'missing required frontmatter field "title"' );
@@ -89,6 +95,15 @@ for ( const file of walkMarkdownFiles( DOCS_DIR ) ) {
   if ( data.category !== category ) {
     fileErrors.push( `frontmatter "category" is ${JSON.stringify( data.category )} but must match the containing folder "${category}"` );
   }
+  if ( category === 'api' ) {
+    const library = segments[ 1 ];
+    if ( segments.length < 3 ) {
+      fileErrors.push( 'api/ pages must live in a library subfolder, e.g. api/axon/property.md' );
+    }
+    else if ( typeof data.library !== 'string' || data.library !== library ) {
+      fileErrors.push( `frontmatter "library" is ${JSON.stringify( data.library )} but must match the containing subfolder "${library}"` );
+    }
+  }
   if ( !VALID_STATUSES.has( data.status ) ) {
     fileErrors.push( `frontmatter "status" is ${JSON.stringify( data.status )} but must be one of: ${[ ...VALID_STATUSES ].join( ', ' )}` );
   }
@@ -97,6 +112,12 @@ for ( const file of walkMarkdownFiles( DOCS_DIR ) ) {
   }
   if ( data.related !== undefined && ( !Array.isArray( data.related ) || data.related.some( ( r: unknown ) => typeof r !== 'string' ) ) ) {
     fileErrors.push( 'frontmatter "related" must be an array of site-absolute paths like /patterns/drag-listeners' );
+  }
+  if ( data.prerequisites !== undefined && ( !Array.isArray( data.prerequisites ) || data.prerequisites.some( ( r: unknown ) => typeof r !== 'string' ) ) ) {
+    fileErrors.push( 'frontmatter "prerequisites" must be an array of site-absolute paths like /patterns/drag-listeners' );
+  }
+  if ( data.sourceRefs !== undefined && ( !Array.isArray( data.sourceRefs ) || data.sourceRefs.some( ( r: unknown ) => typeof r !== 'string' ) ) ) {
+    fileErrors.push( 'frontmatter "sourceRefs" must be an array of URL strings' );
   }
 
   if ( fileErrors.length > 0 ) {
@@ -111,20 +132,28 @@ for ( const file of walkMarkdownFiles( DOCS_DIR ) ) {
     title: data.title,
     description: data.description,
     category: category,
+    library: data.library,
     tags: data.tags,
     status: data.status,
     related: data.related ?? [],
+    prerequisites: data.prerequisites ?? [],
+    sourceRefs: data.sourceRefs ?? [],
     wordCount: content.split( /\s+/ ).filter( word => word.length > 0 ).length,
     content: content.trim()
   } );
 }
 
-// Every "related" entry must point at an existing page, so cross-links never rot.
+// Every "related"/"prerequisites" entry must point at an existing page, so cross-links never rot.
 const routes = new Set( pages.map( page => page.path ) );
 for ( const page of pages ) {
   for ( const related of page.related ) {
     if ( !routes.has( related ) ) {
       errors.push( `${page.sourceFile}: related entry "${related}" does not match any document` );
+    }
+  }
+  for ( const prerequisite of page.prerequisites ) {
+    if ( !routes.has( prerequisite ) ) {
+      errors.push( `${page.sourceFile}: prerequisites entry "${prerequisite}" does not match any document` );
     }
   }
 }
@@ -137,11 +166,13 @@ if ( errors.length > 0 ) {
   process.exit( 1 );
 }
 
-// Stable ordering: category order above, then title within category.
+// Stable ordering: category order above, then library (for api/), then title.
 const categoryOrder = Object.keys( CATEGORIES );
 pages.sort( ( a, b ) => {
   const byCategory = categoryOrder.indexOf( a.category ) - categoryOrder.indexOf( b.category );
-  return byCategory !== 0 ? byCategory : a.title.localeCompare( b.title );
+  if ( byCategory !== 0 ) { return byCategory; }
+  const byLibrary = ( a.library ?? '' ).localeCompare( b.library ?? '' );
+  return byLibrary !== 0 ? byLibrary : a.title.localeCompare( b.title );
 } );
 
 fs.mkdirSync( OUT_DIR, { recursive: true } );
@@ -152,7 +183,12 @@ for ( const categoryKey of categoryOrder ) {
   const categoryPages = pages.filter( page => page.category === categoryKey );
   if ( categoryPages.length === 0 ) { continue; }
   llms += `\n## ${CATEGORIES[ categoryKey ]}\n\n`;
+  let currentLibrary: string | undefined;
   for ( const page of categoryPages ) {
+    if ( categoryKey === 'api' && page.library !== currentLibrary ) {
+      currentLibrary = page.library;
+      llms += `\n### ${currentLibrary}\n\n`;
+    }
     llms += `- [${page.title}](${SITE_URL}${page.path}): ${page.description}\n`;
   }
 }

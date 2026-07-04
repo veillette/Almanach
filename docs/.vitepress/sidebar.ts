@@ -12,10 +12,12 @@ const DOCS_DIR = path.resolve( path.dirname( fileURLToPath( import.meta.url ) ),
 // its position or label.
 const SECTIONS: Record<string, string> = {
   'getting-started': 'Getting Started',
+  'guides': 'Guides',
   'api': 'API',
   'patterns': 'Patterns',
   'styling': 'Styling',
   'accessibility': 'Accessibility',
+  'examples': 'Examples',
   'meta': 'Meta'
 };
 
@@ -42,8 +44,7 @@ export function buildSidebar(): DefaultTheme.Sidebar {
   } );
 
   return folders.map( folder => {
-    const items = collectPages( path.join( DOCS_DIR, folder ), `/${folder}` )
-      .sort( ( a, b ) => ( a.text ?? '' ).localeCompare( b.text ?? '' ) );
+    const items = collectPages( path.join( DOCS_DIR, folder ), `/${folder}` );
     return {
       text: SECTIONS[ folder ] ?? folder,
       collapsed: false,
@@ -52,21 +53,37 @@ export function buildSidebar(): DefaultTheme.Sidebar {
   } ).filter( section => section.items.length > 0 );
 }
 
+/**
+ * Recursively collects pages under `dir`, sorted alphabetically. A
+ * subdirectory (e.g. `api/axon/`) becomes a nested, collapsible sidebar
+ * group rather than being flattened, so categories that grow large (like
+ * `api/`, organized one subfolder per library) stay navigable.
+ */
 function collectPages( dir: string, urlPrefix: string ): DefaultTheme.SidebarItem[] {
-  const items: DefaultTheme.SidebarItem[] = [];
+  const files: DefaultTheme.SidebarItem[] = [];
+  const groups: DefaultTheme.SidebarItem[] = [];
   for ( const entry of fs.readdirSync( dir, { withFileTypes: true } ) ) {
     const fullPath = path.join( dir, entry.name );
     if ( entry.isDirectory() ) {
-      items.push( ...collectPages( fullPath, `${urlPrefix}/${entry.name}` ) );
+      const subItems = collectPages( fullPath, `${urlPrefix}/${entry.name}` );
+      if ( subItems.length > 0 ) {
+        groups.push( {
+          text: entry.name,
+          collapsed: true,
+          items: subItems
+        } );
+      }
     }
     else if ( entry.name.endsWith( '.md' ) ) {
       const { data } = matter( fs.readFileSync( fullPath, 'utf-8' ) );
       const stem = entry.name.replace( /\.md$/, '' );
-      items.push( {
+      files.push( {
         text: data.title ?? stem,
         link: `${urlPrefix}/${stem}`
       } );
     }
   }
-  return items;
+  files.sort( ( a, b ) => ( a.text ?? '' ).localeCompare( b.text ?? '' ) );
+  groups.sort( ( a, b ) => ( a.text ?? '' ).localeCompare( b.text ?? '' ) );
+  return [ ...files, ...groups ];
 }

@@ -2,7 +2,7 @@
 
 > A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.
 
-This file contains the full text of all 7 pages. Each page begins with a "===" separator line.
+This file contains the full text of all 9 pages. Each page begins with a "===" separator line.
 
 
 ========================================================================
@@ -61,15 +61,15 @@ This model/view split is the foundational pattern of every SceneryStack applicat
 ## Where to go next
 
 - [Model-View Separation](/patterns/model-view-separation) — the architecture every page in this wiki assumes
-- [ModelViewTransform2](/api/model-view-transform) — mapping between model and view coordinates
+- [ModelViewTransform2](/api/phetcommon/model-view-transform) — mapping between model and view coordinates
 - [Drag Listeners](/patterns/drag-listeners) — making nodes interactive
 - [The Parallel DOM (PDOM)](/accessibility/pdom) — building accessible simulations
 
 
 ========================================================================
 Page: ModelViewTransform2
-URL: https://veillette.github.io/Almanach/api/model-view-transform
-Source: docs/api/model-view-transform.md
+URL: https://veillette.github.io/Almanach/api/phetcommon/model-view-transform
+Source: docs/api/phetcommon/model-view-transform.md
 Category: API | Tags: phetcommon, dot, coordinates, transform, ModelViewTransform2 | Status: complete
 ========================================================================
 
@@ -297,7 +297,7 @@ export class ProjectileNode extends Circle {
     super( 15, { fill: 'orange' } );
 
     // View subscribes to the model. Conversion to pixels happens here, at the
-    // boundary, via the transform — see /api/model-view-transform.
+    // boundary, via the transform — see /api/phetcommon/model-view-transform.
     model.positionProperty.link( position => {
       this.translation = modelViewTransform.modelToViewPosition( position );
     } );
@@ -494,9 +494,11 @@ Category: Meta | Tags: conventions, frontmatter, contributing | Status: complete
 
 This wiki is designed to grow to hundreds of documents without any configuration edits. Everything — the sidebar, `llms.txt`, `llms-full.txt`, and `manifest.json` — is generated from the Markdown files and their frontmatter. Follow the conventions below and your page appears everywhere automatically.
 
+If you're picking up planned work rather than writing an ad hoc page, see [the Roadmap](/meta/roadmap) first — it tracks what's already built, what's next, and how to claim a page.
+
 ## Adding a page
 
-1. Create a `.md` file in the folder matching its category (see taxonomy below). Use kebab-case filenames: `model-view-transform.md`.
+1. Create a `.md` file in the folder matching its category (see taxonomy below); for `api/`, also pick the library subfolder. Use kebab-case filenames: `model-view-transform.md`. [`meta/page-template.md`](/meta/page-template) is a copy-pasteable starting point.
 2. Fill in the required frontmatter (schema below).
 3. Run `npm run generate` — it validates every page and regenerates the LLM artifacts, failing loudly on schema violations.
 4. Preview with `npm run dev`.
@@ -506,13 +508,19 @@ This wiki is designed to grow to hundreds of documents without any configuration
 | Folder | Contents |
 | --- | --- |
 | `getting-started/` | Orientation, installation, first steps |
-| `api/` | Reference pages for specific classes and APIs |
-| `patterns/` | Recommended software patterns and architectures |
-| `styling/` | Colors, layout, visual design conventions |
-| `accessibility/` | PDOM, keyboard input, screen reader support |
+| `guides/` | Subsystem-level narrative walkthroughs — the layout system, the input system, localization, contributing. Broader in scope than `patterns`: explain how a whole subsystem works, not one narrow convention |
+| `api/<library>/` | Reference pages for specific classes/functions, one subfolder per `scenerystack/*` subpath (`api/axon/`, `api/dot/`, `api/scenery/`, …) |
+| `patterns/` | Narrow, prescriptive software patterns and architectural conventions — "how to structure X," one convention per page |
+| `styling/` | Colors, typography, layout aesthetics, visual design conventions |
+| `accessibility/` | PDOM, keyboard input, focus, voicing, sound-as-accessibility |
+| `examples/` | Complete, runnable worked scenarios combining multiple concepts end-to-end |
 | `meta/` | Documentation about this wiki itself |
 
 New top-level folders may be added as the wiki grows; they appear in the sidebar automatically (add an entry to the `SECTIONS` maps in `docs/.vitepress/sidebar.ts` and `scripts/generate-llm-artifacts.ts` only to control their label and ordering).
+
+**`api/` is subfoldered by library**, one directory per `scenerystack/*` subpath (e.g. `api/axon/property.md`, `api/scenery/node.md`). This is the one deliberate exception to "flat folder of pages": `api/` is expected to hold far more pages than any other category, across many distinct libraries, so it needs a second level of grouping to stay navigable. `docs/.vitepress/sidebar.ts`'s `collectPages` renders each library subfolder as its own collapsible sidebar group automatically — no config needed per library. Every other category stays flat.
+
+Only document libraries that are simulation-author-facing. Internal build/branding subpaths (`chipper`, `perennial`, `brand`, `splash`, `init`, `assert`, `adapted-from-phet`) are out of scope.
 
 ## Frontmatter schema
 
@@ -522,21 +530,43 @@ Every page **must** begin with this frontmatter:
 ---
 title: ModelViewTransform2                  # required — page title, used in sidebar and indexes
 description: One-sentence summary.          # required — shown in llms.txt and manifest.json
-category: api                               # required — MUST equal the containing folder name
-tags: [dot, coordinates, transform]         # required — non-empty list of lowercase keywords
-status: complete                            # required — "draft" or "complete"
-related:                                    # optional — site-absolute paths to related pages
+category: api                               # required — MUST equal the containing top-level folder name
+library: phetcommon                         # required IFF category is "api" — MUST equal the containing subfolder name
+tags: [dot, coordinates, transform]         # required — non-empty list of lowercase keywords (library names lowercase, class names PascalCase matching the real export)
+status: complete                            # required — "stub" | "draft" | "complete" | "verified"
+related:                                    # optional — unordered "see also", site-absolute paths
   - /patterns/model-view-separation
+prerequisites:                              # optional — ordered "read this first", site-absolute paths
+  - /getting-started/what-is-scenerystack
+sourceRefs:                                 # optional — URLs grounding the page's technical claims
+  - https://www.npmjs.com/package/scenerystack
 ---
 ```
+
+`library` only applies to `api/` pages; omit it everywhere else.
+
+### The `status` lifecycle
+
+Four stages, each meaningful to an agent or human picking up work later:
+
+| Status | Meaning |
+| --- | --- |
+| `stub` | Page is scaffolded (frontmatter + a one-paragraph placeholder) — reserves the topic so parallel writers don't duplicate it. Not yet real content. |
+| `draft` | Full content is written, but not yet checked against the real SceneryStack source. |
+| `complete` | Full content, internally consistent, the author is confident in it. |
+| `verified` | `complete`, plus an independent pass has cross-checked the technical claims against real SceneryStack source or the [official reference](https://scenerystack.org/reference/). |
+
+Progress is tracked by reading these real frontmatter values across the tree (see [the Roadmap](/meta/roadmap) and `npm run roadmap:status`) — there is no separate hand-maintained checklist to keep in sync.
 
 Validation rules (enforced by `npm run generate`, and by CI on every push):
 
 - `title` and `description` are non-empty strings.
 - `category` matches the top-level folder the file lives in.
+- If `category` is `api`, `library` is required and must match the immediate subfolder.
 - `tags` is a non-empty array of strings.
-- `status` is `draft` or `complete`.
-- Every `related` entry resolves to an existing document — broken cross-references fail the build.
+- `status` is one of `stub`, `draft`, `complete`, `verified`.
+- Every `related` and `prerequisites` entry resolves to an existing document — broken cross-references fail the build.
+- `sourceRefs`, if present, is an array of URL strings (not resolution-checked — they point outside the wiki).
 
 VitePress additionally fails the build on dead Markdown links, so inline links like `[Drag Listeners](/patterns/drag-listeners)` are also checked.
 
@@ -544,7 +574,7 @@ VitePress additionally fails the build on dead Markdown links, so inline links l
 
 - **One concept per page.** Small, focused pages retrieve better — for search engines, humans, and LLM context windows alike.
 - **Lead with what and why**, then show a complete, runnable TypeScript snippet using real `scenerystack/*` imports.
-- **Cross-link generously** with site-absolute paths (`/api/model-view-transform`), and mirror the most important links in `related`.
+- **Cross-link generously** with site-absolute paths (`/api/phetcommon/model-view-transform`), and mirror the most important links in `related` (unordered "see also") or `prerequisites` (ordered "read this first").
 - Use tables for option/method summaries and `::: tip` / `::: warning` containers for the one thing readers must not miss.
 
 ## Generated artifacts
@@ -558,3 +588,140 @@ VitePress additionally fails the build on dead Markdown links, so inline links l
 | `/manifest.json` | All frontmatter metadata plus URLs and word counts |
 
 These files are committed to the repository so agents browsing GitHub get them without a build step; regenerate them whenever content changes (CI verifies the build regardless).
+
+
+========================================================================
+Page: Page Template
+URL: https://veillette.github.io/Almanach/meta/page-template
+Source: docs/meta/page-template.md
+Category: Meta | Tags: template, contributing, conventions | Status: complete
+========================================================================
+
+# Page Template
+
+Copy the block below into a new file, fill it in, and delete anything that doesn't apply. See [the Authoring Guide](/meta/authoring-guide) for the full schema and folder taxonomy, and [the Roadmap](/meta/roadmap) if this page is claiming planned work.
+
+## Frontmatter to copy
+
+```yaml
+---
+title: ExactClassOrConceptName
+description: One sentence: what this is and why it matters.
+category: getting-started            # must equal the top-level folder this file lives in
+# library: axon                      # required only when category is "api" — must equal the api/<library>/ subfolder
+tags: [lowercase, keywords, PascalCaseClassNames]
+status: stub                         # stub -> draft -> complete -> verified as the page matures
+# related:
+#   - /patterns/some-other-page
+# prerequisites:
+#   - /getting-started/what-is-scenerystack
+# sourceRefs:
+#   - https://www.npmjs.com/package/scenerystack
+---
+```
+
+## Section skeleton
+
+```md
+# Title
+
+One or two sentences: what this is, and why a reader should care. Lead with
+the "what and why," not a history lesson.
+
+## The core idea / a minimal example
+
+A complete, runnable TypeScript snippet using real `scenerystack/*` subpath
+imports — not pseudocode.
+
+\`\`\`ts
+import { Something } from 'scenerystack/some-library';
+\`\`\`
+
+## Options / methods (if applicable)
+
+| Option | Effect |
+| --- | --- |
+| `exampleOption` | What it does |
+
+::: tip One thing readers must not miss
+Use a `::: tip` or `::: warning` container for the single most important
+caveat — not a wall of bullet points.
+:::
+```
+
+## Checklist before setting `status: complete`
+
+- One concept per page — if you're covering two unrelated ideas, split the file.
+- At least one complete, runnable code snippet using real imports.
+- Cross-links added both as inline Markdown links and mirrored in `related`/`prerequisites`.
+- `npm run generate` passes (frontmatter schema + no dead `related`/`prerequisites` links).
+- If this is an `api/` page and you're not fully certain of the class's real shape, leave `status: draft` and add a `sourceRefs` entry so a later `verified` pass has something to check against.
+
+
+========================================================================
+Page: Roadmap
+URL: https://veillette.github.io/Almanach/meta/roadmap
+Source: docs/meta/roadmap.md
+Category: Meta | Tags: roadmap, planning, contributing, conventions | Status: complete
+========================================================================
+
+# Roadmap
+
+This wiki started with 6 content pages. This document is the plan for growing it substantially — organized into phases, with a concrete way for whoever picks up the work next (human or agent, in this session or a future one) to see what's done and claim what isn't.
+
+**This document does not itself write the content.** Phase 0 (below) — the taxonomy redesign, schema changes, and the tooling described here — was completed in one session. Phases 1 and 2 are deliberately left as tracked, unclaimed work for future sessions.
+
+## Why a roadmap instead of just writing more pages
+
+The original ask was "about a hundred pages, modeled on scenerystack.org's structure." Two things changed that:
+
+1. The original 6-page taxonomy (a flat `api/` folder for every class reference, across what turned out to be **17+** simulation-author-facing SceneryStack libraries, not the 10 first assumed) doesn't scale past roughly the 50-100 pages it already needed in Phase 1 alone. It needed fixing before more content landed on top of it — see [Taxonomy v2](#taxonomy-v2) below.
+2. Writing ~200 accurate, non-generic technical pages in one sitting isn't reliable — cross-linking would break mid-flight, and API claims about libraries nobody in this session has verified against real source risk being confidently wrong. Splitting the work into phases with an explicit confidence/verification mechanism (see [The `status` lifecycle](/meta/authoring-guide#the-status-lifecycle)) is what makes ~200 pages a credible target instead of an aspiration.
+
+## Taxonomy v2
+
+`getting-started/`, `patterns/`, `styling/`, `accessibility/`, and `meta/` keep their original shape — flat folders, one file per concept. Two changes:
+
+- **`api/` is now subfoldered by library**: `api/axon/`, `api/dot/`, `api/scenery/`, etc. — one directory per `scenerystack/*` subpath. This is the fix for the one real scaling problem in the original structure: a single flat `api/` folder holding 100+ pages across a dozen-plus libraries is not navigable. `docs/.vitepress/sidebar.ts` renders each subfolder as its own collapsible group automatically.
+- **`guides/` and `examples/` are new top-level categories**, for content scenerystack.org treats as first-class nav sections (subsystem walkthroughs, tutorials, worked showcases) that didn't fit `patterns` (too narrow/prescriptive) or `getting-started` (onboarding-only).
+
+Full rationale and the frontmatter schema (which gained `library`, `prerequisites`, `sourceRefs`, and a 4-stage `status` enum) live in [the Authoring Guide](/meta/authoring-guide) — read that before writing a page, this document is about *what* to write, not *how*.
+
+**Confirmed real library subpaths** (from the published `scenerystack` package's exports map, not assumption): `axon, dot, kite, scenery, sun, scenery-phet, joist, twixt, tandem, phetcommon, tambo, bamboo, vegas, mobius, nitroglycerin, utterance-queue, phet-core, query-string-machine` are simulation-author-facing and in scope. `adapted-from-phet, alpenglow, assert, brand, chipper, init, perennial, sim, splash` are internal build/branding/rendering-primitive concerns and are **out of scope** — don't create `api/<one of these>/` folders.
+
+## How to pick up work
+
+1. Read [the Authoring Guide](/meta/authoring-guide) and [the Page Template](/meta/page-template).
+2. Run `npm run roadmap:status` to see what's built, what's `stub`/`draft`/`complete`/`verified`, and what's still unclaimed in Phase 1 and Phase 2.
+3. Pick an unclaimed entry from `docs/meta/roadmap.manifest.json` (Phase 1: a fixed file to create; Phase 2: a target count + candidate names for a category/library — pick one candidate, or a better one you find while researching, and write it).
+4. Create the file with `status: stub` first if you're not finishing it in one pass — this reserves the topic for parallel sessions without claiming false completeness.
+5. Write the page following the Authoring Guide's conventions (one concept, a real runnable snippet, cross-links). Move `status` to `draft`, then `complete` once you're confident, citing `sourceRefs` for anything you had to look up.
+6. For any Phase 2 entry marked `confidence: medium` or `confidence: low` in the manifest: verify the class/API actually exists and matches the candidate description before writing — check https://scenerystack.org/reference/ or introspect the installed package. Do not invent plausible-sounding names. If you can't verify it, either skip it, replace it with something you can verify, or write it as `status: draft` with a `sourceRefs` link and leave upgrading it to `verified` for a later pass.
+7. Run `npm run generate` (frontmatter + cross-link validation) and `npm run build` (adds dead-link checking) before considering a page done.
+8. There is no separate checklist to tick — progress is read directly from frontmatter `status` values across the tree via `npm run roadmap:status`. Don't hand-maintain a duplicate progress list; it will drift.
+
+## Phases
+
+### Phase 0 — Infrastructure (complete)
+
+Taxonomy v2, schema v2, the sidebar/validator code changes, migrating the 6 original pages into the new shape, and this roadmap + its manifest + the status script. No new content pages.
+
+### Phase 1 — Core coverage (~102 pages total; 93 new, tracked as a fixed list)
+
+Onboarding, the 10 high-confidence libraries (`axon, dot, kite, scenery, sun, scenery-phet, joist, twixt, tandem, phetcommon`) at a "most commonly used classes" depth, and rounding out `guides/patterns/styling/accessibility/examples`. Every entry is enumerated as a concrete `{path, title, description, tags}` in `docs/meta/roadmap.manifest.json`'s `phase1.pages` array — pick any unbuilt one and go. Breakdown: getting-started +6, guides +10, api +50 (axon 9, dot 6, kite 1, scenery 13, sun 9, scenery-phet 7, twixt 1, joist 3, tandem 1), patterns +9, styling +5, accessibility +6, examples +7.
+
+### Phase 2 — Deep coverage (~129 pages, tracked as per-category/library targets + candidates)
+
+Two kinds of work, both in `roadmap.manifest.json`'s `phase2.targets` array:
+
+- **More classes in the 10 core libraries** (e.g. `dot/Vector4`, `scenery/KeyboardListener`, `scenery-phet/RulerNode`, `tandem/PhetioObject`) — `confidence: high`, same bar as Phase 1.
+- **First-pass coverage of 8 additional real-but-less-explored libraries** (`tambo, bamboo, vegas, mobius, utterance-queue, phet-core, query-string-machine, nitroglycerin`) — `confidence: medium` or `low`. These subpaths are confirmed to exist; their candidate class names are not independently verified in this session and **must** be checked before a page is written (see step 6 above).
+- Plus deeper `guides/patterns/styling/accessibility/examples`, and `meta/glossary.md` + `meta/faq.md`.
+
+### Phase 3 — Maintenance (ongoing, no fixed page count)
+
+Once Phases 1-2 are substantially built: a cross-link densification pass (add `related`/`prerequisites` now that more targets exist), upgrading `complete` → `verified` pages via an independent source-check pass, and pruning or merging pages that turn out to overlap.
+
+## Totals
+
+Phase 1 (~102, including the 9 pages that already exist) + Phase 2 (~129 planned) ≈ **231 pages** once both phases are built out — comfortably covering the "~200 or so" the wiki is being scaled toward, with room to trim low-confidence Phase 2 candidates that don't pan out during verification.

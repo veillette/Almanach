@@ -5,7 +5,7 @@ category: patterns
 tags: [scenery, input, DragListener, KeyboardDragListener, RichDragListener, interaction]
 status: complete
 related:
-  - /api/model-view-transform
+  - /api/phetcommon/model-view-transform
   - /patterns/model-view-separation
   - /accessibility/pdom
 ---

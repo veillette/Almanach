@@ -10,9 +10,11 @@ status: complete
 
 This wiki is designed to grow to hundreds of documents without any configuration edits. Everything — the sidebar, `llms.txt`, `llms-full.txt`, and `manifest.json` — is generated from the Markdown files and their frontmatter. Follow the conventions below and your page appears everywhere automatically.
 
+If you're picking up planned work rather than writing an ad hoc page, see [the Roadmap](/meta/roadmap) first — it tracks what's already built, what's next, and how to claim a page.
+
 ## Adding a page
 
-1. Create a `.md` file in the folder matching its category (see taxonomy below). Use kebab-case filenames: `model-view-transform.md`.
+1. Create a `.md` file in the folder matching its category (see taxonomy below); for `api/`, also pick the library subfolder. Use kebab-case filenames: `model-view-transform.md`. [`meta/page-template.md`](/meta/page-template) is a copy-pasteable starting point.
 2. Fill in the required frontmatter (schema below).
 3. Run `npm run generate` — it validates every page and regenerates the LLM artifacts, failing loudly on schema violations.
 4. Preview with `npm run dev`.
@@ -22,13 +24,19 @@ This wiki is designed to grow to hundreds of documents without any configuration
 | Folder | Contents |
 | --- | --- |
 | `getting-started/` | Orientation, installation, first steps |
-| `api/` | Reference pages for specific classes and APIs |
-| `patterns/` | Recommended software patterns and architectures |
-| `styling/` | Colors, layout, visual design conventions |
-| `accessibility/` | PDOM, keyboard input, screen reader support |
+| `guides/` | Subsystem-level narrative walkthroughs — the layout system, the input system, localization, contributing. Broader in scope than `patterns`: explain how a whole subsystem works, not one narrow convention |
+| `api/<library>/` | Reference pages for specific classes/functions, one subfolder per `scenerystack/*` subpath (`api/axon/`, `api/dot/`, `api/scenery/`, …) |
+| `patterns/` | Narrow, prescriptive software patterns and architectural conventions — "how to structure X," one convention per page |
+| `styling/` | Colors, typography, layout aesthetics, visual design conventions |
+| `accessibility/` | PDOM, keyboard input, focus, voicing, sound-as-accessibility |
+| `examples/` | Complete, runnable worked scenarios combining multiple concepts end-to-end |
 | `meta/` | Documentation about this wiki itself |
 
 New top-level folders may be added as the wiki grows; they appear in the sidebar automatically (add an entry to the `SECTIONS` maps in `docs/.vitepress/sidebar.ts` and `scripts/generate-llm-artifacts.ts` only to control their label and ordering).
+
+**`api/` is subfoldered by library**, one directory per `scenerystack/*` subpath (e.g. `api/axon/property.md`, `api/scenery/node.md`). This is the one deliberate exception to "flat folder of pages": `api/` is expected to hold far more pages than any other category, across many distinct libraries, so it needs a second level of grouping to stay navigable. `docs/.vitepress/sidebar.ts`'s `collectPages` renders each library subfolder as its own collapsible sidebar group automatically — no config needed per library. Every other category stays flat.
+
+Only document libraries that are simulation-author-facing. Internal build/branding subpaths (`chipper`, `perennial`, `brand`, `splash`, `init`, `assert`, `adapted-from-phet`) are out of scope.
 
 ## Frontmatter schema
 
@@ -38,21 +46,43 @@ Every page **must** begin with this frontmatter:
 ---
 title: ModelViewTransform2                  # required — page title, used in sidebar and indexes
 description: One-sentence summary.          # required — shown in llms.txt and manifest.json
-category: api                               # required — MUST equal the containing folder name
-tags: [dot, coordinates, transform]         # required — non-empty list of lowercase keywords
-status: complete                            # required — "draft" or "complete"
-related:                                    # optional — site-absolute paths to related pages
+category: api                               # required — MUST equal the containing top-level folder name
+library: phetcommon                         # required IFF category is "api" — MUST equal the containing subfolder name
+tags: [dot, coordinates, transform]         # required — non-empty list of lowercase keywords (library names lowercase, class names PascalCase matching the real export)
+status: complete                            # required — "stub" | "draft" | "complete" | "verified"
+related:                                    # optional — unordered "see also", site-absolute paths
   - /patterns/model-view-separation
+prerequisites:                              # optional — ordered "read this first", site-absolute paths
+  - /getting-started/what-is-scenerystack
+sourceRefs:                                 # optional — URLs grounding the page's technical claims
+  - https://www.npmjs.com/package/scenerystack
 ---
 ```
+
+`library` only applies to `api/` pages; omit it everywhere else.
+
+### The `status` lifecycle
+
+Four stages, each meaningful to an agent or human picking up work later:
+
+| Status | Meaning |
+| --- | --- |
+| `stub` | Page is scaffolded (frontmatter + a one-paragraph placeholder) — reserves the topic so parallel writers don't duplicate it. Not yet real content. |
+| `draft` | Full content is written, but not yet checked against the real SceneryStack source. |
+| `complete` | Full content, internally consistent, the author is confident in it. |
+| `verified` | `complete`, plus an independent pass has cross-checked the technical claims against real SceneryStack source or the [official reference](https://scenerystack.org/reference/). |
+
+Progress is tracked by reading these real frontmatter values across the tree (see [the Roadmap](/meta/roadmap) and `npm run roadmap:status`) — there is no separate hand-maintained checklist to keep in sync.
 
 Validation rules (enforced by `npm run generate`, and by CI on every push):
 
 - `title` and `description` are non-empty strings.
 - `category` matches the top-level folder the file lives in.
+- If `category` is `api`, `library` is required and must match the immediate subfolder.
 - `tags` is a non-empty array of strings.
-- `status` is `draft` or `complete`.
-- Every `related` entry resolves to an existing document — broken cross-references fail the build.
+- `status` is one of `stub`, `draft`, `complete`, `verified`.
+- Every `related` and `prerequisites` entry resolves to an existing document — broken cross-references fail the build.
+- `sourceRefs`, if present, is an array of URL strings (not resolution-checked — they point outside the wiki).
 
 VitePress additionally fails the build on dead Markdown links, so inline links like `[Drag Listeners](/patterns/drag-listeners)` are also checked.
 
@@ -60,7 +90,7 @@ VitePress additionally fails the build on dead Markdown links, so inline links l
 
 - **One concept per page.** Small, focused pages retrieve better — for search engines, humans, and LLM context windows alike.
 - **Lead with what and why**, then show a complete, runnable TypeScript snippet using real `scenerystack/*` imports.
-- **Cross-link generously** with site-absolute paths (`/api/model-view-transform`), and mirror the most important links in `related`.
+- **Cross-link generously** with site-absolute paths (`/api/phetcommon/model-view-transform`), and mirror the most important links in `related` (unordered "see also") or `prerequisites` (ordered "read this first").
 - Use tables for option/method summaries and `::: tip` / `::: warning` containers for the one thing readers must not miss.
 
 ## Generated artifacts

@@ -5,7 +5,7 @@ category: patterns
 tags: [architecture, axon, Property, DerivedProperty, MVC]
 status: complete
 related:
-  - /api/model-view-transform
+  - /api/phetcommon/model-view-transform
   - /getting-started/what-is-scenerystack
 ---
 
@@ -61,7 +61,7 @@ export class ProjectileNode extends Circle {
     super( 15, { fill: 'orange' } );
 
     // View subscribes to the model. Conversion to pixels happens here, at the
-    // boundary, via the transform — see /api/model-view-transform.
+    // boundary, via the transform — see /api/phetcommon/model-view-transform.
     model.positionProperty.link( position => {
       this.translation = modelViewTransform.modelToViewPosition( position );
     } );
