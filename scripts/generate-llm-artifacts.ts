@@ -1,0 +1,188 @@
+/**
+ * Scans every wiki page under docs/, validates its frontmatter against the
+ * schema documented in docs/meta/authoring-guide.md, and emits three
+ * machine-readable artifacts into docs/public/ (served at the site root):
+ *
+ *   llms.txt       - llms.txt-convention index: one link + description per page
+ *   llms-full.txt  - all pages concatenated, for one-shot ingestion
+ *   manifest.json  - structured metadata for every page
+ *
+ * Exits non-zero with per-file error messages when validation fails, so this
+ * doubles as the lint step in CI (run via `npm run generate`).
+ */
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import matter from 'gray-matter';
+
+const ROOT = path.resolve( path.dirname( fileURLToPath( import.meta.url ) ), '..' );
+const DOCS_DIR = path.join( ROOT, 'docs' );
+const OUT_DIR = path.join( DOCS_DIR, 'public' );
+const SITE_URL = 'https://veillette.github.io/Almanach';
+const SITE_TITLE = 'Almanach — SceneryStack Knowledge Base';
+const SITE_SUMMARY = 'A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.';
+
+// Category order and labels, mirrored in docs/.vitepress/sidebar.ts
+const CATEGORIES: Record<string, string> = {
+  'getting-started': 'Getting Started',
+  'api': 'API',
+  'patterns': 'Patterns',
+  'styling': 'Styling',
+  'accessibility': 'Accessibility',
+  'meta': 'Meta'
+};
+
+const EXCLUDED_DIRS = new Set( [ '.vitepress', 'public', 'node_modules' ] );
+const VALID_STATUSES = new Set( [ 'draft', 'complete' ] );
+
+type PageRecord = {
+  path: string;        // site-absolute route, e.g. /api/model-view-transform
+  sourceFile: string;  // repo-relative source, e.g. docs/api/model-view-transform.md
+  title: string;
+  description: string;
+  category: string;
+  tags: string[];
+  status: string;
+  related: string[];
+  wordCount: number;
+  content: string;
+};
+
+function walkMarkdownFiles( dir: string ): string[] {
+  const results: string[] = [];
+  for ( const entry of fs.readdirSync( dir, { withFileTypes: true } ) ) {
+    const fullPath = path.join( dir, entry.name );
+    if ( entry.isDirectory() ) {
+      if ( !EXCLUDED_DIRS.has( entry.name ) ) {
+        results.push( ...walkMarkdownFiles( fullPath ) );
+      }
+    }
+    else if ( entry.name.endsWith( '.md' ) ) {
+      results.push( fullPath );
+    }
+  }
+  return results;
+}
+
+const errors: string[] = [];
+const pages: PageRecord[] = [];
+
+for ( const file of walkMarkdownFiles( DOCS_DIR ) ) {
+  const relative = path.relative( DOCS_DIR, file );
+
+  // The home page uses VitePress's `layout: home` and is not a wiki article.
+  if ( relative === 'index.md' ) {
+    continue;
+  }
+
+  const { data, content } = matter( fs.readFileSync( file, 'utf-8' ) );
+  const fileErrors: string[] = [];
+  const category = relative.split( path.sep )[ 0 ];
+
+  if ( typeof data.title !== 'string' || data.title.trim() === '' ) {
+    fileErrors.push( 'missing required frontmatter field "title"' );
+  }
+  if ( typeof data.description !== 'string' || data.description.trim() === '' ) {
+    fileErrors.push( 'missing required frontmatter field "description"' );
+  }
+  if ( data.category !== category ) {
+    fileErrors.push( `frontmatter "category" is ${JSON.stringify( data.category )} but must match the containing folder "${category}"` );
+  }
+  if ( !VALID_STATUSES.has( data.status ) ) {
+    fileErrors.push( `frontmatter "status" is ${JSON.stringify( data.status )} but must be one of: ${[ ...VALID_STATUSES ].join( ', ' )}` );
+  }
+  if ( !Array.isArray( data.tags ) || data.tags.length === 0 || data.tags.some( ( tag: unknown ) => typeof tag !== 'string' ) ) {
+    fileErrors.push( 'frontmatter "tags" must be a non-empty array of strings' );
+  }
+  if ( data.related !== undefined && ( !Array.isArray( data.related ) || data.related.some( ( r: unknown ) => typeof r !== 'string' ) ) ) {
+    fileErrors.push( 'frontmatter "related" must be an array of site-absolute paths like /patterns/drag-listeners' );
+  }
+
+  if ( fileErrors.length > 0 ) {
+    errors.push( ...fileErrors.map( message => `docs/${relative}: ${message}` ) );
+    continue;
+  }
+
+  const route = '/' + relative.replace( /\\/g, '/' ).replace( /\.md$/, '' );
+  pages.push( {
+    path: route,
+    sourceFile: `docs/${relative.replace( /\\/g, '/' )}`,
+    title: data.title,
+    description: data.description,
+    category: category,
+    tags: data.tags,
+    status: data.status,
+    related: data.related ?? [],
+    wordCount: content.split( /\s+/ ).filter( word => word.length > 0 ).length,
+    content: content.trim()
+  } );
+}
+
+// Every "related" entry must point at an existing page, so cross-links never rot.
+const routes = new Set( pages.map( page => page.path ) );
+for ( const page of pages ) {
+  for ( const related of page.related ) {
+    if ( !routes.has( related ) ) {
+      errors.push( `${page.sourceFile}: related entry "${related}" does not match any document` );
+    }
+  }
+}
+
+if ( errors.length > 0 ) {
+  console.error( `Frontmatter validation failed (${errors.length} error${errors.length === 1 ? '' : 's'}):\n` );
+  for ( const error of errors ) {
+    console.error( `  - ${error}` );
+  }
+  process.exit( 1 );
+}
+
+// Stable ordering: category order above, then title within category.
+const categoryOrder = Object.keys( CATEGORIES );
+pages.sort( ( a, b ) => {
+  const byCategory = categoryOrder.indexOf( a.category ) - categoryOrder.indexOf( b.category );
+  return byCategory !== 0 ? byCategory : a.title.localeCompare( b.title );
+} );
+
+fs.mkdirSync( OUT_DIR, { recursive: true } );
+
+// ---------- llms.txt ----------
+let llms = `# ${SITE_TITLE}\n\n> ${SITE_SUMMARY}\n\nFull content of every page is available at ${SITE_URL}/llms-full.txt and structured metadata at ${SITE_URL}/manifest.json. Raw Markdown sources live at https://github.com/veillette/Almanach under docs/.\n`;
+for ( const categoryKey of categoryOrder ) {
+  const categoryPages = pages.filter( page => page.category === categoryKey );
+  if ( categoryPages.length === 0 ) { continue; }
+  llms += `\n## ${CATEGORIES[ categoryKey ]}\n\n`;
+  for ( const page of categoryPages ) {
+    llms += `- [${page.title}](${SITE_URL}${page.path}): ${page.description}\n`;
+  }
+}
+fs.writeFileSync( path.join( OUT_DIR, 'llms.txt' ), llms );
+
+// ---------- llms-full.txt ----------
+let full = `# ${SITE_TITLE}\n\n> ${SITE_SUMMARY}\n\nThis file contains the full text of all ${pages.length} pages. Each page begins with a "===" separator line.\n`;
+for ( const page of pages ) {
+  full += `\n\n${'='.repeat( 72 )}\n`;
+  full += `Page: ${page.title}\n`;
+  full += `URL: ${SITE_URL}${page.path}\n`;
+  full += `Source: ${page.sourceFile}\n`;
+  full += `Category: ${CATEGORIES[ page.category ] ?? page.category} | Tags: ${page.tags.join( ', ' )} | Status: ${page.status}\n`;
+  full += `${'='.repeat( 72 )}\n\n`;
+  full += `${page.content}\n`;
+}
+fs.writeFileSync( path.join( OUT_DIR, 'llms-full.txt' ), full );
+
+// ---------- manifest.json ----------
+const manifest = {
+  site: SITE_URL,
+  title: SITE_TITLE,
+  description: SITE_SUMMARY,
+  generated: new Date().toISOString(),
+  documentCount: pages.length,
+  documents: pages.map( ( { content, ...metadata } ) => ( {
+    ...metadata,
+    url: `${SITE_URL}${metadata.path}`
+  } ) )
+};
+fs.writeFileSync( path.join( OUT_DIR, 'manifest.json' ), JSON.stringify( manifest, null, 2 ) + '\n' );
+
+console.log( `Validated ${pages.length} documents. Wrote llms.txt, llms-full.txt, manifest.json to docs/public/.` );

@@ -1,0 +1,28 @@
+{
+  "name": "almanach",
+  "version": "0.1.0",
+  "description": "A file-based SceneryStack knowledge wiki, designed to be equally readable by humans and LLM agents",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/veillette/Almanach.git"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "npm run generate && vitepress build docs",
+    "preview": "vitepress preview docs",
+    "generate": "tsx scripts/generate-llm-artifacts.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "gray-matter": "^4.0.3",
+    "tsx": "^4.23.0",
+    "typescript": "^6.0.3",
+    "vitepress": "^1.6.4"
+  }
+}
