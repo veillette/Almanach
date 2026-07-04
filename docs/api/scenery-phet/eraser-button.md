@@ -4,10 +4,12 @@ description: A standard rectangular button with an eraser icon, typically wired 
 category: api
 library: scenery-phet
 tags: [scenery-phet, EraserButton, button]
-status: complete
+status: verified
 related:
   - /api/sun/rectangular-push-button
   - /api/scenery-phet/reset-all-button
+prerequisites:
+  - /api/sun/rectangular-push-button
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

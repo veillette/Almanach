@@ -3,7 +3,7 @@ title: Installation and Setup
 description: Setting up a new SceneryStack project - npm install, TypeScript config, and dev tooling.
 category: getting-started
 tags: [setup, installation, tooling, typescript]
-status: complete
+status: verified
 related:
   - /getting-started/what-is-scenerystack
   - /getting-started/your-first-simulation

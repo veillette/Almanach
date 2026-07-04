@@ -3,7 +3,7 @@ title: Supported Browsers
 description: Browser/platform support matrix and graceful-degradation considerations.
 category: getting-started
 tags: [browsers, compatibility, deployment]
-status: complete
+status: verified
 related:
   - /getting-started/running-and-building-a-simulation
   - /guides/scenery-basics

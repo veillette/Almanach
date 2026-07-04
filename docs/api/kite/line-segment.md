@@ -4,7 +4,7 @@ description: kite's straight-line path segment (pure geometry, not a renderable 
 category: api
 library: kite
 tags: [kite, Line, KiteLine, segment, path]
-status: complete
+status: verified
 related:
   - /api/kite/shape
   - /api/kite/arc
@@ -12,6 +12,8 @@ related:
   - /api/kite/subpath
   - /api/scenery/line
   - /api/dot/vector2
+prerequisites:
+  - /api/kite/shape
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
@@ -54,7 +56,7 @@ new KiteLine( start: Vector2, end: Vector2 )
 | `startTangent` / `endTangent` | Both equal the normalized direction from `start` to `end` — a straight line has one constant tangent along its whole length |
 | `bounds` | The tight axis-aligned `Bounds2` around the two endpoints |
 | `positionAt( t )` | Linear interpolation between `start` and `end`, `0 <= t <= 1` |
-| `tangentAt( t )` | Constant `end.minus( start )` regardless of `t` (non-normalized, unlike `startTangent`/`endTangent`) |
+| `tangentAt( t )` | Constant regardless of `t` — unlike other segment types, `Line.tangentAt()` actually returns the same *normalized* direction as `startTangent`/`endTangent` (it delegates straight to `getStartTangent()`), not a raw `end.minus( start )` |
 | `getArcLength()` | Equal to `start.distance( end )` — a line needs no subdivision to measure exactly |
 | `reversed()` | A new `KiteLine` with `start`/`end` swapped |
 | `transformed( matrix )` | A new `KiteLine` with both endpoints transformed by a [`Matrix3`](/api/dot/matrix3) |

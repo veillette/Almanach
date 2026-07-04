@@ -4,7 +4,7 @@ description: The horizontal slider bound to a NumberProperty and Range.
 category: api
 library: sun
 tags: [sun, HSlider, slider]
-status: complete
+status: verified
 related:
   - /api/sun/checkbox
   - /api/dot/range

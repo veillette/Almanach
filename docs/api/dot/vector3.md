@@ -4,7 +4,7 @@ description: The 3D vector class used for color math and 3D-flavored simulations
 category: api
 library: dot
 tags: [dot, Vector3, math]
-status: complete
+status: verified
 related:
   - /api/dot/vector2
   - /api/dot/matrix3

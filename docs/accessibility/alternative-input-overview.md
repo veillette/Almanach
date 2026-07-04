@@ -3,7 +3,7 @@ title: Alternative Input Overview
 description: How pointer, keyboard, and switch/AT input all route through the same listeners.
 category: accessibility
 tags: [scenery, alternative-input]
-status: complete
+status: verified
 related:
   - /accessibility/pdom
   - /accessibility/keyboard-input-and-hotkeys

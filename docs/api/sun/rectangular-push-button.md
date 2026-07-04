@@ -4,7 +4,7 @@ description: The standard rectangular momentary-action button.
 category: api
 library: sun
 tags: [sun, RectangularPushButton, button]
-status: complete
+status: verified
 related:
   - /api/sun/text-push-button
   - /api/sun/toggle-button

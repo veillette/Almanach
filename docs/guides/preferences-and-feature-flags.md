@@ -3,7 +3,7 @@ title: Preferences and Feature Flags
 description: Using the Preferences dialog and query parameters to configure sim behavior.
 category: guides
 tags: [preferences, query-parameters, joist]
-status: draft
+status: verified
 related:
   - /getting-started/your-first-simulation
   - /guides/translation-and-localization

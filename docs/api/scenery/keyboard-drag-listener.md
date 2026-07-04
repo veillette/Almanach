@@ -4,7 +4,7 @@ description: The keyboard-driven equivalent of pointer dragging, moving a positi
 category: api
 library: scenery
 tags: [scenery, KeyboardDragListener, input, keyboard, accessibility, drag]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/keyboard-listener
@@ -42,13 +42,13 @@ bodyNode.addInputListener( new KeyboardDragListener( {
 
 | Option | Default | Effect |
 | --- | --- | --- |
-| `dragDelta` | — | Discrete step (in parent/view coordinates) moved per `moveOnHoldInterval` tick — a "typical application" feel; mutually exclusive with `dragSpeed` |
-| `shiftDragDelta` | — | Finer `dragDelta` while shift is held |
-| `dragSpeed` | — | Continuous units/second moved while a direction key is held — smoother, game-like motion; mutually exclusive with `dragDelta` |
-| `shiftDragSpeed` | — | Finer `dragSpeed` while shift is held |
+| `dragDelta` | `10` | Discrete step (in parent/view coordinates) moved per `moveOnHoldInterval` tick — a "typical application" feel; mutually exclusive with `dragSpeed`/`shiftDragSpeed` |
+| `shiftDragDelta` | `5` | Finer `dragDelta` while shift is held |
+| `dragSpeed` | `0` | Continuous units/second moved while a direction key is held — smoother, game-like motion; mutually exclusive with `dragDelta`/`shiftDragDelta` |
+| `shiftDragSpeed` | `0` | Finer `dragSpeed` while shift is held |
 | `keyboardDragDirection` | `'both'` | Constrains motion: `'both'` (2D), `'leftRight'`, or `'upDown'` |
-| `moveOnHoldDelay` | — | Milliseconds a key must be held before repeat movement begins (delta mode only) |
-| `moveOnHoldInterval` | — | Milliseconds between discrete steps once repeating (delta mode only; must be > 0) |
+| `moveOnHoldDelay` | `500` | Milliseconds a key must be held before repeat movement begins (delta mode only) |
+| `moveOnHoldInterval` | `400` | Milliseconds between discrete steps once repeating (delta mode only; must be > 0) |
 
 `dragSpeed`/`shiftDragSpeed` and `dragDelta`/`shiftDragDelta` are mutually exclusive — pick one motion model per listener. If you pass `dragBoundsProperty`, you must also provide `positionProperty` or `translateNode: true`, since the listener otherwise has no way to know the current position to constrain.
 

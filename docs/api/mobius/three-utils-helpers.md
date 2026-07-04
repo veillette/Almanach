@@ -4,7 +4,9 @@ description: Static helpers for converting between dot and three.js vector types
 category: api
 library: mobius
 tags: [mobius, ThreeUtils, three.js, webgl, 3d]
-status: complete
+status: verified
+prerequisites:
+  - /api/mobius/scene-and-camera-setup
 related:
   - /api/mobius/scene-and-camera-setup
   - /api/mobius/node-wrapping-conventions

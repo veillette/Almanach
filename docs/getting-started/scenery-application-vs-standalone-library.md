@@ -3,7 +3,7 @@ title: Scenery Application vs. Standalone Library
 description: Choosing between a full joist-based Sim application and using scenery as a standalone rendering library.
 category: getting-started
 tags: [joist, scenery, standalone, architecture]
-status: complete
+status: verified
 related:
   - /getting-started/your-first-simulation
   - /guides/scenery-basics

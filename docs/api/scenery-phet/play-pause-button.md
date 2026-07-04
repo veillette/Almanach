@@ -4,7 +4,7 @@ description: The round toggle button that starts and stops time in a simulation,
 category: api
 library: scenery-phet
 tags: [scenery-phet, PlayPauseButton, button]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/time-control-node
   - /api/scenery-phet/step-forward-button

@@ -4,9 +4,11 @@ description: Mapping between model coordinates (physical units, y-up) and view c
 category: api
 library: phetcommon
 tags: [phetcommon, dot, coordinates, transform, ModelViewTransform2]
-status: complete
-related:
+status: verified
+prerequisites:
   - /patterns/model-view-separation
+  - /api/dot/vector2
+related:
   - /patterns/drag-listeners
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

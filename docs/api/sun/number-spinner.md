@@ -4,7 +4,7 @@ description: An integer value display flanked by increment/decrement arrow butto
 category: api
 library: sun
 tags: [sun, NumberSpinner, NumberProperty]
-status: complete
+status: verified
 related:
   - /api/sun/hslider
   - /api/dot/range

@@ -4,7 +4,7 @@ description: The circular momentary-action button, sharing PushButtonModel with 
 category: api
 library: sun
 tags: [sun, RoundPushButton, button]
-status: complete
+status: verified
 related:
   - /api/sun/rectangular-push-button
   - /api/sun/toggle-button

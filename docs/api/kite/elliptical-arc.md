@@ -4,12 +4,14 @@ description: A generalization of Arc that sweeps an ellipse (independent x/y rad
 category: api
 library: kite
 tags: [kite, EllipticalArc, segment, path]
-status: complete
+status: verified
 related:
   - /api/kite/shape
   - /api/kite/arc
   - /api/kite/line-styles
   - /api/dot/vector2
+prerequisites:
+  - /api/kite/arc
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

@@ -3,7 +3,7 @@ title: Accessible Interaction Tutorial
 description: Making a custom draggable Node fully accessible end-to-end.
 category: guides
 tags: [accessibility, tutorial, pdom, keyboard]
-status: complete
+status: verified
 related:
   - /accessibility/pdom
   - /patterns/drag-listeners

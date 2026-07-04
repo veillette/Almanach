@@ -4,7 +4,7 @@ description: A Path subclass for drawing (optionally rounded) rectangles.
 category: api
 library: scenery
 tags: [scenery, Rectangle, Path]
-status: complete
+status: verified
 related:
   - /api/scenery/path
   - /api/scenery/circle

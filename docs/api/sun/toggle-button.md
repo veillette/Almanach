@@ -4,7 +4,7 @@ description: The rectangular/round toggle-button family bound to a BooleanProper
 category: api
 library: sun
 tags: [sun, toggle-button, BooleanProperty]
-status: complete
+status: verified
 related:
   - /api/sun/rectangular-push-button
   - /api/sun/radio-button-group

@@ -4,10 +4,13 @@ description: The base class every pre-built molecule Node (H2ONode, CO2Node, and
 category: api
 library: nitroglycerin
 tags: [nitroglycerin, MoleculeNode, AtomNode, chemistry]
-status: complete
+status: verified
+prerequisites:
+  - /api/nitroglycerin/atom-and-element
 related:
   - /api/nitroglycerin/atom-and-element
   - /patterns/model-view-separation
+  - /patterns/composing-view-nodes
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

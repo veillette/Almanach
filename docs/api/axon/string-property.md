@@ -4,7 +4,7 @@ description: A Property<string>'s role in localizable, translatable values.
 category: api
 library: axon
 tags: [axon, StringProperty, localization]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/property
 related:

@@ -3,7 +3,7 @@ title: UI Components Overview
 description: Tour of the sun and scenery-phet component libraries and when to reach for each.
 category: guides
 tags: [sun, scenery-phet, ui-components]
-status: complete
+status: verified
 related:
   - /guides/scenery-layout
   - /patterns/reset-all-pattern

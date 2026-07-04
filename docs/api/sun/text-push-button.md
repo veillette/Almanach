@@ -4,7 +4,7 @@ description: A push button whose content is a text label.
 category: api
 library: sun
 tags: [sun, TextPushButton, button]
-status: complete
+status: verified
 related:
   - /api/sun/rectangular-push-button
   - /api/sun/toggle-button

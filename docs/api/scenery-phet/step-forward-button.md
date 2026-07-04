@@ -4,18 +4,20 @@ description: A round push button with a forward-step icon, used to advance a pau
 category: api
 library: scenery-phet
 tags: [scenery-phet, StepForwardButton, button]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/time-control-node
   - /api/scenery-phet/play-pause-button
   - /api/scenery-phet/step-backward-button
+prerequisites:
+  - /api/scenery-phet/time-control-node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
 
 # StepForwardButton
 
-`StepForwardButton` (from `scenerystack/scenery-phet`) is a `RoundPushButton` showing a bar-plus-triangle "step forward" icon, for advancing a paused model by one fixed time increment. It's a thin subclass of the shared (non-exported) `StepButton` with `direction: 'forward'` fixed — [`TimeControlNode`](/api/scenery-phet/time-control-node) includes one by default, but it's also usable standalone wherever a sim needs frame-by-frame stepping without a full play/pause control strip.
+`StepForwardButton` (from `scenerystack/scenery-phet`) is a `RoundPushButton` showing a bar-plus-triangle "step forward" icon, for advancing a paused model by one fixed time increment. It's a thin subclass of the shared, also-exported `StepButton` with `direction: 'forward'` fixed — [`TimeControlNode`](/api/scenery-phet/time-control-node) includes one by default, but it's also usable standalone wherever a sim needs frame-by-frame stepping without a full play/pause control strip.
 
 ```ts
 import { StepForwardButton } from 'scenerystack/scenery-phet';

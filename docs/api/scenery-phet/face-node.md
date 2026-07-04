@@ -4,11 +4,13 @@ description: A simple smiling/frowning face graphic, typically shown as feedback
 category: api
 library: scenery-phet
 tags: [scenery-phet, FaceNode, feedback, face]
-status: complete
+status: verified
 related:
   - /api/scenery/circle
   - /api/scenery/path
   - /api/axon/derived-property
+prerequisites:
+  - /api/scenery/node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

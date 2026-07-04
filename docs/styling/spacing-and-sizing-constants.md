@@ -3,10 +3,11 @@ title: Spacing and Sizing Constants
 description: Centralizing margins, spacing, and icon sizes in one constants file instead of hardcoding magic numbers throughout view code.
 category: styling
 tags: [scenery, constants, spacing, layout, conventions]
-status: complete
+status: verified
 related:
   - /styling/layout-container-conventions
   - /patterns/options-pattern
+  - /styling/panels-and-backgrounds
 prerequisites:
   - /styling/layout-container-conventions
 ---

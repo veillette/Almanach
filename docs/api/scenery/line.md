@@ -4,9 +4,11 @@ description: A Path subclass for drawing single line segments.
 category: api
 library: scenery
 tags: [scenery, Line, Path]
-status: complete
+status: verified
 related:
   - /api/scenery/path
+  - /api/scenery/circle
+  - /api/scenery/rectangle
 prerequisites:
   - /api/scenery/node
 sourceRefs:

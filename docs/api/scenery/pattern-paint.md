@@ -4,7 +4,7 @@ description: The image-tiling paint type usable as a Node's fill or stroke - unr
 category: api
 library: scenery
 tags: [scenery, Pattern, paint, fill, stroke, image]
-status: complete
+status: verified
 related:
   - /api/scenery/color
   - /api/scenery/node

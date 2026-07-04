@@ -3,7 +3,7 @@ title: Stroke and Line Styling
 description: Conventions for stroke width, dash patterns, and line joins/caps.
 category: styling
 tags: [kite, scenery, stroke, styling]
-status: complete
+status: verified
 related:
   - /api/kite/shape
   - /api/scenery/path

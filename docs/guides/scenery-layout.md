@@ -3,7 +3,7 @@ title: Scenery Layout
 description: Overview of scenery's auto-layout system - FlowBox, GridBox, AlignBox, and layout options.
 category: guides
 tags: [scenery, layout, flow-box, grid-box]
-status: complete
+status: verified
 related:
   - /guides/scenery-basics
   - /guides/building-your-first-screen

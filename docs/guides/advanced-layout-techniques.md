@@ -3,7 +3,7 @@ title: Advanced Layout Techniques
 description: Nesting FlowBox/GridBox containers, escaping to ManualConstraint for one-off positioning, and using AlignGroup to size content consistently across containers.
 category: guides
 tags: [scenery, layout, manual-constraint, align-group]
-status: complete
+status: verified
 related:
   - /guides/scenery-layout
   - /guides/scenery-basics

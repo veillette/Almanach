@@ -50,7 +50,7 @@ new UtteranceQueue<A extends Announcer>( announcer: A, providedOptions?: Utteran
 | Option | Default | Effect |
 | --- | --- | --- |
 | `debug` | `false` | Logs queue activity (`addToBack`, `announcing`, etc.) to the console |
-| `initialize` | `true` | If `false`, every method becomes a no-op — useful for a feature flag that disables announcing entirely without branching call sites |
+| `initialize` | `true` | If `false`, the queue is never stepped (no `stepTimer` listener is added) and `addToBack()`/`addToFront()`/`announceImmediately()` become no-ops (via `initializedAndEnabled`) — useful for a feature flag that disables announcing entirely without branching call sites. Methods like `removeUtterance()`/`clear()` are unaffected |
 | `featureSpecificAnnouncingControlPropertyName` | `null` | `'descriptionCanAnnounceProperty'` or `'voicingCanAnnounceProperty'` — additionally gates announcing on that Utterance-level Property, on top of `canAnnounceProperty` |
 
 ## Methods
@@ -58,14 +58,14 @@ new UtteranceQueue<A extends Announcer>( announcer: A, providedOptions?: Utteran
 | Method | Description |
 | --- | --- |
 | `addToBack( utterance )` | Enqueues an `Utterance` (or raw `TAlertable` content, auto-wrapped). Removes any existing occurrence of the same `Utterance` instance first |
-| `announceImmediately( utterance )` | Bypasses queue ordering — announces synchronously if the announcer is ready and priority allows it, otherwise queues at the front. Needed for effects that must originate from a synchronous user gesture (browser speech-synthesis restrictions) |
-| `removeUtterance( utterance )` | Removes a specific `Utterance` from the queue |
+| `announceImmediately( utterance )` | Bypasses queue ordering, subject to `priorityProperty`: if nothing is currently announcing, or this Utterance should cancel what is, it's moved to the front of the queue and announced synchronously (or left queued at the front if the announcer isn't ready yet); otherwise it is dropped without being queued at all. Needed for effects that must originate from a synchronous user gesture (browser speech-synthesis restrictions) |
+| `removeUtterance( utterance )` | Removes a specific `Utterance` from the queue (not gated by `enabled`) |
 | `hasUtterance( utterance )` | Whether the given `Utterance` is currently queued |
 | `cancelUtterance( utterance )` | Removes it from the queue, and asks the announcer to stop if it's currently being spoken |
-| `clear()` | Empties the queue without touching in-progress announcement |
+| `clear()` | Empties the queue without touching in-progress announcement (not gated by `enabled`) |
 | `cancel()` | `clear()` plus tells the announcer to stop speaking entirely |
 | `.muted` / `setMuted()` / `getMuted()` | While muted, Utterances still move through the queue and their timers still run, but nothing is sent to the announcer |
-| `.enabled` / `setEnabled()` / `isEnabled()` | While disabled, nothing can be added, removed, or announced |
+| `.enabled` / `setEnabled()` / `isEnabled()` | While disabled, `addToBack()`/`addToFront()`/`announceImmediately()` no-op and the queue no longer steps toward announcing anything; explicit `removeUtterance()`/`clear()` calls still work |
 | `.length` | Number of Utterances currently queued |
 | `UtteranceQueue.fromFactory()` | Static convenience constructor described above |
 

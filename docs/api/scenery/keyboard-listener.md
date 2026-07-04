@@ -4,7 +4,7 @@ description: A declarative hotkey listener that fires a callback when a specific
 category: api
 library: scenery
 tags: [scenery, KeyboardListener, input, keyboard, accessibility, hotkey]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/keyboard-drag-listener

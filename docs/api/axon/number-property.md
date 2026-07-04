@@ -4,7 +4,7 @@ description: A Property<number> with an optional range for validation and UI bin
 category: api
 library: axon
 tags: [axon, NumberProperty, range]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/property
 related:

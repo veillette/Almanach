@@ -4,7 +4,7 @@ description: The base classes behind clickable/pressable Nodes.
 category: api
 library: scenery
 tags: [scenery, FireListener, PressListener, input]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /api/scenery/display

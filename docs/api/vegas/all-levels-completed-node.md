@@ -4,10 +4,12 @@ description: A pseudo-dialog Node shown when a player has completed every level 
 category: api
 library: vegas
 tags: [vegas, AllLevelsCompletedNode, game, dialog, Panel]
-status: complete
+status: verified
 related:
   - /api/vegas/level-selection-button
   - /api/vegas/game-audio-player
+  - /api/sun/panel
+  - /api/scenery-phet/face-node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

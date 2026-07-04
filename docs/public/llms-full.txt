@@ -9,7 +9,7 @@ This file contains the full text of all 231 pages. Each page begins with a "==="
 Page: Deploying a Simulation to GitHub Pages
 URL: https://veillette.github.io/Almanach/getting-started/deploying-to-github-pages
 Source: docs/getting-started/deploying-to-github-pages.md
-Category: Getting Started | Tags: deployment, github-pages, build, ci | Status: draft
+Category: Getting Started | Tags: deployment, github-pages, build, ci | Status: verified
 ========================================================================
 
 # Deploying a Simulation to GitHub Pages
@@ -127,7 +127,7 @@ Also worth doing before you push: `npm run build`'s output has SceneryStack's ru
 Page: Installation and Setup
 URL: https://veillette.github.io/Almanach/getting-started/installation-and-setup
 Source: docs/getting-started/installation-and-setup.md
-Category: Getting Started | Tags: setup, installation, tooling, typescript | Status: complete
+Category: Getting Started | Tags: setup, installation, tooling, typescript | Status: verified
 ========================================================================
 
 # Installation and Setup
@@ -191,7 +191,7 @@ Every SceneryStack library — `axon`, `dot`, `kite`, `scenery`, `sun`, `scenery
 Page: Project Structure Conventions
 URL: https://veillette.github.io/Almanach/getting-started/project-structure-conventions
 Source: docs/getting-started/project-structure-conventions.md
-Category: Getting Started | Tags: conventions, project-structure, repo-layout | Status: draft
+Category: Getting Started | Tags: conventions, project-structure, repo-layout | Status: verified
 ========================================================================
 
 # Project Structure Conventions
@@ -250,7 +250,7 @@ The fastest way to lose model-view separation over time is a stray `import { Nod
 Page: Running and Building a Simulation
 URL: https://veillette.github.io/Almanach/getting-started/running-and-building-a-simulation
 Source: docs/getting-started/running-and-building-a-simulation.md
-Category: Getting Started | Tags: build, tooling, dev-server | Status: draft
+Category: Getting Started | Tags: build, tooling, dev-server | Status: verified
 ========================================================================
 
 # Running and Building a Simulation
@@ -299,7 +299,7 @@ Two things distinguish a SceneryStack production build from a generic web app bu
 Page: Scenery Application vs. Standalone Library
 URL: https://veillette.github.io/Almanach/getting-started/scenery-application-vs-standalone-library
 Source: docs/getting-started/scenery-application-vs-standalone-library.md
-Category: Getting Started | Tags: joist, scenery, standalone, architecture | Status: complete
+Category: Getting Started | Tags: joist, scenery, standalone, architecture | Status: verified
 ========================================================================
 
 # Scenery Application vs. Standalone Library
@@ -372,7 +372,7 @@ Key differences from a `Sim`:
 Page: Supported Browsers
 URL: https://veillette.github.io/Almanach/getting-started/supported-browsers
 Source: docs/getting-started/supported-browsers.md
-Category: Getting Started | Tags: browsers, compatibility, deployment | Status: complete
+Category: Getting Started | Tags: browsers, compatibility, deployment | Status: verified
 ========================================================================
 
 # Supported Browsers
@@ -434,7 +434,7 @@ The historical `platform.firefox` example in scenery's own source (`if (platform
 Page: Troubleshooting Common Setup Errors
 URL: https://veillette.github.io/Almanach/getting-started/troubleshooting-common-setup-errors
 Source: docs/getting-started/troubleshooting-common-setup-errors.md
-Category: Getting Started | Tags: troubleshooting, setup, typescript, tooling | Status: draft
+Category: Getting Started | Tags: troubleshooting, setup, typescript, tooling | Status: verified
 ========================================================================
 
 # Troubleshooting Common Setup Errors
@@ -529,7 +529,7 @@ If an error doesn't match anything above, scaffold a brand-new project with `npm
 Page: What is SceneryStack?
 URL: https://veillette.github.io/Almanach/getting-started/what-is-scenerystack
 Source: docs/getting-started/what-is-scenerystack.md
-Category: Getting Started | Tags: overview, installation, scenery, axon, dot, sun, joist | Status: complete
+Category: Getting Started | Tags: overview, installation, scenery, axon, dot, sun, joist | Status: verified
 ========================================================================
 
 # What is SceneryStack?
@@ -549,7 +549,7 @@ It is published as a single npm package, [`scenerystack`](https://www.npmjs.com/
 | **sun** | `scenerystack/sun` | UI components: buttons, sliders, checkboxes, combo boxes |
 | **scenery-phet** | `scenerystack/scenery-phet` | Simulation-specific reusable components: arrows, thermometers, `PhetFont` |
 | **twixt** | `scenerystack/twixt` | Animation and easing |
-| **joist** | `scenerystack/joist` | Application shell: `Sim`, `Screen`, `ScreenView`, navigation bar |
+| **joist** | `scenerystack/sim` (app shell classes) / `scenerystack/joist` (preferences panels, locale utilities) | Application shell: `Sim`, `Screen`, `ScreenView`, navigation bar — see [Troubleshooting](/getting-started/troubleshooting-common-setup-errors) for why the import subpath differs from the library name |
 | **tandem** | `scenerystack/tandem` | PhET-iO instrumentation and serialization |
 | **phetcommon** | `scenerystack/phetcommon` | Shared utilities, notably `ModelViewTransform2` |
 
@@ -590,7 +590,7 @@ This model/view split is the foundational pattern of every SceneryStack applicat
 Page: Your First Simulation
 URL: https://veillette.github.io/Almanach/getting-started/your-first-simulation
 Source: docs/getting-started/your-first-simulation.md
-Category: Getting Started | Tags: joist, sim, screen, tutorial | Status: complete
+Category: Getting Started | Tags: joist, sim, screen, tutorial | Status: verified
 ========================================================================
 
 # Your First Simulation
@@ -685,7 +685,7 @@ Since a single-screen sim has no home screen or navigation-bar screen icons, `ho
 Page: Accessible Interaction Tutorial
 URL: https://veillette.github.io/Almanach/guides/accessible-interaction-tutorial
 Source: docs/guides/accessible-interaction-tutorial.md
-Category: Guides | Tags: accessibility, tutorial, pdom, keyboard | Status: complete
+Category: Guides | Tags: accessibility, tutorial, pdom, keyboard | Status: verified
 ========================================================================
 
 # Accessible Interaction Tutorial
@@ -813,7 +813,7 @@ Unplug your mouse and tab to the Node: it should receive a visible focus highlig
 Page: Advanced Layout Techniques
 URL: https://veillette.github.io/Almanach/guides/advanced-layout-techniques
 Source: docs/guides/advanced-layout-techniques.md
-Category: Guides | Tags: scenery, layout, manual-constraint, align-group | Status: complete
+Category: Guides | Tags: scenery, layout, manual-constraint, align-group | Status: verified
 ========================================================================
 
 # Advanced Layout Techniques
@@ -915,7 +915,7 @@ The class doc for `AlignGroup` calls out that resizes may not take effect immedi
 Page: Building Your First Screen
 URL: https://veillette.github.io/Almanach/guides/building-your-first-screen
 Source: docs/guides/building-your-first-screen.md
-Category: Guides | Tags: screen, tutorial, joist | Status: complete
+Category: Guides | Tags: screen, tutorial, joist | Status: verified
 ========================================================================
 
 # Building Your First Screen
@@ -1473,7 +1473,7 @@ As [PhET-iO and Instrumentation](/guides/phet-io-and-instrumentation) notes, com
 Page: Preferences and Feature Flags
 URL: https://veillette.github.io/Almanach/guides/preferences-and-feature-flags
 Source: docs/guides/preferences-and-feature-flags.md
-Category: Guides | Tags: preferences, query-parameters, joist | Status: draft
+Category: Guides | Tags: preferences, query-parameters, joist | Status: verified
 ========================================================================
 
 # Preferences and Feature Flags
@@ -1566,7 +1566,7 @@ It's tempting to add a query parameter as a quick way to make a feature "configu
 Page: Scenery Basics
 URL: https://veillette.github.io/Almanach/guides/scenery-basics
 Source: docs/guides/scenery-basics.md
-Category: Guides | Tags: scenery, scene-graph, rendering | Status: complete
+Category: Guides | Tags: scenery, scene-graph, rendering | Status: verified
 ========================================================================
 
 # Scenery Basics
@@ -1649,7 +1649,7 @@ const globalPoint = ball.localToGlobalPoint( someLocalPoint ); // all the way to
 Page: Scenery Input
 URL: https://veillette.github.io/Almanach/guides/scenery-input
 Source: docs/guides/scenery-input.md
-Category: Guides | Tags: scenery, input, pointers, listeners | Status: complete
+Category: Guides | Tags: scenery, input, pointers, listeners | Status: verified
 ========================================================================
 
 # Scenery Input
@@ -1752,7 +1752,7 @@ Every listener shown above only responds to mouse/touch/pen. Keyboard users and 
 Page: Scenery Layout
 URL: https://veillette.github.io/Almanach/guides/scenery-layout
 Source: docs/guides/scenery-layout.md
-Category: Guides | Tags: scenery, layout, flow-box, grid-box | Status: complete
+Category: Guides | Tags: scenery, layout, flow-box, grid-box | Status: verified
 ========================================================================
 
 # Scenery Layout
@@ -1947,7 +1947,7 @@ It's tempting to reach for `Intl` or a homegrown lookup table for "just this one
 Page: UI Components Overview
 URL: https://veillette.github.io/Almanach/guides/ui-components-overview
 Source: docs/guides/ui-components-overview.md
-Category: Guides | Tags: sun, scenery-phet, ui-components | Status: complete
+Category: Guides | Tags: sun, scenery-phet, ui-components | Status: verified
 ========================================================================
 
 # UI Components Overview
@@ -2385,7 +2385,7 @@ If what you're modeling has a "current value" that late-arriving listeners shoul
 Page: EnumerationProperty
 URL: https://veillette.github.io/Almanach/api/axon/enumeration-property
 Source: docs/api/axon/enumeration-property.md
-Category: API | Tags: axon, EnumerationProperty | Status: complete
+Category: API | Tags: axon, EnumerationProperty | Status: verified
 ========================================================================
 
 # EnumerationProperty
@@ -2435,7 +2435,7 @@ Prefer `EnumerationProperty` over a [`StringProperty`](/api/axon/string-property
 Page: Multilink
 URL: https://veillette.github.io/Almanach/api/axon/multilink
 Source: docs/api/axon/multilink.md
-Category: API | Tags: axon, Multilink | Status: complete
+Category: API | Tags: axon, Multilink | Status: verified
 ========================================================================
 
 # Multilink
@@ -2500,7 +2500,7 @@ Reach for [`DerivedProperty`](/api/axon/derived-property) when the combination o
 Page: NumberProperty
 URL: https://veillette.github.io/Almanach/api/axon/number-property
 Source: docs/api/axon/number-property.md
-Category: API | Tags: axon, NumberProperty, range | Status: complete
+Category: API | Tags: axon, NumberProperty, range | Status: verified
 ========================================================================
 
 # NumberProperty
@@ -2556,7 +2556,7 @@ Setting `.range = ...` directly re-validates the *current* value against the new
 Page: Observable Array
 URL: https://veillette.github.io/Almanach/api/axon/observable-array
 Source: docs/api/axon/observable-array.md
-Category: API | Tags: axon, observable-array, collections | Status: complete
+Category: API | Tags: axon, observable-array, collections | Status: verified
 ========================================================================
 
 # Observable Array (createObservableArray)
@@ -2636,7 +2636,7 @@ If you find yourself keeping a plain `T[]` alongside a manually-maintained `Emit
 Page: PatternStringProperty
 URL: https://veillette.github.io/Almanach/api/axon/pattern-string-property
 Source: docs/api/axon/pattern-string-property.md
-Category: API | Tags: axon, PatternStringProperty, DerivedProperty, i18n, strings | Status: complete
+Category: API | Tags: axon, PatternStringProperty, DerivedProperty, i18n, strings | Status: verified
 ========================================================================
 
 # PatternStringProperty
@@ -2793,7 +2793,7 @@ A `Property` always has a *current value* that new listeners immediately receive
 Page: StringProperty
 URL: https://veillette.github.io/Almanach/api/axon/string-property
 Source: docs/api/axon/string-property.md
-Category: API | Tags: axon, StringProperty, localization | Status: complete
+Category: API | Tags: axon, StringProperty, localization | Status: verified
 ========================================================================
 
 # StringProperty
@@ -2832,7 +2832,7 @@ If a string Property should only ever hold one of a small, fixed set of values (
 Page: StringUnionProperty
 URL: https://veillette.github.io/Almanach/api/axon/string-union-property
 Source: docs/api/axon/string-union-property.md
-Category: API | Tags: axon, StringUnionProperty, Property, enumeration, TypeScript | Status: complete
+Category: API | Tags: axon, StringUnionProperty, Property, enumeration, TypeScript | Status: verified
 ========================================================================
 
 # StringUnionProperty
@@ -2880,7 +2880,7 @@ Use `StringUnionProperty` when the set of choices is small, has no associated be
 Page: TinyEmitter
 URL: https://veillette.github.io/Almanach/api/axon/tiny-emitter
 Source: docs/api/axon/tiny-emitter.md
-Category: API | Tags: axon, TinyEmitter, Emitter, events, performance | Status: complete
+Category: API | Tags: axon, TinyEmitter, Emitter, events, performance | Status: verified
 ========================================================================
 
 # TinyEmitter
@@ -2942,7 +2942,7 @@ new TinyEmitter<T>(
 Page: TinyProperty
 URL: https://veillette.github.io/Almanach/api/axon/tiny-property
 Source: docs/api/axon/tiny-property.md
-Category: API | Tags: axon, TinyProperty, Property, performance | Status: complete
+Category: API | Tags: axon, TinyProperty, Property, performance | Status: verified
 ========================================================================
 
 # TinyProperty
@@ -2995,7 +2995,7 @@ The trailing four parameters are forwarded straight to the underlying [`TinyEmit
 Page: UnitConversionProperty
 URL: https://veillette.github.io/Almanach/api/axon/unit-conversion-property
 Source: docs/api/axon/unit-conversion-property.md
-Category: API | Tags: axon, UnitConversionProperty, MappedProperty, Property, units | Status: complete
+Category: API | Tags: axon, UnitConversionProperty, MappedProperty, Property, units | Status: verified
 ========================================================================
 
 # UnitConversionProperty
@@ -3051,7 +3051,7 @@ The doc comment on the source is explicit about this: assigning `centimetersProp
 Page: AxisLine and AxisArrowNode
 URL: https://veillette.github.io/Almanach/api/bamboo/axis-nodes
 Source: docs/api/bamboo/axis-nodes.md
-Category: API | Tags: bamboo, AxisLine, AxisArrowNode, chart, axis | Status: complete
+Category: API | Tags: bamboo, AxisLine, AxisArrowNode, chart, axis | Status: verified
 ========================================================================
 
 # AxisLine and AxisArrowNode
@@ -3125,7 +3125,7 @@ For a `VERTICAL` `AxisLine`/`AxisArrowNode` (a vertical line representing the "y
 Page: BarPlot
 URL: https://veillette.github.io/Almanach/api/bamboo/bar-plot
 Source: docs/api/bamboo/bar-plot.md
-Category: API | Tags: bamboo, BarPlot, chart, plot | Status: complete
+Category: API | Tags: bamboo, BarPlot, chart, plot | Status: verified
 ========================================================================
 
 # BarPlot
@@ -3194,7 +3194,7 @@ new BarPlot( chartTransform: ChartTransform, dataSet: Vector2[], providedOptions
 Page: ChartTransform
 URL: https://veillette.github.io/Almanach/api/bamboo/chart-transform
 Source: docs/api/bamboo/chart-transform.md
-Category: API | Tags: bamboo, ChartTransform, coordinates, chart | Status: complete
+Category: API | Tags: bamboo, ChartTransform, coordinates, chart | Status: verified
 ========================================================================
 
 # ChartTransform
@@ -3277,7 +3277,7 @@ new ChartTransform( providedOptions?: ChartTransformOptions )
 Page: LinePlot
 URL: https://veillette.github.io/Almanach/api/bamboo/line-plot
 Source: docs/api/bamboo/line-plot.md
-Category: API | Tags: bamboo, LinePlot, chart, plot | Status: complete
+Category: API | Tags: bamboo, LinePlot, chart, plot | Status: verified
 ========================================================================
 
 # LinePlot
@@ -3336,7 +3336,7 @@ Each `null` in `dataSet` starts a new, disconnected subpath on the next non-null
 Page: ScatterPlot
 URL: https://veillette.github.io/Almanach/api/bamboo/scatter-plot
 Source: docs/api/bamboo/scatter-plot.md
-Category: API | Tags: bamboo, ScatterPlot, chart, plot | Status: complete
+Category: API | Tags: bamboo, ScatterPlot, chart, plot | Status: verified
 ========================================================================
 
 # ScatterPlot
@@ -4115,7 +4115,7 @@ Because `position` and `direction` are plain mutable fields, nothing stops you f
 Page: Transform3
 URL: https://veillette.github.io/Almanach/api/dot/transform3
 Source: docs/api/dot/transform3.md
-Category: API | Tags: dot, Transform3, transform, matrix | Status: complete
+Category: API | Tags: dot, Transform3, transform, matrix | Status: verified
 ========================================================================
 
 # Transform3
@@ -4251,7 +4251,7 @@ function temperatureToHue( temperatureCelsius: number ): number {
 Page: Vector2
 URL: https://veillette.github.io/Almanach/api/dot/vector2
 Source: docs/api/dot/vector2.md
-Category: API | Tags: dot, Vector2, math | Status: complete
+Category: API | Tags: dot, Vector2, math | Status: verified
 ========================================================================
 
 # Vector2
@@ -4334,7 +4334,7 @@ Because plain object references are passed around freely, calling a mutable meth
 Page: Vector3
 URL: https://veillette.github.io/Almanach/api/dot/vector3
 Source: docs/api/dot/vector3.md
-Category: API | Tags: dot, Vector3, math | Status: complete
+Category: API | Tags: dot, Vector3, math | Status: verified
 ========================================================================
 
 # Vector3
@@ -4397,7 +4397,7 @@ Unlike `Vector2.crossScalar()` (which returns a single number — the z-componen
 Page: Vector4
 URL: https://veillette.github.io/Almanach/api/dot/vector4
 Source: docs/api/dot/vector4.md
-Category: API | Tags: dot, Vector4, math | Status: complete
+Category: API | Tags: dot, Vector4, math | Status: verified
 ========================================================================
 
 # Vector4
@@ -4979,7 +4979,7 @@ Constructed once, internally, by `Sim`.
 Page: Arc
 URL: https://veillette.github.io/Almanach/api/kite/arc
 Source: docs/api/kite/arc.md
-Category: API | Tags: kite, Arc, segment, path | Status: complete
+Category: API | Tags: kite, Arc, segment, path | Status: verified
 ========================================================================
 
 # Arc
@@ -5039,7 +5039,7 @@ If `startAngle`/`endAngle` differ by (approximately) a full turn, the `Arc` repr
 Page: Cubic
 URL: https://veillette.github.io/Almanach/api/kite/cubic
 Source: docs/api/kite/cubic.md
-Category: API | Tags: kite, Cubic, bezier, segment, path | Status: complete
+Category: API | Tags: kite, Cubic, bezier, segment, path | Status: verified
 ========================================================================
 
 # Cubic
@@ -5099,7 +5099,7 @@ new Cubic( start: Vector2, control1: Vector2, control2: Vector2, end: Vector2 )
 Page: EllipticalArc
 URL: https://veillette.github.io/Almanach/api/kite/elliptical-arc
 Source: docs/api/kite/elliptical-arc.md
-Category: API | Tags: kite, EllipticalArc, segment, path | Status: complete
+Category: API | Tags: kite, EllipticalArc, segment, path | Status: verified
 ========================================================================
 
 # EllipticalArc
@@ -5167,7 +5167,7 @@ new EllipticalArc(
 Page: Line
 URL: https://veillette.github.io/Almanach/api/kite/line-segment
 Source: docs/api/kite/line-segment.md
-Category: API | Tags: kite, Line, KiteLine, segment, path | Status: complete
+Category: API | Tags: kite, Line, KiteLine, segment, path | Status: verified
 ========================================================================
 
 # Line
@@ -5208,7 +5208,7 @@ new KiteLine( start: Vector2, end: Vector2 )
 | `startTangent` / `endTangent` | Both equal the normalized direction from `start` to `end` — a straight line has one constant tangent along its whole length |
 | `bounds` | The tight axis-aligned `Bounds2` around the two endpoints |
 | `positionAt( t )` | Linear interpolation between `start` and `end`, `0 <= t <= 1` |
-| `tangentAt( t )` | Constant `end.minus( start )` regardless of `t` (non-normalized, unlike `startTangent`/`endTangent`) |
+| `tangentAt( t )` | Constant regardless of `t` — unlike other segment types, `Line.tangentAt()` actually returns the same *normalized* direction as `startTangent`/`endTangent` (it delegates straight to `getStartTangent()`), not a raw `end.minus( start )` |
 | `getArcLength()` | Equal to `start.distance( end )` — a line needs no subdivision to measure exactly |
 | `reversed()` | A new `KiteLine` with `start`/`end` swapped |
 | `transformed( matrix )` | A new `KiteLine` with both endpoints transformed by a [`Matrix3`](/api/dot/matrix3) |
@@ -5220,7 +5220,7 @@ See [Shape](/api/kite/shape) for how segments compose into subpaths and shapes, 
 Page: LineStyles
 URL: https://veillette.github.io/Almanach/api/kite/line-styles
 Source: docs/api/kite/line-styles.md
-Category: API | Tags: kite, LineStyles, stroke, path | Status: complete
+Category: API | Tags: kite, LineStyles, stroke, path | Status: verified
 ========================================================================
 
 # LineStyles
@@ -5281,7 +5281,7 @@ new LineStyles( options?: LineStylesOptions )
 Page: Quadratic
 URL: https://veillette.github.io/Almanach/api/kite/quadratic
 Source: docs/api/kite/quadratic.md
-Category: API | Tags: kite, Quadratic, bezier, segment, path | Status: complete
+Category: API | Tags: kite, Quadratic, bezier, segment, path | Status: verified
 ========================================================================
 
 # Quadratic
@@ -5482,7 +5482,7 @@ You'll rarely construct a `Subpath` directly — build shapes through `Shape`'s 
 Page: ThreeNode, ThreeInstrumentable, and ThreeObject3DPhetioObject
 URL: https://veillette.github.io/Almanach/api/mobius/node-wrapping-conventions
 Source: docs/api/mobius/node-wrapping-conventions.md
-Category: API | Tags: mobius, ThreeNode, ThreeInstrumentable, ThreeObject3DPhetioObject, three.js, phet-io | Status: complete
+Category: API | Tags: mobius, ThreeNode, ThreeInstrumentable, ThreeObject3DPhetioObject, three.js, phet-io | Status: verified
 ========================================================================
 
 # ThreeNode, ThreeInstrumentable, and ThreeObject3DPhetioObject
@@ -5555,12 +5555,12 @@ A `PhetioObject` subclass with no extra state of its own: `phetioType` defaults 
 
 ### `ThreeInstrumentable( type )`
 
-A memoized mixin function: `ThreeInstrumentable( SomeThreeClass )` returns a subclass of `SomeThreeClass` whose constructor takes the usual three.js constructor arguments plus a trailing `PhetioObjectOptions` object, and which exposes a `phetioObject: ThreeObject3DPhetioObject` (constructed from those options). Its overridden `dispose()` disposes `phetioObject` in addition to whatever `SomeThreeClass.dispose` does.
+A memoized mixin function: `ThreeInstrumentable( SomeThreeClass )` returns a subclass of `SomeThreeClass` whose constructor takes the usual three.js constructor arguments plus a trailing `PhetioObjectOptions` object, and which exposes a `phetioObject: ThreeObject3DPhetioObject` (constructed from those options). Its overridden `dispose()` calls the wrapped type's own `dispose()` first, then disposes `phetioObject`.
 
 | Member | Description |
 | --- | --- |
 | `phetioObject` | The `ThreeObject3DPhetioObject` instrumented for this instance |
-| `dispose()` | Disposes `phetioObject`, then calls the wrapped type's own `dispose()` if present |
+| `dispose()` | Calls the wrapped type's own `dispose()` first (if present), then disposes `phetioObject` |
 
 ::: warning Instrumenting a three.js object does not capture its state
 `ThreeObject3DIO`'s `toStateObject`/`stateSchema` are both empty (`{}`) — wrapping a `THREE.Object3D` with `ThreeInstrumentable` only gives it an address in the PhET-iO tree for Studio to select and reference. It does **not** serialize or restore position, rotation, material, or any other three.js state on PhET-iO save/load. If your sim needs 3D object state to survive a state restore, you must model that state separately (e.g. as `Property`s on your own model) and use it to drive the three.js object, rather than relying on this instrumentation.
@@ -5571,7 +5571,7 @@ A memoized mixin function: `ThreeInstrumentable( SomeThreeClass )` returns a sub
 Page: ThreeStage
 URL: https://veillette.github.io/Almanach/api/mobius/scene-and-camera-setup
 Source: docs/api/mobius/scene-and-camera-setup.md
-Category: API | Tags: mobius, ThreeStage, three.js, webgl, 3d | Status: complete
+Category: API | Tags: mobius, ThreeStage, three.js, webgl, 3d | Status: verified
 ========================================================================
 
 # ThreeStage
@@ -5618,7 +5618,7 @@ new ThreeStage( providedOptions?: ThreeStageOptions )
 | --- | --- | --- |
 | `backgroundColorProperty` | `new Property( Color.BLACK )` | `TReadOnlyProperty<Color>` — sets `threeRenderer`'s clear color/alpha whenever it changes |
 | `cameraPosition` | `new Vector3( 0, 0, 10 )` | Initial position of `threeCamera` |
-| `threeRendererOptions` | antialias/alpha/`preserveDrawingBuffer` from `MobiusQueryParameters` | Forwarded to `new THREE.WebGLRenderer(...)` |
+| `threeRendererOptions` | `{ antialias, alpha: true, preserveDrawingBuffer }`, with `antialias`/`preserveDrawingBuffer` sourced from `MobiusQueryParameters` (`threeRendererAntialias`, `threeRendererPreserveDrawingBuffer`) — `alpha` is always hardcoded `true` | Forwarded to `new THREE.WebGLRenderer(...)` |
 | `threeRendererPixelRatio` | from `MobiusQueryParameters` | Forwarded to `threeRenderer.setPixelRatio(...)` |
 
 ## Properties and methods
@@ -5631,7 +5631,7 @@ new ThreeStage( providedOptions?: ThreeStageOptions )
 | `canvasWidth` / `canvasHeight`, `width`/`height` getters | Current renderer dimensions |
 | `activeScale` | Scale factor applied to non-screen-coordinate interactions (e.g. rotation drags); maintained by the hosting Node's layout |
 | `dimensionsChangedEmitter` / `contextLostEmitter` / `contextRestoredEmitter` | `TEmitter`s for size changes and WebGL context loss/restore |
-| `setDimensions( width, height )` | Resizes the renderer and camera aspect, and fires `dimensionsChangedEmitter` |
+| `setDimensions( width, height )` | Sets `canvasWidth`/`canvasHeight`, resizes the renderer, calls `threeCamera.updateProjectionMatrix()`, and fires `dimensionsChangedEmitter` — it does **not** itself change `threeCamera.aspect`; the hosting Node (or `adjustViewOffset`) is responsible for that |
 | `render( target, autoClear )` | Renders `threeScene`/`threeCamera` into `target` (or the canvas, if `target` is `undefined`) |
 | `renderToCanvas( supersampleMultiplier?, backingMultiplier?, scale? )` | Renders offscreen into a returned `HTMLCanvasElement` (used for screenshots) |
 | `projectPoint( Vector3 )` → `Vector2` | Projects a 3D world point to a 2D global (screen) point |
@@ -5650,7 +5650,7 @@ new ThreeStage( providedOptions?: ThreeStageOptions )
 Page: ThreeUtils
 URL: https://veillette.github.io/Almanach/api/mobius/three-utils-helpers
 Source: docs/api/mobius/three-utils-helpers.md
-Category: API | Tags: mobius, ThreeUtils, three.js, webgl, 3d | Status: complete
+Category: API | Tags: mobius, ThreeUtils, three.js, webgl, 3d | Status: verified
 ========================================================================
 
 # ThreeUtils
@@ -5702,7 +5702,7 @@ geometry.setAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
 Page: Atom, Element, and AtomNode
 URL: https://veillette.github.io/Almanach/api/nitroglycerin/atom-and-element
 Source: docs/api/nitroglycerin/atom-and-element.md
-Category: API | Tags: nitroglycerin, Atom, Element, AtomNode, chemistry | Status: complete
+Category: API | Tags: nitroglycerin, Atom, Element, AtomNode, chemistry | Status: verified
 ========================================================================
 
 # Atom, Element, and AtomNode
@@ -5775,7 +5775,7 @@ Since `AtomNode` only needs `covalentRadius` and `color` — both already on `El
 Page: MoleculeNode
 URL: https://veillette.github.io/Almanach/api/nitroglycerin/molecule-node
 Source: docs/api/nitroglycerin/molecule-node.md
-Category: API | Tags: nitroglycerin, MoleculeNode, AtomNode, chemistry | Status: complete
+Category: API | Tags: nitroglycerin, MoleculeNode, AtomNode, chemistry | Status: verified
 ========================================================================
 
 # MoleculeNode
@@ -6137,7 +6137,7 @@ On the view side, `scenerystack/scenery-phet` exports matching `BucketFront` and
 Page: ModelViewTransform2
 URL: https://veillette.github.io/Almanach/api/phetcommon/model-view-transform
 Source: docs/api/phetcommon/model-view-transform.md
-Category: API | Tags: phetcommon, dot, coordinates, transform, ModelViewTransform2 | Status: complete
+Category: API | Tags: phetcommon, dot, coordinates, transform, ModelViewTransform2 | Status: verified
 ========================================================================
 
 # ModelViewTransform2
@@ -6215,7 +6215,7 @@ The same transform instance is passed to [drag listeners](/patterns/drag-listene
 Page: StringUtils
 URL: https://veillette.github.io/Almanach/api/phetcommon/phetcommon-query-parameters
 Source: docs/api/phetcommon/phetcommon-query-parameters.md
-Category: API | Tags: phetcommon, StringUtils, i18n, strings | Status: complete
+Category: API | Tags: phetcommon, StringUtils, i18n, strings | Status: verified
 ========================================================================
 
 # StringUtils
@@ -6259,7 +6259,7 @@ Most simulation code never calls `StringUtils.fillIn` by hand — [`PatternStrin
 Page: Query parameter schema conventions (QSMSchemaObject)
 URL: https://veillette.github.io/Almanach/api/query-string-machine/query-parameter-schema-conventions
 Source: docs/api/query-string-machine/query-parameter-schema-conventions.md
-Category: API | Tags: query-string-machine, QSMSchemaObject, schema, validValues, elementSchema, query-parameters | Status: complete
+Category: API | Tags: query-string-machine, QSMSchemaObject, schema, validValues, elementSchema, query-parameters | Status: verified
 ========================================================================
 
 # Query parameter schema conventions
@@ -6281,7 +6281,7 @@ import type { QSMSchemaObject } from 'scenerystack/query-string-machine';
 | `'array'` | `T[]` | `elementSchema: Schema` (required), `separator?: string` (single character, default `','`), `defaultValue?: readonly T[] \| null` |
 | `'custom'` | Whatever `parse` returns | `parse: ( str: string ) => T` (required) |
 
-All types additionally accept `validValues`, `isValidValue`, `public`, and `private` (below).
+All types additionally accept `public` and `private` (below). `validValues`/`isValidValue` are supported only on `'number'`, `'string'`, `'array'`, and `'custom'` schemas — `'flag'` and `'boolean'` schemas do not accept either (their only two possible values, `true`/`false`, make an extra validity check redundant).
 
 ## Shared optional fields
 
@@ -6345,7 +6345,7 @@ Supplying both on the same schema entry throws at parse time — `QueryStringMac
 Page: QueryStringMachine.getAll
 URL: https://veillette.github.io/Almanach/api/query-string-machine/query-string-machine-getall
 Source: docs/api/query-string-machine/query-string-machine-getall.md
-Category: API | Tags: query-string-machine, QueryStringMachine, getAll, query-parameters | Status: complete
+Category: API | Tags: query-string-machine, QueryStringMachine, getAll, query-parameters | Status: verified
 ========================================================================
 
 # QueryStringMachine.getAll
@@ -6622,7 +6622,7 @@ ball.radius = 25; // radius is also a settable property
 Page: Color
 URL: https://veillette.github.io/Almanach/api/scenery/color
 Source: docs/api/scenery/color.md
-Category: API | Tags: scenery, Color, paint, fill, stroke | Status: complete
+Category: API | Tags: scenery, Color, paint, fill, stroke | Status: verified
 ========================================================================
 
 # Color
@@ -6687,7 +6687,7 @@ Passing `'orange'` directly as `fill` works, but scenery can't push runtime upda
 Page: Display
 URL: https://veillette.github.io/Almanach/api/scenery/display
 Source: docs/api/scenery/display.md
-Category: API | Tags: scenery, Display, rendering, input | Status: complete
+Category: API | Tags: scenery, Display, rendering, input | Status: verified
 ========================================================================
 
 # Display
@@ -6833,7 +6833,7 @@ Options like `align`, `grow`, `stretch`, and margins are consumed by the parent 
 Page: FocusManager
 URL: https://veillette.github.io/Almanach/api/scenery/focus-manager
 Source: docs/api/scenery/focus-manager.md
-Category: API | Tags: scenery, FocusManager, focus, accessibility, pdomFocus | Status: complete
+Category: API | Tags: scenery, FocusManager, focus, accessibility, pdomFocus | Status: verified
 ========================================================================
 
 # FocusManager
@@ -6886,7 +6886,7 @@ Each `Display` holds one `FocusManager` instance with these Properties:
 Page: Font
 URL: https://veillette.github.io/Almanach/api/scenery/font
 Source: docs/api/scenery/font.md
-Category: API | Tags: scenery, Font, typography, text | Status: complete
+Category: API | Tags: scenery, Font, typography, text | Status: verified
 ========================================================================
 
 # Font
@@ -7054,7 +7054,7 @@ For a vertical (column) layout, use [`VBox`](/api/scenery/v-box) instead; for th
 Page: Image
 URL: https://veillette.github.io/Almanach/api/scenery/image
 Source: docs/api/scenery/image.md
-Category: API | Tags: scenery, Image, mipmap | Status: complete
+Category: API | Tags: scenery, Image, mipmap | Status: verified
 ========================================================================
 
 # Image
@@ -7110,7 +7110,7 @@ If an image URL hasn't finished loading when a layout container ([`FlowBox`](/ap
 Page: InteractiveHighlighting
 URL: https://veillette.github.io/Almanach/api/scenery/interactive-highlighting
 Source: docs/api/scenery/interactive-highlighting.md
-Category: API | Tags: scenery, InteractiveHighlighting, highlight, accessibility, pointer | Status: complete
+Category: API | Tags: scenery, InteractiveHighlighting, highlight, accessibility, pointer | Status: verified
 ========================================================================
 
 # InteractiveHighlighting
@@ -7173,7 +7173,7 @@ If a Node composes [`Voicing`](/api/scenery/voicing), it is already `Interactive
 Page: KeyboardDragListener
 URL: https://veillette.github.io/Almanach/api/scenery/keyboard-drag-listener
 Source: docs/api/scenery/keyboard-drag-listener.md
-Category: API | Tags: scenery, KeyboardDragListener, input, keyboard, accessibility, drag | Status: complete
+Category: API | Tags: scenery, KeyboardDragListener, input, keyboard, accessibility, drag | Status: verified
 ========================================================================
 
 # KeyboardDragListener
@@ -7200,13 +7200,13 @@ bodyNode.addInputListener( new KeyboardDragListener( {
 
 | Option | Default | Effect |
 | --- | --- | --- |
-| `dragDelta` | — | Discrete step (in parent/view coordinates) moved per `moveOnHoldInterval` tick — a "typical application" feel; mutually exclusive with `dragSpeed` |
-| `shiftDragDelta` | — | Finer `dragDelta` while shift is held |
-| `dragSpeed` | — | Continuous units/second moved while a direction key is held — smoother, game-like motion; mutually exclusive with `dragDelta` |
-| `shiftDragSpeed` | — | Finer `dragSpeed` while shift is held |
+| `dragDelta` | `10` | Discrete step (in parent/view coordinates) moved per `moveOnHoldInterval` tick — a "typical application" feel; mutually exclusive with `dragSpeed`/`shiftDragSpeed` |
+| `shiftDragDelta` | `5` | Finer `dragDelta` while shift is held |
+| `dragSpeed` | `0` | Continuous units/second moved while a direction key is held — smoother, game-like motion; mutually exclusive with `dragDelta`/`shiftDragDelta` |
+| `shiftDragSpeed` | `0` | Finer `dragSpeed` while shift is held |
 | `keyboardDragDirection` | `'both'` | Constrains motion: `'both'` (2D), `'leftRight'`, or `'upDown'` |
-| `moveOnHoldDelay` | — | Milliseconds a key must be held before repeat movement begins (delta mode only) |
-| `moveOnHoldInterval` | — | Milliseconds between discrete steps once repeating (delta mode only; must be > 0) |
+| `moveOnHoldDelay` | `500` | Milliseconds a key must be held before repeat movement begins (delta mode only) |
+| `moveOnHoldInterval` | `400` | Milliseconds between discrete steps once repeating (delta mode only; must be > 0) |
 
 `dragSpeed`/`shiftDragSpeed` and `dragDelta`/`shiftDragDelta` are mutually exclusive — pick one motion model per listener. If you pass `dragBoundsProperty`, you must also provide `positionProperty` or `translateNode: true`, since the listener otherwise has no way to know the current position to constrain.
 
@@ -7231,7 +7231,7 @@ Shares `interrupt()` and `dispose()` with [`KeyboardListener`](/api/scenery/keyb
 Page: KeyboardListener
 URL: https://veillette.github.io/Almanach/api/scenery/keyboard-listener
 Source: docs/api/scenery/keyboard-listener.md
-Category: API | Tags: scenery, KeyboardListener, input, keyboard, accessibility, hotkey | Status: complete
+Category: API | Tags: scenery, KeyboardListener, input, keyboard, accessibility, hotkey | Status: verified
 ========================================================================
 
 # KeyboardListener
@@ -7295,7 +7295,7 @@ The `fire` callback only runs when *exactly* the keys in a combination are down.
 Page: Line
 URL: https://veillette.github.io/Almanach/api/scenery/line
 Source: docs/api/scenery/line.md
-Category: API | Tags: scenery, Line, Path | Status: complete
+Category: API | Tags: scenery, Line, Path | Status: verified
 ========================================================================
 
 # Line
@@ -7346,7 +7346,7 @@ A `Line` has zero area, so setting `fill` does nothing visible; use `stroke` and
 Page: LinearGradient
 URL: https://veillette.github.io/Almanach/api/scenery/linear-gradient
 Source: docs/api/scenery/linear-gradient.md
-Category: API | Tags: scenery, LinearGradient, gradient, paint, fill, stroke | Status: complete
+Category: API | Tags: scenery, LinearGradient, gradient, paint, fill, stroke | Status: verified
 ========================================================================
 
 # LinearGradient
@@ -7522,7 +7522,7 @@ Removing a `Node` from its parent does not automatically dispose it. If a subtre
 Page: ParallelDOM
 URL: https://veillette.github.io/Almanach/api/scenery/parallel-dom-deep-dive
 Source: docs/api/scenery/parallel-dom-deep-dive.md
-Category: API | Tags: scenery, ParallelDOM, pdom, accessibility, tagName, accessibleName | Status: complete
+Category: API | Tags: scenery, ParallelDOM, pdom, accessibility, tagName, accessibleName | Status: verified
 ========================================================================
 
 # ParallelDOM
@@ -7588,7 +7588,7 @@ Every option above has a matching getter (e.g. `getAccessibleName()` / `accessib
 Page: Path
 URL: https://veillette.github.io/Almanach/api/scenery/path
 Source: docs/api/scenery/path.md
-Category: API | Tags: scenery, Path, Shape, fill, stroke | Status: complete
+Category: API | Tags: scenery, Path, Shape, fill, stroke | Status: verified
 ========================================================================
 
 # Path
@@ -7636,7 +7636,7 @@ If a `Shape` isn't marked immutable (`shape.makeImmutable()`), `Path` attaches a
 Page: Pattern
 URL: https://veillette.github.io/Almanach/api/scenery/pattern-paint
 Source: docs/api/scenery/pattern-paint.md
-Category: API | Tags: scenery, Pattern, paint, fill, stroke, image | Status: complete
+Category: API | Tags: scenery, Pattern, paint, fill, stroke, image | Status: verified
 ========================================================================
 
 # Pattern (paint)
@@ -7677,7 +7677,7 @@ Passing an `HTMLImageElement` whose `src` hasn't finished loading yet produces a
 Page: PressListener and FireListener
 URL: https://veillette.github.io/Almanach/api/scenery/fire-listener
 Source: docs/api/scenery/fire-listener.md
-Category: API | Tags: scenery, FireListener, PressListener, input | Status: complete
+Category: API | Tags: scenery, FireListener, PressListener, input | Status: verified
 ========================================================================
 
 # PressListener and FireListener
@@ -7760,7 +7760,7 @@ Both listeners default `tandem` to `Tandem.REQUIRED` (for PhET-iO instrumentatio
 Page: RadialGradient
 URL: https://veillette.github.io/Almanach/api/scenery/radial-gradient
 Source: docs/api/scenery/radial-gradient.md
-Category: API | Tags: scenery, RadialGradient, gradient, paint, fill, stroke | Status: complete
+Category: API | Tags: scenery, RadialGradient, gradient, paint, fill, stroke | Status: verified
 ========================================================================
 
 # RadialGradient
@@ -7795,7 +7795,7 @@ Scenery detects Safari and nudges both circles' centers to their midpoint intern
 Page: Rectangle
 URL: https://veillette.github.io/Almanach/api/scenery/rectangle
 Source: docs/api/scenery/rectangle.md
-Category: API | Tags: scenery, Rectangle, Path | Status: complete
+Category: API | Tags: scenery, Rectangle, Path | Status: verified
 ========================================================================
 
 # Rectangle
@@ -8552,12 +8552,12 @@ const closeButton = new CloseButton( {
 Page: EraserButton
 URL: https://veillette.github.io/Almanach/api/scenery-phet/eraser-button
 Source: docs/api/scenery-phet/eraser-button.md
-Category: API | Tags: scenery-phet, EraserButton, button | Status: complete
+Category: API | Tags: scenery-phet, EraserButton, button | Status: verified
 ========================================================================
 
 # EraserButton
 
-`EraserButton` (from `scenerystack/scenery-phet`) is a [`RectangularPushButton`](/api/sun/rectangular-push-button) preloaded with an eraser icon (a raster image built into scenery-phet) and PhET's standard yellow button color. Use it for "clear" actions — wiping a drawing, clearing accumulated data points, removing user-placed objects — that are narrower in scope than a full [`ResetAllButton`](/api/scenery-phet/reset-all-button), which resets the entire screen.
+`EraserButton` (from `scenerystack/scenery-phet`) is a [`RectangularPushButton`](/api/sun/rectangular-push-button) preloaded with an eraser icon (an `Image` node built from an SVG asset baked into scenery-phet, not a `Shape`-based icon) and PhET's standard yellow button color. Use it for "clear" actions — wiping a drawing, clearing accumulated data points, removing user-placed objects — that are narrower in scope than a full [`ResetAllButton`](/api/scenery-phet/reset-all-button), which resets the entire screen.
 
 ```ts
 import { EraserButton } from 'scenerystack/scenery-phet';
@@ -8592,7 +8592,7 @@ const clearButton = new EraserButton( {
 Page: FaceNode
 URL: https://veillette.github.io/Almanach/api/scenery-phet/face-node
 Source: docs/api/scenery-phet/face-node.md
-Category: API | Tags: scenery-phet, FaceNode, feedback, face | Status: complete
+Category: API | Tags: scenery-phet, FaceNode, feedback, face | Status: verified
 ========================================================================
 
 # FaceNode
@@ -8649,7 +8649,7 @@ new FaceNode( headDiameter: number, providedOptions?: FaceNodeOptions )
 Page: FaucetNode
 URL: https://veillette.github.io/Almanach/api/scenery-phet/faucet-node
 Source: docs/api/scenery-phet/faucet-node.md
-Category: API | Tags: scenery-phet, FaucetNode, faucet, fluid, flow-rate | Status: complete
+Category: API | Tags: scenery-phet, FaucetNode, faucet, fluid, flow-rate | Status: verified
 ========================================================================
 
 # FaucetNode
@@ -8712,7 +8712,7 @@ Out of the box, dragging the shooter and letting go snaps the flow rate back to 
 Page: GaugeNode
 URL: https://veillette.github.io/Almanach/api/scenery-phet/gauge-node
 Source: docs/api/scenery-phet/gauge-node.md
-Category: API | Tags: scenery-phet, GaugeNode, gauge, dial, meter | Status: complete
+Category: API | Tags: scenery-phet, GaugeNode, gauge, dial, meter | Status: verified
 ========================================================================
 
 # GaugeNode
@@ -8775,14 +8775,14 @@ new GaugeNode(
 `GaugeNode` hides the needle entirely (`needle.visible = false`) whenever `valueProperty.get()` is not a `number` — useful if you're deriving the value and want to represent "no reading." For actual numbers, the needle instead **clamps** to `range.min`/`range.max` rather than disappearing or overshooting, so an out-of-range value still shows a (misleadingly) valid-looking needle position.
 :::
 
-For a variant with a numeric readout built in, see `ValueGaugeNode` in the same source file — it's a `GaugeNode` subclass that adds a centered `NumberDisplay` and a `numberDisplayVisible` setter/getter, otherwise sharing the same constructor shape.
+For a variant with a numeric readout built in, see `ValueGaugeNode` (its own source file, `ValueGaugeNode.ts`) — it's a `GaugeNode` subclass that adds a centered [`NumberDisplay`](/api/scenery-phet/number-display) and a `numberDisplayVisible` setter/getter, otherwise sharing the same constructor shape.
 
 
 ========================================================================
 Page: HeaterCoolerNode
 URL: https://veillette.github.io/Almanach/api/scenery-phet/heat-cool-control
 Source: docs/api/scenery-phet/heat-cool-control.md
-Category: API | Tags: scenery-phet, HeaterCoolerNode, heat-cool-control, heater, cooler, slider | Status: complete
+Category: API | Tags: scenery-phet, HeaterCoolerNode, heat-cool-control, heater, cooler, slider | Status: verified
 ========================================================================
 
 # HeaterCoolerNode
@@ -8843,12 +8843,12 @@ Both `frontOptions` and `backOptions` reject an explicit `baseColor` — `Heater
 Page: InfoButton
 URL: https://veillette.github.io/Almanach/api/scenery-phet/info-button
 Source: docs/api/scenery-phet/info-button.md
-Category: API | Tags: scenery-phet, InfoButton, button | Status: complete
+Category: API | Tags: scenery-phet, InfoButton, button | Status: verified
 ========================================================================
 
 # InfoButton
 
-`InfoButton` (from `scenerystack/scenery-phet`) is a `RoundPushButton` preloaded with the international "information" symbol (a solid circled "i") and a neutral grey base color. It's the standard way to expose a "more information" or "about this control" affordance that opens a dialog — [`ResetAllButton`](/api/scenery-phet/reset-all-button) is the other common round PhET-standard button, though built for a different, unrelated action.
+`InfoButton` (from `scenerystack/scenery-phet`) is a [`RoundPushButton`](/api/sun/round-push-button) preloaded with the international "information" symbol (a solid circled "i") and a neutral grey base color. It's the standard way to expose a "more information" or "about this control" affordance that opens a dialog — [`ResetAllButton`](/api/scenery-phet/reset-all-button) is the other common round PhET-standard button, though built for a different, unrelated action.
 
 ```ts
 import { InfoButton } from 'scenerystack/scenery-phet';
@@ -8886,7 +8886,7 @@ Unlike most PhET buttons, `InfoButton`'s default `soundPlayer` is a no-op. Since
 Page: MathSymbolFont
 URL: https://veillette.github.io/Almanach/api/scenery-phet/math-symbol-font
 Source: docs/api/scenery-phet/math-symbol-font.md
-Category: API | Tags: scenery-phet, MathSymbolFont, typography | Status: complete
+Category: API | Tags: scenery-phet, MathSymbolFont, typography | Status: verified
 ========================================================================
 
 # MathSymbolFont
@@ -8946,7 +8946,7 @@ Constructing a whole separate `Text` node with `MathSymbolFont` only works for a
 Page: NumberControl
 URL: https://veillette.github.io/Almanach/api/scenery-phet/number-control
 Source: docs/api/scenery-phet/number-control.md
-Category: API | Tags: scenery-phet, NumberControl | Status: complete
+Category: API | Tags: scenery-phet, NumberControl | Status: verified
 ========================================================================
 
 # NumberControl
@@ -9029,7 +9029,7 @@ Use either the top-level `startCallback`/`endCallback` pair, **or** the per-comp
 Page: NumberDisplay
 URL: https://veillette.github.io/Almanach/api/scenery-phet/number-display
 Source: docs/api/scenery-phet/number-display.md
-Category: API | Tags: scenery-phet, NumberDisplay | Status: complete
+Category: API | Tags: scenery-phet, NumberDisplay | Status: verified
 ========================================================================
 
 # NumberDisplay
@@ -9100,7 +9100,7 @@ Pass either the simple `valuePattern` + `decimalPlaces` pair, or a `numberFormat
 Page: PhetFont
 URL: https://veillette.github.io/Almanach/api/scenery-phet/phet-font
 Source: docs/api/scenery-phet/phet-font.md
-Category: API | Tags: scenery-phet, PhetFont, typography | Status: complete
+Category: API | Tags: scenery-phet, PhetFont, typography | Status: verified
 ========================================================================
 
 # PhetFont
@@ -9147,7 +9147,7 @@ Sim-specific text should virtually never use scenery's `Font` directly — `Phet
 Page: PlayPauseButton
 URL: https://veillette.github.io/Almanach/api/scenery-phet/play-pause-button
 Source: docs/api/scenery-phet/play-pause-button.md
-Category: API | Tags: scenery-phet, PlayPauseButton, button | Status: complete
+Category: API | Tags: scenery-phet, PlayPauseButton, button | Status: verified
 ========================================================================
 
 # PlayPauseButton
@@ -9203,7 +9203,7 @@ Being a `BooleanRoundToggleButton` under the hood, `PlayPauseButton` shares the 
 Page: ProbeNode
 URL: https://veillette.github.io/Almanach/api/scenery-phet/probe-node
 Source: docs/api/scenery-phet/probe-node.md
-Category: API | Tags: scenery-phet, ProbeNode, sensor, probe | Status: complete
+Category: API | Tags: scenery-phet, ProbeNode, sensor, probe | Status: verified
 ========================================================================
 
 # ProbeNode
@@ -9244,7 +9244,7 @@ There are no required positional arguments — everything, including size, is an
 | `handleWidth` | `50` | Width of the handle at the bottom |
 | `handleHeight` | `30` | Height of the handle |
 | `handleCornerRadius` | `10` | Corner radius of the handle |
-| `lightAngle` | `1.35 * Math.PI` | Angle (radians) the simulated light comes from, used to place the gradient highlight; `0` is from the right, increasing counterclockwise |
+| `lightAngle` | `1.35 * Math.PI` | Angle (radians) the simulated light comes from, used to place the gradient highlight; `0` is from the right, `PI/2` from the bottom — since scenery's y-axis points down, increasing angle rotates clockwise on screen (right → bottom → left → top) |
 | `color` | `'#008541'` (dark green) | Base color of the probe body; all gradient shades are derived from it |
 | `sensorTypeFunction` | `ProbeNode.glass()` | A `(radius) => Node` factory that produces what's drawn inside the sensor cut-out; pass `null` to leave it empty |
 
@@ -9265,7 +9265,7 @@ Because `ProbeNode` can't reliably know its own global rotation within a scene g
 Page: ResetAllButton
 URL: https://veillette.github.io/Almanach/api/scenery-phet/reset-all-button
 Source: docs/api/scenery-phet/reset-all-button.md
-Category: API | Tags: scenery-phet, ResetAllButton | Status: complete
+Category: API | Tags: scenery-phet, ResetAllButton | Status: verified
 ========================================================================
 
 # ResetAllButton
@@ -9394,12 +9394,12 @@ new RulerNode(
 Page: StepBackwardButton
 URL: https://veillette.github.io/Almanach/api/scenery-phet/step-backward-button
 Source: docs/api/scenery-phet/step-backward-button.md
-Category: API | Tags: scenery-phet, StepBackwardButton, button | Status: complete
+Category: API | Tags: scenery-phet, StepBackwardButton, button | Status: verified
 ========================================================================
 
 # StepBackwardButton
 
-`StepBackwardButton` (from `scenerystack/scenery-phet`) is a `RoundPushButton` showing the same bar-plus-triangle icon as [`StepForwardButton`](/api/scenery-phet/step-forward-button), mirrored to point the other way, for rewinding a paused model by one fixed time increment. It's a thin subclass of the shared (non-exported) `StepButton` with `direction: 'backward'` fixed. Unlike [`TimeControlNode`](/api/scenery-phet/time-control-node)'s step-forward button, a step-backward button is **not** included by default — it must be opted into explicitly.
+`StepBackwardButton` (from `scenerystack/scenery-phet`) is a `RoundPushButton` showing the same bar-plus-triangle icon as [`StepForwardButton`](/api/scenery-phet/step-forward-button), mirrored to point the other way, for rewinding a paused model by one fixed time increment. It's a thin subclass of the shared, also-exported `StepButton` with `direction: 'backward'` fixed. Unlike [`TimeControlNode`](/api/scenery-phet/time-control-node)'s step-forward button, a step-backward button is **not** included by default — it must be opted into explicitly.
 
 ```ts
 import { StepBackwardButton } from 'scenerystack/scenery-phet';
@@ -9447,12 +9447,12 @@ const timeControlNode = new TimeControlNode( isPlayingProperty, {
 Page: StepForwardButton
 URL: https://veillette.github.io/Almanach/api/scenery-phet/step-forward-button
 Source: docs/api/scenery-phet/step-forward-button.md
-Category: API | Tags: scenery-phet, StepForwardButton, button | Status: complete
+Category: API | Tags: scenery-phet, StepForwardButton, button | Status: verified
 ========================================================================
 
 # StepForwardButton
 
-`StepForwardButton` (from `scenerystack/scenery-phet`) is a `RoundPushButton` showing a bar-plus-triangle "step forward" icon, for advancing a paused model by one fixed time increment. It's a thin subclass of the shared (non-exported) `StepButton` with `direction: 'forward'` fixed — [`TimeControlNode`](/api/scenery-phet/time-control-node) includes one by default, but it's also usable standalone wherever a sim needs frame-by-frame stepping without a full play/pause control strip.
+`StepForwardButton` (from `scenerystack/scenery-phet`) is a `RoundPushButton` showing a bar-plus-triangle "step forward" icon, for advancing a paused model by one fixed time increment. It's a thin subclass of the shared, also-exported `StepButton` with `direction: 'forward'` fixed — [`TimeControlNode`](/api/scenery-phet/time-control-node) includes one by default, but it's also usable standalone wherever a sim needs frame-by-frame stepping without a full play/pause control strip.
 
 ```ts
 import { StepForwardButton } from 'scenerystack/scenery-phet';
@@ -10029,7 +10029,7 @@ Each `ComboBoxItem` supplies a `createNode: ( tandem ) => Node` factory, not a p
 Page: ComboBoxListBox
 URL: https://veillette.github.io/Almanach/api/sun/list-box
 Source: docs/api/sun/list-box.md
-Category: API | Tags: sun, ComboBoxListBox, ComboBox, listbox | Status: complete
+Category: API | Tags: sun, ComboBoxListBox, ComboBox, listbox | Status: verified
 ========================================================================
 
 # ComboBoxListBox
@@ -10072,7 +10072,7 @@ Because `ComboBoxListBox` is constructed by `ComboBox` with callbacks (`hideList
 Page: ExpandCollapseButton
 URL: https://veillette.github.io/Almanach/api/sun/expand-collapse-button
 Source: docs/api/sun/expand-collapse-button.md
-Category: API | Tags: sun, ExpandCollapseButton, button | Status: complete
+Category: API | Tags: sun, ExpandCollapseButton, button | Status: verified
 ========================================================================
 
 # ExpandCollapseButton
@@ -10113,7 +10113,7 @@ If you're building a custom expandable panel that isn't quite an `AccordionBox` 
 Page: HSlider
 URL: https://veillette.github.io/Almanach/api/sun/hslider
 Source: docs/api/sun/hslider.md
-Category: API | Tags: sun, HSlider, slider | Status: complete
+Category: API | Tags: sun, HSlider, slider | Status: verified
 ========================================================================
 
 # HSlider
@@ -10175,7 +10175,7 @@ If you never touch `enabledRangeProperty`, it defaults to the full `Range` you p
 Page: NumberSpinner
 URL: https://veillette.github.io/Almanach/api/sun/number-spinner
 Source: docs/api/sun/number-spinner.md
-Category: API | Tags: sun, NumberSpinner, NumberProperty | Status: complete
+Category: API | Tags: sun, NumberSpinner, NumberProperty | Status: verified
 ========================================================================
 
 # NumberSpinner
@@ -10231,7 +10231,7 @@ The range argument is a `Property<Range>` (not a plain `Range`) so the spinner c
 Page: OnOffSwitch
 URL: https://veillette.github.io/Almanach/api/sun/on-off-switch
 Source: docs/api/sun/on-off-switch.md
-Category: API | Tags: sun, OnOffSwitch, BooleanProperty | Status: complete
+Category: API | Tags: sun, OnOffSwitch, BooleanProperty | Status: verified
 ========================================================================
 
 # OnOffSwitch
@@ -10283,7 +10283,7 @@ Both `OnOffSwitch` and its `ToggleSwitch` base assert that the bound `Property`'
 Page: Panel
 URL: https://veillette.github.io/Almanach/api/sun/panel
 Source: docs/api/sun/panel.md
-Category: API | Tags: sun, Panel | Status: complete
+Category: API | Tags: sun, Panel | Status: verified
 ========================================================================
 
 # Panel
@@ -10345,7 +10345,7 @@ If content already fills the panel's `minWidth`, all three `align` values look i
 Page: Radio Button Groups
 URL: https://veillette.github.io/Almanach/api/sun/radio-button-group
 Source: docs/api/sun/radio-button-group.md
-Category: API | Tags: sun, radio-button-group | Status: complete
+Category: API | Tags: sun, radio-button-group | Status: verified
 ========================================================================
 
 # Radio Button Groups
@@ -10419,7 +10419,7 @@ For `RectangularRadioButtonGroupItem`, `createNode` builds the button's own cont
 Page: RectangularPushButton
 URL: https://veillette.github.io/Almanach/api/sun/rectangular-push-button
 Source: docs/api/sun/rectangular-push-button.md
-Category: API | Tags: sun, RectangularPushButton, button | Status: complete
+Category: API | Tags: sun, RectangularPushButton, button | Status: verified
 ========================================================================
 
 # RectangularPushButton
@@ -10480,7 +10480,7 @@ Every sun component in a real PhET-iO-instrumented sim needs a `tandem` — `Rec
 Page: RoundPushButton
 URL: https://veillette.github.io/Almanach/api/sun/round-push-button
 Source: docs/api/sun/round-push-button.md
-Category: API | Tags: sun, RoundPushButton, button | Status: complete
+Category: API | Tags: sun, RoundPushButton, button | Status: verified
 ========================================================================
 
 # RoundPushButton
@@ -10537,7 +10537,7 @@ Both `RoundPushButton` and `RectangularPushButton` construct the same `PushButto
 Page: TextPushButton
 URL: https://veillette.github.io/Almanach/api/sun/text-push-button
 Source: docs/api/sun/text-push-button.md
-Category: API | Tags: sun, TextPushButton, button | Status: complete
+Category: API | Tags: sun, TextPushButton, button | Status: verified
 ========================================================================
 
 # TextPushButton
@@ -10591,7 +10591,7 @@ A string that fits comfortably in English can overflow the button in another lan
 Page: Toggle Buttons
 URL: https://veillette.github.io/Almanach/api/sun/toggle-button
 Source: docs/api/sun/toggle-button.md
-Category: API | Tags: sun, toggle-button, BooleanProperty | Status: complete
+Category: API | Tags: sun, toggle-button, BooleanProperty | Status: verified
 ========================================================================
 
 # Toggle Buttons
@@ -10663,7 +10663,7 @@ A toggle button has no state of its own — it only reflects the bound `Property
 Page: VSlider
 URL: https://veillette.github.io/Almanach/api/sun/v-slider
 Source: docs/api/sun/v-slider.md
-Category: API | Tags: sun, VSlider, slider | Status: complete
+Category: API | Tags: sun, VSlider, slider | Status: verified
 ========================================================================
 
 # VSlider
@@ -10709,7 +10709,7 @@ For a vertical slider, `trackSize`'s `width` is the track's thickness and `heigh
 Page: How tambo's Sound Generation Fits Together
 URL: https://veillette.github.io/Almanach/api/tambo/sound-generation-guide
 Source: docs/api/tambo/sound-generation-guide.md
-Category: API | Tags: tambo, sound, WebAudio, soundManager, SoundGenerator, overview | Status: draft
+Category: API | Tags: tambo, sound, WebAudio, soundManager, SoundGenerator, overview | Status: verified
 ========================================================================
 
 # How tambo's Sound Generation Fits Together
@@ -10756,7 +10756,7 @@ When wiring up sound in a new screen, the natural order is: decide what should m
 Page: PitchedPopGenerator
 URL: https://veillette.github.io/Almanach/api/tambo/pitched-pop-generator
 Source: docs/api/tambo/pitched-pop-generator.md
-Category: API | Tags: tambo, PitchedPopGenerator, sound, WebAudio, oscillator | Status: complete
+Category: API | Tags: tambo, PitchedPopGenerator, sound, WebAudio, oscillator | Status: verified
 ========================================================================
 
 # PitchedPopGenerator
@@ -10815,7 +10815,7 @@ new PitchedPopGenerator( providedOptions?: PitchedPopGeneratorOptions )
 Page: SoundClip
 URL: https://veillette.github.io/Almanach/api/tambo/sound-clip
 Source: docs/api/tambo/sound-clip.md
-Category: API | Tags: tambo, SoundClip, sound, WebAudio | Status: complete
+Category: API | Tags: tambo, SoundClip, sound, WebAudio | Status: verified
 ========================================================================
 
 # SoundClip
@@ -10886,7 +10886,7 @@ A non-looping `SoundClip` calls `this.stop()` automatically whenever `fullyEnabl
 Page: SoundClipPlayer
 URL: https://veillette.github.io/Almanach/api/tambo/sound-clip-player
 Source: docs/api/tambo/sound-clip-player.md
-Category: API | Tags: tambo, SoundClipPlayer, sound, WebAudio | Status: complete
+Category: API | Tags: tambo, SoundClipPlayer, sound, WebAudio | Status: verified
 ========================================================================
 
 # SoundClipPlayer
@@ -10938,7 +10938,7 @@ new SoundClipPlayer( wrappedAudioBuffer: WrappedAudioBuffer, providedOptions?: S
 Page: soundManager
 URL: https://veillette.github.io/Almanach/api/tambo/sound-manager
 Source: docs/api/tambo/sound-manager.md
-Category: API | Tags: tambo, soundManager, sound, singleton, WebAudio | Status: complete
+Category: API | Tags: tambo, soundManager, sound, singleton, WebAudio | Status: verified
 ========================================================================
 
 # soundManager
@@ -11363,7 +11363,7 @@ Components like `ResetAllButton` or `NumberControl` default their `tandem` optio
 Page: Animation and Easing
 URL: https://veillette.github.io/Almanach/api/twixt/animation
 Source: docs/api/twixt/animation.md
-Category: API | Tags: twixt, Animation, Easing | Status: complete
+Category: API | Tags: twixt, Animation, Easing | Status: verified
 ========================================================================
 
 # Animation and Easing
@@ -11414,7 +11414,7 @@ Exactly one target-binding style and exactly one length source are required; `An
 | `delta` | — | Animates by this much relative to the starting value, instead of to an absolute value |
 | `duration` | `null` | Length of the animation in seconds — provide this **or** a `speed` on a target, never both |
 | `delay` | `0` | Seconds to wait after `start()` before the value actually begins changing |
-| `easing` | `Easing.LINEAR` (via `AnimationTarget`) | Controls the rate of change over the animation's course |
+| `easing` | `Easing.CUBIC_IN_OUT` (via `AnimationTarget`) | Controls the rate of change over the animation's course |
 | `from` | — | Overrides the starting value instead of reading the current value |
 | `stepEmitter` | axon's `stepTimer` | The `Emitter<[number]>` that drives stepping; pass `null` to step manually via `.step( dt )` |
 
@@ -11461,7 +11461,7 @@ For a custom degree, use the static factories `Easing.polynomialEaseIn( n )`, `p
 Page: TransitionNode
 URL: https://veillette.github.io/Almanach/api/twixt/transition-node
 Source: docs/api/twixt/transition-node.md
-Category: API | Tags: twixt, TransitionNode, Transition, Animation, Node | Status: complete
+Category: API | Tags: twixt, TransitionNode, Transition, Animation, Node | Status: verified
 ========================================================================
 
 # TransitionNode
@@ -11659,7 +11659,8 @@ new Utterance( providedOptions?: UtteranceOptions )
 
 | Member | Description |
 | --- | --- |
-| `getAlertText( respectResponseCollectorProperties? )` / `.alert` (getter) | Resolves the current alert to text (running functions/reading Properties as needed) |
+| `getAlertText( respectResponseCollectorProperties? )` | Resolves the current alert to text (running functions/reading Properties/collecting the `ResponsePacket` as needed) |
+| `.alert` (getter) / `getAlert()` | Returns the raw wrapped content **unresolved** — whatever was set (a string, `TReadOnlyProperty`, function, or `ResponsePacket`), not text. Use `getAlertText()` to resolve to a string |
 | `.alert` (setter) / `setAlert( alert )` | Replaces the wrapped content |
 | `priorityProperty` | `TProperty<number>` — mutate live to reprioritize an Utterance already sitting in a queue |
 | `setAlertStableDelay( delay )` | Changes `alertStableDelay` after construction |
@@ -11726,7 +11727,7 @@ new UtteranceQueue<A extends Announcer>( announcer: A, providedOptions?: Utteran
 | Option | Default | Effect |
 | --- | --- | --- |
 | `debug` | `false` | Logs queue activity (`addToBack`, `announcing`, etc.) to the console |
-| `initialize` | `true` | If `false`, every method becomes a no-op — useful for a feature flag that disables announcing entirely without branching call sites |
+| `initialize` | `true` | If `false`, the queue is never stepped (no `stepTimer` listener is added) and `addToBack()`/`addToFront()`/`announceImmediately()` become no-ops (via `initializedAndEnabled`) — useful for a feature flag that disables announcing entirely without branching call sites. Methods like `removeUtterance()`/`clear()` are unaffected |
 | `featureSpecificAnnouncingControlPropertyName` | `null` | `'descriptionCanAnnounceProperty'` or `'voicingCanAnnounceProperty'` — additionally gates announcing on that Utterance-level Property, on top of `canAnnounceProperty` |
 
 ## Methods
@@ -11734,14 +11735,14 @@ new UtteranceQueue<A extends Announcer>( announcer: A, providedOptions?: Utteran
 | Method | Description |
 | --- | --- |
 | `addToBack( utterance )` | Enqueues an `Utterance` (or raw `TAlertable` content, auto-wrapped). Removes any existing occurrence of the same `Utterance` instance first |
-| `announceImmediately( utterance )` | Bypasses queue ordering — announces synchronously if the announcer is ready and priority allows it, otherwise queues at the front. Needed for effects that must originate from a synchronous user gesture (browser speech-synthesis restrictions) |
-| `removeUtterance( utterance )` | Removes a specific `Utterance` from the queue |
+| `announceImmediately( utterance )` | Bypasses queue ordering, subject to `priorityProperty`: if nothing is currently announcing, or this Utterance should cancel what is, it's moved to the front of the queue and announced synchronously (or left queued at the front if the announcer isn't ready yet); otherwise it is dropped without being queued at all. Needed for effects that must originate from a synchronous user gesture (browser speech-synthesis restrictions) |
+| `removeUtterance( utterance )` | Removes a specific `Utterance` from the queue (not gated by `enabled`) |
 | `hasUtterance( utterance )` | Whether the given `Utterance` is currently queued |
 | `cancelUtterance( utterance )` | Removes it from the queue, and asks the announcer to stop if it's currently being spoken |
-| `clear()` | Empties the queue without touching in-progress announcement |
+| `clear()` | Empties the queue without touching in-progress announcement (not gated by `enabled`) |
 | `cancel()` | `clear()` plus tells the announcer to stop speaking entirely |
 | `.muted` / `setMuted()` / `getMuted()` | While muted, Utterances still move through the queue and their timers still run, but nothing is sent to the announcer |
-| `.enabled` / `setEnabled()` / `isEnabled()` | While disabled, nothing can be added, removed, or announced |
+| `.enabled` / `setEnabled()` / `isEnabled()` | While disabled, `addToBack()`/`addToFront()`/`announceImmediately()` no-op and the queue no longer steps toward announcing anything; explicit `removeUtterance()`/`clear()` calls still work |
 | `.length` | Number of Utterances currently queued |
 | `UtteranceQueue.fromFactory()` | Static convenience constructor described above |
 
@@ -11758,7 +11759,7 @@ Utterances are announced first-in-first-out, but only once "stable" — see `Utt
 Page: AllLevelsCompletedNode
 URL: https://veillette.github.io/Almanach/api/vegas/all-levels-completed-node
 Source: docs/api/vegas/all-levels-completed-node.md
-Category: API | Tags: vegas, AllLevelsCompletedNode, game, dialog, Panel | Status: complete
+Category: API | Tags: vegas, AllLevelsCompletedNode, game, dialog, Panel | Status: verified
 ========================================================================
 
 # AllLevelsCompletedNode
@@ -11810,7 +11811,7 @@ Unlike `sun`'s `Dialog`, `AllLevelsCompletedNode` doesn't dim the background, tr
 Page: GameAudioPlayer
 URL: https://veillette.github.io/Almanach/api/vegas/game-audio-player
 Source: docs/api/vegas/game-audio-player.md
-Category: API | Tags: vegas, GameAudioPlayer, sound, game, tambo | Status: complete
+Category: API | Tags: vegas, GameAudioPlayer, sound, game, tambo | Status: verified
 ========================================================================
 
 # GameAudioPlayer
@@ -13369,7 +13370,7 @@ Every `ProfileColorProperty` entry needs its `projector` value chosen for its ow
 Page: Iconography Conventions
 URL: https://veillette.github.io/Almanach/styling/iconography-conventions
 Source: docs/styling/iconography-conventions.md
-Category: Styling | Tags: icons, styling, sun | Status: complete
+Category: Styling | Tags: icons, styling, sun | Status: verified
 ========================================================================
 
 # Iconography Conventions
@@ -13464,7 +13465,7 @@ If custom icons use strokes rather than solid fills, pick the same `lineWidth`/`
 Page: Layout Container Conventions
 URL: https://veillette.github.io/Almanach/styling/layout-container-conventions
 Source: docs/styling/layout-container-conventions.md
-Category: Styling | Tags: scenery, layout, styling | Status: complete
+Category: Styling | Tags: scenery, layout, styling | Status: verified
 ========================================================================
 
 # Layout Container Conventions
@@ -13575,7 +13576,7 @@ Once a Node is a child of a `FlowBox`/`GridBox`, that container owns its `x`/`y`
 Page: Panels and Backgrounds
 URL: https://veillette.github.io/Almanach/styling/panels-and-backgrounds
 Source: docs/styling/panels-and-backgrounds.md
-Category: Styling | Tags: sun, Panel, styling | Status: complete
+Category: Styling | Tags: sun, Panel, styling | Status: verified
 ========================================================================
 
 # Panels and Backgrounds
@@ -13662,7 +13663,7 @@ A `Panel` inside another `Panel` reads as visual clutter — two borders and two
 Page: Responsive Layout Strategies
 URL: https://veillette.github.io/Almanach/styling/responsive-layout-strategies
 Source: docs/styling/responsive-layout-strategies.md
-Category: Styling | Tags: scenery, ScreenView, layoutBounds, FlowBox, GridBox, responsive | Status: complete
+Category: Styling | Tags: scenery, ScreenView, layoutBounds, FlowBox, GridBox, responsive | Status: verified
 ========================================================================
 
 # Responsive Layout Strategies
@@ -13736,7 +13737,7 @@ Build and position everything assuming `layoutBounds` is the only size that exis
 Page: Spacing and Sizing Constants
 URL: https://veillette.github.io/Almanach/styling/spacing-and-sizing-constants
 Source: docs/styling/spacing-and-sizing-constants.md
-Category: Styling | Tags: scenery, constants, spacing, layout, conventions | Status: complete
+Category: Styling | Tags: scenery, constants, spacing, layout, conventions | Status: verified
 ========================================================================
 
 # Spacing and Sizing Constants
@@ -13811,7 +13812,7 @@ Structure the constants file by what each value *is* (spacing, sizing, stroke) r
 Page: Stroke and Line Styling
 URL: https://veillette.github.io/Almanach/styling/stroke-and-line-styling
 Source: docs/styling/stroke-and-line-styling.md
-Category: Styling | Tags: kite, scenery, stroke, styling | Status: complete
+Category: Styling | Tags: kite, scenery, stroke, styling | Status: verified
 ========================================================================
 
 # Stroke and Line Styling
@@ -13894,7 +13895,7 @@ Setting `lineWidth: 0` still incurs the (small) cost of stroke computation and `
 Page: Typography and Fonts
 URL: https://veillette.github.io/Almanach/styling/typography-and-fonts
 Source: docs/styling/typography-and-fonts.md
-Category: Styling | Tags: scenery-phet, PhetFont, typography | Status: complete
+Category: Styling | Tags: scenery-phet, PhetFont, typography | Status: verified
 ========================================================================
 
 # Typography and Fonts
@@ -13969,7 +13970,7 @@ Never construct a raw CSS font string (`'bold 16px Arial'`) or use scenery's pla
 Page: Alternative Input Overview
 URL: https://veillette.github.io/Almanach/accessibility/alternative-input-overview
 Source: docs/accessibility/alternative-input-overview.md
-Category: Accessibility | Tags: scenery, alternative-input | Status: complete
+Category: Accessibility | Tags: scenery, alternative-input | Status: verified
 ========================================================================
 
 # Alternative Input Overview
@@ -14034,7 +14035,7 @@ Because pointer and keyboard input share one dispatch system, retrofitting keybo
 Page: Describing Dynamic State
 URL: https://veillette.github.io/Almanach/accessibility/describing-dynamic-state
 Source: docs/accessibility/describing-dynamic-state.md
-Category: Accessibility | Tags: pdom, description, accessibility | Status: complete
+Category: Accessibility | Tags: pdom, description, accessibility | Status: verified
 ========================================================================
 
 # Describing Dynamic State
@@ -14069,7 +14070,7 @@ Because `descriptionContent` is just bound to the `Property`, this same pattern 
 
 ## Announcing changes as they happen with addAccessibleResponse
 
-A reactive description only gets *read* the next time something visits it (focus, PDOM tab order, a screen reader's virtual cursor). Some state changes need to be spoken immediately, regardless of where focus is — e.g. "Boundary reached" when a draggable object hits the edge of its play area. For that, call `addAccessibleResponse` on any Node, which queues the text as an assertive announcement (an aria-live region) for every accessible `Display` the Node is connected to:
+A reactive description only gets *read* the next time something visits it (focus, PDOM tab order, a screen reader's virtual cursor). Some state changes need to be spoken immediately, regardless of where focus is — e.g. "Boundary reached" when a draggable object hits the edge of its play area. For that, call `addAccessibleResponse` on any Node, which queues the text on that `Display`'s `descriptionUtteranceQueue` (an `aria-live="polite"` region by default — pass an `Utterance` with `announcerOptions: { ariaLivePriority: AriaLive.ASSERTIVE }` if a response must interrupt) for every accessible `Display` the Node is connected to:
 
 ```ts
 class BallNode extends Node {
@@ -14657,7 +14658,7 @@ Voicing speech only plays once the user has enabled it via preferences (it is no
 Page: A Full Accessible Multi-Screen Sim
 URL: https://veillette.github.io/Almanach/examples/full-accessible-multi-screen-sim
 Source: docs/examples/full-accessible-multi-screen-sim.md
-Category: Examples | Tags: example, accessibility, joist, pdom, voicing, multi-screen | Status: complete
+Category: Examples | Tags: example, accessibility, joist, pdom, voicing, multi-screen | Status: verified
 ========================================================================
 
 # A Full Accessible Multi-Screen Sim
@@ -14732,7 +14733,7 @@ export default class BallNode extends Voicing( Circle ) {
       tagName: 'div',
       focusable: true,
       accessibleName: 'Ball',
-      helpText: 'Move with arrow keys, or drag with a mouse or touch.',
+      accessibleHelpText: 'Move with arrow keys, or drag with a mouse or touch.',
 
       // Voicing: spoken automatically on focus, once the user enables Voicing
       voicingNameResponse: 'Ball',
@@ -14783,7 +14784,7 @@ Passed as `providedOptions.screenSummaryContent` up to `super()`, this content i
 
 ## Screen 2: "Forces" — an accessible control panel
 
-[Accessible Control Panel Example](/examples/accessible-control-panel-example) already builds a fully-labeled panel (slider, checkbox, radio group, reset button) with `accessibleName`/`helpText` on every control — reuse that pattern verbatim for this screen's panel rather than duplicating it here. The only two things specific to *this* screen's accessibility layer are:
+[Accessible Control Panel Example](/examples/accessible-control-panel-example) already builds a fully-labeled panel (slider, checkbox, radio group, reset button) with `accessibleName`/`accessibleHelpText` on every control — reuse that pattern verbatim for this screen's panel rather than duplicating it here. The only two things specific to *this* screen's accessibility layer are:
 
 1. Ordering the panel under `pdomControlAreaNode`, alongside whatever's in the play area:
 
@@ -14836,7 +14837,7 @@ The checklist from [Accessible Interaction Tutorial](/guides/accessible-interact
 - [Building a Two-Screen Simulation](/examples/building-a-two-screen-simulation) — the model/view structure this page's accessibility layer runs through
 - [Accessible Control Panel Example](/examples/accessible-control-panel-example) — the full panel-labeling pattern reused by the "Forces" screen
 - [Migrating a Legacy Sim to RichDragListener](/examples/migrating-to-rich-drag-listener) — what it costs to retrofit a pointer-only screen instead of building it accessible from the start
-- [The Parallel DOM (PDOM)](/accessibility/pdom) — the option reference behind `accessibleName`/`helpText`/`descriptionContent`
+- [The Parallel DOM (PDOM)](/accessibility/pdom) — the option reference behind `accessibleName`/`accessibleHelpText`/`descriptionContent`
 - [Voicing](/accessibility/voicing) — the four response categories used on `BallNode` above
 - [Describing Dynamic State](/accessibility/describing-dynamic-state) — the derived-Property pattern behind `positionDescriptionProperty` and `addAccessibleResponse`
 
@@ -14845,7 +14846,7 @@ The checklist from [Accessible Interaction Tutorial](/guides/accessible-interact
 Page: Accessible Control Panel Example
 URL: https://veillette.github.io/Almanach/examples/accessible-control-panel-example
 Source: docs/examples/accessible-control-panel-example.md
-Category: Examples | Tags: example, accessibility, sun | Status: complete
+Category: Examples | Tags: example, accessibility, sun | Status: verified
 ========================================================================
 
 # Accessible Control Panel Example
@@ -14891,7 +14892,7 @@ class PanelModel {
 
 ## The panel content
 
-Each control gets an `accessibleName` — the string a screen reader announces — and, where the visible label doesn't already say everything a keyboard/screen-reader user needs, a `helpText`:
+Each control gets an `accessibleName` — the string a screen reader announces — and, where the visible label doesn't already say everything a keyboard/screen-reader user needs, `accessibleHelpText`:
 
 ```ts
 import { VBox, Text } from 'scenerystack/scenery';
@@ -14905,7 +14906,7 @@ function createPanelContent( model: PanelModel, tandem: Tandem ) {
 
   const speedSlider = new HSlider( model.speedProperty, new Range( 0, 5 ), {
     accessibleName: 'Speed',
-    helpText: 'Adjust how fast objects move.',
+    accessibleHelpText: 'Adjust how fast objects move.',
     tandem: tandem.createTandem( 'speedSlider' )
   } );
 
@@ -14914,8 +14915,8 @@ function createPanelContent( model: PanelModel, tandem: Tandem ) {
     new Text( 'Gravity' ),
     {
       // accessibleName is inferred from the Text label here - see Checkbox's own docs -
-      // but helpText still needs to be supplied explicitly.
-      helpText: 'Toggle whether gravity pulls objects downward.',
+      // but accessibleHelpText still needs to be supplied explicitly.
+      accessibleHelpText: 'Toggle whether gravity pulls objects downward.',
       tandem: tandem.createTandem( 'gravityCheckbox' )
     }
   );
@@ -14984,8 +14985,8 @@ class PanelScreenView extends ScreenView {
 `sun` components render a visible label (the `Text` you pass as `content`, or an adjacent `Text`) and expose an `accessibleName` to the PDOM — but these are two different things, set two different ways. `Checkbox` infers `accessibleName` from a `Text`/string-backed `content` automatically; `HSlider` and `RectangularRadioButtonGroup` do not derive their own name from anything visual and need `accessibleName` set explicitly, or a screen reader announces nothing useful when the control receives focus.
 :::
 
-::: warning `helpText` supplements `accessibleName`, it doesn't replace it
-`helpText` is read *after* the accessible name, as supplementary guidance — a control with `helpText` but no `accessibleName` is still poorly labeled. Set both, even when the visible label seems self-explanatory to a sighted user.
+::: warning `accessibleHelpText` supplements `accessibleName`, it doesn't replace it
+`accessibleHelpText` is read *after* the accessible name, as supplementary guidance — a control with `accessibleHelpText` but no `accessibleName` is still poorly labeled. Set both, even when the visible label seems self-explanatory to a sighted user.
 :::
 
 ## Where to go next
@@ -15000,7 +15001,7 @@ class PanelScreenView extends ScreenView {
 Page: Building a Two-Screen Simulation
 URL: https://veillette.github.io/Almanach/examples/building-a-two-screen-simulation
 Source: docs/examples/building-a-two-screen-simulation.md
-Category: Examples | Tags: example, joist, multi-screen | Status: complete
+Category: Examples | Tags: example, joist, multi-screen | Status: verified
 ========================================================================
 
 # Building a Two-Screen Simulation
@@ -15212,8 +15213,8 @@ onReadyToLaunch( () => {
 } );
 ```
 
-::: warning `homeScreenIcon` and `navigationBarIcon` are optional in the types but required at runtime once there is more than one screen
-With a single screen, `Sim` skips the home screen and navigation bar entirely, so icons are never read. The moment a second `Screen` is added, `Sim` asserts that *every* screen has both icons — the failure only shows up when you add that second screen, not when you write the first one, so it's worth supplying icons from the start if you expect a sim to grow.
+::: warning `homeScreenIcon` and `navigationBarIcon` are optional, but the fallback is a plain colored rectangle
+If you omit either icon, `Screen` synthesizes a default from `backgroundColorProperty` (a bare rectangle, no `navigationBarIcon` falls back to whatever `homeScreenIcon` resolved to) rather than throwing — so a multi-screen sim without real icons still runs, it just shows indistinguishable blank rectangles on the home screen and nav bar. Supply real icons for any sim with more than one screen so it stays usable, even though nothing enforces it for you.
 :::
 
 ## What's shared vs. per-screen
@@ -15236,7 +15237,7 @@ With a single screen, `Sim` skips the home screen and navigation bar entirely, s
 Page: Demo Simulation Walkthrough
 URL: https://veillette.github.io/Almanach/examples/demo-simulation-walkthrough
 Source: docs/examples/demo-simulation-walkthrough.md
-Category: Examples | Tags: example, joist, walkthrough | Status: complete
+Category: Examples | Tags: example, joist, walkthrough | Status: verified
 ========================================================================
 
 # Demo Simulation Walkthrough

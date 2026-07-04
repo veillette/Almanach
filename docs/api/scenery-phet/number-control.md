@@ -4,7 +4,7 @@ description: A composite slider + label + value-readout control bound to a Numbe
 category: api
 library: scenery-phet
 tags: [scenery-phet, NumberControl]
-status: complete
+status: verified
 related:
   - /api/axon/number-property
   - /api/scenery-phet/phet-font

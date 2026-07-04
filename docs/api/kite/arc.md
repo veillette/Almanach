@@ -4,13 +4,15 @@ description: A circular arc segment defined by center, radius, and start/end ang
 category: api
 library: kite
 tags: [kite, Arc, segment, path]
-status: complete
+status: verified
 related:
   - /api/kite/shape
   - /api/kite/elliptical-arc
   - /api/kite/line-segment
   - /api/kite/line-styles
   - /api/dot/vector2
+prerequisites:
+  - /api/kite/shape
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

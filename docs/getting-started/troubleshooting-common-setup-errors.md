@@ -3,7 +3,7 @@ title: Troubleshooting Common Setup Errors
 description: The most likely failure modes when starting a new scenerystack project - Node version mismatches, wrong import subpaths, missing peer deps, and TypeScript module resolution.
 category: getting-started
 tags: [troubleshooting, setup, typescript, tooling]
-status: draft
+status: verified
 related:
   - /getting-started/installation-and-setup
   - /getting-started/supported-browsers

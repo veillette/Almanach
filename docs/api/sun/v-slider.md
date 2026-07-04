@@ -4,7 +4,7 @@ description: The vertical counterpart to HSlider, bound to the same NumberProper
 category: api
 library: sun
 tags: [sun, VSlider, slider]
-status: complete
+status: verified
 related:
   - /api/sun/hslider
   - /api/dot/range

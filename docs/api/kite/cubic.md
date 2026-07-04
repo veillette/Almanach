@@ -4,12 +4,14 @@ description: A cubic Bezier curve segment defined by a start point, two control 
 category: api
 library: kite
 tags: [kite, Cubic, bezier, segment, path]
-status: complete
+status: verified
 related:
   - /api/kite/shape
   - /api/kite/quadratic
   - /api/kite/line-segment
   - /api/dot/vector2
+prerequisites:
+  - /api/kite/shape
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

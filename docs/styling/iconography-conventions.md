@@ -3,11 +3,12 @@ title: Iconography Conventions
 description: Building consistent icons for buttons and controls.
 category: styling
 tags: [icons, styling, sun]
-status: complete
+status: verified
 related:
   - /api/sun/rectangular-push-button
   - /api/scenery-phet/arrow-node
   - /styling/stroke-and-line-styling
+  - /styling/color-profiles
 prerequisites:
   - /api/sun/rectangular-push-button
 sourceRefs:

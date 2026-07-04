@@ -4,7 +4,7 @@ description: Scenery's RGBA color object - construction from RGB, hex, or CSS ke
 category: api
 library: scenery
 tags: [scenery, Color, paint, fill, stroke]
-status: complete
+status: verified
 related:
   - /api/scenery/node
   - /styling/color-profiles

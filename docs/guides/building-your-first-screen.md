@@ -3,7 +3,7 @@ title: Building Your First Screen
 description: Step-by-step model/view/Screen wiring for a new screen in a multi-screen sim.
 category: guides
 tags: [screen, tutorial, joist]
-status: complete
+status: verified
 related:
   - /getting-started/your-first-simulation
   - /patterns/model-view-separation

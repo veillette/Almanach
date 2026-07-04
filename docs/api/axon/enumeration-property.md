@@ -10,6 +10,8 @@ prerequisites:
 related:
   - /api/axon/string-property
   - /api/axon/derived-property
+  - /patterns/enumeration-pattern
+  - /api/phet-core/enumeration-value
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

@@ -3,7 +3,7 @@ title: Scenery Basics
 description: Introduction to the scene graph - the Node tree, render layers, and coordinate frames.
 category: guides
 tags: [scenery, scene-graph, rendering]
-status: complete
+status: verified
 related:
   - /getting-started/scenery-application-vs-standalone-library
   - /guides/scenery-layout

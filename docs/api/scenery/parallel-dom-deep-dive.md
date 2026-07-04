@@ -4,7 +4,7 @@ description: The trait every Node mixes in that provides its Parallel DOM option
 category: api
 library: scenery
 tags: [scenery, ParallelDOM, pdom, accessibility, tagName, accessibleName]
-status: complete
+status: verified
 related:
   - /accessibility/pdom
   - /api/scenery/focus-manager

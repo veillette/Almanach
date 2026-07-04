@@ -4,9 +4,11 @@ description: A Node that renders a raster image with optional Property-driven sw
 category: api
 library: scenery
 tags: [scenery, Image, mipmap]
-status: complete
+status: verified
 related:
   - /api/scenery/node
+  - /api/scenery/flow-box
+  - /api/scenery/grid-box
 prerequisites:
   - /api/scenery/node
 sourceRefs:

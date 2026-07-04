@@ -3,7 +3,7 @@ title: Deploying a Simulation to GitHub Pages
 description: Building a static SceneryStack simulation and publishing it to GitHub Pages via the gh-pages branch or GitHub Actions.
 category: getting-started
 tags: [deployment, github-pages, build, ci]
-status: draft
+status: verified
 related:
   - /getting-started/running-and-building-a-simulation
   - /getting-started/troubleshooting-common-setup-errors

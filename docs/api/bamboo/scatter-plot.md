@@ -4,9 +4,10 @@ description: Draws a dataset of points as filled circles on a bamboo chart.
 category: api
 library: bamboo
 tags: [bamboo, ScatterPlot, chart, plot]
-status: complete
-related:
+status: verified
+prerequisites:
   - /api/bamboo/chart-transform
+related:
   - /api/bamboo/line-plot
   - /api/bamboo/bar-plot
   - /api/bamboo/axis-nodes

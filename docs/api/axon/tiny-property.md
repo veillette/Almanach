@@ -4,7 +4,7 @@ description: The minimal Property base, without phet-io instrumentation or valid
 category: api
 library: axon
 tags: [axon, TinyProperty, Property, performance]
-status: complete
+status: verified
 prerequisites:
   - /api/axon/property
 related:

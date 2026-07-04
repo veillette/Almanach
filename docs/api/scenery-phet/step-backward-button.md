@@ -4,18 +4,20 @@ description: A round push button with a backward-step icon, used to rewind a pau
 category: api
 library: scenery-phet
 tags: [scenery-phet, StepBackwardButton, button]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/time-control-node
   - /api/scenery-phet/play-pause-button
   - /api/scenery-phet/step-forward-button
+prerequisites:
+  - /api/scenery-phet/time-control-node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
 
 # StepBackwardButton
 
-`StepBackwardButton` (from `scenerystack/scenery-phet`) is a `RoundPushButton` showing the same bar-plus-triangle icon as [`StepForwardButton`](/api/scenery-phet/step-forward-button), mirrored to point the other way, for rewinding a paused model by one fixed time increment. It's a thin subclass of the shared (non-exported) `StepButton` with `direction: 'backward'` fixed. Unlike [`TimeControlNode`](/api/scenery-phet/time-control-node)'s step-forward button, a step-backward button is **not** included by default — it must be opted into explicitly.
+`StepBackwardButton` (from `scenerystack/scenery-phet`) is a `RoundPushButton` showing the same bar-plus-triangle icon as [`StepForwardButton`](/api/scenery-phet/step-forward-button), mirrored to point the other way, for rewinding a paused model by one fixed time increment. It's a thin subclass of the shared, also-exported `StepButton` with `direction: 'backward'` fixed. Unlike [`TimeControlNode`](/api/scenery-phet/time-control-node)'s step-forward button, a step-backward button is **not** included by default — it must be opted into explicitly.
 
 ```ts
 import { StepBackwardButton } from 'scenerystack/scenery-phet';

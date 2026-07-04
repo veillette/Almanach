@@ -3,7 +3,7 @@ title: Your First Simulation
 description: Scaffolding a minimal one-screen simulation with Sim, Screen, and ScreenView.
 category: getting-started
 tags: [joist, sim, screen, tutorial]
-status: complete
+status: verified
 related:
   - /getting-started/scenery-application-vs-standalone-library
   - /guides/building-your-first-screen

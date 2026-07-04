@@ -3,7 +3,7 @@ title: Typography and Fonts
 description: Using PhetFont consistently and font-size/weight conventions.
 category: styling
 tags: [scenery-phet, PhetFont, typography]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/phet-font
   - /styling/panels-and-backgrounds

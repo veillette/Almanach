@@ -4,11 +4,13 @@ description: A stove-style heating/cooling control driven by a bidirectional -1-
 category: api
 library: scenery-phet
 tags: [scenery-phet, HeaterCoolerNode, heat-cool-control, heater, cooler, slider]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/gauge-node
   - /api/axon/number-property
   - /patterns/model-view-separation
+prerequisites:
+  - /api/axon/number-property
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

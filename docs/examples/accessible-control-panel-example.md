@@ -3,7 +3,7 @@ title: Accessible Control Panel Example
 description: A fully accessible control panel combining sun components with PDOM.
 category: examples
 tags: [example, accessibility, sun]
-status: complete
+status: verified
 related:
   - /accessibility/pdom
   - /patterns/reset-all-pattern
@@ -63,7 +63,7 @@ class PanelModel {
 
 ## The panel content
 
-Each control gets an `accessibleName` — the string a screen reader announces — and, where the visible label doesn't already say everything a keyboard/screen-reader user needs, a `helpText`:
+Each control gets an `accessibleName` — the string a screen reader announces — and, where the visible label doesn't already say everything a keyboard/screen-reader user needs, `accessibleHelpText`:
 
 ```ts
 import { VBox, Text } from 'scenerystack/scenery';
@@ -77,7 +77,7 @@ function createPanelContent( model: PanelModel, tandem: Tandem ) {
 
   const speedSlider = new HSlider( model.speedProperty, new Range( 0, 5 ), {
     accessibleName: 'Speed',
-    helpText: 'Adjust how fast objects move.',
+    accessibleHelpText: 'Adjust how fast objects move.',
     tandem: tandem.createTandem( 'speedSlider' )
   } );
 
@@ -86,8 +86,8 @@ function createPanelContent( model: PanelModel, tandem: Tandem ) {
     new Text( 'Gravity' ),
     {
       // accessibleName is inferred from the Text label here - see Checkbox's own docs -
-      // but helpText still needs to be supplied explicitly.
-      helpText: 'Toggle whether gravity pulls objects downward.',
+      // but accessibleHelpText still needs to be supplied explicitly.
+      accessibleHelpText: 'Toggle whether gravity pulls objects downward.',
       tandem: tandem.createTandem( 'gravityCheckbox' )
     }
   );
@@ -156,8 +156,8 @@ class PanelScreenView extends ScreenView {
 `sun` components render a visible label (the `Text` you pass as `content`, or an adjacent `Text`) and expose an `accessibleName` to the PDOM — but these are two different things, set two different ways. `Checkbox` infers `accessibleName` from a `Text`/string-backed `content` automatically; `HSlider` and `RectangularRadioButtonGroup` do not derive their own name from anything visual and need `accessibleName` set explicitly, or a screen reader announces nothing useful when the control receives focus.
 :::
 
-::: warning `helpText` supplements `accessibleName`, it doesn't replace it
-`helpText` is read *after* the accessible name, as supplementary guidance — a control with `helpText` but no `accessibleName` is still poorly labeled. Set both, even when the visible label seems self-explanatory to a sighted user.
+::: warning `accessibleHelpText` supplements `accessibleName`, it doesn't replace it
+`accessibleHelpText` is read *after* the accessible name, as supplementary guidance — a control with `accessibleHelpText` but no `accessibleName` is still poorly labeled. Set both, even when the visible label seems self-explanatory to a sighted user.
 :::
 
 ## Where to go next

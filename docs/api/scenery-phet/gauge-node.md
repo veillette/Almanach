@@ -4,11 +4,15 @@ description: A circular dial gauge with a needle, tick marks, and a label, drive
 category: api
 library: scenery-phet
 tags: [scenery-phet, GaugeNode, gauge, dial, meter]
-status: complete
+status: verified
 related:
   - /api/scenery-phet/thermometer-node
   - /api/dot/range
   - /patterns/model-view-separation
+  - /api/scenery-phet/number-display
+prerequisites:
+  - /api/axon/property
+  - /api/dot/range
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---
@@ -73,4 +77,4 @@ new GaugeNode(
 `GaugeNode` hides the needle entirely (`needle.visible = false`) whenever `valueProperty.get()` is not a `number` — useful if you're deriving the value and want to represent "no reading." For actual numbers, the needle instead **clamps** to `range.min`/`range.max` rather than disappearing or overshooting, so an out-of-range value still shows a (misleadingly) valid-looking needle position.
 :::
 
-For a variant with a numeric readout built in, see `ValueGaugeNode` in the same source file — it's a `GaugeNode` subclass that adds a centered `NumberDisplay` and a `numberDisplayVisible` setter/getter, otherwise sharing the same constructor shape.
+For a variant with a numeric readout built in, see `ValueGaugeNode` (its own source file, `ValueGaugeNode.ts`) — it's a `GaugeNode` subclass that adds a centered [`NumberDisplay`](/api/scenery-phet/number-display) and a `numberDisplayVisible` setter/getter, otherwise sharing the same constructor shape.
