@@ -70,11 +70,7 @@ new ManualConstraint( root, [ icon, label ], ( iconProxy, labelProxy ) => {
 } );
 ```
 
-The first argument is the common ancestor Node whose coordinate frame the constraint reasons in — it doesn't need to be the direct parent of either watched Node, only an ancestor of both. The constraint re-runs the callback automatically whenever `icon` or `label`'s bounds change (a translated string swapping in a longer label, an icon resizing), so `labelProxy.left`/`centerY` stay correct without you re-wiring a bounds listener by hand.
-
-::: tip Reach for ManualConstraint before hand-rolling a bounds listener
-It's tempting to solve "keep these two things aligned" with `node.boundsProperty.link(...)` and manual `x`/`y` math. `ManualConstraint` is that same idea, generalized and already handling the cross-coordinate-frame case correctly — prefer it over a bespoke listener unless you have a reason `ManualConstraint`'s callback shape genuinely can't express.
-:::
+The first argument is the common ancestor Node whose coordinate frame the constraint reasons in — it doesn't need to be the direct parent of either watched Node, only an ancestor of both. The constraint re-runs the callback automatically whenever `icon` or `label`'s bounds change (a translated string swapping in a longer label, an icon resizing), so `labelProxy.left`/`centerY` stay correct without you re-wiring a bounds listener by hand. It's tempting to solve this same problem with `node.boundsProperty.link(...)` and manual `x`/`y` math instead — `ManualConstraint` is that same idea, generalized and already handling the cross-coordinate-frame case correctly, so prefer it over a bespoke listener unless you have a reason its callback shape genuinely can't express.
 
 ## AlignGroup: matching sizes across independent containers
 

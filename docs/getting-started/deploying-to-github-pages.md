@@ -118,9 +118,7 @@ Once the workflow finishes (or the `gh-pages` push lands), visit `https://<user>
 - **Blank page, 404s in the console for JS/CSS/image files** — the base path wasn't set (or was set to `/` when the site actually lives at `/<repo>/`). Fix the bundler's `base`/`publicPath` and rebuild.
 - **Page loads but sounds/images are missing** — usually a case-sensitivity mismatch between an import path and the actual filename; GitHub Pages' file server is case-sensitive even if your local OS filesystem isn't, so this can build and run locally while 404ing once deployed.
 
-::: tip A production build strips assertions — test the production build locally before deploying
-`npm run build`'s output has SceneryStack's runtime assertions compiled away (see [Running and Building a Simulation](/getting-started/running-and-building-a-simulation)), so bugs that assertions would have caught in dev can surface only in the deployed build. Serve `dist/` locally with a static file server (`npx serve dist`, or your bundler's `preview` command) and click through the sim before pushing to Pages, rather than discovering a production-only bug for the first time in front of users.
-:::
+Also worth doing before you push: `npm run build`'s output has SceneryStack's runtime assertions compiled away (see [Running and Building a Simulation](/getting-started/running-and-building-a-simulation)), so bugs that assertions would have caught in dev can surface only in the deployed build. Serve `dist/` locally with a static file server (`npx serve dist`, or your bundler's `preview` command) and click through the sim before pushing to Pages, rather than discovering a production-only bug for the first time in front of users.
 
 ## Where to go next
 
