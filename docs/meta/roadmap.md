@@ -13,7 +13,7 @@ related:
 
 This wiki started with 6 content pages. This document is the plan for growing it substantially — organized into phases, with a concrete way for whoever picks up the work next (human or agent, in this session or a future one) to see what's done and claim what isn't.
 
-**This document does not itself write the content.** Phase 0 (below) — the taxonomy redesign, schema changes, and the tooling described here — was completed in one session. Phases 1 and 2 are deliberately left as tracked, unclaimed work for future sessions.
+**This document does not itself write the content.** Phase 0 (below) — the taxonomy redesign, schema changes, and the tooling described here — was completed in one session. Phases 1 and 2 have both since been built out in full (see [Totals](#totals) and `npm run roadmap:status`); Phase 3 (maintenance) is the current open work.
 
 ## Why a roadmap instead of just writing more pages
 

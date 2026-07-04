@@ -16,11 +16,11 @@ Definitions for terms this wiki uses repeatedly without re-explaining every time
 
 ## accessibleName
 
-The string a screen reader announces for a focusable element in the [PDOM](#pdom) — the accessibility equivalent of a visible label, set as a `Node` option. See [The Parallel DOM](/accessibility/pdom).
+The string a screen reader announces for a focusable element in the PDOM — the accessibility equivalent of a visible label, set as a `Node` option. See [The Parallel DOM](/accessibility/pdom).
 
 ## brand
 
-A build-time flag (`phet` vs. `phet-io`, among others) that determines which features compile into a sim — notably whether [PhET-iO](#phet-io) instrumentation is active. See [Tandem](/api/tandem/tandem).
+A build-time flag (`phet` vs. `phet-io`, among others) that determines which features compile into a sim — notably whether PhET-iO instrumentation is active. See [Tandem](/api/tandem/tandem).
 
 ## DerivedProperty
 
@@ -32,11 +32,11 @@ The explicit cleanup method every long-lived `Node`/`Property`/`DerivedProperty`
 
 ## Display
 
-The scenery object that owns a root `Node`, drives the render loop, and turns the scene graph into pixels (and the [PDOM](#pdom) into real DOM). See [Display](/api/scenery/display).
+The scenery object that owns a root `Node`, drives the render loop, and turns the scene graph into pixels (and the PDOM into real DOM). See [Display](/api/scenery/display).
 
 ## DragListener
 
-A pointer-only (mouse/touch/pen) input listener that writes to a model `positionProperty`, typically through a `transform`. Superseded for new code by [RichDragListener](#richdraglistener), which adds keyboard support. See [Drag Listeners](/patterns/drag-listeners).
+A pointer-only (mouse/touch/pen) input listener that writes to a model `positionProperty`, typically through a `transform`. Superseded for new code by `RichDragListener`, which adds keyboard support. See [Drag Listeners](/patterns/drag-listeners).
 
 ## Emitter
 
@@ -56,7 +56,7 @@ The lower-level building block behind `KeyboardListener` and `KeyboardDragListen
 
 ## KeyboardDragListener
 
-The keyboard-driven equivalent of pointer dragging — moves a `positionProperty` with arrow keys or WASD. Composed together with `DragListener` inside [RichDragListener](#richdraglistener). See [KeyboardDragListener](/api/scenery/keyboard-drag-listener).
+The keyboard-driven equivalent of pointer dragging — moves a `positionProperty` with arrow keys or WASD. Composed together with `DragListener` inside `RichDragListener`. See [KeyboardDragListener](/api/scenery/keyboard-drag-listener).
 
 ## Model-View Separation
 
@@ -72,7 +72,7 @@ A utility that observes several Properties at once and fires a single callback w
 
 ## Node
 
-The base class of every visual (and, via the [PDOM](#pdom), every accessible) element in a scenery scene graph. See [Node](/api/scenery/node).
+The base class of every visual (and, via the PDOM, every accessible) element in a scenery scene graph. See [Node](/api/scenery/node).
 
 ## options pattern / optionize
 
@@ -84,7 +84,7 @@ Scenery's hidden tree of real HTML elements, mirroring the scene graph's interac
 
 ## phet-io / PhET-iO
 
-PhET's instrumentation and interoperability system: giving simulation elements a stable, addressable identity (via [Tandem](#tandem)) so external wrappers can inspect, control, save, and restore sim state. See [The PhET-iO Instrumentation Pattern](/patterns/phet-io-instrumentation-pattern).
+PhET's instrumentation and interoperability system: giving simulation elements a stable, addressable identity (via `Tandem`) so external wrappers can inspect, control, save, and restore sim state. See [The PhET-iO Instrumentation Pattern](/patterns/phet-io-instrumentation-pattern).
 
 ## PhetioObject
 
@@ -112,7 +112,7 @@ One self-contained model/view pair within a `Sim` — owns its own `Tandem` subt
 
 ## ScreenView
 
-The root `Node` of a `Screen`'s view; defines `layoutBounds` and reserves its own [PDOM](#pdom) structure (`pdomPlayAreaNode`, `pdomControlAreaNode`) that a subclass populates rather than replaces. See [ScreenView](/api/joist/screen-view).
+The root `Node` of a `Screen`'s view; defines `layoutBounds` and reserves its own PDOM structure (`pdomPlayAreaNode`, `pdomControlAreaNode`) that a subclass populates rather than replaces. See [ScreenView](/api/joist/screen-view).
 
 ## Sim
 
