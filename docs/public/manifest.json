@@ -2,8 +2,8 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-04T22:01:53.379Z",
-  "documentCount": 231,
+  "generated": "2026-07-05T03:23:30.221Z",
+  "documentCount": 331,
   "documents": [
     {
       "path": "/getting-started/deploying-to-github-pages",
@@ -344,6 +344,132 @@
       "url": "https://veillette.github.io/Almanach/guides/building-your-first-screen"
     },
     {
+      "path": "/guides/chart-and-data-visualization-with-bamboo",
+      "sourceFile": "docs/guides/chart-and-data-visualization-with-bamboo.md",
+      "title": "Chart and Data Visualization with Bamboo",
+      "description": "Subsystem overview of bamboo - the ChartTransform every plot shares, the family of Plot Node types built on it, and axis/gridline decoration.",
+      "category": "guides",
+      "tags": [
+        "bamboo",
+        "chart",
+        "data-visualization",
+        "ChartTransform"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/bamboo/chart-transform",
+        "/api/bamboo/line-plot",
+        "/api/bamboo/bar-plot",
+        "/api/bamboo/scatter-plot",
+        "/api/bamboo/area-plot",
+        "/api/bamboo/linear-equation-plot",
+        "/api/bamboo/axis-nodes",
+        "/api/bamboo/gridlines-and-tick-marks",
+        "/api/bamboo/canvas-line-plot",
+        "/guides/performance-and-profiling",
+        "/patterns/dispose-and-memory-management"
+      ],
+      "prerequisites": [
+        "/guides/scenery-basics",
+        "/api/bamboo/chart-transform"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 1057,
+      "url": "https://veillette.github.io/Almanach/guides/chart-and-data-visualization-with-bamboo"
+    },
+    {
+      "path": "/guides/continuous-integration-for-scenerystack-projects",
+      "sourceFile": "docs/guides/continuous-integration-for-scenerystack-projects.md",
+      "title": "Continuous Integration for SceneryStack Projects",
+      "description": "What a CI pipeline for a SceneryStack simulation repository typically checks - type-checking, linting, a production build, unit tests, and automated fuzzing.",
+      "category": "guides",
+      "tags": [
+        "ci",
+        "testing",
+        "build",
+        "tooling",
+        "quality"
+      ],
+      "status": "complete",
+      "related": [
+        "/guides/testing-and-qa-strategy-overview",
+        "/getting-started/running-and-building-a-simulation",
+        "/patterns/testing-model-logic-headlessly",
+        "/cookbook/fuzz-testing-a-simulation-locally"
+      ],
+      "prerequisites": [
+        "/getting-started/running-and-building-a-simulation"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 834,
+      "url": "https://veillette.github.io/Almanach/guides/continuous-integration-for-scenerystack-projects"
+    },
+    {
+      "path": "/guides/debugging-common-scenery-rendering-issues",
+      "sourceFile": "docs/guides/debugging-common-scenery-rendering-issues.md",
+      "title": "Debugging Common Scenery Rendering Issues",
+      "description": "A walkthrough of the most common visual bugs in a scenery scene graph - Nodes that won't show, layout that won't update, and z-order surprises - and the debug tools that narrow each one down.",
+      "category": "guides",
+      "tags": [
+        "scenery",
+        "debugging",
+        "rendering",
+        "layout",
+        "troubleshooting"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/display",
+        "/guides/scenery-basics",
+        "/guides/scenery-layout",
+        "/guides/performance-and-profiling",
+        "/api/scenery/node",
+        "/api/scenery/hit-testing-and-picking"
+      ],
+      "prerequisites": [
+        "/guides/scenery-basics"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 1077,
+      "url": "https://veillette.github.io/Almanach/guides/debugging-common-scenery-rendering-issues"
+    },
+    {
+      "path": "/guides/haptics-and-alternative-feedback-channels",
+      "sourceFile": "docs/guides/haptics-and-alternative-feedback-channels.md",
+      "title": "Haptics and Alternative Feedback Channels",
+      "description": "Sound (tambo) and vibration (tappi) as feedback channels beyond the visual scene graph - when a simulation benefits from each, and how they relate to accessibility.",
+      "category": "guides",
+      "tags": [
+        "tambo",
+        "tappi",
+        "sound",
+        "vibration",
+        "haptics",
+        "accessibility"
+      ],
+      "status": "draft",
+      "related": [
+        "/guides/working-with-sound",
+        "/accessibility/sound-design",
+        "/api/tappi/vibration-manager-and-patterns",
+        "/guides/scenery-basics"
+      ],
+      "prerequisites": [
+        "/guides/scenery-basics"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 732,
+      "url": "https://veillette.github.io/Almanach/guides/haptics-and-alternative-feedback-channels"
+    },
+    {
       "path": "/guides/internationalization-deep-dive",
       "sourceFile": "docs/guides/internationalization-deep-dive.md",
       "title": "Internationalization Deep Dive",
@@ -506,6 +632,33 @@
       "url": "https://veillette.github.io/Almanach/guides/preferences-and-feature-flags"
     },
     {
+      "path": "/guides/publishing-and-distributing-a-simulation",
+      "sourceFile": "docs/guides/publishing-and-distributing-a-simulation.md",
+      "title": "Publishing and Distributing a Simulation",
+      "description": "What a SceneryStack production build produces and the common ways to host it - static hosting, GitHub Pages, or a project's own server.",
+      "category": "guides",
+      "tags": [
+        "deployment",
+        "build",
+        "hosting",
+        "distribution"
+      ],
+      "status": "complete",
+      "related": [
+        "/getting-started/running-and-building-a-simulation",
+        "/getting-started/deploying-to-github-pages",
+        "/getting-started/supported-browsers"
+      ],
+      "prerequisites": [
+        "/getting-started/running-and-building-a-simulation"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 745,
+      "url": "https://veillette.github.io/Almanach/guides/publishing-and-distributing-a-simulation"
+    },
+    {
       "path": "/guides/scenery-basics",
       "sourceFile": "docs/guides/scenery-basics.md",
       "title": "Scenery Basics",
@@ -590,6 +743,66 @@
       "url": "https://veillette.github.io/Almanach/guides/scenery-layout"
     },
     {
+      "path": "/guides/sim-lifecycle-and-startup-sequence",
+      "sourceFile": "docs/guides/sim-lifecycle-and-startup-sequence.md",
+      "title": "Sim Lifecycle and Startup Sequence",
+      "description": "The real sequence from Sim construction through start(), screen selection, and the running animation loop that steps Properties and listeners every frame.",
+      "category": "guides",
+      "tags": [
+        "joist",
+        "Sim",
+        "Screen",
+        "lifecycle",
+        "animation-loop"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/joist/sim",
+        "/api/joist/screen",
+        "/api/joist/screen-view",
+        "/guides/scenery-basics",
+        "/api/axon/timer"
+      ],
+      "prerequisites": [
+        "/api/joist/sim",
+        "/getting-started/your-first-simulation"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 800,
+      "url": "https://veillette.github.io/Almanach/guides/sim-lifecycle-and-startup-sequence"
+    },
+    {
+      "path": "/guides/testing-and-qa-strategy-overview",
+      "sourceFile": "docs/guides/testing-and-qa-strategy-overview.md",
+      "title": "Testing and QA Strategy Overview",
+      "description": "The layers of testing a SceneryStack simulation benefits from - headless unit tests, manual QA passes, and automated fuzz-testing.",
+      "category": "guides",
+      "tags": [
+        "testing",
+        "qa",
+        "fuzz-testing",
+        "qunit",
+        "quality"
+      ],
+      "status": "complete",
+      "related": [
+        "/patterns/testing-model-logic-headlessly",
+        "/cookbook/fuzz-testing-a-simulation-locally",
+        "/guides/continuous-integration-for-scenerystack-projects",
+        "/patterns/query-parameters-pattern"
+      ],
+      "prerequisites": [
+        "/patterns/model-view-separation"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 818,
+      "url": "https://veillette.github.io/Almanach/guides/testing-and-qa-strategy-overview"
+    },
+    {
       "path": "/guides/translation-and-localization",
       "sourceFile": "docs/guides/translation-and-localization.md",
       "title": "Translation and Localization",
@@ -651,6 +864,36 @@
       ],
       "wordCount": 581,
       "url": "https://veillette.github.io/Almanach/guides/ui-components-overview"
+    },
+    {
+      "path": "/guides/working-with-model-view-transforms",
+      "sourceFile": "docs/guides/working-with-model-view-transforms.md",
+      "title": "Working with Model-View Transforms",
+      "description": "Why SceneryStack simulations separate model coordinates from view pixels, and the common ModelViewTransform2 usage patterns that follow from it.",
+      "category": "guides",
+      "tags": [
+        "phetcommon",
+        "dot",
+        "coordinates",
+        "transform",
+        "ModelViewTransform2"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/phetcommon/model-view-transform",
+        "/patterns/model-view-separation",
+        "/patterns/drag-listeners",
+        "/guides/scenery-basics"
+      ],
+      "prerequisites": [
+        "/patterns/model-view-separation",
+        "/api/phetcommon/model-view-transform"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 795,
+      "url": "https://veillette.github.io/Almanach/guides/working-with-model-view-transforms"
     },
     {
       "path": "/guides/working-with-sound",
@@ -730,6 +973,36 @@
       "url": "https://veillette.github.io/Almanach/api/axon/derived-property"
     },
     {
+      "path": "/api/axon/derived-string-property",
+      "sourceFile": "docs/api/axon/derived-string-property.md",
+      "title": "DerivedStringProperty",
+      "description": "A DerivedProperty specialized for building translated or formatted string values, with the right PhET-iO metadata baked in.",
+      "category": "api",
+      "library": "axon",
+      "tags": [
+        "axon",
+        "DerivedStringProperty",
+        "DerivedProperty",
+        "PatternStringProperty",
+        "i18n",
+        "strings"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/axon/derived-property",
+        "/api/axon/pattern-string-property",
+        "/api/axon/string-property"
+      ],
+      "prerequisites": [
+        "/api/axon/derived-property"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 353,
+      "url": "https://veillette.github.io/Almanach/api/axon/derived-string-property"
+    },
+    {
       "path": "/api/axon/dynamic-property",
       "sourceFile": "docs/api/axon/dynamic-property.md",
       "title": "DynamicProperty",
@@ -785,6 +1058,34 @@
       ],
       "wordCount": 421,
       "url": "https://veillette.github.io/Almanach/api/axon/emitter"
+    },
+    {
+      "path": "/api/axon/enabled-component",
+      "sourceFile": "docs/api/axon/enabled-component.md",
+      "title": "EnabledComponent and EnabledProperty",
+      "description": "The standard mixin-free pattern for giving any object a settable enabledProperty, with PhET-iO instrumentation baked in.",
+      "category": "api",
+      "library": "axon",
+      "tags": [
+        "axon",
+        "EnabledComponent",
+        "EnabledProperty",
+        "BooleanProperty",
+        "Disposable"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/axon/boolean-property",
+        "/api/axon/property"
+      ],
+      "prerequisites": [
+        "/api/axon/boolean-property"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 446,
+      "url": "https://veillette.github.io/Almanach/api/axon/enabled-component"
     },
     {
       "path": "/api/axon/enumeration-property",
@@ -954,6 +1255,35 @@
       "url": "https://veillette.github.io/Almanach/api/axon/property"
     },
     {
+      "path": "/api/axon/read-only-property",
+      "sourceFile": "docs/api/axon/read-only-property.md",
+      "title": "ReadOnlyProperty",
+      "description": "The base observable class Property extends — the public type exposed by anything that shouldn't be externally settable.",
+      "category": "api",
+      "library": "axon",
+      "tags": [
+        "axon",
+        "ReadOnlyProperty",
+        "Property",
+        "DerivedProperty",
+        "reactive"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/axon/property",
+        "/api/axon/derived-property",
+        "/api/axon/dynamic-property"
+      ],
+      "prerequisites": [
+        "/api/axon/property"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 493,
+      "url": "https://veillette.github.io/Almanach/api/axon/read-only-property"
+    },
+    {
       "path": "/api/axon/string-property",
       "sourceFile": "docs/api/axon/string-property.md",
       "title": "StringProperty",
@@ -1007,6 +1337,32 @@
       ],
       "wordCount": 292,
       "url": "https://veillette.github.io/Almanach/api/axon/string-union-property"
+    },
+    {
+      "path": "/api/axon/timer",
+      "sourceFile": "docs/api/axon/timer.md",
+      "title": "Timer, animationFrameTimer, and stepTimer",
+      "description": "The shared Timer class and its two singleton instances — setTimeout/setInterval-alike scheduling driven by the sim's own frame loop instead of the browser clock.",
+      "category": "api",
+      "library": "axon",
+      "tags": [
+        "axon",
+        "Timer",
+        "animationFrameTimer",
+        "stepTimer",
+        "scheduling"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/axon/emitter",
+        "/api/axon/property"
+      ],
+      "prerequisites": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 508,
+      "url": "https://veillette.github.io/Almanach/api/axon/timer"
     },
     {
       "path": "/api/axon/tiny-emitter",
@@ -1095,6 +1451,63 @@
       "url": "https://veillette.github.io/Almanach/api/axon/unit-conversion-property"
     },
     {
+      "path": "/api/axon/validation",
+      "sourceFile": "docs/api/axon/validation.md",
+      "title": "Validation and validate",
+      "description": "The shared validator schema and checking utility that Property's valueType/validValues/isValidValue options are built on.",
+      "category": "api",
+      "library": "axon",
+      "tags": [
+        "axon",
+        "Validation",
+        "validate",
+        "Property"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/axon/property",
+        "/api/axon/derived-property"
+      ],
+      "prerequisites": [
+        "/api/axon/property"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 536,
+      "url": "https://veillette.github.io/Almanach/api/axon/validation"
+    },
+    {
+      "path": "/api/bamboo/area-plot",
+      "sourceFile": "docs/api/bamboo/area-plot.md",
+      "title": "AreaPlot",
+      "description": "Renders a dataset as a filled, shaded region between the data and a baseline value on a bamboo chart.",
+      "category": "api",
+      "library": "bamboo",
+      "tags": [
+        "bamboo",
+        "AreaPlot",
+        "chart",
+        "plot"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/bamboo/line-plot",
+        "/api/bamboo/bar-plot",
+        "/api/bamboo/scatter-plot",
+        "/api/bamboo/axis-nodes",
+        "/api/scenery/path"
+      ],
+      "prerequisites": [
+        "/api/bamboo/chart-transform"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 484,
+      "url": "https://veillette.github.io/Almanach/api/bamboo/area-plot"
+    },
+    {
       "path": "/api/bamboo/axis-nodes",
       "sourceFile": "docs/api/bamboo/axis-nodes.md",
       "title": "AxisLine and AxisArrowNode",
@@ -1154,6 +1567,38 @@
       "url": "https://veillette.github.io/Almanach/api/bamboo/bar-plot"
     },
     {
+      "path": "/api/bamboo/canvas-line-plot",
+      "sourceFile": "docs/api/bamboo/canvas-line-plot.md",
+      "title": "CanvasLinePlot",
+      "description": "A Canvas-rendered equivalent of LinePlot, painted by a shared ChartCanvasNode for charts with too many points for per-point scenery Nodes to stay fast.",
+      "category": "api",
+      "library": "bamboo",
+      "tags": [
+        "bamboo",
+        "CanvasLinePlot",
+        "ChartCanvasNode",
+        "chart",
+        "plot",
+        "canvas",
+        "performance"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/bamboo/line-plot",
+        "/api/bamboo/area-plot",
+        "/api/bamboo/gridlines-and-tick-marks"
+      ],
+      "prerequisites": [
+        "/api/bamboo/chart-transform",
+        "/api/bamboo/line-plot"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 531,
+      "url": "https://veillette.github.io/Almanach/api/bamboo/canvas-line-plot"
+    },
+    {
       "path": "/api/bamboo/chart-transform",
       "sourceFile": "docs/api/bamboo/chart-transform.md",
       "title": "ChartTransform",
@@ -1183,6 +1628,66 @@
       ],
       "wordCount": 619,
       "url": "https://veillette.github.io/Almanach/api/bamboo/chart-transform"
+    },
+    {
+      "path": "/api/bamboo/gridlines-and-tick-marks",
+      "sourceFile": "docs/api/bamboo/gridlines-and-tick-marks.md",
+      "title": "GridLineSet, TickMarkSet, and TickLabelSet",
+      "description": "The three bamboo Path/Node sets that draw a chart's repeating gridlines, tick marks, and tick labels at a fixed model-coordinate spacing.",
+      "category": "api",
+      "library": "bamboo",
+      "tags": [
+        "bamboo",
+        "GridLineSet",
+        "TickMarkSet",
+        "TickLabelSet",
+        "chart",
+        "axis"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/bamboo/chart-transform",
+        "/api/bamboo/axis-nodes",
+        "/api/bamboo/canvas-line-plot",
+        "/api/scenery/path"
+      ],
+      "prerequisites": [
+        "/api/bamboo/chart-transform"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 706,
+      "url": "https://veillette.github.io/Almanach/api/bamboo/gridlines-and-tick-marks"
+    },
+    {
+      "path": "/api/bamboo/linear-equation-plot",
+      "sourceFile": "docs/api/bamboo/linear-equation-plot.md",
+      "title": "LinearEquationPlot",
+      "description": "Draws the straight line y = mx + b (or a vertical line, for infinite slope) across a bamboo chart's model x-range.",
+      "category": "api",
+      "library": "bamboo",
+      "tags": [
+        "bamboo",
+        "LinearEquationPlot",
+        "chart",
+        "plot"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/bamboo/line-plot",
+        "/api/bamboo/gridlines-and-tick-marks",
+        "/api/bamboo/axis-nodes",
+        "/api/scenery/line"
+      ],
+      "prerequisites": [
+        "/api/bamboo/chart-transform"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 425,
+      "url": "https://veillette.github.io/Almanach/api/bamboo/linear-equation-plot"
     },
     {
       "path": "/api/bamboo/line-plot",
@@ -1321,6 +1826,60 @@
       "url": "https://veillette.github.io/Almanach/api/dot/complex"
     },
     {
+      "path": "/api/dot/convex-hull2",
+      "sourceFile": "docs/api/dot/convex-hull2.md",
+      "title": "ConvexHull2",
+      "description": "A Graham Scan implementation computing the 2D convex hull (minimal enclosing polygon) of a set of Vector2 points.",
+      "category": "api",
+      "library": "dot",
+      "tags": [
+        "dot",
+        "ConvexHull2",
+        "Vector2",
+        "geometry",
+        "math"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/dot/vector2",
+        "/api/dot/permutation-and-combination",
+        "/api/kite/shape"
+      ],
+      "prerequisites": [
+        "/api/dot/vector2"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 341,
+      "url": "https://veillette.github.io/Almanach/api/dot/convex-hull2"
+    },
+    {
+      "path": "/api/dot/damped-harmonic",
+      "sourceFile": "docs/api/dot/damped-harmonic.md",
+      "title": "DampedHarmonic",
+      "description": "A closed-form solver for the damped harmonic oscillator differential equation, useful for spring, pendulum, and oscillation sims.",
+      "category": "api",
+      "library": "dot",
+      "tags": [
+        "dot",
+        "DampedHarmonic",
+        "differential-equations",
+        "physics",
+        "math"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/dot/linear-function"
+      ],
+      "prerequisites": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 489,
+      "url": "https://veillette.github.io/Almanach/api/dot/damped-harmonic"
+    },
+    {
       "path": "/api/dot/dimension2",
       "sourceFile": "docs/api/dot/dimension2.md",
       "title": "Dimension2",
@@ -1346,6 +1905,33 @@
       "url": "https://veillette.github.io/Almanach/api/dot/dimension2"
     },
     {
+      "path": "/api/dot/dot-random",
+      "sourceFile": "docs/api/dot/dot-random.md",
+      "title": "dotRandom",
+      "description": "The shared, globally-seeded Random singleton simulations should use for every \"random\" call, instead of Math.random() or a private Random instance.",
+      "category": "api",
+      "library": "dot",
+      "tags": [
+        "dot",
+        "dotRandom",
+        "Random",
+        "seeding",
+        "phet-io"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/dot/random"
+      ],
+      "prerequisites": [
+        "/api/dot/random"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 332,
+      "url": "https://veillette.github.io/Almanach/api/dot/dot-random"
+    },
+    {
       "path": "/api/dot/linear-function",
       "sourceFile": "docs/api/dot/linear-function.md",
       "title": "LinearFunction",
@@ -1368,6 +1954,36 @@
       ],
       "wordCount": 476,
       "url": "https://veillette.github.io/Almanach/api/dot/linear-function"
+    },
+    {
+      "path": "/api/dot/matrix-decompositions",
+      "sourceFile": "docs/api/dot/matrix-decompositions.md",
+      "title": "Matrix Decompositions",
+      "description": "A practical survey of dot's LUDecomposition, QRDecomposition, EigenvalueDecomposition, and SingularValueDecomposition, and when a sim author would ever reach for one.",
+      "category": "api",
+      "library": "dot",
+      "tags": [
+        "dot",
+        "Matrix",
+        "LUDecomposition",
+        "QRDecomposition",
+        "EigenvalueDecomposition",
+        "SingularValueDecomposition",
+        "linear-algebra"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/dot/matrix3",
+        "/api/dot/matrix4"
+      ],
+      "prerequisites": [
+        "/api/dot/matrix3"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 929,
+      "url": "https://veillette.github.io/Almanach/api/dot/matrix-decompositions"
     },
     {
       "path": "/api/dot/matrix3",
@@ -1423,6 +2039,63 @@
       ],
       "wordCount": 627,
       "url": "https://veillette.github.io/Almanach/api/dot/matrix4"
+    },
+    {
+      "path": "/api/dot/permutation-and-combination",
+      "sourceFile": "docs/api/dot/permutation-and-combination.md",
+      "title": "Permutation and Combination",
+      "description": "Immutable combinatorics helpers for reordering (Permutation) or selecting a subset of (Combination) an array.",
+      "category": "api",
+      "library": "dot",
+      "tags": [
+        "dot",
+        "Permutation",
+        "Combination",
+        "combinatorics",
+        "math"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/dot/convex-hull2"
+      ],
+      "prerequisites": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 589,
+      "url": "https://veillette.github.io/Almanach/api/dot/permutation-and-combination"
+    },
+    {
+      "path": "/api/dot/quaternion-and-plane3",
+      "sourceFile": "docs/api/dot/quaternion-and-plane3.md",
+      "title": "Quaternion and Plane3",
+      "description": "A rotation quaternion class and an infinite-plane primitive used together for 3D rotation and plane/ray geometry.",
+      "category": "api",
+      "library": "dot",
+      "tags": [
+        "dot",
+        "Quaternion",
+        "Plane3",
+        "Vector3",
+        "Matrix3",
+        "rotation",
+        "math"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/dot/vector3",
+        "/api/dot/matrix3",
+        "/api/dot/ray3"
+      ],
+      "prerequisites": [
+        "/api/dot/vector3",
+        "/api/dot/matrix3"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 670,
+      "url": "https://veillette.github.io/Almanach/api/dot/quaternion-and-plane3"
     },
     {
       "path": "/api/dot/random",
@@ -1530,6 +2203,36 @@
       "url": "https://veillette.github.io/Almanach/api/dot/ray2"
     },
     {
+      "path": "/api/dot/ray3",
+      "sourceFile": "docs/api/dot/ray3.md",
+      "title": "Ray3",
+      "description": "A 3D ray (origin plus unit direction) used for picking and intersection queries in 3D-flavored code such as mobius.",
+      "category": "api",
+      "library": "dot",
+      "tags": [
+        "dot",
+        "Ray3",
+        "Vector3",
+        "Plane3",
+        "math",
+        "hit-testing"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/dot/ray2",
+        "/api/dot/vector3",
+        "/api/dot/quaternion-and-plane3"
+      ],
+      "prerequisites": [
+        "/api/dot/ray2"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 371,
+      "url": "https://veillette.github.io/Almanach/api/dot/ray3"
+    },
+    {
       "path": "/api/dot/transform3",
       "sourceFile": "docs/api/dot/transform3.md",
       "title": "Transform3",
@@ -1610,6 +2313,36 @@
       ],
       "wordCount": 772,
       "url": "https://veillette.github.io/Almanach/api/dot/vector2"
+    },
+    {
+      "path": "/api/dot/vector2-property",
+      "sourceFile": "docs/api/dot/vector2-property.md",
+      "title": "Vector2Property",
+      "description": "A Property<Vector2> subclass with built-in NaN and optional-bounds validation, the standard type for model positions.",
+      "category": "api",
+      "library": "dot",
+      "tags": [
+        "dot",
+        "Vector2Property",
+        "Vector2",
+        "Property",
+        "position"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/dot/vector2",
+        "/api/axon/property",
+        "/api/dot/bounds2"
+      ],
+      "prerequisites": [
+        "/api/axon/property",
+        "/api/dot/vector2"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 307,
+      "url": "https://veillette.github.io/Almanach/api/dot/vector2-property"
     },
     {
       "path": "/api/dot/vector3",
@@ -1695,6 +2428,36 @@
       "url": "https://veillette.github.io/Almanach/api/joist/home-screen"
     },
     {
+      "path": "/api/joist/joist-button",
+      "sourceFile": "docs/api/joist/joist-button.md",
+      "title": "JoistButton",
+      "description": "The base class behind chrome buttons like HomeButton - custom black/white highlighting instead of the standard sun button look.",
+      "category": "api",
+      "library": "joist",
+      "tags": [
+        "joist",
+        "JoistButton",
+        "Sim",
+        "NavigationBar",
+        "button"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/joist/navigation-bar",
+        "/api/joist/home-screen",
+        "/api/tandem/tandem"
+      ],
+      "prerequisites": [
+        "/api/joist/sim",
+        "/api/joist/navigation-bar"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 471,
+      "url": "https://veillette.github.io/Almanach/api/joist/joist-button"
+    },
+    {
       "path": "/api/joist/navigation-bar",
       "sourceFile": "docs/api/joist/navigation-bar.md",
       "title": "NavigationBar",
@@ -1751,6 +2514,39 @@
       ],
       "wordCount": 665,
       "url": "https://veillette.github.io/Almanach/api/joist/preferences-model-and-dialog"
+    },
+    {
+      "path": "/api/joist/region-culture-and-locale-selection",
+      "sourceFile": "docs/api/joist/region-culture-and-locale-selection.md",
+      "title": "Region, Culture, and Locale Selection UI",
+      "description": "The runtime language/locale Property, the region-and-culture Property and its localized-image helper, and the Preferences UI built on top of both.",
+      "category": "api",
+      "library": "joist",
+      "tags": [
+        "joist",
+        "LocalizedImageProperty",
+        "RegionAndCultureComboBox",
+        "LanguageSelectionNode",
+        "LocalePanel",
+        "localeProperty",
+        "regionAndCultureProperty",
+        "i18n"
+      ],
+      "status": "complete",
+      "related": [
+        "/guides/translation-and-localization",
+        "/api/joist/preferences-model-and-dialog",
+        "/api/axon/derived-property"
+      ],
+      "prerequisites": [
+        "/guides/translation-and-localization",
+        "/api/joist/preferences-model-and-dialog"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 653,
+      "url": "https://veillette.github.io/Almanach/api/joist/region-culture-and-locale-selection"
     },
     {
       "path": "/api/joist/screen",
@@ -1978,6 +2774,40 @@
       "url": "https://veillette.github.io/Almanach/api/kite/elliptical-arc"
     },
     {
+      "path": "/api/kite/graph-and-boolean-operations",
+      "sourceFile": "docs/api/kite/graph-and-boolean-operations.md",
+      "title": "Graph and Boolean Shape Operations",
+      "description": "The Graph machinery powering Shape.union/intersection/xor and clipping — how to combine two Shapes, at a practical level.",
+      "category": "api",
+      "library": "kite",
+      "tags": [
+        "kite",
+        "Graph",
+        "Shape",
+        "Face",
+        "HalfEdge",
+        "Loop",
+        "Boundary",
+        "Edge",
+        "Vertex",
+        "boolean-operations"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/kite/shape",
+        "/api/kite/subpath",
+        "/api/kite/segment"
+      ],
+      "prerequisites": [
+        "/api/kite/shape"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 659,
+      "url": "https://veillette.github.io/Almanach/api/kite/graph-and-boolean-operations"
+    },
+    {
       "path": "/api/kite/line-segment",
       "sourceFile": "docs/api/kite/line-segment.md",
       "title": "Line",
@@ -2069,6 +2899,73 @@
       "url": "https://veillette.github.io/Almanach/api/kite/quadratic"
     },
     {
+      "path": "/api/kite/ray-and-segment-intersections",
+      "sourceFile": "docs/api/kite/ray-and-segment-intersections.md",
+      "title": "RayIntersection and SegmentIntersection",
+      "description": "The two small result types returned by kite's ray-casting and segment/segment intersection queries.",
+      "category": "api",
+      "library": "kite",
+      "tags": [
+        "kite",
+        "RayIntersection",
+        "SegmentIntersection",
+        "Segment",
+        "Shape",
+        "intersection"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/kite/segment",
+        "/api/kite/shape",
+        "/api/dot/ray2"
+      ],
+      "prerequisites": [
+        "/api/kite/segment"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 539,
+      "url": "https://veillette.github.io/Almanach/api/kite/ray-and-segment-intersections"
+    },
+    {
+      "path": "/api/kite/segment",
+      "sourceFile": "docs/api/kite/segment.md",
+      "title": "Segment",
+      "description": "The abstract base class Arc, Cubic, Quadratic, Line, and EllipticalArc all extend — the shared parametric contract every segment type implements.",
+      "category": "api",
+      "library": "kite",
+      "tags": [
+        "kite",
+        "Segment",
+        "Arc",
+        "Cubic",
+        "Quadratic",
+        "Line",
+        "EllipticalArc",
+        "path"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/kite/arc",
+        "/api/kite/cubic",
+        "/api/kite/quadratic",
+        "/api/kite/line-segment",
+        "/api/kite/elliptical-arc",
+        "/api/kite/shape",
+        "/api/kite/subpath"
+      ],
+      "prerequisites": [
+        "/api/kite/shape",
+        "/api/kite/subpath"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 855,
+      "url": "https://veillette.github.io/Almanach/api/kite/segment"
+    },
+    {
       "path": "/api/kite/shape",
       "sourceFile": "docs/api/kite/shape.md",
       "title": "Shape",
@@ -2124,6 +3021,34 @@
       ],
       "wordCount": 580,
       "url": "https://veillette.github.io/Almanach/api/kite/subpath"
+    },
+    {
+      "path": "/api/kite/svg-path-parsing-and-serialization",
+      "sourceFile": "docs/api/kite/svg-path-parsing-and-serialization.md",
+      "title": "SVG Path Parsing and Serialization",
+      "description": "How Shape parses an SVG path-data string into segments, serializes back out with getSVGPath(), and the svgNumber/svgPath exports underneath both directions.",
+      "category": "api",
+      "library": "kite",
+      "tags": [
+        "kite",
+        "svgPath",
+        "svgNumber",
+        "Shape",
+        "SVG"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/kite/shape",
+        "/api/kite/segment"
+      ],
+      "prerequisites": [
+        "/api/kite/shape"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 525,
+      "url": "https://veillette.github.io/Almanach/api/kite/svg-path-parsing-and-serialization"
     },
     {
       "path": "/api/mobius/node-wrapping-conventions",
@@ -2389,6 +3314,85 @@
       "url": "https://veillette.github.io/Almanach/api/phet-core/optionize-and-merge"
     },
     {
+      "path": "/api/phet-core/orientation",
+      "sourceFile": "docs/api/phet-core/orientation.md",
+      "title": "Orientation",
+      "description": "The HORIZONTAL/VERTICAL enumeration threaded through layout code (FlowBox, sliders, bamboo charts) to write orientation-agnostic logic.",
+      "category": "api",
+      "library": "phet-core",
+      "tags": [
+        "phet-core",
+        "Orientation",
+        "EnumerationValue",
+        "layout",
+        "enumeration"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/phet-core/enumeration-value",
+        "/api/bamboo/gridlines-and-tick-marks",
+        "/api/bamboo/axis-nodes"
+      ],
+      "prerequisites": [
+        "/api/phet-core/enumeration-value"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 526,
+      "url": "https://veillette.github.io/Almanach/api/phet-core/orientation"
+    },
+    {
+      "path": "/api/phet-core/platform-detection",
+      "sourceFile": "docs/api/phet-core/platform-detection.md",
+      "title": "platform",
+      "description": "A plain object of boolean browser/OS/engine feature-detection flags, computed once from navigator.userAgent at import time.",
+      "category": "api",
+      "library": "phet-core",
+      "tags": [
+        "phet-core",
+        "platform",
+        "browser",
+        "useragent"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/phet-core/assertion-helpers"
+      ],
+      "prerequisites": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 380,
+      "url": "https://veillette.github.io/Almanach/api/phet-core/platform-detection"
+    },
+    {
+      "path": "/api/phet-core/pool",
+      "sourceFile": "docs/api/phet-core/pool.md",
+      "title": "Pool",
+      "description": "A generic object-pooling utility that reuses instances instead of constructing new ones, reducing GC churn for objects created and discarded at high frequency.",
+      "category": "api",
+      "library": "phet-core",
+      "tags": [
+        "phet-core",
+        "Pool",
+        "Poolable",
+        "performance",
+        "memory"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/phet-core/optionize-and-merge",
+        "/patterns/dispose-and-memory-management"
+      ],
+      "prerequisites": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 631,
+      "url": "https://veillette.github.io/Almanach/api/phet-core/pool"
+    },
+    {
       "path": "/api/phetcommon/bucket",
       "sourceFile": "docs/api/phetcommon/bucket.md",
       "title": "Bucket",
@@ -2414,6 +3418,31 @@
       ],
       "wordCount": 503,
       "url": "https://veillette.github.io/Almanach/api/phetcommon/bucket"
+    },
+    {
+      "path": "/api/phetcommon/fraction",
+      "sourceFile": "docs/api/phetcommon/fraction.md",
+      "title": "Fraction",
+      "description": "An exact-arithmetic numerator/denominator fraction class with add/subtract/multiply/divide and reduction, used throughout PhET's fraction and ratio sims.",
+      "category": "api",
+      "library": "phetcommon",
+      "tags": [
+        "phetcommon",
+        "Fraction",
+        "model",
+        "math"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/phetcommon/model-view-transform",
+        "/api/phetcommon/bucket"
+      ],
+      "prerequisites": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 656,
+      "url": "https://veillette.github.io/Almanach/api/phetcommon/fraction"
     },
     {
       "path": "/api/phetcommon/model-view-transform",
@@ -2698,6 +3727,38 @@
       "url": "https://veillette.github.io/Almanach/api/scenery/display"
     },
     {
+      "path": "/api/scenery/drag-listener",
+      "sourceFile": "docs/api/scenery/drag-listener.md",
+      "title": "DragListener",
+      "description": "The pointer-driven drag listener that most draggable Nodes are built on.",
+      "category": "api",
+      "library": "scenery",
+      "tags": [
+        "scenery",
+        "DragListener",
+        "PressListener",
+        "input",
+        "drag"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/fire-listener",
+        "/api/scenery/rich-drag-listener",
+        "/api/scenery/keyboard-drag-listener",
+        "/api/scenery/transform-tracker",
+        "/api/scenery/hit-testing-and-picking"
+      ],
+      "prerequisites": [
+        "/api/scenery/node",
+        "/api/scenery/fire-listener"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 800,
+      "url": "https://veillette.github.io/Almanach/api/scenery/drag-listener"
+    },
+    {
       "path": "/api/scenery/flow-box",
       "sourceFile": "docs/api/scenery/flow-box.md",
       "title": "FlowBox",
@@ -2842,6 +3903,102 @@
       ],
       "wordCount": 259,
       "url": "https://veillette.github.io/Almanach/api/scenery/h-box"
+    },
+    {
+      "path": "/api/scenery/highlight-rendering",
+      "sourceFile": "docs/api/scenery/highlight-rendering.md",
+      "title": "Highlight Rendering: HighlightPath and HighlightOverlay",
+      "description": "The Path subclass and per-Display overlay that actually draw focus, interactive, and reading-block highlights.",
+      "category": "api",
+      "library": "scenery",
+      "tags": [
+        "scenery",
+        "HighlightPath",
+        "HighlightOverlay",
+        "HighlightFromNode",
+        "accessibility",
+        "focus"
+      ],
+      "status": "complete",
+      "related": [
+        "/accessibility/focus-highlights",
+        "/api/scenery/focus-manager",
+        "/api/scenery/interactive-highlighting",
+        "/api/scenery/voicing",
+        "/api/scenery/transform-tracker",
+        "/api/scenery/path"
+      ],
+      "prerequisites": [
+        "/accessibility/focus-highlights"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 681,
+      "url": "https://veillette.github.io/Almanach/api/scenery/highlight-rendering"
+    },
+    {
+      "path": "/api/scenery/hit-testing-and-picking",
+      "sourceFile": "docs/api/scenery/hit-testing-and-picking.md",
+      "title": "Hit-Testing and Picking",
+      "description": "How scenery decides what a pointer is over, and the Node options that shape it.",
+      "category": "api",
+      "library": "scenery",
+      "tags": [
+        "scenery",
+        "Picker",
+        "pickable",
+        "mouse-area",
+        "touch-area",
+        "cursor",
+        "input"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/node",
+        "/api/scenery/drag-listener",
+        "/api/scenery/fire-listener",
+        "/api/scenery/scenery-event"
+      ],
+      "prerequisites": [
+        "/api/scenery/node"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 517,
+      "url": "https://veillette.github.io/Almanach/api/scenery/hit-testing-and-picking"
+    },
+    {
+      "path": "/api/scenery/hotkeys",
+      "sourceFile": "docs/api/scenery/hotkeys.md",
+      "title": "Hotkey, HotkeyData, and globalHotkeyRegistry",
+      "description": "The declarative building blocks underneath KeyboardListener for defining keyboard shortcuts.",
+      "category": "api",
+      "library": "scenery",
+      "tags": [
+        "scenery",
+        "Hotkey",
+        "HotkeyData",
+        "globalHotkeyRegistry",
+        "input",
+        "keyboard",
+        "accessibility"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/keyboard-listener",
+        "/api/scenery/keyboard-drag-listener",
+        "/api/scenery/node"
+      ],
+      "prerequisites": [
+        "/api/scenery/keyboard-listener"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 719,
+      "url": "https://veillette.github.io/Almanach/api/scenery/hotkeys"
     },
     {
       "path": "/api/scenery/image",
@@ -3171,6 +4328,37 @@
       "url": "https://veillette.github.io/Almanach/api/scenery/pattern-paint"
     },
     {
+      "path": "/api/scenery/pointer-mouse-touch-pen",
+      "sourceFile": "docs/api/scenery/pointer-mouse-touch-pen.md",
+      "title": "Pointer, Mouse, Touch, and Pen",
+      "description": "The abstract input-device abstraction behind every scenery pointer event, and its Mouse/Touch/Pen subclasses.",
+      "category": "api",
+      "library": "scenery",
+      "tags": [
+        "scenery",
+        "Pointer",
+        "Mouse",
+        "Touch",
+        "Pen",
+        "input"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/scenery-event",
+        "/api/scenery/drag-listener",
+        "/api/scenery/fire-listener",
+        "/api/scenery/hit-testing-and-picking"
+      ],
+      "prerequisites": [
+        "/api/scenery/node"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 604,
+      "url": "https://veillette.github.io/Almanach/api/scenery/pointer-mouse-touch-pen"
+    },
+    {
       "path": "/api/scenery/fire-listener",
       "sourceFile": "docs/api/scenery/fire-listener.md",
       "title": "PressListener and FireListener",
@@ -3317,6 +4505,66 @@
       "url": "https://veillette.github.io/Almanach/api/scenery/rich-text"
     },
     {
+      "path": "/api/scenery/scenery-event",
+      "sourceFile": "docs/api/scenery/scenery-event.md",
+      "title": "SceneryEvent",
+      "description": "The event object scenery passes to input listeners, wrapping the native DOM event, the pointer, and the hit trail.",
+      "category": "api",
+      "library": "scenery",
+      "tags": [
+        "scenery",
+        "SceneryEvent",
+        "input",
+        "Trail"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/pointer-mouse-touch-pen",
+        "/api/scenery/fire-listener",
+        "/api/scenery/drag-listener",
+        "/api/scenery/trail"
+      ],
+      "prerequisites": [
+        "/api/scenery/node"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 477,
+      "url": "https://veillette.github.io/Almanach/api/scenery/scenery-event"
+    },
+    {
+      "path": "/api/scenery/sizable-mixins",
+      "sourceFile": "docs/api/scenery/sizable-mixins.md",
+      "title": "Sizable, WidthSizable, and HeightSizable",
+      "description": "The mixins that let a custom Node expose a settable preferred/minimum size so layout containers can resize it.",
+      "category": "api",
+      "library": "scenery",
+      "tags": [
+        "scenery",
+        "Sizable",
+        "WidthSizable",
+        "HeightSizable",
+        "layout"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/flow-box",
+        "/api/scenery/grid-box",
+        "/api/scenery/node",
+        "/guides/scenery-layout"
+      ],
+      "prerequisites": [
+        "/api/scenery/node",
+        "/api/scenery/flow-box"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 597,
+      "url": "https://veillette.github.io/Almanach/api/scenery/sizable-mixins"
+    },
+    {
       "path": "/api/scenery/spacer",
       "sourceFile": "docs/api/scenery/spacer.md",
       "title": "Spacer",
@@ -3403,6 +4651,35 @@
       ],
       "wordCount": 643,
       "url": "https://veillette.github.io/Almanach/api/scenery/trail"
+    },
+    {
+      "path": "/api/scenery/transform-tracker",
+      "sourceFile": "docs/api/scenery/transform-tracker.md",
+      "title": "TransformTracker",
+      "description": "Efficiently watches a Trail's cumulative transform for changes, without re-deriving it from scratch on every check.",
+      "category": "api",
+      "library": "scenery",
+      "tags": [
+        "scenery",
+        "TransformTracker",
+        "Trail",
+        "transform"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/trail",
+        "/api/scenery/drag-listener",
+        "/api/scenery/highlight-rendering",
+        "/api/scenery/node"
+      ],
+      "prerequisites": [
+        "/api/scenery/trail"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 361,
+      "url": "https://veillette.github.io/Almanach/api/scenery/transform-tracker"
     },
     {
       "path": "/api/scenery/v-box",
@@ -3600,6 +4877,37 @@
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/close-button"
     },
     {
+      "path": "/api/scenery-phet/conductivity-tester-node",
+      "sourceFile": "docs/api/scenery-phet/conductivity-tester-node.md",
+      "title": "ConductivityTesterNode",
+      "description": "A light bulb wired to a battery and two draggable probes, visualizing circuit conductivity for chemistry sims.",
+      "category": "api",
+      "library": "scenery-phet",
+      "tags": [
+        "scenery-phet",
+        "ConductivityTesterNode",
+        "chemistry",
+        "probe",
+        "wire"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery-phet/probe-node",
+        "/api/scenery-phet/wire-node",
+        "/api/phetcommon/model-view-transform",
+        "/api/tandem/tandem"
+      ],
+      "prerequisites": [
+        "/api/phetcommon/model-view-transform",
+        "/api/axon/property"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 445,
+      "url": "https://veillette.github.io/Almanach/api/scenery-phet/conductivity-tester-node"
+    },
+    {
       "path": "/api/scenery-phet/eraser-button",
       "sourceFile": "docs/api/scenery-phet/eraser-button.md",
       "title": "EraserButton",
@@ -3715,6 +5023,35 @@
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/gauge-node"
     },
     {
+      "path": "/api/scenery-phet/grid-node",
+      "sourceFile": "docs/api/scenery-phet/grid-node.md",
+      "title": "GridNode",
+      "description": "A Path drawing an evenly-spaced coordinate grid, positioned and re-projected via a ModelViewTransform2 Property.",
+      "category": "api",
+      "library": "scenery-phet",
+      "tags": [
+        "scenery-phet",
+        "GridNode",
+        "grid",
+        "coordinates"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/phetcommon/model-view-transform",
+        "/api/scenery/path",
+        "/api/dot/vector2"
+      ],
+      "prerequisites": [
+        "/api/phetcommon/model-view-transform",
+        "/api/scenery/path"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 347,
+      "url": "https://veillette.github.io/Almanach/api/scenery-phet/grid-node"
+    },
+    {
       "path": "/api/scenery-phet/heat-cool-control",
       "sourceFile": "docs/api/scenery-phet/heat-cool-control.md",
       "title": "HeaterCoolerNode",
@@ -3771,6 +5108,34 @@
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/info-button"
     },
     {
+      "path": "/api/scenery-phet/laser-pointer-node",
+      "sourceFile": "docs/api/scenery-phet/laser-pointer-node.md",
+      "title": "LaserPointerNode",
+      "description": "A laser-pointer-styled Node with an optional on/off button, used to represent a light source in optics sims.",
+      "category": "api",
+      "library": "scenery-phet",
+      "tags": [
+        "scenery-phet",
+        "LaserPointerNode",
+        "optics",
+        "button"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery-phet/probe-node",
+        "/api/tandem/tandem",
+        "/api/axon/property"
+      ],
+      "prerequisites": [
+        "/api/axon/property"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 463,
+      "url": "https://veillette.github.io/Almanach/api/scenery-phet/laser-pointer-node"
+    },
+    {
       "path": "/api/scenery-phet/math-symbol-font",
       "sourceFile": "docs/api/scenery-phet/math-symbol-font.md",
       "title": "MathSymbolFont",
@@ -3794,6 +5159,36 @@
       ],
       "wordCount": 398,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/math-symbol-font"
+    },
+    {
+      "path": "/api/scenery-phet/measuring-tape-node",
+      "sourceFile": "docs/api/scenery-phet/measuring-tape-node.md",
+      "title": "MeasuringTapeNode",
+      "description": "A draggable measuring tape with a base, an extendable tip, and a live distance readout, common in physics sims.",
+      "category": "api",
+      "library": "scenery-phet",
+      "tags": [
+        "scenery-phet",
+        "MeasuringTapeNode",
+        "measurement",
+        "drag"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery-phet/ruler-node",
+        "/api/phetcommon/model-view-transform",
+        "/api/axon/derived-property",
+        "/api/tandem/tandem"
+      ],
+      "prerequisites": [
+        "/api/axon/property",
+        "/api/phetcommon/model-view-transform"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 710,
+      "url": "https://veillette.github.io/Almanach/api/scenery-phet/measuring-tape-node"
     },
     {
       "path": "/api/scenery-phet/number-control",
@@ -3986,6 +5381,62 @@
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/ruler-node"
     },
     {
+      "path": "/api/scenery-phet/scientific-notation-node",
+      "sourceFile": "docs/api/scenery-phet/scientific-notation-node.md",
+      "title": "ScientificNotationNode",
+      "description": "Renders a number Property as mantissa x 10^exponent, updating live as the value changes.",
+      "category": "api",
+      "library": "scenery-phet",
+      "tags": [
+        "scenery-phet",
+        "ScientificNotationNode",
+        "number-formatting"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery-phet/number-display",
+        "/api/scenery-phet/phet-font",
+        "/api/axon/property"
+      ],
+      "prerequisites": [
+        "/api/axon/property"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 413,
+      "url": "https://veillette.github.io/Almanach/api/scenery-phet/scientific-notation-node"
+    },
+    {
+      "path": "/api/scenery-phet/spectrum-node",
+      "sourceFile": "docs/api/scenery-phet/spectrum-node.md",
+      "title": "SpectrumNode",
+      "description": "A Node that rasterizes a value range into a horizontal color gradient bar via a client-supplied value-to-color function.",
+      "category": "api",
+      "library": "scenery-phet",
+      "tags": [
+        "scenery-phet",
+        "SpectrumNode",
+        "gradient",
+        "color",
+        "spectrum"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/color",
+        "/api/dot/dimension2",
+        "/api/scenery-phet/gauge-node"
+      ],
+      "prerequisites": [
+        "/api/scenery/node"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 365,
+      "url": "https://veillette.github.io/Almanach/api/scenery-phet/spectrum-node"
+    },
+    {
       "path": "/api/scenery-phet/step-backward-button",
       "sourceFile": "docs/api/scenery-phet/step-backward-button.md",
       "title": "StepBackwardButton",
@@ -4145,6 +5596,34 @@
       ],
       "wordCount": 363,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/wire-node"
+    },
+    {
+      "path": "/api/sun/ab-switch",
+      "sourceFile": "docs/api/sun/ab-switch.md",
+      "title": "ABSwitch",
+      "description": "A labeled two-option toggle switch bound to a Property over exactly two named values.",
+      "category": "api",
+      "library": "sun",
+      "tags": [
+        "sun",
+        "ABSwitch",
+        "HBox"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/sun/on-off-switch",
+        "/api/sun/checkbox",
+        "/api/scenery/h-box"
+      ],
+      "prerequisites": [
+        "/api/sun/on-off-switch",
+        "/api/axon/property"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 494,
+      "url": "https://veillette.github.io/Almanach/api/sun/ab-switch"
     },
     {
       "path": "/api/sun/accordion-box",
@@ -4332,6 +5811,34 @@
       "url": "https://veillette.github.io/Almanach/api/sun/hslider"
     },
     {
+      "path": "/api/sun/number-picker",
+      "sourceFile": "docs/api/sun/number-picker.md",
+      "title": "NumberPicker",
+      "description": "A compact up/down arrow spinner bound to a NumberProperty, with its arrows drawn directly on the value display.",
+      "category": "api",
+      "library": "sun",
+      "tags": [
+        "sun",
+        "NumberPicker",
+        "NumberProperty"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/sun/number-spinner",
+        "/api/sun/hslider",
+        "/api/dot/range"
+      ],
+      "prerequisites": [
+        "/api/sun/number-spinner",
+        "/api/axon/number-property"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 599,
+      "url": "https://veillette.github.io/Almanach/api/sun/number-picker"
+    },
+    {
       "path": "/api/sun/number-spinner",
       "sourceFile": "docs/api/sun/number-spinner.md",
       "title": "NumberSpinner",
@@ -4489,6 +5996,38 @@
       ],
       "wordCount": 455,
       "url": "https://veillette.github.io/Almanach/api/sun/round-push-button"
+    },
+    {
+      "path": "/api/sun/slider",
+      "sourceFile": "docs/api/sun/slider.md",
+      "title": "Slider",
+      "description": "The orientation-agnostic base class behind HSlider and VSlider.",
+      "category": "api",
+      "library": "sun",
+      "tags": [
+        "sun",
+        "Slider",
+        "HSlider",
+        "VSlider",
+        "Orientation"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/sun/hslider",
+        "/api/sun/v-slider",
+        "/api/scenery/sizable-mixins",
+        "/api/scenery/drag-listener",
+        "/api/dot/range"
+      ],
+      "prerequisites": [
+        "/api/sun/hslider",
+        "/api/axon/number-property"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 475,
+      "url": "https://veillette.github.io/Almanach/api/sun/slider"
     },
     {
       "path": "/api/sun/text-push-button",
@@ -4718,6 +6257,45 @@
       "url": "https://veillette.github.io/Almanach/api/tambo/sound-manager"
     },
     {
+      "path": "/api/tandem/built-in-io-types",
+      "sourceFile": "docs/api/tandem/built-in-io-types.md",
+      "title": "Built-in IOTypes",
+      "description": "A survey of tandem's ready-made IOType instances for JS primitives and common container shapes, and when to reach for one instead of writing a custom IOType.",
+      "category": "api",
+      "library": "tandem",
+      "tags": [
+        "tandem",
+        "phet-io",
+        "IOType",
+        "BooleanIO",
+        "NumberIO",
+        "StringIO",
+        "ReferenceIO",
+        "ArrayIO",
+        "EnumerationIO",
+        "MapIO",
+        "NullableIO",
+        "ObjectLiteralIO",
+        "OrIO",
+        "Float64ArrayIO",
+        "VoidIO"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/tandem/io-type",
+        "/api/tandem/phetio-object",
+        "/api/axon/property"
+      ],
+      "prerequisites": [
+        "/api/tandem/io-type"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 654,
+      "url": "https://veillette.github.io/Almanach/api/tandem/built-in-io-types"
+    },
+    {
       "path": "/api/tandem/disposable",
       "sourceFile": "docs/api/tandem/disposable.md",
       "title": "Disposable",
@@ -4832,6 +6410,34 @@
       "url": "https://veillette.github.io/Almanach/api/tandem/phetio-group"
     },
     {
+      "path": "/api/tandem/phetio-id-utils-and-naming",
+      "sourceFile": "docs/api/tandem/phetio-id-utils-and-naming.md",
+      "title": "PhetioIDUtils and Tandem Naming Conventions",
+      "description": "Static string utilities for building and inspecting phetioIDs, and the naming conventions a tree of Tandems produces.",
+      "category": "api",
+      "library": "tandem",
+      "tags": [
+        "tandem",
+        "phet-io",
+        "PhetioIDUtils",
+        "Tandem",
+        "phetioID"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/tandem/tandem",
+        "/api/tandem/phetio-object"
+      ],
+      "prerequisites": [
+        "/api/tandem/tandem"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 609,
+      "url": "https://veillette.github.io/Almanach/api/tandem/phetio-id-utils-and-naming"
+    },
+    {
       "path": "/api/tandem/phetio-object",
       "sourceFile": "docs/api/tandem/phetio-object.md",
       "title": "PhetioObject",
@@ -4891,6 +6497,57 @@
       "url": "https://veillette.github.io/Almanach/api/tandem/tandem"
     },
     {
+      "path": "/api/tappi/vibration-indicator-and-controller",
+      "sourceFile": "docs/api/tappi/vibration-indicator-and-controller.md",
+      "title": "VibrationIndicator and ContinuousPatternVibrationController",
+      "description": "An on-screen phone icon that visualizes vibration state, and a pattern-transition controller built on top of the (deprecated, iOS-only) native vibration bridge.",
+      "category": "api",
+      "library": "tappi",
+      "tags": [
+        "tappi",
+        "VibrationIndicator",
+        "ContinuousPatternVibrationController",
+        "vibration",
+        "haptics"
+      ],
+      "status": "draft",
+      "related": [
+        "/api/tappi/vibration-manager-and-patterns"
+      ],
+      "prerequisites": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 669,
+      "url": "https://veillette.github.io/Almanach/api/tappi/vibration-indicator-and-controller"
+    },
+    {
+      "path": "/api/tappi/vibration-manager-and-patterns",
+      "sourceFile": "docs/api/tappi/vibration-manager-and-patterns.md",
+      "title": "vibrationManager and VibrationPatterns",
+      "description": "The shared singleton that drives device vibration through the Web Vibration API, plus a library of reusable on/off interval patterns to feed it.",
+      "category": "api",
+      "library": "tappi",
+      "tags": [
+        "tappi",
+        "vibrationManager",
+        "VibrationPatterns",
+        "Intensity",
+        "vibration",
+        "haptics"
+      ],
+      "status": "draft",
+      "related": [
+        "/api/tappi/vibration-indicator-and-controller"
+      ],
+      "prerequisites": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 630,
+      "url": "https://veillette.github.io/Almanach/api/tappi/vibration-manager-and-patterns"
+    },
+    {
       "path": "/api/twixt/animation",
       "sourceFile": "docs/api/twixt/animation.md",
       "title": "Animation and Easing",
@@ -4916,6 +6573,33 @@
       ],
       "wordCount": 739,
       "url": "https://veillette.github.io/Almanach/api/twixt/animation"
+    },
+    {
+      "path": "/api/twixt/damped-animation",
+      "sourceFile": "docs/api/twixt/damped-animation.md",
+      "title": "DampedAnimation",
+      "description": "A single-dimension damped-harmonic-oscillator animation that pulls a value toward a target, as an alternative to Animation's fixed-duration easing curves.",
+      "category": "api",
+      "library": "twixt",
+      "tags": [
+        "twixt",
+        "DampedAnimation",
+        "animation",
+        "physics"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/twixt/animation",
+        "/api/axon/property"
+      ],
+      "prerequisites": [
+        "/api/twixt/animation"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 536,
+      "url": "https://veillette.github.io/Almanach/api/twixt/damped-animation"
     },
     {
       "path": "/api/twixt/transition-node",
@@ -5066,6 +6750,36 @@
       "url": "https://veillette.github.io/Almanach/api/vegas/all-levels-completed-node"
     },
     {
+      "path": "/api/vegas/status-bars",
+      "sourceFile": "docs/api/vegas/status-bars.md",
+      "title": "FiniteStatusBar and InfiniteStatusBar",
+      "description": "The standard game-screen status bars that pin a score display (and optionally level/challenge/timer info) to the top of a ScreenView.",
+      "category": "api",
+      "library": "vegas",
+      "tags": [
+        "vegas",
+        "FiniteStatusBar",
+        "InfiniteStatusBar",
+        "StatusBar",
+        "game",
+        "score"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/vegas/score-display-family",
+        "/api/vegas/level-completed-node",
+        "/api/vegas/all-levels-completed-node"
+      ],
+      "prerequisites": [
+        "/api/vegas/score-display-family"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 657,
+      "url": "https://veillette.github.io/Almanach/api/vegas/status-bars"
+    },
+    {
       "path": "/api/vegas/game-audio-player",
       "sourceFile": "docs/api/vegas/game-audio-player.md",
       "title": "GameAudioPlayer",
@@ -5096,6 +6810,36 @@
       "url": "https://veillette.github.io/Almanach/api/vegas/game-audio-player"
     },
     {
+      "path": "/api/vegas/level-completed-node",
+      "sourceFile": "docs/api/vegas/level-completed-node.md",
+      "title": "LevelCompletedNode",
+      "description": "A Panel shown when a player finishes a single game level, summarizing score, stars, and (optionally) elapsed/best time.",
+      "category": "api",
+      "library": "vegas",
+      "tags": [
+        "vegas",
+        "LevelCompletedNode",
+        "game",
+        "Panel",
+        "score"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/vegas/all-levels-completed-node",
+        "/api/vegas/score-display-family",
+        "/api/vegas/status-bars",
+        "/api/sun/panel"
+      ],
+      "prerequisites": [
+        "/api/vegas/score-display-family"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 575,
+      "url": "https://veillette.github.io/Almanach/api/vegas/level-completed-node"
+    },
+    {
       "path": "/api/vegas/level-selection-button",
       "sourceFile": "docs/api/vegas/level-selection-button.md",
       "title": "LevelSelectionButton",
@@ -5122,6 +6866,37 @@
       ],
       "wordCount": 433,
       "url": "https://veillette.github.io/Almanach/api/vegas/level-selection-button"
+    },
+    {
+      "path": "/api/vegas/score-display-family",
+      "sourceFile": "docs/api/vegas/score-display-family.md",
+      "title": "ScoreDisplay Family",
+      "description": "The three sibling score-display Nodes alongside ScoreDisplayNumberAndStar -- a plain labeled number, a labeled star row, and a bare star row.",
+      "category": "api",
+      "library": "vegas",
+      "tags": [
+        "vegas",
+        "ScoreDisplayLabeledNumber",
+        "ScoreDisplayLabeledStars",
+        "ScoreDisplayStars",
+        "score",
+        "game",
+        "HBox"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/vegas/score-display-number-and-star",
+        "/api/vegas/status-bars",
+        "/api/vegas/level-completed-node"
+      ],
+      "prerequisites": [
+        "/api/vegas/score-display-number-and-star"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 518,
+      "url": "https://veillette.github.io/Almanach/api/vegas/score-display-family"
     },
     {
       "path": "/api/vegas/score-display-number-and-star",
@@ -5179,6 +6954,34 @@
       "url": "https://veillette.github.io/Almanach/patterns/avoiding-property-leaks"
     },
     {
+      "path": "/patterns/command-undo-pattern",
+      "sourceFile": "docs/patterns/command-undo-pattern.md",
+      "title": "Command/Undo Pattern for Interactive Sims",
+      "description": "Structuring a reversible user action as a command object with do/undo so a simulation can support undo, if it needs to - built on the same Property-based state that reset() and dispose() already rely on.",
+      "category": "patterns",
+      "tags": [
+        "architecture",
+        "undo",
+        "Property",
+        "state",
+        "command-pattern"
+      ],
+      "status": "complete",
+      "related": [
+        "/patterns/reset-all-pattern",
+        "/patterns/dispose-and-memory-management",
+        "/patterns/state-persistence-and-save-restore-patterns",
+        "/patterns/model-view-separation"
+      ],
+      "prerequisites": [
+        "/patterns/model-view-separation",
+        "/patterns/state-persistence-and-save-restore-patterns"
+      ],
+      "sourceRefs": [],
+      "wordCount": 727,
+      "url": "https://veillette.github.io/Almanach/patterns/command-undo-pattern"
+    },
+    {
       "path": "/patterns/composing-view-nodes",
       "sourceFile": "docs/patterns/composing-view-nodes.md",
       "title": "Composing View Nodes",
@@ -5203,6 +7006,60 @@
       "sourceRefs": [],
       "wordCount": 682,
       "url": "https://veillette.github.io/Almanach/patterns/composing-view-nodes"
+    },
+    {
+      "path": "/patterns/constants-file-pattern",
+      "sourceFile": "docs/patterns/constants-file-pattern.md",
+      "title": "Constants File Pattern",
+      "description": "The convention of one MySimConstants.ts module holding every shared magic number, color, and font - the same convention scenery-phet/sun's own SceneryPhetConstants and SunConstants follow.",
+      "category": "patterns",
+      "tags": [
+        "conventions",
+        "constants",
+        "architecture",
+        "SceneryPhetConstants",
+        "SunConstants"
+      ],
+      "status": "complete",
+      "related": [
+        "/styling/spacing-and-sizing-constants",
+        "/patterns/multi-screen-sim-structure",
+        "/patterns/options-pattern"
+      ],
+      "prerequisites": [
+        "/patterns/model-view-separation"
+      ],
+      "sourceRefs": [],
+      "wordCount": 610,
+      "url": "https://veillette.github.io/Almanach/patterns/constants-file-pattern"
+    },
+    {
+      "path": "/patterns/derived-enablement-pattern",
+      "sourceFile": "docs/patterns/derived-enablement-pattern.md",
+      "title": "Derived-Enablement Pattern",
+      "description": "Computing a control's enabledProperty from a DerivedProperty over other model state, instead of imperatively setting .enabled from scattered call sites.",
+      "category": "patterns",
+      "tags": [
+        "axon",
+        "DerivedProperty",
+        "EnabledComponent",
+        "EnabledProperty",
+        "enablement"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/axon/derived-property",
+        "/api/axon/enabled-component",
+        "/patterns/multilink-pattern",
+        "/patterns/model-view-separation"
+      ],
+      "prerequisites": [
+        "/patterns/model-view-separation",
+        "/api/axon/derived-property"
+      ],
+      "sourceRefs": [],
+      "wordCount": 645,
+      "url": "https://veillette.github.io/Almanach/patterns/derived-enablement-pattern"
     },
     {
       "path": "/patterns/dispose-and-memory-management",
@@ -5308,6 +7165,87 @@
       "sourceRefs": [],
       "wordCount": 475,
       "url": "https://veillette.github.io/Almanach/patterns/feature-flags-and-preferences-pattern"
+    },
+    {
+      "path": "/patterns/grid-snapping-and-constrained-dragging-pattern",
+      "sourceFile": "docs/patterns/grid-snapping-and-constrained-dragging-pattern.md",
+      "title": "Grid-Snapping and Constrained-Dragging Pattern",
+      "description": "When and why to constrain a draggable Node's input - snapping to a grid, clamping to bounds, or restricting to one axis - as distinct decisions layered on top of the ordinary drag-listener pattern.",
+      "category": "patterns",
+      "tags": [
+        "scenery",
+        "DragListener",
+        "drag",
+        "constraint",
+        "grid-snapping"
+      ],
+      "status": "complete",
+      "related": [
+        "/patterns/drag-listeners",
+        "/cookbook/snapping-a-draggable-node-to-a-grid",
+        "/api/scenery/drag-listener",
+        "/api/phetcommon/model-view-transform",
+        "/patterns/model-view-separation"
+      ],
+      "prerequisites": [
+        "/patterns/drag-listeners"
+      ],
+      "sourceRefs": [],
+      "wordCount": 706,
+      "url": "https://veillette.github.io/Almanach/patterns/grid-snapping-and-constrained-dragging-pattern"
+    },
+    {
+      "path": "/patterns/immutable-vs-mutable-model-data",
+      "sourceFile": "docs/patterns/immutable-vs-mutable-model-data.md",
+      "title": "Immutable vs. Mutable Model Data",
+      "description": "When model state should be an immutable value object replaced wholesale via property.value = newValue, versus mutated in place - and why SceneryStack's math types default to returning new instances.",
+      "category": "patterns",
+      "tags": [
+        "dot",
+        "Vector2",
+        "Bounds2",
+        "Property",
+        "immutability",
+        "performance"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/dot/vector2",
+        "/api/dot/bounds2",
+        "/api/axon/property",
+        "/patterns/model-view-separation"
+      ],
+      "prerequisites": [
+        "/patterns/model-view-separation",
+        "/api/axon/property"
+      ],
+      "sourceRefs": [],
+      "wordCount": 793,
+      "url": "https://veillette.github.io/Almanach/patterns/immutable-vs-mutable-model-data"
+    },
+    {
+      "path": "/patterns/lazy-initialization-pattern",
+      "sourceFile": "docs/patterns/lazy-initialization-pattern.md",
+      "title": "Lazy Initialization Pattern",
+      "description": "Deferring an expensive object's construction until it's actually needed, instead of paying its cost unconditionally at startup.",
+      "category": "patterns",
+      "tags": [
+        "performance",
+        "architecture",
+        "lazy-initialization"
+      ],
+      "status": "complete",
+      "related": [
+        "/cookbook/lazily-creating-an-expensive-node",
+        "/api/joist/screen",
+        "/guides/performance-and-profiling"
+      ],
+      "prerequisites": [
+        "/patterns/model-view-separation"
+      ],
+      "sourceRefs": [],
+      "wordCount": 617,
+      "url": "https://veillette.github.io/Almanach/patterns/lazy-initialization-pattern"
     },
     {
       "path": "/patterns/model-view-separation",
@@ -5419,6 +7357,34 @@
       ],
       "wordCount": 479,
       "url": "https://veillette.github.io/Almanach/patterns/query-parameters-pattern"
+    },
+    {
+      "path": "/patterns/singleton-and-namespace-conventions",
+      "sourceFile": "docs/patterns/singleton-and-namespace-conventions.md",
+      "title": "Singleton and Namespace Conventions",
+      "description": "When a library exposes a ready-made shared-instance singleton (like dotRandom or animationFrameTimer) versus when you construct and own your own instance.",
+      "category": "patterns",
+      "tags": [
+        "singleton",
+        "conventions",
+        "dotRandom",
+        "animationFrameTimer",
+        "Namespace",
+        "architecture"
+      ],
+      "status": "draft",
+      "related": [
+        "/api/dot/random",
+        "/api/axon/timer",
+        "/guides/working-with-sound",
+        "/patterns/dispose-and-memory-management"
+      ],
+      "prerequisites": [
+        "/patterns/model-view-separation"
+      ],
+      "sourceRefs": [],
+      "wordCount": 1009,
+      "url": "https://veillette.github.io/Almanach/patterns/singleton-and-namespace-conventions"
     },
     {
       "path": "/patterns/state-persistence-and-save-restore-patterns",
@@ -5571,6 +7537,36 @@
       "url": "https://veillette.github.io/Almanach/patterns/reset-all-pattern"
     },
     {
+      "path": "/styling/animation-and-motion-design-conventions",
+      "sourceFile": "docs/styling/animation-and-motion-design-conventions.md",
+      "title": "Animation and Motion Design Conventions",
+      "description": "When to animate a transition instead of snapping it instantly, how long an animation should run, which Easing curve to reach for, and how to avoid overusing motion.",
+      "category": "styling",
+      "tags": [
+        "twixt",
+        "Animation",
+        "Easing",
+        "motion",
+        "transitions",
+        "conventions"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/twixt/animation",
+        "/api/twixt/transition-node",
+        "/styling/color-profiles",
+        "/patterns/feature-flags-and-preferences-pattern"
+      ],
+      "prerequisites": [
+        "/api/twixt/animation"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 1097,
+      "url": "https://veillette.github.io/Almanach/styling/animation-and-motion-design-conventions"
+    },
+    {
       "path": "/styling/color-profiles",
       "sourceFile": "docs/styling/color-profiles.md",
       "title": "Color Profiles",
@@ -5622,6 +7618,37 @@
       "sourceRefs": [],
       "wordCount": 699,
       "url": "https://veillette.github.io/Almanach/styling/high-contrast-projector-mode"
+    },
+    {
+      "path": "/styling/icon-sizing-and-button-padding-standards",
+      "sourceFile": "docs/styling/icon-sizing-and-button-padding-standards.md",
+      "title": "Icon Sizing and Button Padding Standards",
+      "description": "Standardizing icon dimensions and button touch-target padding once you already have icons and buttons, so a sim's controls read as one consistent set rather than a collection of individually-reasonable sizes.",
+      "category": "styling",
+      "tags": [
+        "sun",
+        "styling",
+        "icons",
+        "touchArea",
+        "conventions",
+        "spacing"
+      ],
+      "status": "complete",
+      "related": [
+        "/styling/iconography-conventions",
+        "/styling/spacing-and-sizing-constants",
+        "/styling/layout-container-conventions",
+        "/api/sun/rectangular-push-button"
+      ],
+      "prerequisites": [
+        "/styling/iconography-conventions",
+        "/styling/spacing-and-sizing-constants"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 831,
+      "url": "https://veillette.github.io/Almanach/styling/icon-sizing-and-button-padding-standards"
     },
     {
       "path": "/styling/iconography-conventions",
@@ -5812,6 +7839,67 @@
       "url": "https://veillette.github.io/Almanach/styling/typography-and-fonts"
     },
     {
+      "path": "/styling/visual-debugging-aids",
+      "sourceFile": "docs/styling/visual-debugging-aids.md",
+      "title": "Visual Debugging Aids",
+      "description": "Using scenery's built-in debug query parameters to visualize hit areas, pointer areas, and rendering-block boundaries while tracking down layout and input problems.",
+      "category": "styling",
+      "tags": [
+        "scenery",
+        "debugging",
+        "query-parameters",
+        "showPointerAreas",
+        "showHitAreas",
+        "dev"
+      ],
+      "status": "complete",
+      "related": [
+        "/guides/performance-and-profiling",
+        "/patterns/query-parameters-pattern",
+        "/patterns/drag-listeners",
+        "/api/scenery/hit-testing-and-picking"
+      ],
+      "prerequisites": [
+        "/getting-started/running-and-building-a-simulation"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 622,
+      "url": "https://veillette.github.io/Almanach/styling/visual-debugging-aids"
+    },
+    {
+      "path": "/accessibility/accessible-descriptions-for-charts-and-graphs",
+      "sourceFile": "docs/accessibility/accessible-descriptions-for-charts-and-graphs.md",
+      "title": "Accessible Descriptions for Charts and Graphs",
+      "description": "Writing PDOM description content for a bamboo chart that conveys the data's trend and key values, not just the fact that a chart exists.",
+      "category": "accessibility",
+      "tags": [
+        "bamboo",
+        "pdom",
+        "description",
+        "ChartTransform",
+        "accessibility",
+        "charts"
+      ],
+      "status": "complete",
+      "related": [
+        "/accessibility/describing-dynamic-state",
+        "/accessibility/pdom",
+        "/api/bamboo/chart-transform",
+        "/api/bamboo/line-plot"
+      ],
+      "prerequisites": [
+        "/accessibility/describing-dynamic-state",
+        "/api/bamboo/chart-transform"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 854,
+      "url": "https://veillette.github.io/Almanach/accessibility/accessible-descriptions-for-charts-and-graphs"
+    },
+    {
       "path": "/accessibility/alternative-input-overview",
       "sourceFile": "docs/accessibility/alternative-input-overview.md",
       "title": "Alternative Input Overview",
@@ -5835,6 +7923,34 @@
       ],
       "wordCount": 541,
       "url": "https://veillette.github.io/Almanach/accessibility/alternative-input-overview"
+    },
+    {
+      "path": "/accessibility/cognitive-accessibility-considerations",
+      "sourceFile": "docs/accessibility/cognitive-accessibility-considerations.md",
+      "title": "Cognitive Accessibility Considerations",
+      "description": "Reducing cognitive load - clear language, consistent layout, and avoiding unnecessary complexity or timers - as an accessibility axis distinct from screen-reader and keyboard support.",
+      "category": "accessibility",
+      "tags": [
+        "accessibility",
+        "cognitive-load",
+        "plain-language",
+        "conventions"
+      ],
+      "status": "complete",
+      "related": [
+        "/accessibility/pdom",
+        "/accessibility/internationalized-accessible-names",
+        "/styling/layout-container-conventions",
+        "/patterns/feature-flags-and-preferences-pattern"
+      ],
+      "prerequisites": [
+        "/accessibility/pdom"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 905,
+      "url": "https://veillette.github.io/Almanach/accessibility/cognitive-accessibility-considerations"
     },
     {
       "path": "/accessibility/describing-dynamic-state",
@@ -5941,6 +8057,37 @@
       ],
       "wordCount": 620,
       "url": "https://veillette.github.io/Almanach/accessibility/keyboard-input-and-hotkeys"
+    },
+    {
+      "path": "/accessibility/mobile-screen-reader-testing-notes",
+      "sourceFile": "docs/accessibility/mobile-screen-reader-testing-notes.md",
+      "title": "Mobile Screen-Reader Testing Notes",
+      "description": "Practical notes on testing VoiceOver (iOS) and TalkBack (Android) with a sim, and the specific ways mobile screen-reader testing differs from testing on desktop.",
+      "category": "accessibility",
+      "tags": [
+        "accessibility",
+        "pdom",
+        "screen-reader",
+        "voiceover",
+        "talkback",
+        "mobile",
+        "testing"
+      ],
+      "status": "draft",
+      "related": [
+        "/accessibility/screen-reader-testing-checklist",
+        "/accessibility/pdom",
+        "/accessibility/alternative-input-overview",
+        "/getting-started/supported-browsers"
+      ],
+      "prerequisites": [
+        "/accessibility/screen-reader-testing-checklist"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 826,
+      "url": "https://veillette.github.io/Almanach/accessibility/mobile-screen-reader-testing-notes"
     },
     {
       "path": "/accessibility/screen-reader-testing-checklist",
@@ -6053,6 +8200,72 @@
       "url": "https://veillette.github.io/Almanach/accessibility/voicing"
     },
     {
+      "path": "/examples/3d-scene-with-mobius",
+      "sourceFile": "docs/examples/3d-scene-with-mobius.md",
+      "title": "A 3D Scene with Mobius",
+      "description": "A worked example setting up a basic mobius 3D scene and camera two ways - a full-screen isometric stage via MobiusScreenView, and a fixed-size viewport via ThreeNode - built entirely from already-documented mobius classes.",
+      "category": "examples",
+      "tags": [
+        "example",
+        "mobius",
+        "ThreeStage",
+        "ThreeNode",
+        "three.js",
+        "3d",
+        "webgl"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/mobius/scene-and-camera-setup",
+        "/api/mobius/three-utils-helpers",
+        "/api/mobius/node-wrapping-conventions",
+        "/examples/three-js-integration",
+        "/api/dot/vector3"
+      ],
+      "prerequisites": [
+        "/examples/three-js-integration",
+        "/api/mobius/scene-and-camera-setup"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://github.com/phetsims/mobius"
+      ],
+      "wordCount": 1029,
+      "url": "https://veillette.github.io/Almanach/examples/3d-scene-with-mobius"
+    },
+    {
+      "path": "/examples/chart-driven-simulation-with-bamboo",
+      "sourceFile": "docs/examples/chart-driven-simulation-with-bamboo.md",
+      "title": "A Chart-Driven Simulation with Bamboo",
+      "description": "A worked mini-sim where a model Property drives a live bamboo LinePlot through a ChartTransform, with an accessible description that tracks the trend.",
+      "category": "examples",
+      "tags": [
+        "example",
+        "bamboo",
+        "ChartTransform",
+        "LinePlot",
+        "chart"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/bamboo/chart-transform",
+        "/api/bamboo/line-plot",
+        "/api/bamboo/axis-nodes",
+        "/api/bamboo/gridlines-and-tick-marks",
+        "/accessibility/accessible-descriptions-for-charts-and-graphs",
+        "/patterns/model-view-separation"
+      ],
+      "prerequisites": [
+        "/getting-started/your-first-simulation",
+        "/api/bamboo/chart-transform"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 1050,
+      "url": "https://veillette.github.io/Almanach/examples/chart-driven-simulation-with-bamboo"
+    },
+    {
       "path": "/examples/full-accessible-multi-screen-sim",
       "sourceFile": "docs/examples/full-accessible-multi-screen-sim.md",
       "title": "A Full Accessible Multi-Screen Sim",
@@ -6088,6 +8301,138 @@
       ],
       "wordCount": 1384,
       "url": "https://veillette.github.io/Almanach/examples/full-accessible-multi-screen-sim"
+    },
+    {
+      "path": "/examples/game-style-sim-with-vegas-scoring",
+      "sourceFile": "docs/examples/game-style-sim-with-vegas-scoring.md",
+      "title": "A Game-Style Sim with Vegas Scoring",
+      "description": "A worked example combining vegas's LevelSelectionButton, ScoreDisplayNumberAndStar, GameAudioPlayer, and AllLevelsCompletedNode into a minimal level-selection and gameplay screen.",
+      "category": "examples",
+      "tags": [
+        "example",
+        "vegas",
+        "LevelSelectionButton",
+        "ScoreDisplayNumberAndStar",
+        "GameAudioPlayer",
+        "AllLevelsCompletedNode",
+        "game"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/vegas/level-selection-button",
+        "/api/vegas/score-display-number-and-star",
+        "/api/vegas/game-audio-player",
+        "/api/vegas/all-levels-completed-node",
+        "/patterns/model-view-separation",
+        "/patterns/reset-all-pattern"
+      ],
+      "prerequisites": [
+        "/getting-started/your-first-simulation",
+        "/api/vegas/level-selection-button"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 995,
+      "url": "https://veillette.github.io/Almanach/examples/game-style-sim-with-vegas-scoring"
+    },
+    {
+      "path": "/examples/phet-io-state-restorable-sim",
+      "sourceFile": "docs/examples/phet-io-state-restorable-sim.md",
+      "title": "A PhET-iO State-Restorable Sim",
+      "description": "A worked example that goes past basic instrumentation to a model whose ENTIRE state - including a runtime-created list of elements via PhetioGroup - can be saved and restored by PhET-iO with no bespoke save/restore code.",
+      "category": "examples",
+      "tags": [
+        "example",
+        "tandem",
+        "phet-io",
+        "PhetioGroup",
+        "state",
+        "persistence"
+      ],
+      "status": "complete",
+      "related": [
+        "/examples/phet-io-instrumented-sim-example",
+        "/patterns/state-persistence-and-save-restore-patterns",
+        "/guides/phet-io-deep-dive",
+        "/patterns/phet-io-instrumentation-pattern",
+        "/patterns/reset-all-pattern"
+      ],
+      "prerequisites": [
+        "/examples/phet-io-instrumented-sim-example",
+        "/patterns/state-persistence-and-save-restore-patterns"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 1131,
+      "url": "https://veillette.github.io/Almanach/examples/phet-io-state-restorable-sim"
+    },
+    {
+      "path": "/examples/sim-using-cookbook-recipes-end-to-end",
+      "sourceFile": "docs/examples/sim-using-cookbook-recipes-end-to-end.md",
+      "title": "A Sim Using Cookbook Recipes End-to-End",
+      "description": "A worked mini-scenario combining four cookbook recipes - a bounded draggable, grid snapping, a sound effect on interaction, and a hover tooltip - into one coherent grid-placement tool.",
+      "category": "examples",
+      "tags": [
+        "example",
+        "cookbook",
+        "DragListener",
+        "mapPosition",
+        "SoundClip",
+        "tooltip"
+      ],
+      "status": "complete",
+      "related": [
+        "/cookbook/draggable-node-bounded-to-an-area",
+        "/cookbook/snapping-a-draggable-node-to-a-grid",
+        "/cookbook/custom-sound-effect-on-interaction",
+        "/cookbook/tooltip-style-hover-node",
+        "/patterns/drag-listeners",
+        "/patterns/model-view-separation"
+      ],
+      "prerequisites": [
+        "/patterns/drag-listeners",
+        "/cookbook/draggable-node-bounded-to-an-area"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 1070,
+      "url": "https://veillette.github.io/Almanach/examples/sim-using-cookbook-recipes-end-to-end"
+    },
+    {
+      "path": "/examples/sound-rich-simulation-with-tambo",
+      "sourceFile": "docs/examples/sound-rich-simulation-with-tambo.md",
+      "title": "A Sound-Rich Simulation with Tambo",
+      "description": "A worked example wiring SoundClip, PitchedPopGenerator, and sharedSoundPlayers to several distinct interaction points in one small sim.",
+      "category": "examples",
+      "tags": [
+        "example",
+        "tambo",
+        "SoundClip",
+        "PitchedPopGenerator",
+        "soundManager",
+        "sound"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/tambo/sound-generation-guide",
+        "/api/tambo/sound-clip",
+        "/api/tambo/sound-manager",
+        "/api/tambo/pitched-pop-generator",
+        "/accessibility/sound-design",
+        "/patterns/drag-listeners"
+      ],
+      "prerequisites": [
+        "/getting-started/your-first-simulation",
+        "/api/tambo/sound-generation-guide"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 1054,
+      "url": "https://veillette.github.io/Almanach/examples/sound-rich-simulation-with-tambo"
     },
     {
       "path": "/examples/accessible-control-panel-example",
@@ -6328,6 +8673,572 @@
       "url": "https://veillette.github.io/Almanach/examples/three-js-integration"
     },
     {
+      "path": "/cookbook/colorblind-safe-palette",
+      "sourceFile": "docs/cookbook/colorblind-safe-palette.md",
+      "title": "A Colorblind-Safe Palette",
+      "description": "Practical guidance and a worked ProfileColorProperty palette that stays distinguishable under common color-vision deficiencies.",
+      "category": "cookbook",
+      "tags": [
+        "scenery",
+        "Color",
+        "ProfileColorProperty",
+        "accessibility",
+        "styling"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/color",
+        "/styling/color-profiles"
+      ],
+      "prerequisites": [
+        "/styling/color-profiles"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 741,
+      "url": "https://veillette.github.io/Almanach/cookbook/colorblind-safe-palette"
+    },
+    {
+      "path": "/cookbook/custom-focus-highlight-shape",
+      "sourceFile": "docs/cookbook/custom-focus-highlight-shape.md",
+      "title": "A Custom Focus Highlight Shape",
+      "description": "Overriding a Node's default rectangular focus highlight with a custom kite Shape via HighlightPath.",
+      "category": "cookbook",
+      "tags": [
+        "scenery",
+        "HighlightPath",
+        "HighlightFromNode",
+        "focus",
+        "accessibility",
+        "kite",
+        "Shape"
+      ],
+      "status": "complete",
+      "related": [
+        "/accessibility/focus-highlights",
+        "/api/scenery/highlight-rendering",
+        "/api/kite/shape"
+      ],
+      "prerequisites": [
+        "/accessibility/focus-highlights"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 590,
+      "url": "https://veillette.github.io/Almanach/cookbook/custom-focus-highlight-shape"
+    },
+    {
+      "path": "/cookbook/custom-slider-thumb-and-track",
+      "sourceFile": "docs/cookbook/custom-slider-thumb-and-track.md",
+      "title": "A Custom Slider Thumb and Track",
+      "description": "Replacing HSlider's default thumb/track Nodes with custom artwork via the thumbNode/trackNode options.",
+      "category": "cookbook",
+      "tags": [
+        "sun",
+        "HSlider",
+        "VSlider",
+        "slider"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/sun/hslider",
+        "/api/sun/v-slider"
+      ],
+      "prerequisites": [
+        "/api/sun/hslider"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 582,
+      "url": "https://veillette.github.io/Almanach/cookbook/custom-slider-thumb-and-track"
+    },
+    {
+      "path": "/cookbook/resizable-collapsible-panel",
+      "sourceFile": "docs/cookbook/resizable-collapsible-panel.md",
+      "title": "A Resizable/Collapsible Panel",
+      "description": "Combining AccordionBox and Panel so a control group can be collapsed down to just its title bar.",
+      "category": "cookbook",
+      "tags": [
+        "sun",
+        "Panel",
+        "AccordionBox",
+        "BooleanProperty"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/sun/panel",
+        "/api/sun/accordion-box",
+        "/api/axon/boolean-property"
+      ],
+      "prerequisites": [
+        "/api/sun/panel",
+        "/api/sun/accordion-box"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 599,
+      "url": "https://veillette.github.io/Almanach/cookbook/resizable-collapsible-panel"
+    },
+    {
+      "path": "/cookbook/simple-score-and-level-selection-screen",
+      "sourceFile": "docs/cookbook/simple-score-and-level-selection-screen.md",
+      "title": "A Simple Score/Level-Selection Screen",
+      "description": "Combining vegas's LevelSelectionButton with a score display into a minimal level-selection screen.",
+      "category": "cookbook",
+      "tags": [
+        "vegas",
+        "LevelSelectionButton",
+        "ScoreDisplayNumberAndStar",
+        "game",
+        "HBox"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/vegas/level-selection-button",
+        "/api/vegas/score-display-number-and-star",
+        "/api/vegas/score-display-family",
+        "/api/vegas/status-bars",
+        "/patterns/multi-screen-sim-structure"
+      ],
+      "prerequisites": [
+        "/api/vegas/level-selection-button"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 638,
+      "url": "https://veillette.github.io/Almanach/cookbook/simple-score-and-level-selection-screen"
+    },
+    {
+      "path": "/cookbook/tooltip-style-hover-node",
+      "sourceFile": "docs/cookbook/tooltip-style-hover-node.md",
+      "title": "A Tooltip-Style Hover Node",
+      "description": "Showing and hiding a small info Node on pointer-over using scenery's enter/exit input events.",
+      "category": "cookbook",
+      "tags": [
+        "scenery",
+        "Node",
+        "input",
+        "tooltip"
+      ],
+      "status": "complete",
+      "related": [
+        "/guides/scenery-input",
+        "/api/scenery/node",
+        "/cookbook/detecting-touch-mouse-keyboard-input"
+      ],
+      "prerequisites": [
+        "/guides/scenery-input"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 668,
+      "url": "https://veillette.github.io/Almanach/cookbook/tooltip-style-hover-node"
+    },
+    {
+      "path": "/cookbook/custom-sound-effect-on-interaction",
+      "sourceFile": "docs/cookbook/custom-sound-effect-on-interaction.md",
+      "title": "Adding a Custom Sound Effect on Interaction",
+      "description": "Wiring a tambo SoundClip to a button press and to a Property change, registered through soundManager.",
+      "category": "cookbook",
+      "tags": [
+        "tambo",
+        "SoundClip",
+        "soundManager",
+        "sound",
+        "RectangularPushButton"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/tambo/sound-clip",
+        "/api/tambo/sound-manager",
+        "/api/sun/rectangular-push-button",
+        "/accessibility/sound-design"
+      ],
+      "prerequisites": [
+        "/api/tambo/sound-clip"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 544,
+      "url": "https://veillette.github.io/Almanach/cookbook/custom-sound-effect-on-interaction"
+    },
+    {
+      "path": "/cookbook/adding-a-screen-to-an-existing-multi-screen-sim",
+      "sourceFile": "docs/cookbook/adding-a-screen-to-an-existing-multi-screen-sim.md",
+      "title": "Adding a Screen to an Existing Multi-Screen Sim",
+      "description": "The concrete steps to add a new Screen to an existing Sim's screens array, without disturbing the existing screens.",
+      "category": "cookbook",
+      "tags": [
+        "joist",
+        "Screen",
+        "Sim",
+        "ScreenIcon",
+        "Tandem"
+      ],
+      "status": "complete",
+      "related": [
+        "/patterns/multi-screen-sim-structure",
+        "/api/joist/screen",
+        "/api/joist/sim",
+        "/cookbook/building-a-custom-screen-icon"
+      ],
+      "prerequisites": [
+        "/patterns/multi-screen-sim-structure"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 722,
+      "url": "https://veillette.github.io/Almanach/cookbook/adding-a-screen-to-an-existing-multi-screen-sim"
+    },
+    {
+      "path": "/cookbook/animating-a-property-value-on-a-timer",
+      "sourceFile": "docs/cookbook/animating-a-property-value-on-a-timer.md",
+      "title": "Animating a Property Value on a Timer",
+      "description": "Using twixt's Animation to tween a NumberProperty smoothly from one value to another instead of jumping instantly.",
+      "category": "cookbook",
+      "tags": [
+        "twixt",
+        "Animation",
+        "Easing",
+        "NumberProperty"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/twixt/animation",
+        "/api/axon/number-property"
+      ],
+      "prerequisites": [
+        "/api/twixt/animation"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 592,
+      "url": "https://veillette.github.io/Almanach/cookbook/animating-a-property-value-on-a-timer"
+    },
+    {
+      "path": "/cookbook/binding-a-bamboo-chart-axis-to-live-data",
+      "sourceFile": "docs/cookbook/binding-a-bamboo-chart-axis-to-live-data.md",
+      "title": "Binding a Bamboo Chart Axis to Live Model Data",
+      "description": "Wiring a bamboo ChartTransform's modelXRange to a model Property so the visible range tracks live, growing data.",
+      "category": "cookbook",
+      "tags": [
+        "bamboo",
+        "ChartTransform",
+        "LinePlot",
+        "NumberProperty",
+        "chart"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/bamboo/chart-transform",
+        "/api/bamboo/line-plot",
+        "/api/axon/number-property"
+      ],
+      "prerequisites": [
+        "/api/bamboo/chart-transform"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 703,
+      "url": "https://veillette.github.io/Almanach/cookbook/binding-a-bamboo-chart-axis-to-live-data"
+    },
+    {
+      "path": "/cookbook/building-a-custom-screen-icon",
+      "sourceFile": "docs/cookbook/building-a-custom-screen-icon.md",
+      "title": "Building a Custom ScreenIcon",
+      "description": "Composing a Node into a ScreenIcon for use as a Screen's home-screen or navigation-bar icon.",
+      "category": "cookbook",
+      "tags": [
+        "joist",
+        "ScreenIcon",
+        "Screen",
+        "sim"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/joist/screen-icon",
+        "/api/joist/screen",
+        "/styling/iconography-conventions"
+      ],
+      "prerequisites": [
+        "/api/joist/screen-icon"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 610,
+      "url": "https://veillette.github.io/Almanach/cookbook/building-a-custom-screen-icon"
+    },
+    {
+      "path": "/cookbook/debugging-a-layout-that-wont-auto-size",
+      "sourceFile": "docs/cookbook/debugging-a-layout-that-wont-auto-size.md",
+      "title": "Debugging a Layout That Won't Auto-Size",
+      "description": "A troubleshooting checklist for FlowBox/GridBox children that refuse to stretch or shrink as expected.",
+      "category": "cookbook",
+      "tags": [
+        "scenery",
+        "FlowBox",
+        "GridBox",
+        "Sizable",
+        "layout",
+        "layoutOptions",
+        "debugging"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/flow-box",
+        "/api/scenery/grid-box",
+        "/api/scenery/sizable-mixins",
+        "/guides/scenery-layout",
+        "/guides/advanced-layout-techniques"
+      ],
+      "prerequisites": [
+        "/guides/scenery-layout"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 1031,
+      "url": "https://veillette.github.io/Almanach/cookbook/debugging-a-layout-that-wont-auto-size"
+    },
+    {
+      "path": "/cookbook/detecting-touch-mouse-keyboard-input",
+      "sourceFile": "docs/cookbook/detecting-touch-mouse-keyboard-input.md",
+      "title": "Detecting Touch vs. Mouse vs. Keyboard Input",
+      "description": "Branching interaction behavior on the input modality using a SceneryEvent's Pointer type or type-specific listener callbacks.",
+      "category": "cookbook",
+      "tags": [
+        "scenery",
+        "Pointer",
+        "SceneryEvent",
+        "Mouse",
+        "Touch",
+        "input"
+      ],
+      "status": "complete",
+      "related": [
+        "/guides/scenery-input",
+        "/accessibility/alternative-input-overview",
+        "/api/scenery/pointer-mouse-touch-pen",
+        "/api/scenery/scenery-event"
+      ],
+      "prerequisites": [
+        "/guides/scenery-input"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 630,
+      "url": "https://veillette.github.io/Almanach/cookbook/detecting-touch-mouse-keyboard-input"
+    },
+    {
+      "path": "/cookbook/fuzz-testing-a-simulation-locally",
+      "sourceFile": "docs/cookbook/fuzz-testing-a-simulation-locally.md",
+      "title": "Fuzz-Testing a Simulation Locally",
+      "description": "Using the ?fuzz query parameter (and its variants) during local development to catch input-handling bugs before release.",
+      "category": "cookbook",
+      "tags": [
+        "query-parameters",
+        "fuzz",
+        "testing",
+        "qa"
+      ],
+      "status": "draft",
+      "related": [
+        "/patterns/query-parameters-pattern",
+        "/guides/testing-and-qa-strategy-overview",
+        "/guides/continuous-integration-for-scenerystack-projects"
+      ],
+      "prerequisites": [
+        "/patterns/query-parameters-pattern"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 732,
+      "url": "https://veillette.github.io/Almanach/cookbook/fuzz-testing-a-simulation-locally"
+    },
+    {
+      "path": "/cookbook/keyboard-shortcuts-on-a-custom-node",
+      "sourceFile": "docs/cookbook/keyboard-shortcuts-on-a-custom-node.md",
+      "title": "Keyboard Shortcuts on a Custom Node",
+      "description": "Attaching a KeyboardListener to a focusable custom Node to add a hotkey beyond dragging.",
+      "category": "cookbook",
+      "tags": [
+        "scenery",
+        "KeyboardListener",
+        "keyboard",
+        "accessibility",
+        "hotkey"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/scenery/keyboard-listener",
+        "/accessibility/keyboard-input-and-hotkeys",
+        "/accessibility/alternative-input-overview"
+      ],
+      "prerequisites": [
+        "/api/scenery/keyboard-listener"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 599,
+      "url": "https://veillette.github.io/Almanach/cookbook/keyboard-shortcuts-on-a-custom-node"
+    },
+    {
+      "path": "/cookbook/lazily-creating-an-expensive-node",
+      "sourceFile": "docs/cookbook/lazily-creating-an-expensive-node.md",
+      "title": "Lazily Creating an Expensive Node",
+      "description": "Deferring construction of a costly child Node until it's first needed, instead of building it eagerly at startup.",
+      "category": "cookbook",
+      "tags": [
+        "scenery",
+        "Node",
+        "dispose",
+        "lazy-initialization"
+      ],
+      "status": "complete",
+      "related": [
+        "/patterns/dispose-and-memory-management",
+        "/patterns/composing-view-nodes",
+        "/api/scenery/node"
+      ],
+      "prerequisites": [
+        "/patterns/dispose-and-memory-management"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 702,
+      "url": "https://veillette.github.io/Almanach/cookbook/lazily-creating-an-expensive-node"
+    },
+    {
+      "path": "/cookbook/draggable-node-bounded-to-an-area",
+      "sourceFile": "docs/cookbook/draggable-node-bounded-to-an-area.md",
+      "title": "Making Any Node Draggable and Bounded to an Area",
+      "description": "Attaching a DragListener to a Node so it writes a model positionProperty, clamped to a region with dragBoundsProperty.",
+      "category": "cookbook",
+      "tags": [
+        "scenery",
+        "DragListener",
+        "dragBoundsProperty",
+        "drag",
+        "Bounds2"
+      ],
+      "status": "complete",
+      "related": [
+        "/patterns/drag-listeners",
+        "/api/scenery/drag-listener",
+        "/api/dot/bounds2",
+        "/patterns/model-view-separation"
+      ],
+      "prerequisites": [
+        "/patterns/model-view-separation"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 630,
+      "url": "https://veillette.github.io/Almanach/cookbook/draggable-node-bounded-to-an-area"
+    },
+    {
+      "path": "/cookbook/placeholder-values-in-a-translated-string",
+      "sourceFile": "docs/cookbook/placeholder-values-in-a-translated-string.md",
+      "title": "Placeholder Values in a Translated String",
+      "description": "Using PatternStringProperty to build \"{{count}} items\"-style strings that stay translatable and update reactively.",
+      "category": "cookbook",
+      "tags": [
+        "axon",
+        "PatternStringProperty",
+        "DerivedProperty",
+        "i18n",
+        "strings"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/axon/pattern-string-property",
+        "/guides/internationalization-deep-dive"
+      ],
+      "prerequisites": [
+        "/api/axon/pattern-string-property"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 689,
+      "url": "https://veillette.github.io/Almanach/cookbook/placeholder-values-in-a-translated-string"
+    },
+    {
+      "path": "/cookbook/snapping-a-draggable-node-to-a-grid",
+      "sourceFile": "docs/cookbook/snapping-a-draggable-node-to-a-grid.md",
+      "title": "Snapping a Draggable Node to a Grid",
+      "description": "Using DragListener's mapPosition hook to round a dragged position onto fixed grid cells.",
+      "category": "cookbook",
+      "tags": [
+        "scenery",
+        "DragListener",
+        "mapPosition",
+        "drag",
+        "dot",
+        "roundToInterval"
+      ],
+      "status": "complete",
+      "related": [
+        "/patterns/drag-listeners",
+        "/api/scenery/drag-listener",
+        "/api/dot/dot-utils",
+        "/api/dot/vector2",
+        "/cookbook/draggable-node-bounded-to-an-area"
+      ],
+      "prerequisites": [
+        "/patterns/drag-listeners"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 562,
+      "url": "https://veillette.github.io/Almanach/cookbook/snapping-a-draggable-node-to-a-grid"
+    },
+    {
+      "path": "/cookbook/wiring-a-new-phet-io-instrumented-control",
+      "sourceFile": "docs/cookbook/wiring-a-new-phet-io-instrumented-control.md",
+      "title": "Wiring Up a New PhET-iO Instrumented Control",
+      "description": "Giving a new UI control a Tandem (and, if needed, an IOType) so it shows up correctly in PhET-iO state.",
+      "category": "cookbook",
+      "tags": [
+        "tandem",
+        "phet-io",
+        "Tandem",
+        "IOType",
+        "Checkbox"
+      ],
+      "status": "complete",
+      "related": [
+        "/api/tandem/tandem",
+        "/api/tandem/io-type",
+        "/patterns/phet-io-instrumentation-pattern"
+      ],
+      "prerequisites": [
+        "/patterns/phet-io-instrumentation-pattern"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack"
+      ],
+      "wordCount": 712,
+      "url": "https://veillette.github.io/Almanach/cookbook/wiring-a-new-phet-io-instrumented-control"
+    },
+    {
       "path": "/meta/authoring-guide",
       "sourceFile": "docs/meta/authoring-guide.md",
       "title": "Authoring Guide",
@@ -6342,7 +9253,7 @@
       "related": [],
       "prerequisites": [],
       "sourceRefs": [],
-      "wordCount": 985,
+      "wordCount": 1020,
       "url": "https://veillette.github.io/Almanach/meta/authoring-guide"
     },
     {
@@ -6440,8 +9351,36 @@
       ],
       "prerequisites": [],
       "sourceRefs": [],
-      "wordCount": 1287,
+      "wordCount": 1562,
       "url": "https://veillette.github.io/Almanach/meta/roadmap"
+    },
+    {
+      "path": "/meta/scenerystack-version-compatibility",
+      "sourceFile": "docs/meta/scenerystack-version-compatibility.md",
+      "title": "SceneryStack Version Compatibility Notes",
+      "description": "Which scenerystack package version this wiki's content was checked against, phase by phase, and when a page's status/sourceRefs should be revisited as SceneryStack releases new versions.",
+      "category": "meta",
+      "tags": [
+        "conventions",
+        "versioning",
+        "sourceRefs",
+        "contributing"
+      ],
+      "status": "complete",
+      "related": [
+        "/meta/roadmap",
+        "/meta/authoring-guide",
+        "/meta/faq"
+      ],
+      "prerequisites": [
+        "/meta/roadmap"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
+      "wordCount": 831,
+      "url": "https://veillette.github.io/Almanach/meta/scenerystack-version-compatibility"
     }
   ]
 }
