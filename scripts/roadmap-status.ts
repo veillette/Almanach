@@ -1,10 +1,10 @@
 /**
  * Cross-references docs/meta/roadmap.manifest.json against the real docs/
  * tree and prints a progress report: Phase 1's fixed page list (built vs.
- * missing, broken down by frontmatter status) and Phase 2's per-category/
- * library targets (how many pages already exist there). Nothing here is
- * hand-maintained — it's read straight from the manifest and real files.
- * Run via `npm run roadmap:status`.
+ * missing, broken down by frontmatter status), and Phase 2's and Phase 4's
+ * per-category/library targets (how many pages already exist there).
+ * Nothing here is hand-maintained — it's read straight from the manifest
+ * and real files. Run via `npm run roadmap:status`.
  */
 
 import fs from 'node:fs';
@@ -21,6 +21,7 @@ type Phase2Target = { category: string; library?: string; confidence: string; ta
 type Manifest = {
   phase1: { pages: Phase1Page[] };
   phase2: { targets: Phase2Target[] };
+  phase4?: { targets: Phase2Target[] };
 };
 
 type PageMeta = { relPath: string; status: string; hasPrerequisites: boolean; hasRelated: boolean; hasSourceRefs: boolean };
@@ -101,6 +102,21 @@ for ( const target of manifest.phase2.targets ) {
 }
 
 console.log( `\nPhase 2 total target: ${totalPhase2Target} additional pages` );
+
+// ---------- Phase 4: growth beyond Phase 1/2 (per-category/library targets) ----------
+if ( manifest.phase4 ) {
+  console.log( '\n=== Phase 4: growth beyond Phase 1/2 (per-category/library targets) ===\n' );
+
+  let totalPhase4Target = 0;
+  for ( const target of manifest.phase4.targets ) {
+    const existing = countExisting( target.category, target.library );
+    const label = target.library ? `${target.category}/${target.library}` : target.category;
+    totalPhase4Target += target.targetCount;
+    console.log( `${label.padEnd( 28 )} existing: ${String( existing ).padStart( 3 )}   phase4 target: +${String( target.targetCount ).padStart( 3 )}   confidence: ${target.confidence}` );
+  }
+
+  console.log( `\nPhase 4 total target: ${totalPhase4Target} additional pages` );
+}
 
 // ---------- Phase 3: maintenance (no fixed manifest) ----------
 console.log( '\n=== Phase 3: maintenance (cross-links, verification, pruning) ===\n' );

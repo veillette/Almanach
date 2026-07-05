@@ -30,6 +30,7 @@ If you're picking up planned work rather than writing an ad hoc page, see [the R
 | `styling/` | Colors, typography, layout aesthetics, visual design conventions |
 | `accessibility/` | PDOM, keyboard input, focus, voicing, sound-as-accessibility |
 | `examples/` | Complete, runnable worked scenarios combining multiple concepts end-to-end |
+| `cookbook/` | Short, task-oriented "how do I…" recipes that recombine already-documented APIs — narrower than `examples` (one task, not a full scenario) and more concrete than `patterns` (a recipe, not an architectural convention) |
 | `meta/` | Documentation about this wiki itself |
 
 New top-level folders may be added as the wiki grows; they appear in the sidebar automatically (add an entry to the `SECTIONS` maps in `docs/.vitepress/sidebar.ts` and `scripts/generate-llm-artifacts.ts` only to control their label and ordering).
