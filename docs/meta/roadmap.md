@@ -13,7 +13,7 @@ related:
 
 This wiki started with 6 content pages. This document is the plan for growing it substantially — organized into phases, with a concrete way for whoever picks up the work next (human or agent, in this session or a future one) to see what's done and claim what isn't.
 
-**This document does not itself write the content.** Phase 0 (below) — the taxonomy redesign, schema changes, and the tooling described here — was completed in one session. Phases 1 and 2 have both since been built out in full (see [Totals](#totals) and `npm run roadmap:status`); Phase 3 (maintenance) is the current open work.
+**This document does not itself write the content.** Phase 0 (below) — the taxonomy redesign, schema changes, and the tooling described here — was completed in one session. Phases 1, 2, and 3 have all since been built out in full (see [Totals](#totals) and `npm run roadmap:status`); Phase 4 (deeper coverage + a new `cookbook/` category) is the current open work.
 
 ## Why a roadmap instead of just writing more pages
 
@@ -28,16 +28,17 @@ The original ask was "about a hundred pages, modeled on scenerystack.org's struc
 
 - **`api/` is now subfoldered by library**: `api/axon/`, `api/dot/`, `api/scenery/`, etc. — one directory per `scenerystack/*` subpath. This is the fix for the one real scaling problem in the original structure: a single flat `api/` folder holding 100+ pages across a dozen-plus libraries is not navigable. `docs/.vitepress/sidebar.ts` renders each subfolder as its own collapsible group automatically.
 - **`guides/` and `examples/` are new top-level categories**, for content scenerystack.org treats as first-class nav sections (subsystem walkthroughs, tutorials, worked showcases) that didn't fit `patterns` (too narrow/prescriptive) or `getting-started` (onboarding-only).
+- **`cookbook/` is a Phase 4 addition**: short, task-oriented "how do I…" recipes, one recipe per page, that recombine APIs documented elsewhere rather than introducing new ones. Narrower than `examples` (a full worked scenario) and more concrete than `patterns` (an architectural convention).
 
 Full rationale and the frontmatter schema (which gained `library`, `prerequisites`, `sourceRefs`, and a 4-stage `status` enum) live in [the Authoring Guide](/meta/authoring-guide) — read that before writing a page, this document is about *what* to write, not *how*.
 
-**Confirmed real library subpaths** (from the published `scenerystack` package's exports map, not assumption): `axon, dot, kite, scenery, sun, scenery-phet, joist, twixt, tandem, phetcommon, tambo, bamboo, vegas, mobius, nitroglycerin, utterance-queue, phet-core, query-string-machine` are simulation-author-facing and in scope. `adapted-from-phet, alpenglow, assert, brand, chipper, init, perennial, sim, splash` are internal build/branding/rendering-primitive concerns and are **out of scope** — don't create `api/<one of these>/` folders.
+**Confirmed real library subpaths** (checked directly against the installed `scenerystack` package's `exports` map and source, not assumption): `axon, dot, kite, scenery, sun, scenery-phet, joist, twixt, tandem, phetcommon, tambo, bamboo, vegas, mobius, nitroglycerin, utterance-queue, phet-core, query-string-machine` are simulation-author-facing and in scope; `tappi` (haptic/vibration feedback) was confirmed to exist during Phase 4 planning and is now in scope too, bringing the total to 19. `adapted-from-phet, alpenglow, assert, brand, chipper, init, perennial, sim, splash` are internal build/branding/rendering-primitive concerns and are **out of scope** — don't create `api/<one of these>/` folders.
 
 ## How to pick up work
 
 1. Read [the Authoring Guide](/meta/authoring-guide) and [the Page Template](/meta/page-template).
-2. Run `npm run roadmap:status` to see what's built, what's `stub`/`draft`/`complete`/`verified`, and what's still unclaimed in Phase 1 and Phase 2.
-3. Pick an unclaimed entry from `docs/meta/roadmap.manifest.json` (Phase 1: a fixed file to create; Phase 2: a target count + candidate names for a category/library — pick one candidate, or a better one you find while researching, and write it).
+2. Run `npm run roadmap:status` to see what's built, what's `stub`/`draft`/`complete`/`verified`, and what's still unclaimed in Phase 1, Phase 2, and Phase 4.
+3. Pick an unclaimed entry from `docs/meta/roadmap.manifest.json` (Phase 1: a fixed file to create; Phase 2/Phase 4: a target count + candidate names for a category/library — pick one candidate, or a better one you find while researching, and write it).
 4. Create the file with `status: stub` first if you're not finishing it in one pass — this reserves the topic for parallel sessions without claiming false completeness.
 5. Write the page following the Authoring Guide's conventions (one concept, a real runnable snippet, cross-links). Move `status` to `draft`, then `complete` once you're confident, citing `sourceRefs` for anything you had to look up.
 6. For any Phase 2 entry marked `confidence: medium` or `confidence: low` in the manifest: verify the class/API actually exists and matches the candidate description before writing — check https://scenerystack.org/reference/ or introspect the installed package. Do not invent plausible-sounding names. If you can't verify it, either skip it, replace it with something you can verify, or write it as `status: draft` with a `sourceRefs` link and leave upgrading it to `verified` for a later pass.
@@ -72,6 +73,14 @@ A first full pass (against the real `scenerystack@3.0.0` package source) took ev
 - **Stale filenames** (title/content already correct and self-documented in-page, but the filename predates a scope correction from Phase 2): `api/phetcommon/phetcommon-query-parameters.md` actually documents `StringUtils`; `api/scenery-phet/heat-cool-control.md` actually documents `HeaterCoolerNode`. Renaming either requires auditing every cross-link and the Phase 1/2 manifest entries that reference the old path.
 - The 5 `meta/*` pages (`authoring-guide`, `faq`, `glossary`, `page-template`, this file) stay at `complete` rather than `verified` — that status is about checking claims against SceneryStack source, which doesn't apply to pages that are about the wiki itself.
 
+### Phase 4 — Growth beyond the original ~231-page plan (~100 pages, tracked in `roadmap.manifest.json`'s `phase4.targets`)
+
+With Phases 1-2 both fully built and Phase 3 having verified nearly all of it, the manifest had no unclaimed work left — so Phase 4 defines new scope rather than picking up leftovers. Two kinds of work, both in `roadmap.manifest.json`'s `phase4.targets` array:
+
+- **Deeper API coverage of the 18 already-covered libraries**, plus first coverage of `tappi` (a 19th subpath confirmed to exist during Phase 4 planning but not previously documented). Unlike Phase 2's `bamboo`/`vegas`/`mobius`/etc. candidates — which were written down without checking the real package — every Phase 4 candidate was verified against the actual installed `scenerystack` package's export list (`node ... require('scenerystack/<lib>')` / the package's `exports` map) and, where useful, its TypeScript source, before being added to the manifest. This is a stronger bar than Phase 2's "verify before writing"; Phase 4 candidates were verified *before being planned at all*.
+- **A new `cookbook/` category**: 20 short "how do I…" recipes that recombine already-documented APIs into task-oriented answers, distinct from `patterns` (architectural conventions) and `examples` (full worked scenarios).
+- Plus more `guides/patterns/styling/accessibility/examples`, and one `meta` page (SceneryStack version-compatibility notes).
+
 ## Totals
 
-Phase 1 (~102, including the 9 pages that already exist) + Phase 2 (~129 planned) ≈ **231 pages** once both phases are built out — comfortably covering the "~200 or so" the wiki is being scaled toward, with room to trim low-confidence Phase 2 candidates that don't pan out during verification.
+Phase 1 (102) + Phase 2 (129) + Phase 4 (~100) ≈ **~331 pages** once Phase 4 is built out, across 19 in-scope libraries and 9 top-level categories (the original 8 plus `cookbook/`). Phase 3 was a verification/maintenance pass over Phases 1-2, not additional pages, so it isn't counted separately here.

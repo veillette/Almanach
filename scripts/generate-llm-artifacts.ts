@@ -32,6 +32,7 @@ const CATEGORIES: Record<string, string> = {
   'styling': 'Styling',
   'accessibility': 'Accessibility',
   'examples': 'Examples',
+  'cookbook': 'Cookbook',
   'meta': 'Meta'
 };
 
