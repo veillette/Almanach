@@ -1,6 +1,6 @@
 ---
 title: Screen Summary Layout Nodes
-description: PlayAreaNode, ControlAreaNode, and ScreenSummaryNode — the standard PDOM structural sections used to organize a ScreenView's accessible description tree.
+description: PlayAreaNode, ControlAreaNode, and ScreenSummaryNode — the standard PDOM structural sections ScreenView uses to organize a screen's accessible description tree.
 category: api
 library: scenery-phet
 tags: [scenery-phet, PlayAreaNode, ControlAreaNode, ScreenSummaryNode, pdom, accessibility]
@@ -18,54 +18,53 @@ sourceRefs:
 
 # Screen Summary Layout Nodes
 
-A screen reader user exploring a PhET sim's [PDOM](/accessibility/pdom) benefits enormously from a consistent, predictable structure — rather than every sim inventing its own heading layout, `ScreenView` divides accessible content into three standard sections, each backed by one of these `Node` types from `scenerystack/scenery-phet`: `ScreenSummaryNode` (an overview of the screen, read first), `PlayAreaNode` (the primary, pedagogically important interactive content), and `ControlAreaNode` (secondary controls). You don't construct these yourself in most sims — a `ScreenView` already creates one of each — but you do add your own content into them via `pdomOrder`.
+A screen reader user exploring a PhET sim's [PDOM](/accessibility/pdom) benefits from a consistent, predictable structure — rather than every sim inventing its own heading layout, `ScreenView` divides accessible content into three standard sections, each backed by one of these `Node` types from `scenerystack/scenery-phet`: `ScreenSummaryNode` (an overview of the screen, read first), `PlayAreaNode` (the primary, pedagogically important interactive content), and `ControlAreaNode` (secondary controls). Every `ScreenView` already constructs one instance of each internally — you don't construct these types yourself — but you do route your own content into two of them.
 
 ```ts
 // Inside a ScreenView subclass constructor:
-this.screenSummaryNode.addChild( new Node( {
-  tagName: 'p',
-  innerContent: 'A ball moves across a frictionless track.'
-} ) );
 
-// Order the accessible content within the play area.
+// Order the accessible content within the play area section.
 this.pdomPlayAreaNode.pdomOrder = [ ballNode, trackNode ];
 
-// And within the control area.
+// And within the control area section.
 this.pdomControlAreaNode.pdomOrder = [ resetAllButton ];
 ```
 
 ## The shared shape: PDOMSectionNode
 
-`PlayAreaNode` and `ControlAreaNode` are both thin subclasses of a shared (internal) `PDOMSectionNode` base: each renders as an HTML `<section>` containing a `<div>`, with an `accessibleHeading` set from a translated label ("Play Area" / "Control Area") baked in by the constructor — you supply content, not the heading. Both accept a `providedOptions` object that's just `NodeOptions` (minus the PDOM fields the base class already owns), so you configure them the same way you'd configure any container `Node`.
+`PlayAreaNode` and `ControlAreaNode` are both thin subclasses of a shared (internal) `PDOMSectionNode` base: each renders as an HTML `<section>` containing a `<div>`, with an `accessibleHeading` set from a translated label ("Play Area" / "Control Area") baked in by the constructor — you supply content, not the heading.
 
 | Type | Section heading | Intended contents |
 | --- | --- | --- |
 | `PlayAreaNode` | "Play Area" | The main interactive, pedagogically central elements of the screen |
 | `ControlAreaNode` | "Control Area" | Secondary controls — reset buttons, settings, anything supporting rather than central to the interaction |
 
-```ts
-import { PlayAreaNode, ControlAreaNode } from 'scenerystack/scenery-phet';
-
-const playAreaNode = new PlayAreaNode();
-const controlAreaNode = new ControlAreaNode();
-```
+`ScreenView` exposes its instances as the **protected**, read-only fields `pdomPlayAreaNode` and `pdomControlAreaNode`, accessible from a `ScreenView` subclass. Route your Nodes into one or the other with `pdomOrder`, as in the example above — `ScreenView.setPDOMOrder()` is overridden to throw, specifically to force all accessible content through these two sections rather than directly on the `ScreenView` itself, keeping the heading structure identical across every PhET sim.
 
 ## ScreenSummaryNode: the opening overview
 
-`ScreenSummaryNode` is a plain `Node` (not a `PDOMSectionNode`) that renders as two paragraphs read at the very top of the PDOM: an opening summary sentence and a fixed "use keyboard shortcuts" hint. `ScreenView` creates one automatically and calls `setIntroString( simName, screenDisplayName, isMultiScreen )` on it internally to fill in the opening sentence appropriately for single- vs. multi-screen sims — you don't normally call `setIntroString` yourself.
+`ScreenSummaryNode` is a plain `Node` (not a `PDOMSectionNode`) that renders as two paragraphs read at the very top of the PDOM: an opening summary sentence and a fixed "use keyboard shortcuts" hint, in that order, with room in between for your own content. `ScreenView` holds its instance privately and calls `setIntroString( simName, screenDisplayName, isMultiScreen )` on it internally — a `ScreenView` subclass never touches `ScreenSummaryNode` directly.
 
-What you *do* use it for is adding more descriptive content after the opening sentence:
+Instead, `ScreenView` exposes a `screenSummaryContent` constructor option (and matching `screenSummaryContent` getter/setter) that takes a `ScreenSummaryContent` — a separate, higher-level `Node` (from `scenerystack/sim`, alongside `ScreenView` itself) for structuring play-area/control-area/current-details/interaction-hint description text — which is added as a child of the internal `ScreenSummaryNode`:
 
 ```ts
-// Inside a ScreenView subclass constructor:
-this.screenSummaryNode.addChild( new Node( {
-  tagName: 'p',
-  innerContent: 'There are 3 balls and a track. The track is currently flat.'
-} ) );
+import { ScreenView, ScreenSummaryContent } from 'scenerystack/sim';
+
+class MyScreenView extends ScreenView {
+  public constructor( model: MyModel, providedOptions: MyScreenViewOptions ) {
+    super( {
+      screenSummaryContent: new ScreenSummaryContent( {
+        playAreaContent: 'A ball moves across a frictionless track.',
+        controlAreaContent: 'Reset the sim, or change the track shape.'
+      } ),
+      ...providedOptions
+    } );
+  }
+}
 ```
 
-`ScreenSummaryNode` manages its own internal `pdomOrder` (opening summary first, then your added children, then the keyboard-shortcuts hint last) — don't set `pdomOrder` on it yourself.
+`ScreenSummaryNode` itself stays an implementation detail of `ScreenView` — treat it as the low-level container `ScreenSummaryContent` is composed into, not a type you construct or mutate from sim code.
 
-::: tip These three Nodes already exist on your ScreenView — don't construct new ones
-A `ScreenView` instance exposes `screenSummaryNode`, `pdomPlayAreaNode`, and `pdomControlAreaNode` (consult [`ScreenView`](/api/joist/screen-view) for the exact property names) already wired into the sim's top-level PDOM structure. Constructing extra `PlayAreaNode`/`ControlAreaNode`/`ScreenSummaryNode` instances yourself would just create disconnected sections nothing points to — add your content into the existing ones instead.
+::: tip These sections already exist on your ScreenView — route content into them, don't build new ones
+Constructing extra `PlayAreaNode`/`ControlAreaNode`/`ScreenSummaryNode` instances yourself would create disconnected sections nothing points to. Use `this.pdomPlayAreaNode.pdomOrder`/`this.pdomControlAreaNode.pdomOrder` for interactive content, and the `screenSummaryContent` option/setter (with a `ScreenSummaryContent` from `scenerystack/sim`) for the opening description.
 :::

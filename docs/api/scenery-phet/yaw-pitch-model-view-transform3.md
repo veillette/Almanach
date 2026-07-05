@@ -38,7 +38,7 @@ const modelViewTransform = new YawPitchModelViewTransform3( {
 } );
 
 // A point 5mm "into the screen" (+z) projects up and to the side, not straight down:
-const viewPoint = modelViewTransform.modelToViewXYZ( 0, 0, 0.005 );
+const viewPoint = modelViewTransform.modelToViewPosition( new Vector3( 0, 0, 0.005 ) );
 
 // Round-trip a view-space drag back into model space (z is always 0 on the way back):
 const modelPoint = modelViewTransform.viewToModelXY( viewPoint.x, viewPoint.y );
