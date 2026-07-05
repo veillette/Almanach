@@ -26,11 +26,11 @@ No. The published `scenerystack` npm package re-exports the simulation-author-fa
 
 ## Which package version does this wiki document?
 
-`scenerystack` **v3.0.0**, the version published to npm at the time this wiki's Phase 1/2 content was written (see [`npmjs.com/package/scenerystack`](https://www.npmjs.com/package/scenerystack)). Code samples throughout this wiki use real imports checked against that version's source. If you're using a materially newer or older major version, treat class/option names here as a strong starting point, not a guarantee — check the [official reference](https://scenerystack.org/reference/) for anything version-sensitive.
+`scenerystack` **v3.0.0** (see [`npmjs.com/package/scenerystack`](https://www.npmjs.com/package/scenerystack)). Code samples throughout this wiki use real imports checked against that version's source. If you're using a materially newer or older major version, treat class/option names here as a strong starting point, not a guarantee — check the [official reference](https://scenerystack.org/reference/) for anything version-sensitive, and see [SceneryStack Version Compatibility Notes](/meta/scenerystack-version-compatibility) for when a re-verification pass is due.
 
 ## How current is this documentation?
 
-It varies page by page, by design. Every page carries a `status` of `stub`, `draft`, `complete`, or `verified` in its frontmatter — `stub` reserves a topic with placeholder content, `draft` is fully written but not yet checked against real source, `complete` is internally consistent and confident, and `verified` has had an independent pass cross-check its technical claims against real SceneryStack source or the official reference. See [the Authoring Guide](/meta/authoring-guide#the-status-lifecycle) for the full lifecycle, and [the Roadmap](/meta/roadmap) for how much of the wiki's planned ~231 pages currently exist and at what status.
+It varies page by page, by design. Every page carries a `status` of `stub`, `draft`, `complete`, or `verified` in its frontmatter — `stub` reserves a topic with placeholder content, `draft` is fully written but not yet checked against real source, `complete` is internally consistent and confident, and `verified` has had an independent pass cross-check its technical claims against real SceneryStack source or the official reference. See [the Authoring Guide](/meta/authoring-guide#the-status-lifecycle) for the full lifecycle, and [the Roadmap](/meta/roadmap#open-work) for how many pages currently sit at each status and what's still open.
 
 ## Is this an official SceneryStack or PhET resource?
 
@@ -42,7 +42,7 @@ Yes — `scenery` (the scene graph) and the reactive-state libraries (`axon`, `d
 
 ## Why do some libraries only have a page or two, while others (axon, scenery) have dozens?
 
-Coverage is intentionally uneven and phased rather than uniform, per [the Roadmap](/meta/roadmap): the ten libraries most simulation authors touch daily (`axon, dot, kite, scenery, sun, scenery-phet, joist, twixt, tandem, phetcommon`) were prioritized first, at a "most commonly used classes" depth. Eight additional real-but-less-explored libraries (`tambo, bamboo, vegas, mobius, utterance-queue, phet-core, query-string-machine, nitroglycerin`) are first-pass Phase 2 coverage, and their candidate pages are explicitly lower-confidence until independently verified — check a given page's `status` before treating it as settled.
+Coverage is intentionally uneven rather than uniform, per [the Roadmap](/meta/roadmap): the libraries most simulation authors touch daily (`axon, dot, kite, scenery, sun, scenery-phet, joist, twixt, tandem, phetcommon`) go deepest, at a "most commonly used classes" depth. A handful of real-but-less-explored libraries (`tambo, bamboo, vegas, mobius, utterance-queue, phet-core, query-string-machine, nitroglycerin, tappi`) only have first-pass coverage, and some of their pages are lower-confidence until independently verified — check a given page's `status` before treating it as settled.
 
 ## Why does a page say `status: draft` or `status: stub` instead of finished content?
 
@@ -50,7 +50,7 @@ Both are intentional, visible markers, not an oversight — see [The `status` li
 
 ## How do I contribute a page, or fix something wrong on an existing one?
 
-Read [the Authoring Guide](/meta/authoring-guide) for the frontmatter schema and folder taxonomy, then [the Roadmap](/meta/roadmap) for what's already claimed versus open. Every page's frontmatter and cross-links are validated by `npm run generate` (and by CI), so a page that doesn't follow the schema, or that links to a path that doesn't exist, fails the build loudly rather than silently shipping broken.
+Read [the Authoring Guide](/meta/authoring-guide) for the frontmatter schema and folder taxonomy, then [the Roadmap](/meta/roadmap#open-work) for what's already covered versus open. Every page's frontmatter and cross-links are validated by `npm run generate` (and by CI), so a page that doesn't follow the schema, or that links to a path that doesn't exist, fails the build loudly rather than silently shipping broken.
 
 ## Where do I report a bug in SceneryStack itself, as opposed to this wiki?
 

@@ -10,7 +10,7 @@ status: complete
 
 This wiki is designed to grow to hundreds of documents without any configuration edits. Everything — the sidebar, `llms.txt`, `llms-full.txt`, and `manifest.json` — is generated from the Markdown files and their frontmatter. Follow the conventions below and your page appears everywhere automatically.
 
-If you're picking up planned work rather than writing an ad hoc page, see [the Roadmap](/meta/roadmap) first — it tracks what's already built, what's next, and how to claim a page.
+If you're looking for open work rather than writing an ad hoc page, see [the Roadmap](/meta/roadmap#open-work) first — it tracks what's still `draft`, what's missing cross-links, and other concrete gaps.
 
 ## Adding a page
 
@@ -73,7 +73,7 @@ Four stages, each meaningful to an agent or human picking up work later:
 | `complete` | Full content, internally consistent, the author is confident in it. |
 | `verified` | `complete`, plus an independent pass has cross-checked the technical claims against real SceneryStack source or the [official reference](https://scenerystack.org/reference/). |
 
-Progress is tracked by reading these real frontmatter values across the tree (see [the Roadmap](/meta/roadmap) and `npm run roadmap:status`) — there is no separate hand-maintained checklist to keep in sync.
+Progress is tracked by reading these real frontmatter values across the tree (see [the Roadmap](/meta/roadmap) and `npm run coverage:status`) — there is no separate hand-maintained checklist to keep in sync.
 
 Validation rules (enforced by `npm run generate`, and by CI on every push):
 

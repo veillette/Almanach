@@ -17,7 +17,7 @@
     "build": "npm run generate && vitepress build docs",
     "preview": "vitepress preview docs",
     "generate": "tsx scripts/generate-llm-artifacts.ts",
-    "roadmap:status": "tsx scripts/roadmap-status.ts"
+    "coverage:status": "tsx scripts/coverage-status.ts"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
