@@ -109,10 +109,14 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 
 ### joist
 
+- [CreditsNode](https://veillette.github.io/Almanach/api/joist/credits-node): Renders a simulation's credits (design, development, team, contributors, translation-independent thanks, etc.) as the content of the About dialog.
+- [HighlightNode](https://veillette.github.io/Almanach/api/joist/highlight-node): An HBox of two gradient-faded vertical bars used as the press/hover highlight behind navigation bar buttons.
 - [HomeScreen](https://veillette.github.io/Almanach/api/joist/home-screen): The auto-created Screen showing icon buttons for every screen in a multi-screen Sim.
 - [JoistButton](https://veillette.github.io/Almanach/api/joist/joist-button): The base class behind chrome buttons like HomeButton - custom black/white highlighting instead of the standard sun button look.
+- [LookAndFeel](https://veillette.github.io/Almanach/api/joist/look-and-feel): The Sim-wide manager of the current screen's background color and the derived navigation-bar colors that keep it readable against either black or white.
 - [NavigationBar](https://veillette.github.io/Almanach/api/joist/navigation-bar): The bar of screen buttons, title, and PhET menu shown at the bottom of every running Sim.
 - [PreferencesModel and PreferencesDialog](https://veillette.github.io/Almanach/api/joist/preferences-model-and-dialog): PreferencesModel declares which Preferences tabs a Sim supports; PreferencesDialog is the tabbed dialog Sim builds automatically from it.
+- [PreferencesPanel, PreferencesPanelSection, PreferencesControl, PreferencesTabs, and PreferencesTab](https://veillette.github.io/Almanach/api/joist/preferences-panel-components): The building blocks the Preferences Dialog is assembled from, and the two of them (PreferencesPanelSection, PreferencesControl) sim authors use to build custom Preferences content.
 - [Region, Culture, and Locale Selection UI](https://veillette.github.io/Almanach/api/joist/region-culture-and-locale-selection): The runtime language/locale Property, the region-and-culture Property and its localized-image helper, and the Preferences UI built on top of both.
 - [Screen](https://veillette.github.io/Almanach/api/joist/screen): Pairing a model factory and view factory into one selectable unit of a Sim.
 - [ScreenIcon](https://veillette.github.io/Almanach/api/joist/screen-icon): A Node wrapper that centers and scales an icon onto a fixed-size background, for use as a Screen's homeScreenIcon or navigationBarIcon.
@@ -175,8 +179,10 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 - [AnimatedPanZoomListener](https://veillette.github.io/Almanach/api/scenery/animated-pan-zoom-listener): A pan/zoom listener supporting trackpad, wheel, and keyboard gestures that animates a target Node toward its destination pan/scale.
 - [Circle](https://veillette.github.io/Almanach/api/scenery/circle): A Path subclass for drawing circles by radius.
 - [Color](https://veillette.github.io/Almanach/api/scenery/color): Scenery's RGBA color object - construction from RGB, hex, or CSS keywords, and mutation/derivation methods used as a Node's fill or stroke.
+- [ColorProperty, ProfileColorProperty, and PaintColorProperty](https://veillette.github.io/Almanach/api/scenery/color-property-and-profile-color-property): The Property-driven pattern for colors that can change (by color profile, by derivation from another paint, or just by being observable) instead of being fixed values.
 - [Display](https://veillette.github.io/Almanach/api/scenery/display): The root object that turns a Node tree into rendered/attached DOM output.
 - [DragListener](https://veillette.github.io/Almanach/api/scenery/drag-listener): The pointer-driven drag listener that most draggable Nodes are built on.
+- [Filter and the Node.filters visual effects](https://veillette.github.io/Almanach/api/scenery/visual-filters): The Filter base class and its named subtypes (Brightness, Contrast, Grayscale, Invert, Sepia, HueRotate, Saturate) applied via Node.filters.
 - [FlowBox](https://veillette.github.io/Almanach/api/scenery/flow-box): A single-axis (row/column) auto-layout container.
 - [FocusManager](https://veillette.github.io/Almanach/api/scenery/focus-manager): The static class that tracks DOM focus, pointer focus, and reading-block focus across a scenery application.
 - [Font](https://veillette.github.io/Almanach/api/scenery/font): Scenery's immutable font-description object used by Text and RichText, and the lower-level class PhetFont builds on.
@@ -185,6 +191,7 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 - [Highlight Rendering: HighlightPath and HighlightOverlay](https://veillette.github.io/Almanach/api/scenery/highlight-rendering): The Path subclass and per-Display overlay that actually draw focus, interactive, and reading-block highlights.
 - [Hit-Testing and Picking](https://veillette.github.io/Almanach/api/scenery/hit-testing-and-picking): How scenery decides what a pointer is over, and the Node options that shape it.
 - [Hotkey, HotkeyData, and globalHotkeyRegistry](https://veillette.github.io/Almanach/api/scenery/hotkeys): The declarative building blocks underneath KeyboardListener for defining keyboard shortcuts.
+- [HSeparator, VSeparator, HStrut, and VStrut](https://veillette.github.io/Almanach/api/scenery/separators-and-struts): Small layout-helper Nodes for adding a visible dividing line or invisible fixed-size gap inside a FlowBox/VBox/HBox.
 - [Image](https://veillette.github.io/Almanach/api/scenery/image): A Node that renders a raster image with optional Property-driven swapping.
 - [InteractiveHighlighting](https://veillette.github.io/Almanach/api/scenery/interactive-highlighting): The trait that shows a highlight on pointer hover for interactive Nodes, mirroring keyboard focus highlights.
 - [KeyboardDragListener](https://veillette.github.io/Almanach/api/scenery/keyboard-drag-listener): The keyboard-driven equivalent of pointer dragging, moving a positionProperty with arrow keys or WASD.
@@ -197,6 +204,7 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 - [Path](https://veillette.github.io/Almanach/api/scenery/path): A Node that renders a kite Shape with fill/stroke.
 - [Pattern](https://veillette.github.io/Almanach/api/scenery/pattern-paint): The image-tiling paint type usable as a Node's fill or stroke - unrelated to the software-design conventions in the patterns/ section.
 - [Pointer, Mouse, Touch, and Pen](https://veillette.github.io/Almanach/api/scenery/pointer-mouse-touch-pen): The abstract input-device abstraction behind every scenery pointer event, and its Mouse/Touch/Pen subclasses.
+- [PressListener (direct usage)](https://veillette.github.io/Almanach/api/scenery/press-listener): Using PressListener directly for custom pressable interactions, and the PDOM/focus-aware state it exposes beyond what FireListener and DragListener summarize.
 - [PressListener and FireListener](https://veillette.github.io/Almanach/api/scenery/fire-listener): The base classes behind clickable/pressable Nodes.
 - [RadialGradient](https://veillette.github.io/Almanach/api/scenery/radial-gradient): A paint type for circular color gradients between two circles, usable anywhere a Node accepts a fill or stroke.
 - [Rectangle](https://veillette.github.io/Almanach/api/scenery/rectangle): A Path subclass for drawing (optionally rounded) rectangles.
@@ -205,6 +213,7 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 - [SceneryEvent](https://veillette.github.io/Almanach/api/scenery/scenery-event): The event object scenery passes to input listeners, wrapping the native DOM event, the pointer, and the hit trail.
 - [Sizable, WidthSizable, and HeightSizable](https://veillette.github.io/Almanach/api/scenery/sizable-mixins): The mixins that let a custom Node expose a settable preferred/minimum size so layout containers can resize it.
 - [Spacer](https://veillette.github.io/Almanach/api/scenery/spacer): An invisible, childless Node that reserves a fixed rectangular area of layout space.
+- [Sprites, Sprite, SpriteImage, and SpriteSheet](https://veillette.github.io/Almanach/api/scenery/sprites): The high-performance rendering system for drawing many instances of a small set of images in a single Node, instead of one scenery Node per instance.
 - [Text](https://veillette.github.io/Almanach/api/scenery/text): A Node that renders a single string of plain text.
 - [Trail](https://veillette.github.io/Almanach/api/scenery/trail): An indexed path of Nodes from a root to a descendant, used for hit-testing, ordering, and coordinate transforms across the scene graph.
 - [TransformTracker](https://veillette.github.io/Almanach/api/scenery/transform-tracker): Efficiently watches a Trail's cumulative transform for changes, without re-deriving it from scratch on every check.
@@ -216,55 +225,131 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 
 - [ArrowNode](https://veillette.github.io/Almanach/api/scenery-phet/arrow-node): A configurable arrow shape used for vectors, force diagrams, and callouts.
 - [BackButton](https://veillette.github.io/Almanach/api/scenery-phet/back-button): A rectangular button with a leftward arrow icon, used for navigating back (e.g. to a level-selection screen).
+- [Background Nodes](https://veillette.github.io/Almanach/api/scenery-phet/background-nodes): Small building blocks for scene backgrounds — the sky/ground gradient family (SkyNode, GroundNode, OutsideBackgroundNode) plus BackgroundNode and GradientRectangle.
+- [BannedNode](https://veillette.github.io/Almanach/api/scenery-phet/banned-node): The universal "no"/prohibition icon — a circle with a diagonal slash through it.
 - [BicyclePumpNode](https://veillette.github.io/Almanach/api/scenery-phet/bicycle-pump-node): An animated bicycle-pump graphic whose handle, when dragged down, injects discrete units (particles, air, etc.) into a model quantity.
+- [BoxNode](https://veillette.github.io/Almanach/api/scenery-phet/box-node): A pseudo-3D box drawn as three flat parallelograms (top, front, right side), used for capacitor and battery visualizations.
+- [BracketNode](https://veillette.github.io/Almanach/api/scenery-phet/bracket-node): A curly-brace-like bracket Path with a single tip, optionally labeled, pointing in one of four directions.
+- [BucketFront and BucketHole](https://veillette.github.io/Almanach/api/scenery-phet/bucket-front-and-hole): The two view Nodes that render a phetcommon Bucket model — a hole behind draggable contents and a front in front of them.
+- [Capacitor Visualization Nodes](https://veillette.github.io/Almanach/api/scenery-phet/capacitor-visualization-nodes): The CapacitorNode family — a pseudo-3D capacitor visualization (plates, plate charge, and E-field lines) shared by Capacitor Lab and Circuit Construction Kit-style sims.
 - [CloseButton](https://veillette.github.io/Almanach/api/scenery-phet/close-button): A red rectangular button with a white "X" icon, the standard control for dismissing a dialog or panel.
+- [ComboBoxDisplay](https://veillette.github.io/Almanach/api/scenery-phet/combo-box-display): A ComboBox whose items are live NumberDisplay readouts instead of static labels - pick which of several dynamic quantities to show.
 - [ConductivityTesterNode](https://veillette.github.io/Almanach/api/scenery-phet/conductivity-tester-node): A light bulb wired to a battery and two draggable probes, visualizing circuit conductivity for chemistry sims.
+- [Developer Overlay Nodes](https://veillette.github.io/Almanach/api/scenery-phet/dev-overlay-nodes): CanvasWarningNode and PointerCoordinatesNode — two debug/developer-only overlay Nodes for surfacing a WebGL fallback warning and live pointer coordinates.
+- [Drawer](https://veillette.github.io/Almanach/api/scenery-phet/drawer): A container that animates open and closed, revealing or hiding an arbitrary contents Node, toggled by a handle.
 - [EraserButton](https://veillette.github.io/Almanach/api/scenery-phet/eraser-button): A standard rectangular button with an eraser icon, typically wired to a "clear" or "reset the drawing" action.
+- [EyeDropperNode](https://veillette.github.io/Almanach/api/scenery-phet/eye-dropper-node): An eye-dropper graphic with a squeeze-bulb button for dispensing colored fluid, driven by dispensing/empty Properties.
 - [FaceNode](https://veillette.github.io/Almanach/api/scenery-phet/face-node): A simple smiling/frowning face graphic, typically shown as feedback for a correct or incorrect answer.
 - [FaucetNode](https://veillette.github.io/Almanach/api/scenery-phet/faucet-node): A faucet control with a draggable pinball-shooter-style handle that drives a flow-rate Property, used in fluid/flow simulations.
+- [FineCoarseSpinner](https://veillette.github.io/Almanach/api/scenery-phet/fine-coarse-spinner): A five-part numeric spinner - fine decrement, coarse decrement, a NumberDisplay readout, coarse increment, fine increment.
+- [FormulaNode](https://veillette.github.io/Almanach/api/scenery-phet/formula-node): Renders a LaTeX-style math formula via KaTeX, as a DOM Node embedded in the scene graph.
+- [Fraction Display Nodes](https://veillette.github.io/Almanach/api/scenery-phet/fraction-display-nodes): A small family of Nodes for rendering fractions, mixed numbers, and hand-drawn plus/minus signs without relying on Text glyphs.
 - [GaugeNode](https://veillette.github.io/Almanach/api/scenery-phet/gauge-node): A circular dial gauge with a needle, tick marks, and a label, driven by a numeric value Property within a fixed range.
+- [GrabDragInteraction](https://veillette.github.io/Almanach/api/scenery-phet/grab-drag-interaction): The accessible "grab with Enter/Space, arrow-key drag, release with Escape" interaction pattern that mixes into an existing draggable Node's PDOM content.
+- [GridCheckbox and GridIcon](https://veillette.github.io/Almanach/api/scenery-phet/grid-checkbox): A Checkbox pre-built with a small NxN-grid icon, for toggling a coordinate grid's visibility.
 - [GridNode](https://veillette.github.io/Almanach/api/scenery-phet/grid-node): A Path drawing an evenly-spaced coordinate grid, positioned and re-projected via a ModelViewTransform2 Property.
+- [Group Sort Interaction](https://veillette.github.io/Almanach/api/scenery-phet/group-sort-interaction): The accessible keyboard pattern for selecting an item within a group and then sorting it by changing its value — GroupSelectModel/GroupSelectView for selection alone, GroupSortInteractionView adding sorting.
+- [HandleNode](https://veillette.github.io/Almanach/api/scenery-phet/handle-node): A purely decorative graphic of a grippable handle attached to a surface by one or two elbow-shaped mounts.
 - [HeaterCoolerNode](https://veillette.github.io/Almanach/api/scenery-phet/heat-cool-control): A stove-style heating/cooling control driven by a bidirectional -1-to-+1 Property, with an embedded vertical slider.
+- [Icon Toggle Buttons](https://veillette.github.io/Almanach/api/scenery-phet/icon-toggle-buttons): SoundToggleButton, TimerToggleButton, and EyeToggleButton — toggle buttons bound to a boolean Property that swap between two pre-built icons.
 - [InfoButton](https://veillette.github.io/Almanach/api/scenery-phet/info-button): The standard round grey button bearing an "i" info-circle icon, typically used to open an informational dialog.
+- [Keyboard Help Node Basics](https://veillette.github.io/Almanach/api/scenery-phet/keyboard-help-node-basics): KeyNode and its subclasses render individual keycap icons; KeyboardHelpIconFactory composes them into the rows used by a Keyboard Help Dialog.
+- [Keyboard Help Sections](https://veillette.github.io/Almanach/api/scenery-phet/keyboard-help-sections): KeyboardHelpSection and KeyboardHelpSectionRow lay out one labeled group of shortcuts; a family of ready-made sections covers sliders, spinners, time controls, combo boxes, and more.
+- [Keypad](https://veillette.github.io/Almanach/api/scenery-phet/keypad): A calculator-like on-screen numeric keypad, driven by a pluggable key-accumulator that interprets key presses into a value.
 - [LaserPointerNode](https://veillette.github.io/Almanach/api/scenery-phet/laser-pointer-node): A laser-pointer-styled Node with an optional on/off button, used to represent a light source in optics sims.
+- [LightBulbNode](https://veillette.github.io/Almanach/api/scenery-phet/light-bulb-node): A bulb image that glows and casts light rays as a function of a 0-1 brightness Property.
+- [LightRaysNode](https://veillette.github.io/Almanach/api/scenery-phet/light-rays-node): A Path of radiating line segments whose count and length scale with a 0-1 brightness value.
+- [LineArrowNode](https://veillette.github.io/Almanach/api/scenery-phet/line-arrow-node): A lightweight, stroke-only arrow built from three line segments, as opposed to the filled-shape ArrowNode.
+- [LockNode](https://veillette.github.io/Almanach/api/scenery-phet/lock-node): A padlock icon that swaps between locked and unlocked graphics based on a boolean Property.
+- [MagnifyingGlassNode](https://veillette.github.io/Almanach/api/scenery-phet/magnifying-glass-node): A simple magnifying-glass icon (circular glass plus a handle) that can center an arbitrary icon Node inside the glass.
 - [MathSymbolFont](https://veillette.github.io/Almanach/api/scenery-phet/math-symbol-font): The italic serif font PhET sims use for math symbols and variables, kept visually distinct from PhetFont.
+- [MatrixNode](https://veillette.github.io/Almanach/api/scenery-phet/matrix-node): Renders an MxN matrix of numbers or strings between bracket glyphs, in row-major order.
 - [MeasuringTapeNode](https://veillette.github.io/Almanach/api/scenery-phet/measuring-tape-node): A draggable measuring tape with a base, an extendable tip, and a live distance readout, common in physics sims.
+- [Movement and Border Alerters](https://veillette.github.io/Almanach/api/scenery-phet/movement-and-border-alerters): Alerter, MovementAlerter, and BorderAlertsDescriber — utilities that announce which direction a dragged object moved and when it has hit the edge of its movement bounds.
 - [NumberControl](https://veillette.github.io/Almanach/api/scenery-phet/number-control): A composite slider + label + value-readout control bound to a NumberProperty.
 - [NumberDisplay](https://veillette.github.io/Almanach/api/scenery-phet/number-display): A labeled, fixed-width numeric readout in a background rectangle, bound to a number Property.
+- [OffScaleIndicatorNode](https://veillette.github.io/Almanach/api/scenery-phet/off-scale-indicator-node): A labeled arrow-in-a-panel indicator that points toward data which has gone off the edge of a plot.
+- [PaperAirplaneNode and SimpleClockIcon](https://veillette.github.io/Almanach/api/scenery-phet/paper-airplane-and-simple-clock-icon): Two small, static decorative icon Nodes — the PhET-logo paper airplane, and a plain analog clock face.
+- [ParametricSpringNode](https://veillette.github.io/Almanach/api/scenery-phet/parametric-spring-node): A coiled spring drawn from a parametric (cycloid-like) equation, with live-adjustable loop count, radius, and phase.
+- [PhetColorScheme, SceneryPhetColors, and SceneryPhetConstants](https://veillette.github.io/Almanach/api/scenery-phet/phet-color-scheme-and-constants): The shared default colors and numeric constants reused across scenery-phet components, so common physics-quantity colors and button sizing stay consistent across sims.
 - [PhetFont](https://veillette.github.io/Almanach/api/scenery-phet/phet-font): The standard font class used across every SceneryStack simulation.
+- [PhetUnit](https://veillette.github.io/Almanach/api/scenery-phet/phet-unit): A rich enumeration-style unit value (e.g. meters, newtons) that a Property can carry to drive automatic value-plus-units string formatting.
+- [Play Control Buttons](https://veillette.github.io/Almanach/api/scenery-phet/play-control-buttons): PlayControlButton, PlayStopButton, RecordStopButton, and PlayPauseStepButtonGroup — the round toggle buttons and layout group behind time/recording controls.
 - [PlayPauseButton](https://veillette.github.io/Almanach/api/scenery-phet/play-pause-button): The round toggle button that starts and stops time in a simulation, swapping between a play triangle and a pause icon.
 - [ProbeNode](https://veillette.github.io/Almanach/api/scenery-phet/probe-node): A physical-looking sensor probe graphic — a circular sensing head on a handle — typically wired to a readout body via WireNode.
+- [ProtractorNode](https://veillette.github.io/Almanach/api/scenery-phet/protractor-node): A draggable, rotatable protractor image for measuring angles, backed by an angleProperty.
+- [QuestionBar](https://veillette.github.io/Almanach/api/scenery-phet/question-bar): A StatusBar that floats a single bold framing question at the top of a screen.
 - [ResetAllButton](https://veillette.github.io/Almanach/api/scenery-phet/reset-all-button): The standard circular reset control wired to a model's reset() method.
 - [RulerNode](https://veillette.github.io/Almanach/api/scenery-phet/ruler-node): A ruler graphic with major/minor tick marks and a units label, for measurement-style interactions.
+- [sceneryPhetQueryParameters and isResettingAllProperty](https://veillette.github.io/Almanach/api/scenery-phet/scenery-phet-query-parameters): scenery-phet's own demo-app query parameters, and a global TinyProperty flag that's true while any reset-all is in progress.
 - [ScientificNotationNode](https://veillette.github.io/Almanach/api/scenery-phet/scientific-notation-node): Renders a number Property as mantissa x 10^exponent, updating live as the value changes.
+- [Screen Summary Layout Nodes](https://veillette.github.io/Almanach/api/scenery-phet/screen-summary-layout-nodes): PlayAreaNode, ControlAreaNode, and ScreenSummaryNode — the standard PDOM structural sections ScreenView uses to organize a screen's accessible description tree.
+- [ShadedRectangle and ShadedSphereNode](https://veillette.github.io/Almanach/api/scenery-phet/shaded-rectangle-and-sphere): Two pseudo-3D shading primitives - a beveled rounded rectangle and a specular-highlighted sphere - built from gradients rather than images.
+- [ShadowText](https://veillette.github.io/Almanach/api/scenery-phet/shadow-text): A Text node rendered twice - an offset dark copy behind a foreground copy - to fake a drop shadow.
+- [Small Icon Utility Buttons](https://veillette.github.io/Almanach/api/scenery-phet/round-icon-buttons): RefreshButton, RestartButton, ReturnButton, CameraButton, ClapperboardButton, and StarButton — one-shot push buttons distinguished mainly by a fixed icon.
+- [Sound Drag Listeners](https://veillette.github.io/Almanach/api/scenery-phet/sound-drag-listeners): SoundDragListener, SoundKeyboardDragListener, and SoundRichDragListener — drop-in replacements for scenery's drag listeners that also play grab/release sounds.
 - [SpectrumNode](https://veillette.github.io/Almanach/api/scenery-phet/spectrum-node): A Node that rasterizes a value range into a horizontal color gradient bar via a client-supplied value-to-color function.
+- [SpinningIndicatorNode](https://veillette.github.io/Almanach/api/scenery-phet/spinning-indicator-node): A ring of elements whose fill colors cycle to simulate spinning, for indicating indeterminate progress.
+- [StarNode and StarShape](https://veillette.github.io/Almanach/api/scenery-phet/star-node): A five-pointed star that fills in from left to right by a 0-to-1 value, used as PhET's standard game score indicator.
+- [StatusBar](https://veillette.github.io/Almanach/api/scenery-phet/status-bar): The scenery-phet base class for a resizing bar pinned to the top of a screen, handling only geometry — subclasses decide what content goes in it.
 - [StepBackwardButton](https://veillette.github.io/Almanach/api/scenery-phet/step-backward-button): A round push button with a backward-step icon, used to rewind a paused simulation by one fixed increment.
 - [StepForwardButton](https://veillette.github.io/Almanach/api/scenery-phet/step-forward-button): A round push button with a forward-step icon, used to advance a paused simulation by one fixed increment.
+- [StopSignNode](https://veillette.github.io/Almanach/api/scenery-phet/stop-sign-node): An octagonal red stop-sign icon with a white inner border and black outer border.
 - [StopwatchNode](https://veillette.github.io/Almanach/api/scenery-phet/stopwatch-node): A draggable digital stopwatch bound to a Stopwatch model element.
+- [TemperatureAndColorSensorNode](https://veillette.github.io/Almanach/api/scenery-phet/temperature-and-color-sensor-node): A composite Node pairing a ThermometerNode with a triangular color-swatch indicator, for sensors that report both a temperature and a sampled color.
 - [ThermometerNode](https://veillette.github.io/Almanach/api/scenery-phet/thermometer-node): A fluid-level thermometer visualization bound to a temperature Property.
 - [TimeControlNode](https://veillette.github.io/Almanach/api/scenery-phet/time-control-node): The standard play/pause/step-forward control for time-based simulations.
+- [TimeSpeedRadioButtonGroup](https://veillette.github.io/Almanach/api/scenery-phet/time-speed-radio-button-group): A vertical Aqua radio button group for selecting among the TimeSpeed enumeration values (SLOW, NORMAL, FAST).
+- [Trash Buttons](https://veillette.github.io/Almanach/api/scenery-phet/trash-buttons): MoveToTrashButton, MoveToTrashLegendButton, and TrashButton — the standard trash-can icon buttons, with and without a "move to" arrow.
+- [TriangleNode](https://veillette.github.io/Almanach/api/scenery-phet/triangle-node): An equilateral or isosceles triangle Path, pointing in any of the four cardinal directions.
+- [ValueGaugeNode](https://veillette.github.io/Almanach/api/scenery-phet/value-gauge-node): A GaugeNode subclass with a built-in, centered NumberDisplay showing the gauge's numeric value.
+- [ViewSynchronizer](https://veillette.github.io/Almanach/api/scenery-phet/view-synchronizer): A small utility that keeps a container Node's children in sync with an array of model elements, via a view factory function.
+- [Wavelength and Spectrum Sliders](https://veillette.github.io/Almanach/api/scenery-phet/wavelength-and-spectrum-sliders): SpectrumSliderThumb and SpectrumSliderTrack build a color-gradient Slider; WavelengthNumberControl and WavelengthSpectrumNode specialize that for visible-light wavelength; VisibleColor converts between wavelength and RGB.
 - [WireNode](https://veillette.github.io/Almanach/api/scenery-phet/wire-node): A cubic-bezier wire Path that continuously reconnects two moving points, typically a ProbeNode and its readout body.
+- [XNode](https://veillette.github.io/Almanach/api/scenery-phet/x-node): A simple 'x' mark Node, drawn as a PlusNode rotated 45 degrees.
+- [YawPitchModelViewTransform3](https://veillette.github.io/Almanach/api/scenery-phet/yaw-pitch-model-view-transform3): A pseudo-3D model-view transform that projects 3D model coordinates onto a 2D view plane using a fixed yaw/pitch/scale, for capacitor-style oblique visualizations.
+- [Zoom Button Groups](https://veillette.github.io/Almanach/api/scenery-phet/zoom-button-groups): ZoomButton, ZoomButtonGroup, PlusMinusZoomButtonGroup, and MagnifyingGlassZoomButtonGroup — the standard zoom-in/zoom-out button pair bound to a ranged numeric Property.
 
 ### sun
 
 - [ABSwitch](https://veillette.github.io/Almanach/api/sun/ab-switch): A labeled two-option toggle switch bound to a Property over exactly two named values.
+- [AccessibleNumberSpinner](https://veillette.github.io/Almanach/api/sun/accessible-number-spinner): The trait/mixin that gives NumberSpinner its keyboard and PDOM behavior, with press-and-hold repeat.
+- [AccessibleSlider](https://veillette.github.io/Almanach/api/sun/accessible-slider): The trait/mixin that gives Slider (and HSlider/VSlider) its keyboard and PDOM behavior.
 - [AccordionBox](https://veillette.github.io/Almanach/api/sun/accordion-box): An expandable/collapsible titled container bound to an expandedProperty.
+- [AquaRadioButton](https://veillette.github.io/Almanach/api/sun/aqua-radio-button): A single flat, circular radio button with a label Node, the building block behind AquaRadioButtonGroup.
+- [AquaRadioButtonGroup](https://veillette.github.io/Almanach/api/sun/aqua-radio-button-group): Aqua-style radio button groups bound to a Property, plus the Horizontal/VerticalAquaRadioButtonGroup orientation convenience subclasses.
+- [ArrowButton](https://veillette.github.io/Almanach/api/sun/arrow-button): A small rectangular push button whose content is an arrow, with built-in press-and-hold repeat firing.
 - [Carousel](https://veillette.github.io/Almanach/api/sun/carousel): A paged, scrollable strip of items with next/previous buttons, animated between pages.
+- [CarouselButton](https://veillette.github.io/Almanach/api/sun/carousel-button): The flat-styled next/previous arrow button Carousel builds and manages internally.
+- [CarouselComboBox](https://veillette.github.io/Almanach/api/sun/carousel-combo-box): A ComboBox-like dropdown whose popup is a scrollable Carousel, for item lists too long for a plain list box.
 - [Checkbox](https://veillette.github.io/Almanach/api/sun/checkbox): A checkbox bound to a BooleanProperty, with label-Node composition.
+- [ColorConstants and SunConstants](https://veillette.github.io/Almanach/api/sun/color-constants): The small set of shared default colors and constant values reused across sun's UI components.
 - [ComboBox](https://veillette.github.io/Almanach/api/sun/combo-box): A dropdown selector bound to a Property over an enumerated set of items.
 - [ComboBoxListBox](https://veillette.github.io/Almanach/api/sun/list-box): The popup list-box Panel that ComboBox creates internally to display its items.
 - [ExpandCollapseButton](https://veillette.github.io/Almanach/api/sun/expand-collapse-button): The square plus/minus toggle button that AccordionBox uses internally for its expand/collapse control.
 - [HSlider](https://veillette.github.io/Almanach/api/sun/hslider): The horizontal slider bound to a NumberProperty and Range.
+- [MenuItem](https://veillette.github.io/Almanach/api/sun/menu-item): A single row in PhET's popup PhetMenu — a width-sizable, Voicing-enabled, optionally-checkable menu row.
+- [Momentary Buttons](https://veillette.github.io/Almanach/api/sun/momentary-button): Press-and-hold buttons that set a Property to an "on" value only while pressed, reverting when released.
 - [NumberPicker](https://veillette.github.io/Almanach/api/sun/number-picker): A compact up/down arrow spinner bound to a NumberProperty, with its arrows drawn directly on the value display.
 - [NumberSpinner](https://veillette.github.io/Almanach/api/sun/number-spinner): An integer value display flanked by increment/decrement arrow buttons, bound to a Property and a dynamic Range.
 - [OnOffSwitch](https://veillette.github.io/Almanach/api/sun/on-off-switch): The iOS-style sliding toggle for a boolean Property, one of three sun affordances for the same on/off pattern.
+- [PageControl](https://veillette.github.io/Almanach/api/sun/page-control): An iOS-style row of dots indicating the current page, typically paired with Carousel.
 - [Panel](https://veillette.github.io/Almanach/api/sun/panel): A bordered/background container used to group related controls.
+- [PushButtonModel](https://veillette.github.io/Almanach/api/sun/push-button-model): The non-visual press/fire state machine behind RectangularPushButton and RoundPushButton, and its ButtonModel base.
 - [Radio Button Groups](https://veillette.github.io/Almanach/api/sun/radio-button-group): Mutually-exclusive selection bound to a Property (rectangular and Aqua styles).
+- [RectangularButton](https://veillette.github.io/Almanach/api/sun/rectangular-button): The abstract rectangular button shape and appearance layer that every rectangular sun button builds on.
 - [RectangularPushButton](https://veillette.github.io/Almanach/api/sun/rectangular-push-button): The standard rectangular momentary-action button.
+- [RectangularRadioButton](https://veillette.github.io/Almanach/api/sun/rectangular-radio-button): A single boxed radio button, the building block behind RectangularRadioButtonGroup.
+- [RoundButton](https://veillette.github.io/Almanach/api/sun/round-button): The abstract round button shape and appearance layer that every circular sun button builds on.
 - [RoundPushButton](https://veillette.github.io/Almanach/api/sun/round-push-button): The circular momentary-action button, sharing PushButtonModel with RectangularPushButton.
 - [Slider](https://veillette.github.io/Almanach/api/sun/slider): The orientation-agnostic base class behind HSlider and VSlider.
+- [SliderTrack, DefaultSliderTrack, and SliderThumb](https://veillette.github.io/Almanach/api/sun/slider-track-and-thumb): The pluggable track and thumb pieces you swap out to customize a Slider/HSlider/VSlider's visual appearance.
+- [Sticky Toggle Buttons](https://veillette.github.io/Almanach/api/sun/sticky-toggle-button): Press-to-latch, press-again-to-release buttons bound to a two-value Property.
 - [TextPushButton](https://veillette.github.io/Almanach/api/sun/text-push-button): A push button whose content is a text label.
 - [Toggle Buttons](https://veillette.github.io/Almanach/api/sun/toggle-button): The rectangular/round toggle-button family bound to a BooleanProperty or two-state value.
+- [ToggleNode and BooleanToggleNode](https://veillette.github.io/Almanach/api/sun/toggle-node): Show exactly one of several child Nodes, chosen by the current value of a Property.
+- [ToggleSwitch](https://veillette.github.io/Almanach/api/sun/toggle-switch): The generic two-value sliding switch that OnOffSwitch specializes to boolean on/off.
+- [VerticalCheckboxGroup](https://veillette.github.io/Almanach/api/sun/vertical-checkbox-group): A convenience VBox layout of several independent Checkboxes, one per boolean Property.
 - [VSlider](https://veillette.github.io/Almanach/api/sun/v-slider): The vertical counterpart to HSlider, bound to the same NumberProperty/Range pattern.
 
 ### tambo
@@ -294,6 +379,7 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 ### twixt
 
 - [Animation and Easing](https://veillette.github.io/Almanach/api/twixt/animation): Animating a Property's value smoothly over time instead of setting it instantly.
+- [AnimationTarget and Easing](https://veillette.github.io/Almanach/api/twixt/animation-target-and-easing): The per-value binding object and interpolation-curve class that Animation is built from internally, and how to use AnimationTarget directly for multi-target animations.
 - [DampedAnimation](https://veillette.github.io/Almanach/api/twixt/damped-animation): A single-dimension damped-harmonic-oscillator animation that pulls a value toward a target, as an alternative to Animation's fixed-duration easing curves.
 - [TransitionNode](https://veillette.github.io/Almanach/api/twixt/transition-node): A Node that swaps between two child Nodes using an animated slide, wipe, or dissolve transition.
 
@@ -306,10 +392,13 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 ### vegas
 
 - [AllLevelsCompletedNode](https://veillette.github.io/Almanach/api/vegas/all-levels-completed-node): A pseudo-dialog Node shown when a player has completed every level in a game, with a smiley face and a Done button.
+- [ElapsedTimeNode](https://veillette.github.io/Almanach/api/vegas/elapsed-time-node): An HBox that displays a clock icon next to a formatted H:MM:SS (or M:SS) elapsed-time readout, driven by a numeric Property.
 - [FiniteStatusBar and InfiniteStatusBar](https://veillette.github.io/Almanach/api/vegas/status-bars): The standard game-screen status bars that pin a score display (and optionally level/challenge/timer info) to the top of a ScreenView.
 - [GameAudioPlayer](https://veillette.github.io/Almanach/api/vegas/game-audio-player): A small helper class that plays the standard set of vegas game-feedback sounds (correct/wrong answer, challenge complete, game-over variants).
+- [GameTimer](https://veillette.github.io/Almanach/api/vegas/game-timer): A simple wall-clock-driven timer, ticking once per second, used to drive a game level's elapsed-time display.
 - [LevelCompletedNode](https://veillette.github.io/Almanach/api/vegas/level-completed-node): A Panel shown when a player finishes a single game level, summarizing score, stars, and (optionally) elapsed/best time.
 - [LevelSelectionButton](https://veillette.github.io/Almanach/api/vegas/level-selection-button): A push button for a game's level-selection screen, combining an icon, a score display, and a level-specific sound.
+- [LevelSelectionButtonGroup](https://veillette.github.io/Almanach/api/vegas/level-selection-button-group): Instantiates and lays out a row (or custom arrangement) of LevelSelectionButtons from a declarative list of items, with built-in support for a gameLevels query parameter.
 - [ScoreDisplay Family](https://veillette.github.io/Almanach/api/vegas/score-display-family): The three sibling score-display Nodes alongside ScoreDisplayNumberAndStar -- a plain labeled number, a labeled star row, and a bare star row.
 - [ScoreDisplayNumberAndStar](https://veillette.github.io/Almanach/api/vegas/score-display-number-and-star): A compact vegas score display showing a number and a single star, used where space is tight (e.g. inside a LevelSelectionButton).
 
