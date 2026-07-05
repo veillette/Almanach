@@ -2,7 +2,7 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based wiki of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-05T03:23:30.221Z",
+  "generated": "2026-07-05T12:50:35.106Z",
   "documentCount": 331,
   "documents": [
     {
@@ -9253,7 +9253,7 @@
       "related": [],
       "prerequisites": [],
       "sourceRefs": [],
-      "wordCount": 1020,
+      "wordCount": 1019,
       "url": "https://veillette.github.io/Almanach/meta/authoring-guide"
     },
     {
@@ -9279,7 +9279,7 @@
         "/getting-started/what-is-scenerystack"
       ],
       "sourceRefs": [],
-      "wordCount": 980,
+      "wordCount": 973,
       "url": "https://veillette.github.io/Almanach/meta/faq"
     },
     {
@@ -9336,7 +9336,7 @@
       "path": "/meta/roadmap",
       "sourceFile": "docs/meta/roadmap.md",
       "title": "Roadmap",
-      "description": "The phased plan for growing Almanach from a handful of pages to a comprehensive SceneryStack wiki, and how to track and claim work against it.",
+      "description": "What this wiki currently covers, the taxonomy behind that coverage, and the concrete work that remains open.",
       "category": "meta",
       "tags": [
         "roadmap",
@@ -9347,18 +9347,19 @@
       "status": "complete",
       "related": [
         "/meta/authoring-guide",
-        "/meta/page-template"
+        "/meta/page-template",
+        "/meta/scenerystack-version-compatibility"
       ],
       "prerequisites": [],
       "sourceRefs": [],
-      "wordCount": 1562,
+      "wordCount": 855,
       "url": "https://veillette.github.io/Almanach/meta/roadmap"
     },
     {
       "path": "/meta/scenerystack-version-compatibility",
       "sourceFile": "docs/meta/scenerystack-version-compatibility.md",
       "title": "SceneryStack Version Compatibility Notes",
-      "description": "Which scenerystack package version this wiki's content was checked against, phase by phase, and when a page's status/sourceRefs should be revisited as SceneryStack releases new versions.",
+      "description": "Which scenerystack package version this wiki's content was checked against, and when a page's status/sourceRefs should be revisited as SceneryStack releases new versions.",
       "category": "meta",
       "tags": [
         "conventions",
@@ -9372,14 +9373,12 @@
         "/meta/authoring-guide",
         "/meta/faq"
       ],
-      "prerequisites": [
-        "/meta/roadmap"
-      ],
+      "prerequisites": [],
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack",
         "https://scenerystack.org/reference/"
       ],
-      "wordCount": 831,
+      "wordCount": 646,
       "url": "https://veillette.github.io/Almanach/meta/scenerystack-version-compatibility"
     }
   ]
