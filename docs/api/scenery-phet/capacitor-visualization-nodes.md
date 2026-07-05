@@ -98,7 +98,7 @@ The node automatically re-lays out its plates whenever `capacitor.plateSizePrope
 new PlateNode(
   capacitor: Capacitor,
   modelViewTransform: YawPitchModelViewTransform3,
-  polarity: 'POSITIVE' | 'NEGATIVE',  // CapacitorConstants.POLARITY.POSITIVE / .NEGATIVE
+  polarity: EnumerationDeprecatedValue,  // CapacitorConstants.POLARITY.POSITIVE or .NEGATIVE — not the strings 'POSITIVE'/'NEGATIVE'
   maxPlateCharge: number,
   orientation: Orientation,
   includeChargeNode?: boolean          // default true
