@@ -33,13 +33,18 @@ sourceRefs:
 Every concrete rectangular button constructs its own `ButtonModel` subclass and a `TReadOnlyProperty<ButtonInteractionState>`, then passes both to `super()` — that's the seam `RectangularButton`'s `protected constructor` exposes to its subclasses:
 
 ```ts
-// Simplified sketch of what RectangularPushButton does internally —
-// you would only write code like this if none of the built-in subclasses fit.
+import { RectangularButton, ButtonModel, ButtonInteractionState } from 'scenerystack/sun';
+import type { TReadOnlyProperty } from 'scenerystack/axon';
+import { Tandem } from 'scenerystack/tandem';
+
+// Sketch of the seam RectangularPushButton, RectangularToggleButton, etc. all use internally —
+// write a subclass like this only when none of the built-in ones fit.
 class MyCustomRectangularButton extends RectangularButton {
   public constructor( buttonModel: ButtonModel, interactionStateProperty: TReadOnlyProperty<ButtonInteractionState> ) {
     super( buttonModel, interactionStateProperty, {
       baseColor: 'orange',
-      cornerRadius: 8
+      cornerRadius: 8,
+      tandem: Tandem.REQUIRED
     } );
   }
 }

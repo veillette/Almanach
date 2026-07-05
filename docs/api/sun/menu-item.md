@@ -17,7 +17,7 @@ sourceRefs:
 
 # MenuItem
 
-`MenuItem` (from `scenerystack/sun`) is a single row used by PhET's built-in `PhetMenu` (the "hamburger" options menu every published sim has) — a label, a hover highlight, an optional checkmark, and a `FireListener` that closes the menu and runs a callback. It's documented here because it's exported from `scenerystack/sun` and usable on its own if you're building a custom popup menu that should look and behave consistently with PhET's, not because most sim code constructs `PhetMenu` items directly.
+`MenuItem` (from `scenerystack/sun`) is a single row used by PhET's built-in `PhetMenu` (the "hamburger" options menu every published sim has) — a label, a hover highlight, an optional checkmark, and a [`FireListener`](/api/scenery/fire-listener) that closes the menu and runs a callback. It's documented here because it's exported from `scenerystack/sun` and usable on its own if you're building a custom popup menu that should look and behave consistently with PhET's, not because most sim code constructs `PhetMenu` items directly.
 
 ```ts
 import { MenuItem } from 'scenerystack/sun';
@@ -52,7 +52,7 @@ The constructor is positional and PhET-menu-specific: `closeCallback` runs first
 | `checkedProperty` | If provided, shows/hides a checkmark to the left of the label based on this `boolean` Property |
 | `textFill` | Fill for the label `Text` (default `'black'`) |
 
-`MenuItem` mixes in `WidthSizable`, so its highlight rectangle stretches to fill whatever `localPreferredWidth` a parent layout container assigns it — every item in a menu ends up the same width even though their labels differ.
+`MenuItem` mixes in [`WidthSizable`](/api/scenery/sizable-mixins), so its highlight rectangle stretches to fill whatever `localPreferredWidth` a parent layout container assigns it — every item in a menu ends up the same width even though their labels differ.
 
 ::: tip Read as a `Voicing`-enabled `Node` for accessibility, not a bespoke widget
 `MenuItem` extends `WidthSizable( Voicing( Node ) )`, using the exact same [Voicing](/api/scenery/voicing) mixin pattern as other interactive `sun`/`scenery` components — its `voicingNameResponse` is kept in sync with the label string automatically, so you don't need to set it by hand if you reuse `MenuItem` in your own popup.
