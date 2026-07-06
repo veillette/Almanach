@@ -10,6 +10,7 @@ prerequisites:
   - /examples/three-js-integration
 related:
   - /api/mobius/scene-and-camera-setup
+  - /api/mobius/three-isometric-node
   - /api/mobius/three-utils-helpers
   - /patterns/phet-io-instrumentation-pattern
   - /examples/three-js-integration

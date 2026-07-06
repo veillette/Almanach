@@ -2,7 +2,10 @@
 title: The Multilink Pattern
 description: Combining multiple Properties into one derived reaction.
 category: patterns
-tags: [axon, Multilink, DerivedProperty]
+tags:
+  - axon
+  - Multilink
+  - DerivedProperty
 status: verified
 related:
   - /api/axon/multilink
@@ -11,6 +14,9 @@ related:
   - /patterns/model-view-separation
 prerequisites:
   - /patterns/model-view-separation
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # The Multilink Pattern

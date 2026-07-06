@@ -4,11 +4,16 @@ description: An on-screen phone icon that visualizes vibration state, and a patt
 category: api
 library: tappi
 tags: [tappi, VibrationIndicator, ContinuousPatternVibrationController, vibration, haptics]
-status: draft
+status: verified
 related:
   - /api/tappi/vibration-manager-and-patterns
+  - /guides/haptics-and-alternative-feedback-channels
+prerequisites:
+  - /api/tappi/vibration-manager-and-patterns
+  - /api/scenery/node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # VibrationIndicator and ContinuousPatternVibrationController
@@ -95,5 +100,5 @@ new ContinuousPatternVibrationController( vibrationManageriOS: VibrationManageri
 | `setRepeat( repeat )` | Toggles whether the active pattern loops |
 
 ::: warning `ContinuousPatternVibrationController` depends on a class that isn't exported
-Its constructor requires a `VibrationManageriOS` instance — the class that bridges to a native iOS WebView vibration handler. `VibrationManageriOS`'s own source marks it `@deprecated - This strategy is being abandoned for an android specific solution`, and it is **not** re-exported from `tappi.ts`, the barrel file `scenerystack/tappi` is built from — so there's no supported way to construct one from outside the SceneryStack repository itself. In practice, `ContinuousPatternVibrationController` is not currently usable through the public `scenerystack/tappi` API; this page documents its real shape from source, but treat it — and this whole newly-added `tappi` library section — as unverified until confirmed against a working consumer.
+Its constructor requires a `VibrationManageriOS` instance — the class that bridges to a native iOS WebView vibration handler. `VibrationManageriOS`'s own source marks it `@deprecated - This strategy is being abandoned for an android specific solution`, and it is **not** re-exported from `tappi.ts` — so there's no supported way to construct one from outside the SceneryStack repository itself. `VibrationIndicator` was verified against `scenerystack@3.0.0` source; `ContinuousPatternVibrationController` is documented here from source for completeness but is not usable through the public API.
 :::

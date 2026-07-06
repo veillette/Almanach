@@ -2,7 +2,10 @@
 title: The Enumeration Pattern
 description: Modeling closed sets of values instead of string literals.
 category: patterns
-tags: [axon, EnumerationProperty, enumeration]
+tags:
+  - axon
+  - EnumerationProperty
+  - enumeration
 status: verified
 related:
   - /api/axon/enumeration-property
@@ -11,6 +14,9 @@ related:
   - /api/phet-core/enumeration-value
 prerequisites:
   - /patterns/model-view-separation
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # The Enumeration Pattern

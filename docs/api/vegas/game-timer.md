@@ -4,7 +4,7 @@ description: A simple wall-clock-driven timer, ticking once per second, used to 
 category: api
 library: vegas
 tags: [vegas, GameTimer, game, timer]
-status: complete
+status: verified
 related:
   - /api/vegas/elapsed-time-node
   - /api/axon/number-property
@@ -12,6 +12,7 @@ prerequisites:
   - /api/axon/property
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # GameTimer

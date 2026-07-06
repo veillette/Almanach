@@ -1,8 +1,13 @@
 ---
 title: Model-View Separation
-description: The foundational SceneryStack architecture - axon Properties form the model, scenery Nodes observe it, and nothing flows the other way.
+description: 'The foundational SceneryStack architecture - axon Properties form the model, scenery Nodes observe it, and nothing flows the other way.'
 category: patterns
-tags: [architecture, axon, Property, DerivedProperty, MVC]
+tags:
+  - architecture
+  - axon
+  - Property
+  - DerivedProperty
+  - MVC
 status: verified
 related:
   - /api/phetcommon/model-view-transform
@@ -11,6 +16,9 @@ related:
   - /patterns/reset-all-pattern
 prerequisites:
   - /getting-started/your-first-simulation
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Model-View Separation

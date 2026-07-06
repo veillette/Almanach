@@ -1,8 +1,11 @@
 ---
 title: Lazy Initialization Pattern
-description: Deferring an expensive object's construction until it's actually needed, instead of paying its cost unconditionally at startup.
+description: 'Deferring an expensive object''s construction until it''s actually needed, instead of paying its cost unconditionally at startup.'
 category: patterns
-tags: [performance, architecture, lazy-initialization]
+tags:
+  - performance
+  - architecture
+  - lazy-initialization
 status: complete
 related:
   - /cookbook/lazily-creating-an-expensive-node
@@ -10,6 +13,9 @@ related:
   - /guides/performance-and-profiling
 prerequisites:
   - /patterns/model-view-separation
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Lazy Initialization Pattern

@@ -8,7 +8,7 @@ status: complete
 related:
   - /api/scenery-phet/keyboard-help-node-basics
   - /api/scenery-phet/faucet-node
-  - /api/scenery-phet/heat-cool-control
+  - /api/scenery-phet/heater-cooler-node
   - /api/scenery-phet/time-control-node
   - /api/scenery-phet/reset-all-button
   - /accessibility/keyboard-input-and-hotkeys

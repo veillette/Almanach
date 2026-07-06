@@ -1,14 +1,22 @@
 ---
 title: Testing Model Logic Headlessly
-description: Unit-testing model classes without instantiating scenery Nodes or a Display, so tests run fast and in plain Node.js.
+description: 'Unit-testing model classes without instantiating scenery Nodes or a Display, so tests run fast and in plain Node.js.'
 category: patterns
-tags: [testing, axon, Property, model, node.js]
+tags:
+  - testing
+  - axon
+  - Property
+  - model
+  - node.js
 status: verified
 related:
   - /patterns/model-view-separation
   - /patterns/dispose-and-memory-management
 prerequisites:
   - /patterns/model-view-separation
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Testing Model Logic Headlessly

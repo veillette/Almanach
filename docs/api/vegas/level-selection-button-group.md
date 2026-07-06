@@ -4,7 +4,7 @@ description: Instantiates and lays out a row (or custom arrangement) of LevelSel
 category: api
 library: vegas
 tags: [vegas, LevelSelectionButtonGroup, LevelSelectionButton, game, FlowBox]
-status: complete
+status: verified
 related:
   - /api/vegas/level-selection-button
   - /api/vegas/game-audio-player
@@ -12,6 +12,7 @@ prerequisites:
   - /api/vegas/level-selection-button
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # LevelSelectionButtonGroup

@@ -4,7 +4,7 @@ description: The three sibling score-display Nodes alongside ScoreDisplayNumberA
 category: api
 library: vegas
 tags: [vegas, ScoreDisplayLabeledNumber, ScoreDisplayLabeledStars, ScoreDisplayStars, score, game, HBox]
-status: complete
+status: verified
 prerequisites:
   - /api/vegas/score-display-number-and-star
 related:
@@ -13,6 +13,7 @@ related:
   - /api/vegas/level-completed-node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # ScoreDisplay Family

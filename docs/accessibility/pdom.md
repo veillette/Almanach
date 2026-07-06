@@ -9,13 +9,18 @@ related:
   - /accessibility/focus-highlights
   - /accessibility/alternative-input-overview
   - /accessibility/internationalized-accessible-names
+  - /api/scenery/parallel-dom-deep-dive
 prerequisites:
   - /getting-started/what-is-scenerystack
 ---
 
 # The Parallel DOM (PDOM)
 
-Scenery draws to Canvas/SVG/WebGL — surfaces that are invisible to screen readers. To make applications accessible, scenery maintains a **Parallel DOM**: a hidden tree of real HTML elements that mirrors the interactive structure of the scene graph. Screen readers read it, keyboard focus moves through it, and input events on it are routed back to the corresponding Nodes.
+::: tip API reference vs. author guide
+This page explains **why and how** simulation authors opt Nodes into the PDOM. For the full list of `ParallelDOM` trait options and accessors on `Node`, see [ParallelDOM](/api/scenery/parallel-dom-deep-dive).
+:::
+
+Scenery draws to Canvas/SVG/WebGL: To make applications accessible, scenery maintains a **Parallel DOM**: a hidden tree of real HTML elements that mirrors the interactive structure of the scene graph. Screen readers read it, keyboard focus moves through it, and input events on it are routed back to the corresponding Nodes.
 
 You opt each Node into the PDOM with accessibility options — no separate accessibility tree to maintain.
 

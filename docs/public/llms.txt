@@ -141,6 +141,7 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 
 ### mobius
 
+- [ThreeIsometricNode](https://veillette.github.io/Almanach/api/mobius/three-isometric-node): A scenery Node that fills a ScreenView's layout bounds with an isometric-scaled three.js viewport for full-screen 3D content.
 - [ThreeNode, ThreeInstrumentable, and ThreeObject3DPhetioObject](https://veillette.github.io/Almanach/api/mobius/node-wrapping-conventions): The scenery Node that hosts a fixed-size three.js viewport, and the mixin/PhetioObject pair used to give individual three.js objects a PhET-iO address.
 - [ThreeStage](https://veillette.github.io/Almanach/api/mobius/scene-and-camera-setup): The three.js scene, camera, and WebGLRenderer that every mobius 3D view is built around.
 - [ThreeUtils](https://veillette.github.io/Almanach/api/mobius/three-utils-helpers): Static helpers for converting between dot and three.js vector types, building quad geometry, loading textures, and detecting WebGL support.
@@ -148,6 +149,7 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 ### nitroglycerin
 
 - [Atom, Element, and AtomNode](https://veillette.github.io/Almanach/api/nitroglycerin/atom-and-element): The model layer for a single atom - immutable per-element physical constants (Element), a lightweight per-instance wrapper (Atom), and its shaded-sphere view (AtomNode).
+- [ChemUtils](https://veillette.github.io/Almanach/api/nitroglycerin/chem-utils): Plain-object chemistry helpers for molecular formulas, Hill-system sorting, and HTML subscript formatting in nitroglycerin sims.
 - [MoleculeNode](https://veillette.github.io/Almanach/api/nitroglycerin/molecule-node): The base class every pre-built molecule Node (H2ONode, CO2Node, and ~40 others) extends, composing a fixed arrangement of AtomNodes centered at the origin.
 
 ### phet-core
@@ -165,7 +167,7 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 - [Bucket](https://veillette.github.io/Almanach/api/phetcommon/bucket): The model for a container UI element that other model objects can be dropped into and stacked within, as used in build-a-molecule-style sims.
 - [Fraction](https://veillette.github.io/Almanach/api/phetcommon/fraction): An exact-arithmetic numerator/denominator fraction class with add/subtract/multiply/divide and reduction, used throughout PhET's fraction and ratio sims.
 - [ModelViewTransform2](https://veillette.github.io/Almanach/api/phetcommon/model-view-transform): Mapping between model coordinates (physical units, y-up) and view coordinates (pixels, y-down) with ModelViewTransform2.
-- [StringUtils](https://veillette.github.io/Almanach/api/phetcommon/phetcommon-query-parameters): phetcommon's small collection of string-handling helpers for translated pattern strings and bidirectional (LTR/RTL) text safety.
+- [StringUtils](https://veillette.github.io/Almanach/api/phetcommon/string-utils): phetcommon's small collection of string-handling helpers for translated pattern strings and bidirectional (LTR/RTL) text safety.
 
 ### query-string-machine
 
@@ -250,7 +252,7 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 - [GridNode](https://veillette.github.io/Almanach/api/scenery-phet/grid-node): A Path drawing an evenly-spaced coordinate grid, positioned and re-projected via a ModelViewTransform2 Property.
 - [Group Sort Interaction](https://veillette.github.io/Almanach/api/scenery-phet/group-sort-interaction): The accessible keyboard pattern for selecting an item within a group and then sorting it by changing its value — GroupSelectModel/GroupSelectView for selection alone, GroupSortInteractionView adding sorting.
 - [HandleNode](https://veillette.github.io/Almanach/api/scenery-phet/handle-node): A purely decorative graphic of a grippable handle attached to a surface by one or two elbow-shaped mounts.
-- [HeaterCoolerNode](https://veillette.github.io/Almanach/api/scenery-phet/heat-cool-control): A stove-style heating/cooling control driven by a bidirectional -1-to-+1 Property, with an embedded vertical slider.
+- [HeaterCoolerNode](https://veillette.github.io/Almanach/api/scenery-phet/heater-cooler-node): A stove-style heating/cooling control driven by a bidirectional -1-to-+1 Property, with an embedded vertical slider.
 - [Icon Toggle Buttons](https://veillette.github.io/Almanach/api/scenery-phet/icon-toggle-buttons): SoundToggleButton, TimerToggleButton, and EyeToggleButton — toggle buttons bound to a boolean Property that swap between two pre-built icons.
 - [InfoButton](https://veillette.github.io/Almanach/api/scenery-phet/info-button): The standard round grey button bearing an "i" info-circle icon, typically used to open an informational dialog.
 - [Keyboard Help Node Basics](https://veillette.github.io/Almanach/api/scenery-phet/keyboard-help-node-basics): KeyNode and its subclasses render individual keycap icons; KeyboardHelpIconFactory composes them into the rows used by a Keyboard Help Dialog.
@@ -385,6 +387,7 @@ Full content of every page is available at https://veillette.github.io/Almanach/
 
 ### utterance-queue
 
+- [Announcer, AriaLiveAnnouncer, and SpeechSynthesisAnnouncer](https://veillette.github.io/Almanach/api/utterance-queue/announcers): The Announcer hierarchy that UtteranceQueue hands resolved alert text to — aria-live DOM updates and Web Speech API synthesis.
 - [ResponsePacket and ResponsePatternCollection](https://veillette.github.io/Almanach/api/utterance-queue/response-packet-and-patterns): Structuring a spoken response into name/object/context/hint categories, and controlling how those categories are combined into one string.
 - [Utterance](https://veillette.github.io/Almanach/api/utterance-queue/utterance): A wrapper around alert content that tracks stability, priority, and per-feature announcing control before it reaches an UtteranceQueue.
 - [UtteranceQueue](https://veillette.github.io/Almanach/api/utterance-queue/utterance-queue): The FIFO queue that manages timing, priority, and interruption for Utterances before handing text off to an Announcer.

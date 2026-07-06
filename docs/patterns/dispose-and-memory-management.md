@@ -2,7 +2,10 @@
 title: Dispose and Memory Management
 description: The dispose() convention - when Nodes/Properties/listeners must clean up.
 category: patterns
-tags: [dispose, memory, lifecycle]
+tags:
+  - dispose
+  - memory
+  - lifecycle
 status: verified
 related:
   - /patterns/model-view-separation
@@ -11,6 +14,9 @@ related:
   - /patterns/multilink-pattern
 prerequisites:
   - /patterns/model-view-separation
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Dispose and Memory Management

@@ -3,16 +3,18 @@ title: Haptics and Alternative Feedback Channels
 description: Sound (tambo) and vibration (tappi) as feedback channels beyond the visual scene graph - when a simulation benefits from each, and how they relate to accessibility.
 category: guides
 tags: [tambo, tappi, sound, vibration, haptics, accessibility]
-status: draft
+status: verified
 related:
   - /guides/working-with-sound
   - /accessibility/sound-design
   - /api/tappi/vibration-manager-and-patterns
+  - /api/tappi/vibration-indicator-and-controller
   - /guides/scenery-basics
 prerequisites:
   - /guides/scenery-basics
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # Haptics and Alternative Feedback Channels

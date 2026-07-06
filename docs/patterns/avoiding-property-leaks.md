@@ -1,8 +1,13 @@
 ---
 title: Avoiding Property Leaks
-description: Listener-unlinking discipline for Properties, DerivedProperties, and Multilinks so dynamically created objects don't leak their whole dependency chain.
+description: 'Listener-unlinking discipline for Properties, DerivedProperties, and Multilinks so dynamically created objects don''t leak their whole dependency chain.'
 category: patterns
-tags: [axon, Property, memory, dispose, listeners]
+tags:
+  - axon
+  - Property
+  - memory
+  - dispose
+  - listeners
 status: verified
 related:
   - /patterns/dispose-and-memory-management
@@ -11,6 +16,9 @@ related:
   - /api/axon/derived-property
 prerequisites:
   - /patterns/dispose-and-memory-management
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Avoiding Property Leaks

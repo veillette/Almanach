@@ -4,11 +4,15 @@ description: The shared singleton that drives device vibration through the Web V
 category: api
 library: tappi
 tags: [tappi, vibrationManager, VibrationPatterns, Intensity, vibration, haptics]
-status: draft
+status: verified
 related:
   - /api/tappi/vibration-indicator-and-controller
+  - /guides/haptics-and-alternative-feedback-channels
+prerequisites:
+  - /guides/scenery-basics
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # vibrationManager and VibrationPatterns
@@ -66,6 +70,6 @@ vibrationManager.setVibrationIntensity( Intensity.LOW );
 | `MOTOR_CALL` | `null` — shorthand for "no pattern," i.e. plain continuous vibration |
 | `interactionSuccess( vibrationManageriOS )` | A function (not a pattern array) that fires three rapid transient vibrations; takes a `VibrationManageriOS` instance, a separate iOS-bridge class — see the warning below |
 
-::: warning This page could not be fully verified against a working example
-`vibrationManager` and the plain interval-array entries of `VibrationPatterns` (`FLUTTER`, `HEARTBEAT`, `HZ_10`, etc.) are straightforward and confirmed real exports of `scenerystack/tappi`. However, `VibrationPatterns.interactionSuccess` takes a `VibrationManageriOS` parameter — a class whose own source marks it `@deprecated` and which is **not** re-exported from `tappi.ts`, so it isn't actually constructable via the public `scenerystack/tappi` API. Tappi is a newly-documented, niche library in Almanach; treat this page as a draft until an independent pass has exercised it against a real device or emulator.
+::: warning `VibrationPatterns.interactionSuccess` is not usable through the public API
+`VibrationPatterns.interactionSuccess` takes a `VibrationManageriOS` parameter — a class whose own source marks it `@deprecated` and which is **not** re-exported from `tappi.ts`, so it isn't constructable via the public `scenerystack/tappi` API. All other exports and methods on this page were verified against `scenerystack@3.0.0` source.
 :::

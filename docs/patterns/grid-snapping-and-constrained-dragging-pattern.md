@@ -1,8 +1,13 @@
 ---
 title: Grid-Snapping and Constrained-Dragging Pattern
-description: When and why to constrain a draggable Node's input - snapping to a grid, clamping to bounds, or restricting to one axis - as distinct decisions layered on top of the ordinary drag-listener pattern.
+description: 'When and why to constrain a draggable Node''s input - snapping to a grid, clamping to bounds, or restricting to one axis - as distinct decisions layered on top of the ordinary drag-listener pattern.'
 category: patterns
-tags: [scenery, DragListener, drag, constraint, grid-snapping]
+tags:
+  - scenery
+  - DragListener
+  - drag
+  - constraint
+  - grid-snapping
 status: complete
 related:
   - /patterns/drag-listeners
@@ -12,6 +17,9 @@ related:
   - /patterns/model-view-separation
 prerequisites:
   - /patterns/drag-listeners
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Grid-Snapping and Constrained-Dragging Pattern

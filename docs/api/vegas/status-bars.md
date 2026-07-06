@@ -4,7 +4,7 @@ description: The standard game-screen status bars that pin a score display (and 
 category: api
 library: vegas
 tags: [vegas, FiniteStatusBar, InfiniteStatusBar, StatusBar, game, score]
-status: complete
+status: verified
 prerequisites:
   - /api/vegas/score-display-family
 related:
@@ -13,6 +13,7 @@ related:
   - /api/vegas/all-levels-completed-node
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # FiniteStatusBar and InfiniteStatusBar

@@ -1,8 +1,13 @@
 ---
 title: Composing View Nodes
-description: Building a screen's view as small, composed Node subclasses instead of one giant ScreenView.
+description: 'Building a screen''s view as small, composed Node subclasses instead of one giant ScreenView.'
 category: patterns
-tags: [scenery, Node, ScreenView, composition, architecture]
+tags:
+  - scenery
+  - Node
+  - ScreenView
+  - composition
+  - architecture
 status: verified
 related:
   - /patterns/model-view-separation
@@ -10,6 +15,9 @@ related:
   - /patterns/dispose-and-memory-management
 prerequisites:
   - /patterns/model-view-separation
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Composing View Nodes

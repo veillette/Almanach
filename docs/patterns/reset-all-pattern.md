@@ -2,7 +2,10 @@
 title: The Reset-All Pattern
 description: Wiring every model Property's reset() through one ResetAllButton.
 category: patterns
-tags: [reset, ResetAllButton, Property]
+tags:
+  - reset
+  - ResetAllButton
+  - Property
 status: verified
 related:
   - /api/scenery-phet/reset-all-button
@@ -10,9 +13,16 @@ related:
   - /patterns/model-view-separation
 prerequisites:
   - /patterns/model-view-separation
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # The Reset-All Pattern
+
+::: tip Scope: in-sim reset, not external save/load
+This pattern covers the **Reset All button** wiring every model `Property` back to its `initialValue`. For structuring state so PhET-iO (or a custom save/load feature) can serialize and restore it, see [State Persistence and Save/Restore Patterns](/patterns/state-persistence-and-save-restore-patterns).
+:::
 
 Every SceneryStack screen has exactly one `ResetAllButton`, and its `listener` calls exactly one method: the model's own `reset()`, which in turn resets every `Property` the model owns back to its `initialValue`. Individual view components never reset themselves independently — they simply observe the Properties the model just reset, the same way they observe any other change. Centralizing on `model.reset()` is what guarantees "reset" always means *everything goes back to how the sim started*, not "everything I remembered to wire up."
 

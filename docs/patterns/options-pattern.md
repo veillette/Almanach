@@ -2,7 +2,10 @@
 title: The Options Pattern
 description: The options-object convention for configuring Nodes and components.
 category: patterns
-tags: [options, typescript, conventions]
+tags:
+  - options
+  - typescript
+  - conventions
 status: verified
 related:
   - /patterns/model-view-separation
@@ -10,6 +13,9 @@ related:
   - /api/scenery-phet/arrow-node
 prerequisites:
   - /getting-started/what-is-scenerystack
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # The Options Pattern

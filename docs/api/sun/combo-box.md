@@ -17,6 +17,10 @@ sourceRefs:
 
 # ComboBox
 
+::: tip Scope: start here for dropdown selectors
+This page documents the `ComboBox` control simulation authors use. The internal popup list (`ComboBoxListBox`) is documented separately in [ComboBoxListBox](/api/sun/list-box) only because understanding what backs the dropdown clarifies which options belong on `ComboBox` versus the list it constructs internally.
+:::
+
 `ComboBox` (from `scenerystack/sun`) is a dropdown selector: a button showing the current selection, which opens a popup list box of items when pressed. It's bound to a settable `Property<T>` over a fixed, enumerated set of values — reach for it instead of a [radio button group](/api/sun/radio-button-group) when there are too many options (or too little screen space) to show them all at once.
 
 ```ts

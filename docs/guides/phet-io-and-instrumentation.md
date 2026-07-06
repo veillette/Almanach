@@ -16,6 +16,10 @@ sourceRefs:
 
 # PhET-iO and Instrumentation
 
+::: tip When to read the related pages
+This page is the **conceptual entry point** — what PhET-iO buys you and how `Tandem` fits in. For runtime dynamic elements and custom `IOType`s, read [PhET-iO Deep Dive](/guides/phet-io-deep-dive). For day-to-day wiring conventions (what to instrument, how to structure tandems), read [PhET-iO Instrumentation Pattern](/patterns/phet-io-instrumentation-pattern).
+:::
+
 PhET-iO is the layer that turns a running simulation into something an external program can inspect, record, and control: every instrumented object's state can be serialized, saved, restored, and set remotely — the same mechanism that powers PhET's state-saving, data-collection, and interoperability features. **Instrumentation is opt-in and additive**: an uninstrumented simulation runs identically, just without that external surface.
 
 ## Tandem: the instrumentation identifier

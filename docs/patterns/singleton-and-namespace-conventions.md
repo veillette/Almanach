@@ -3,7 +3,7 @@ title: Singleton and Namespace Conventions
 description: When a library exposes a ready-made shared-instance singleton (like dotRandom or animationFrameTimer) versus when you construct and own your own instance.
 category: patterns
 tags: [singleton, conventions, dotRandom, animationFrameTimer, Namespace, architecture]
-status: draft
+status: verified
 related:
   - /api/dot/random
   - /api/axon/timer
@@ -11,6 +11,9 @@ related:
   - /patterns/dispose-and-memory-management
 prerequisites:
   - /patterns/model-view-separation
+sourceRefs:
+  - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # Singleton and Namespace Conventions

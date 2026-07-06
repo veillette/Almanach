@@ -1,8 +1,14 @@
 ---
 title: Drag Listeners
-description: Making nodes draggable with DragListener, KeyboardDragListener, and RichDragListener, wired to a model positionProperty through a transform.
+description: 'Making nodes draggable with DragListener, KeyboardDragListener, and RichDragListener, wired to a model positionProperty through a transform.'
 category: patterns
-tags: [scenery, input, DragListener, KeyboardDragListener, RichDragListener, interaction]
+tags:
+  - scenery
+  - input
+  - DragListener
+  - KeyboardDragListener
+  - RichDragListener
+  - interaction
 status: verified
 related:
   - /api/phetcommon/model-view-transform
@@ -12,6 +18,9 @@ related:
   - /api/scenery/keyboard-drag-listener
 prerequisites:
   - /patterns/model-view-separation
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Drag Listeners

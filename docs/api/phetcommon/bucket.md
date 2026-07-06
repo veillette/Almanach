@@ -9,7 +9,7 @@ prerequisites:
   - /api/tandem/phetio-object
 related:
   - /api/phetcommon/model-view-transform
-  - /api/phetcommon/phetcommon-query-parameters
+  - /api/phetcommon/string-utils
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
 ---

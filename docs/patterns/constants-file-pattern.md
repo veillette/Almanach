@@ -1,8 +1,13 @@
 ---
 title: Constants File Pattern
-description: The convention of one MySimConstants.ts module holding every shared magic number, color, and font - the same convention scenery-phet/sun's own SceneryPhetConstants and SunConstants follow.
+description: 'The convention of one MySimConstants.ts module holding every shared magic number, color, and font - the same convention scenery-phet/sun''s own SceneryPhetConstants and SunConstants follow.'
 category: patterns
-tags: [conventions, constants, architecture, SceneryPhetConstants, SunConstants]
+tags:
+  - conventions
+  - constants
+  - architecture
+  - SceneryPhetConstants
+  - SunConstants
 status: complete
 related:
   - /styling/spacing-and-sizing-constants
@@ -10,6 +15,9 @@ related:
   - /patterns/options-pattern
 prerequisites:
   - /patterns/model-view-separation
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Constants File Pattern

@@ -2,8 +2,8 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based knowledge base of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-06T04:59:28.397Z",
-  "documentCount": 420,
+  "generated": "2026-07-06T05:15:46.727Z",
+  "documentCount": 423,
   "documents": [
     {
       "path": "/getting-started/deploying-to-github-pages",
@@ -453,18 +453,20 @@
         "haptics",
         "accessibility"
       ],
-      "status": "draft",
+      "status": "verified",
       "related": [
         "/guides/working-with-sound",
         "/accessibility/sound-design",
         "/api/tappi/vibration-manager-and-patterns",
+        "/api/tappi/vibration-indicator-and-controller",
         "/guides/scenery-basics"
       ],
       "prerequisites": [
         "/guides/scenery-basics"
       ],
       "sourceRefs": [
-        "https://www.npmjs.com/package/scenerystack"
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
       ],
       "wordCount": 732,
       "url": "https://veillette.github.io/Almanach/guides/haptics-and-alternative-feedback-channels"
@@ -574,7 +576,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 634,
+      "wordCount": 686,
       "url": "https://veillette.github.io/Almanach/guides/phet-io-and-instrumentation"
     },
     {
@@ -1211,7 +1213,7 @@
       "related": [
         "/api/axon/derived-property",
         "/api/axon/string-property",
-        "/api/phetcommon/phetcommon-query-parameters",
+        "/api/phetcommon/string-utils",
         "/guides/internationalization-deep-dive"
       ],
       "prerequisites": [
@@ -3167,6 +3169,38 @@
       "url": "https://veillette.github.io/Almanach/api/kite/svg-path-parsing-and-serialization"
     },
     {
+      "path": "/api/mobius/three-isometric-node",
+      "sourceFile": "docs/api/mobius/three-isometric-node.md",
+      "title": "ThreeIsometricNode",
+      "description": "A scenery Node that fills a ScreenView's layout bounds with an isometric-scaled three.js viewport for full-screen 3D content.",
+      "category": "api",
+      "library": "mobius",
+      "tags": [
+        "mobius",
+        "ThreeIsometricNode",
+        "ThreeNode",
+        "three.js",
+        "3d",
+        "isometric"
+      ],
+      "status": "verified",
+      "related": [
+        "/api/mobius/node-wrapping-conventions",
+        "/examples/three-js-integration",
+        "/api/dot/bounds2"
+      ],
+      "prerequisites": [
+        "/api/mobius/scene-and-camera-setup",
+        "/api/mobius/node-wrapping-conventions"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
+      "wordCount": 351,
+      "url": "https://veillette.github.io/Almanach/api/mobius/three-isometric-node"
+    },
+    {
       "path": "/api/mobius/node-wrapping-conventions",
       "sourceFile": "docs/api/mobius/node-wrapping-conventions.md",
       "title": "ThreeNode, ThreeInstrumentable, and ThreeObject3DPhetioObject",
@@ -3184,6 +3218,7 @@
       "status": "verified",
       "related": [
         "/api/mobius/scene-and-camera-setup",
+        "/api/mobius/three-isometric-node",
         "/api/mobius/three-utils-helpers",
         "/patterns/phet-io-instrumentation-pattern",
         "/examples/three-js-integration",
@@ -3276,6 +3311,7 @@
       "status": "verified",
       "related": [
         "/api/nitroglycerin/molecule-node",
+        "/api/nitroglycerin/chem-utils",
         "/patterns/model-view-separation"
       ],
       "prerequisites": [
@@ -3286,6 +3322,35 @@
       ],
       "wordCount": 542,
       "url": "https://veillette.github.io/Almanach/api/nitroglycerin/atom-and-element"
+    },
+    {
+      "path": "/api/nitroglycerin/chem-utils",
+      "sourceFile": "docs/api/nitroglycerin/chem-utils.md",
+      "title": "ChemUtils",
+      "description": "Plain-object chemistry helpers for molecular formulas, Hill-system sorting, and HTML subscript formatting in nitroglycerin sims.",
+      "category": "api",
+      "library": "nitroglycerin",
+      "tags": [
+        "nitroglycerin",
+        "ChemUtils",
+        "Element",
+        "chemistry",
+        "formula"
+      ],
+      "status": "verified",
+      "related": [
+        "/api/nitroglycerin/atom-and-element",
+        "/api/nitroglycerin/molecule-node"
+      ],
+      "prerequisites": [
+        "/api/nitroglycerin/atom-and-element"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
+      "wordCount": 320,
+      "url": "https://veillette.github.io/Almanach/api/nitroglycerin/chem-utils"
     },
     {
       "path": "/api/nitroglycerin/molecule-node",
@@ -3524,7 +3589,7 @@
       "status": "verified",
       "related": [
         "/api/phetcommon/model-view-transform",
-        "/api/phetcommon/phetcommon-query-parameters"
+        "/api/phetcommon/string-utils"
       ],
       "prerequisites": [
         "/api/tandem/phetio-object"
@@ -3589,8 +3654,8 @@
       "url": "https://veillette.github.io/Almanach/api/phetcommon/model-view-transform"
     },
     {
-      "path": "/api/phetcommon/phetcommon-query-parameters",
-      "sourceFile": "docs/api/phetcommon/phetcommon-query-parameters.md",
+      "path": "/api/phetcommon/string-utils",
+      "sourceFile": "docs/api/phetcommon/string-utils.md",
       "title": "StringUtils",
       "description": "phetcommon's small collection of string-handling helpers for translated pattern strings and bidirectional (LTR/RTL) text safety.",
       "category": "api",
@@ -3613,7 +3678,7 @@
         "https://www.npmjs.com/package/scenerystack"
       ],
       "wordCount": 467,
-      "url": "https://veillette.github.io/Almanach/api/phetcommon/phetcommon-query-parameters"
+      "url": "https://veillette.github.io/Almanach/api/phetcommon/string-utils"
     },
     {
       "path": "/api/query-string-machine/query-parameter-schema-conventions",
@@ -5825,8 +5890,8 @@
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/handle-node"
     },
     {
-      "path": "/api/scenery-phet/heat-cool-control",
-      "sourceFile": "docs/api/scenery-phet/heat-cool-control.md",
+      "path": "/api/scenery-phet/heater-cooler-node",
+      "sourceFile": "docs/api/scenery-phet/heater-cooler-node.md",
       "title": "HeaterCoolerNode",
       "description": "A stove-style heating/cooling control driven by a bidirectional -1-to-+1 Property, with an embedded vertical slider.",
       "category": "api",
@@ -5852,7 +5917,7 @@
         "https://www.npmjs.com/package/scenerystack"
       ],
       "wordCount": 391,
-      "url": "https://veillette.github.io/Almanach/api/scenery-phet/heat-cool-control"
+      "url": "https://veillette.github.io/Almanach/api/scenery-phet/heater-cooler-node"
     },
     {
       "path": "/api/scenery-phet/icon-toggle-buttons",
@@ -5971,7 +6036,7 @@
       "related": [
         "/api/scenery-phet/keyboard-help-node-basics",
         "/api/scenery-phet/faucet-node",
-        "/api/scenery-phet/heat-cool-control",
+        "/api/scenery-phet/heater-cooler-node",
         "/api/scenery-phet/time-control-node",
         "/api/scenery-phet/reset-all-button",
         "/accessibility/keyboard-input-and-hotkeys"
@@ -7844,7 +7909,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 448,
+      "wordCount": 495,
       "url": "https://veillette.github.io/Almanach/api/sun/combo-box"
     },
     {
@@ -7871,7 +7936,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 439,
+      "wordCount": 479,
       "url": "https://veillette.github.io/Almanach/api/sun/list-box"
     },
     {
@@ -8969,15 +9034,20 @@
         "vibration",
         "haptics"
       ],
-      "status": "draft",
+      "status": "verified",
       "related": [
-        "/api/tappi/vibration-manager-and-patterns"
+        "/api/tappi/vibration-manager-and-patterns",
+        "/guides/haptics-and-alternative-feedback-channels"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/api/tappi/vibration-manager-and-patterns",
+        "/api/scenery/node"
+      ],
       "sourceRefs": [
-        "https://www.npmjs.com/package/scenerystack"
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
       ],
-      "wordCount": 669,
+      "wordCount": 644,
       "url": "https://veillette.github.io/Almanach/api/tappi/vibration-indicator-and-controller"
     },
     {
@@ -8995,15 +9065,19 @@
         "vibration",
         "haptics"
       ],
-      "status": "draft",
+      "status": "verified",
       "related": [
-        "/api/tappi/vibration-indicator-and-controller"
+        "/api/tappi/vibration-indicator-and-controller",
+        "/guides/haptics-and-alternative-feedback-channels"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "/guides/scenery-basics"
+      ],
       "sourceRefs": [
-        "https://www.npmjs.com/package/scenerystack"
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
       ],
-      "wordCount": 629,
+      "wordCount": 590,
       "url": "https://veillette.github.io/Almanach/api/tappi/vibration-manager-and-patterns"
     },
     {
@@ -9115,6 +9189,39 @@
       "url": "https://veillette.github.io/Almanach/api/twixt/transition-node"
     },
     {
+      "path": "/api/utterance-queue/announcers",
+      "sourceFile": "docs/api/utterance-queue/announcers.md",
+      "title": "Announcer, AriaLiveAnnouncer, and SpeechSynthesisAnnouncer",
+      "description": "The Announcer hierarchy that UtteranceQueue hands resolved alert text to — aria-live DOM updates and Web Speech API synthesis.",
+      "category": "api",
+      "library": "utterance-queue",
+      "tags": [
+        "utterance-queue",
+        "Announcer",
+        "AriaLiveAnnouncer",
+        "SpeechSynthesisAnnouncer",
+        "voicing",
+        "accessibility"
+      ],
+      "status": "verified",
+      "related": [
+        "/api/utterance-queue/utterance-queue",
+        "/api/utterance-queue/response-packet-and-patterns",
+        "/accessibility/voicing",
+        "/accessibility/describing-dynamic-state"
+      ],
+      "prerequisites": [
+        "/api/utterance-queue/utterance-queue",
+        "/api/utterance-queue/utterance"
+      ],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
+      "wordCount": 398,
+      "url": "https://veillette.github.io/Almanach/api/utterance-queue/announcers"
+    },
+    {
       "path": "/api/utterance-queue/response-packet-and-patterns",
       "sourceFile": "docs/api/utterance-queue/response-packet-and-patterns.md",
       "title": "ResponsePacket and ResponsePatternCollection",
@@ -9193,6 +9300,7 @@
       "status": "verified",
       "related": [
         "/api/utterance-queue/utterance",
+        "/api/utterance-queue/announcers",
         "/api/utterance-queue/response-packet-and-patterns",
         "/accessibility/voicing",
         "/accessibility/describing-dynamic-state"
@@ -9248,7 +9356,7 @@
         "game",
         "HBox"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/vegas/game-timer",
         "/api/vegas/status-bars"
@@ -9257,7 +9365,8 @@
         "/api/vegas/game-timer"
       ],
       "sourceRefs": [
-        "https://www.npmjs.com/package/scenerystack"
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
       ],
       "wordCount": 278,
       "url": "https://veillette.github.io/Almanach/api/vegas/elapsed-time-node"
@@ -9277,7 +9386,7 @@
         "game",
         "score"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/vegas/score-display-family",
         "/api/vegas/level-completed-node",
@@ -9287,7 +9396,8 @@
         "/api/vegas/score-display-family"
       ],
       "sourceRefs": [
-        "https://www.npmjs.com/package/scenerystack"
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
       ],
       "wordCount": 657,
       "url": "https://veillette.github.io/Almanach/api/vegas/status-bars"
@@ -9335,7 +9445,7 @@
         "game",
         "timer"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/vegas/elapsed-time-node",
         "/api/axon/number-property"
@@ -9344,7 +9454,8 @@
         "/api/axon/property"
       ],
       "sourceRefs": [
-        "https://www.npmjs.com/package/scenerystack"
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
       ],
       "wordCount": 424,
       "url": "https://veillette.github.io/Almanach/api/vegas/game-timer"
@@ -9363,7 +9474,7 @@
         "Panel",
         "score"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/vegas/all-levels-completed-node",
         "/api/vegas/score-display-family",
@@ -9374,7 +9485,8 @@
         "/api/vegas/score-display-family"
       ],
       "sourceRefs": [
-        "https://www.npmjs.com/package/scenerystack"
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
       ],
       "wordCount": 575,
       "url": "https://veillette.github.io/Almanach/api/vegas/level-completed-node"
@@ -9421,7 +9533,7 @@
         "game",
         "FlowBox"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/vegas/level-selection-button",
         "/api/vegas/game-audio-player"
@@ -9430,7 +9542,8 @@
         "/api/vegas/level-selection-button"
       ],
       "sourceRefs": [
-        "https://www.npmjs.com/package/scenerystack"
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
       ],
       "wordCount": 614,
       "url": "https://veillette.github.io/Almanach/api/vegas/level-selection-button-group"
@@ -9451,7 +9564,7 @@
         "game",
         "HBox"
       ],
-      "status": "complete",
+      "status": "verified",
       "related": [
         "/api/vegas/score-display-number-and-star",
         "/api/vegas/status-bars",
@@ -9461,7 +9574,8 @@
         "/api/vegas/score-display-number-and-star"
       ],
       "sourceRefs": [
-        "https://www.npmjs.com/package/scenerystack"
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
       ],
       "wordCount": 518,
       "url": "https://veillette.github.io/Almanach/api/vegas/score-display-family"
@@ -9517,7 +9631,10 @@
       "prerequisites": [
         "/patterns/dispose-and-memory-management"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 633,
       "url": "https://veillette.github.io/Almanach/patterns/avoiding-property-leaks"
     },
@@ -9545,7 +9662,10 @@
         "/patterns/model-view-separation",
         "/patterns/state-persistence-and-save-restore-patterns"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 727,
       "url": "https://veillette.github.io/Almanach/patterns/command-undo-pattern"
     },
@@ -9571,7 +9691,10 @@
       "prerequisites": [
         "/patterns/model-view-separation"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 682,
       "url": "https://veillette.github.io/Almanach/patterns/composing-view-nodes"
     },
@@ -9597,7 +9720,10 @@
       "prerequisites": [
         "/patterns/model-view-separation"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 610,
       "url": "https://veillette.github.io/Almanach/patterns/constants-file-pattern"
     },
@@ -9625,7 +9751,10 @@
         "/patterns/model-view-separation",
         "/api/axon/derived-property"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 645,
       "url": "https://veillette.github.io/Almanach/patterns/derived-enablement-pattern"
     },
@@ -9650,7 +9779,10 @@
       "prerequisites": [
         "/patterns/model-view-separation"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 498,
       "url": "https://veillette.github.io/Almanach/patterns/dispose-and-memory-management"
     },
@@ -9679,7 +9811,10 @@
       "prerequisites": [
         "/patterns/model-view-separation"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 458,
       "url": "https://veillette.github.io/Almanach/patterns/drag-listeners"
     },
@@ -9705,7 +9840,10 @@
       "prerequisites": [
         "/patterns/model-view-separation"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 449,
       "url": "https://veillette.github.io/Almanach/patterns/emitter-vs-property"
     },
@@ -9730,7 +9868,10 @@
       "prerequisites": [
         "/guides/preferences-and-feature-flags"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 475,
       "url": "https://veillette.github.io/Almanach/patterns/feature-flags-and-preferences-pattern"
     },
@@ -9758,7 +9899,10 @@
       "prerequisites": [
         "/patterns/drag-listeners"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 706,
       "url": "https://veillette.github.io/Almanach/patterns/grid-snapping-and-constrained-dragging-pattern"
     },
@@ -9787,7 +9931,10 @@
         "/patterns/model-view-separation",
         "/api/axon/property"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 793,
       "url": "https://veillette.github.io/Almanach/patterns/immutable-vs-mutable-model-data"
     },
@@ -9811,7 +9958,10 @@
       "prerequisites": [
         "/patterns/model-view-separation"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 617,
       "url": "https://veillette.github.io/Almanach/patterns/lazy-initialization-pattern"
     },
@@ -9838,7 +9988,10 @@
       "prerequisites": [
         "/getting-started/your-first-simulation"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 473,
       "url": "https://veillette.github.io/Almanach/patterns/model-view-separation"
     },
@@ -9897,7 +10050,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 658,
+      "wordCount": 699,
       "url": "https://veillette.github.io/Almanach/patterns/phet-io-instrumentation-pattern"
     },
     {
@@ -9940,7 +10093,7 @@
         "Namespace",
         "architecture"
       ],
-      "status": "draft",
+      "status": "verified",
       "related": [
         "/api/dot/random",
         "/api/axon/timer",
@@ -9950,7 +10103,10 @@
       "prerequisites": [
         "/patterns/model-view-separation"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 1007,
       "url": "https://veillette.github.io/Almanach/patterns/singleton-and-namespace-conventions"
     },
@@ -9977,8 +10133,11 @@
         "/patterns/model-view-separation",
         "/patterns/phet-io-instrumentation-pattern"
       ],
-      "sourceRefs": [],
-      "wordCount": 671,
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
+      "wordCount": 697,
       "url": "https://veillette.github.io/Almanach/patterns/state-persistence-and-save-restore-patterns"
     },
     {
@@ -10002,7 +10161,10 @@
       "prerequisites": [
         "/patterns/model-view-separation"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 662,
       "url": "https://veillette.github.io/Almanach/patterns/testing-model-logic-headlessly"
     },
@@ -10027,7 +10189,10 @@
       "prerequisites": [
         "/patterns/model-view-separation"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 420,
       "url": "https://veillette.github.io/Almanach/patterns/enumeration-pattern"
     },
@@ -10052,7 +10217,10 @@
       "prerequisites": [
         "/patterns/model-view-separation"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 428,
       "url": "https://veillette.github.io/Almanach/patterns/multilink-pattern"
     },
@@ -10076,7 +10244,10 @@
       "prerequisites": [
         "/getting-started/what-is-scenerystack"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
       "wordCount": 469,
       "url": "https://veillette.github.io/Almanach/patterns/options-pattern"
     },
@@ -10100,8 +10271,11 @@
       "prerequisites": [
         "/patterns/model-view-separation"
       ],
-      "sourceRefs": [],
-      "wordCount": 434,
+      "sourceRefs": [
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
+      ],
+      "wordCount": 479,
       "url": "https://veillette.github.io/Almanach/patterns/reset-all-pattern"
     },
     {
@@ -10641,7 +10815,7 @@
         "mobile",
         "testing"
       ],
-      "status": "draft",
+      "status": "verified",
       "related": [
         "/accessibility/screen-reader-testing-checklist",
         "/accessibility/pdom",
@@ -10652,9 +10826,10 @@
         "/accessibility/screen-reader-testing-checklist"
       ],
       "sourceRefs": [
-        "https://www.npmjs.com/package/scenerystack"
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
       ],
-      "wordCount": 826,
+      "wordCount": 788,
       "url": "https://veillette.github.io/Almanach/accessibility/mobile-screen-reader-testing-notes"
     },
     {
@@ -10732,13 +10907,14 @@
         "/patterns/drag-listeners",
         "/accessibility/focus-highlights",
         "/accessibility/alternative-input-overview",
-        "/accessibility/internationalized-accessible-names"
+        "/accessibility/internationalized-accessible-names",
+        "/api/scenery/parallel-dom-deep-dive"
       ],
       "prerequisites": [
         "/getting-started/what-is-scenerystack"
       ],
       "sourceRefs": [],
-      "wordCount": 468,
+      "wordCount": 495,
       "url": "https://veillette.github.io/Almanach/accessibility/pdom"
     },
     {
@@ -11621,7 +11797,7 @@
         "testing",
         "qa"
       ],
-      "status": "draft",
+      "status": "verified",
       "related": [
         "/patterns/query-parameters-pattern",
         "/guides/testing-and-qa-strategy-overview",
@@ -11631,9 +11807,10 @@
         "/patterns/query-parameters-pattern"
       ],
       "sourceRefs": [
-        "https://www.npmjs.com/package/scenerystack"
+        "https://www.npmjs.com/package/scenerystack",
+        "https://scenerystack.org/reference/"
       ],
-      "wordCount": 731,
+      "wordCount": 655,
       "url": "https://veillette.github.io/Almanach/cookbook/fuzz-testing-a-simulation-locally"
     },
     {
@@ -11818,7 +11995,11 @@
         "contributing"
       ],
       "status": "complete",
-      "related": [],
+      "related": [
+        "/meta/roadmap",
+        "/meta/page-template",
+        "/meta/scenerystack-version-compatibility"
+      ],
       "prerequisites": [],
       "sourceRefs": [],
       "wordCount": 1015,
@@ -11920,7 +12101,7 @@
       ],
       "prerequisites": [],
       "sourceRefs": [],
-      "wordCount": 885,
+      "wordCount": 737,
       "url": "https://veillette.github.io/Almanach/meta/roadmap"
     },
     {

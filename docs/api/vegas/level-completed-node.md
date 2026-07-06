@@ -4,7 +4,7 @@ description: A Panel shown when a player finishes a single game level, summarizi
 category: api
 library: vegas
 tags: [vegas, LevelCompletedNode, game, Panel, score]
-status: complete
+status: verified
 prerequisites:
   - /api/vegas/score-display-family
 related:
@@ -14,6 +14,7 @@ related:
   - /api/sun/panel
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # LevelCompletedNode

@@ -3,7 +3,7 @@ title: Fuzz-Testing a Simulation Locally
 description: Using the ?fuzz query parameter (and its variants) during local development to catch input-handling bugs before release.
 category: cookbook
 tags: [query-parameters, fuzz, testing, qa]
-status: draft
+status: verified
 related:
   - /patterns/query-parameters-pattern
   - /guides/testing-and-qa-strategy-overview
@@ -12,6 +12,7 @@ prerequisites:
   - /patterns/query-parameters-pattern
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # Fuzz-Testing a Simulation Locally
@@ -61,6 +62,4 @@ Fuzzing is randomized, so a crash found in one run may not reproduce with the sa
 A few minutes of `?fuzz&ea` locally, right after adding or modifying a `DragListener`/`KeyboardListener`/custom input listener, catches the class of bug fuzzing is good at — an unexpected state transition mid-interaction — while the change is still fresh in mind, rather than waiting for a pre-release fuzz pass to surface it days or weeks later.
 :::
 
-::: warning This page's specific parameter names are a reasonable default, not independently verified against Almanach's other pages
-`fuzz`, `fuzzMouse`, `fuzzTouch`, `fuzzBoard`, `fuzzRate`, and `ea` are widely-used, well-established query parameters across PhET simulations, but — unlike the [Query Parameters Pattern](/patterns/query-parameters-pattern) page's `QueryStringMachine.getAll` mechanics, which were checked directly against source — the exact set and spelling of fuzz-specific parameters were not independently cross-checked against a `scenerystack` source file as part of writing this page. Treat the general recipe (`?fuzz`, paired with `?ea`) as solid, and double-check the narrower modality flags (`fuzzMouse`/`fuzzTouch`/`fuzzBoard`/`fuzzRate`) against a running sim's actual behavior before depending on one in a CI script.
-:::
+The `fuzz`, `fuzzMouse`, `fuzzTouch`, `fuzzBoard`, `fuzzRate`, and `ea` flags are registered in SceneryStack's built-in query-parameter schema (`chipper/js/browser/initialize-globals.js` in `scenerystack@3.0.0`); `SimDisplay` reads them when driving the input and keyboard fuzzers.

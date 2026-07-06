@@ -19,6 +19,10 @@ sourceRefs:
 
 # PhET-iO Instrumentation Pattern
 
+::: tip Scope: conventions for wiring tandems
+This is a **prescriptive pattern** for structuring instrumentation in model and view code. For the conceptual overview of PhET-iO, read [PhET-iO and Instrumentation](/guides/phet-io-and-instrumentation) first; for `PhetioGroup`/`PhetioCapsule` and custom `IOType`s, read [PhET-iO Deep Dive](/guides/phet-io-deep-dive).
+:::
+
 A `Tandem` is a stable, hierarchical name (like a file path) that a `PhetioObject` — a `Property`, a `Node`, a `Screen`, the `Sim` itself — carries so PhET-iO wrappers can find and control it from outside the sim. Every simulation carries this plumbing whether or not PhET-iO is ever enabled for it, so the convention is to always pass `tandem` down through your model and view constructors and let each state-bearing `Property` create its own child tandem — rather than deciding instrumentation is "a PhET-iO feature" to bolt on later, which in practice means rewriting the whole model.
 
 ## The core idea

@@ -1,8 +1,12 @@
 ---
 title: Feature Flags and Preferences Pattern
-description: The narrow convention of gating an in-development or optional feature behind a single, consistently-named boolean Property.
+description: 'The narrow convention of gating an in-development or optional feature behind a single, consistently-named boolean Property.'
 category: patterns
-tags: [query-parameters, Property, feature-flag, preferences]
+tags:
+  - query-parameters
+  - Property
+  - feature-flag
+  - preferences
 status: verified
 related:
   - /guides/preferences-and-feature-flags
@@ -10,6 +14,9 @@ related:
   - /patterns/query-parameters-pattern
 prerequisites:
   - /guides/preferences-and-feature-flags
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Feature Flags and Preferences Pattern

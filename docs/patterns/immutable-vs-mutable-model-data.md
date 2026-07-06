@@ -1,8 +1,14 @@
 ---
 title: Immutable vs. Mutable Model Data
-description: When model state should be an immutable value object replaced wholesale via property.value = newValue, versus mutated in place - and why SceneryStack's math types default to returning new instances.
+description: 'When model state should be an immutable value object replaced wholesale via property.value = newValue, versus mutated in place - and why SceneryStack''s math types default to returning new instances.'
 category: patterns
-tags: [dot, Vector2, Bounds2, Property, immutability, performance]
+tags:
+  - dot
+  - Vector2
+  - Bounds2
+  - Property
+  - immutability
+  - performance
 status: complete
 related:
   - /api/dot/vector2
@@ -12,6 +18,9 @@ related:
 prerequisites:
   - /patterns/model-view-separation
   - /api/axon/property
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Immutable vs. Mutable Model Data

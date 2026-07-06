@@ -10,7 +10,7 @@ prerequisites:
 related:
   - /api/axon/derived-property
   - /api/axon/string-property
-  - /api/phetcommon/phetcommon-query-parameters
+  - /api/phetcommon/string-utils
   - /guides/internationalization-deep-dive
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

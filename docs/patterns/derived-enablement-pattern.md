@@ -1,8 +1,13 @@
 ---
 title: Derived-Enablement Pattern
-description: Computing a control's enabledProperty from a DerivedProperty over other model state, instead of imperatively setting .enabled from scattered call sites.
+description: 'Computing a control''s enabledProperty from a DerivedProperty over other model state, instead of imperatively setting .enabled from scattered call sites.'
 category: patterns
-tags: [axon, DerivedProperty, EnabledComponent, EnabledProperty, enablement]
+tags:
+  - axon
+  - DerivedProperty
+  - EnabledComponent
+  - EnabledProperty
+  - enablement
 status: complete
 related:
   - /api/axon/derived-property
@@ -12,6 +17,9 @@ related:
 prerequisites:
   - /patterns/model-view-separation
   - /api/axon/derived-property
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Derived-Enablement Pattern

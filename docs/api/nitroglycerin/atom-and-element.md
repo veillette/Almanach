@@ -9,6 +9,7 @@ prerequisites:
   - /getting-started/what-is-scenerystack
 related:
   - /api/nitroglycerin/molecule-node
+  - /api/nitroglycerin/chem-utils
   - /patterns/model-view-separation
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack

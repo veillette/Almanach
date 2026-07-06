@@ -2,7 +2,7 @@
 
 > A file-based knowledge base of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.
 
-This file contains the full text of all 420 pages. Each page begins with a "===" separator line.
+This file contains the full text of all 423 pages. Each page begins with a "===" separator line.
 
 
 ========================================================================
@@ -1259,7 +1259,7 @@ When it's unclear whether a missing/misplaced Node is a visibility, layout, or s
 Page: Haptics and Alternative Feedback Channels
 URL: https://veillette.github.io/Almanach/guides/haptics-and-alternative-feedback-channels
 Source: docs/guides/haptics-and-alternative-feedback-channels.md
-Category: Guides | Tags: tambo, tappi, sound, vibration, haptics, accessibility | Status: draft
+Category: Guides | Tags: tambo, tappi, sound, vibration, haptics, accessibility | Status: verified
 ========================================================================
 
 # Haptics and Alternative Feedback Channels
@@ -1539,6 +1539,10 @@ Category: Guides | Tags: phet-io, tandem, instrumentation | Status: verified
 ========================================================================
 
 # PhET-iO and Instrumentation
+
+::: tip When to read the related pages
+This page is the **conceptual entry point** — what PhET-iO buys you and how `Tandem` fits in. For runtime dynamic elements and custom `IOType`s, read [PhET-iO Deep Dive](/guides/phet-io-deep-dive). For day-to-day wiring conventions (what to instrument, how to structure tandems), read [PhET-iO Instrumentation Pattern](/patterns/phet-io-instrumentation-pattern).
+:::
 
 PhET-iO is the layer that turns a running simulation into something an external program can inspect, record, and control: every instrumented object's state can be serialized, saved, restored, and set remotely — the same mechanism that powers PhET's state-saving, data-collection, and interoperability features. **Instrumentation is opt-in and additive**: an uninstrumented simulation runs identically, just without that external surface.
 
@@ -7617,6 +7621,65 @@ Most code should go through `new Shape( svgString )` and `shape.getSVGPath()` ra
 
 
 ========================================================================
+Page: ThreeIsometricNode
+URL: https://veillette.github.io/Almanach/api/mobius/three-isometric-node
+Source: docs/api/mobius/three-isometric-node.md
+Category: API | Tags: mobius, ThreeIsometricNode, ThreeNode, three.js, 3d, isometric | Status: verified
+========================================================================
+
+# ThreeIsometricNode
+
+`ThreeIsometricNode` (from `scenerystack/mobius`) is the full-screen counterpart to [`ThreeNode`](/api/mobius/node-wrapping-conventions): instead of hosting a fixed-size three.js canvas as one child among other scenery Nodes, it takes a `ScreenView`'s `layoutBounds` and fills them with an isometric-scaled three.js viewport. `MobiusScreenView` and the [Three.js Integration](/examples/three-js-integration) example use this shape when 3D content is the primary backdrop for an entire screen.
+
+```ts
+import { ThreeIsometricNode } from 'scenerystack/mobius';
+import { Bounds2 } from 'scenerystack/dot';
+import { THREE } from 'scenerystack/mobius';
+
+const threeIsometricNode = new ThreeIsometricNode( layoutBounds, {
+  cameraPosition: new THREE.Vector3( 0, 0, 5 ),
+  fov: 50
+} );
+
+threeIsometricNode.stage.threeScene.add( myMesh );
+this.addChild( threeIsometricNode );
+```
+
+## Constructor
+
+```ts
+new ThreeIsometricNode( layoutBounds: Bounds2, providedOptions?: ThreeIsometricNodeOptions )
+```
+
+`ThreeIsometricNodeOptions` combines `NodeOptions` with `ThreeStageOptions` plus mobius-specific fields:
+
+| Option | Default | Effect |
+| --- | --- | --- |
+| `fov` | `50` | Perspective camera field of view in degrees |
+| `parentMatrixProperty` | identity `Matrix3` | Optional parent transform applied when projecting between screen and 3D space |
+| `viewOffset` | `(0, 0)` | Pixel offset applied when mapping layout bounds to the embedded canvas |
+| `getPhetioMouseHit` | `null` | Optional `( point: Vector2 ) => PhetioObject | null | 'phetioNotSelectable'` callback for PhET-iO Studio autoselect on background clicks |
+
+Most `ThreeStageOptions` (`cameraPosition`, `backgroundColor`, `rendererParameters`, …) pass through to the internal [`ThreeStage`](/api/mobius/scene-and-camera-setup) the node constructs.
+
+## Public members
+
+| Member | Description |
+| --- | --- |
+| `stage` | The internal `ThreeStage` — add meshes/lights to `stage.threeScene` and read `stage.threeCamera` |
+| `backgroundEventTarget` | A transparent `Rectangle` sized to `layoutBounds` that receives pointer events on empty background areas (useful for drag-to-rotate handlers) |
+
+## When to use `ThreeIsometricNode` vs. `ThreeNode`
+
+| Shape | Use when |
+| --- | --- |
+| `ThreeIsometricNode` | 3D fills (or dominates) an entire screen's layout bounds — typical mobius sim screens |
+| `ThreeNode` | 3D is one fixed-size panel among other 2D UI — a small 3D preview, an inset viewport |
+
+Both embed the renderer canvas via a `DOM` node with `preventTransform: true` so scenery never CSS-transforms the WebGL surface directly.
+
+
+========================================================================
 Page: ThreeNode, ThreeInstrumentable, and ThreeObject3DPhetioObject
 URL: https://veillette.github.io/Almanach/api/mobius/node-wrapping-conventions
 Source: docs/api/mobius/node-wrapping-conventions.md
@@ -7906,6 +7969,51 @@ const smallHydrogen = new AtomNode( Element.H, { mainColor: 'lightgray' } ); // 
 
 ::: tip `AtomNode` takes an `Element`, not an `Atom`
 Since `AtomNode` only needs `covalentRadius` and `color` — both already on `Element` — it skips `Atom` entirely. Reach for `Atom` only when you need per-instance identity (e.g. tracking individual atoms in a reaction simulation); for pure rendering, construct `AtomNode` straight from the `Element` static you need.
+:::
+
+
+========================================================================
+Page: ChemUtils
+URL: https://veillette.github.io/Almanach/api/nitroglycerin/chem-utils
+Source: docs/api/nitroglycerin/chem-utils.md
+Category: API | Tags: nitroglycerin, ChemUtils, Element, chemistry, formula | Status: verified
+========================================================================
+
+# ChemUtils
+
+`ChemUtils` (from `scenerystack/nitroglycerin`) is a plain object of static chemistry helpers — not a class you construct. Simulation code reaches for it when building molecular formula strings from [`Element`](/api/nitroglycerin/atom-and-element) lists, sorting atoms for Hill-system display order, or turning plain-text formulas like `C2H4` into HTML subscripts for `RichText`.
+
+```ts
+import { ChemUtils, Element } from 'scenerystack/nitroglycerin';
+
+const elements = [ Element.C, Element.C, Element.H, Element.H, Element.H, Element.H ];
+
+ChemUtils.createSymbolWithoutSubscripts( elements ); // "C2H4"
+ChemUtils.createSymbol( elements );                  // "C<sub>2</sub>H<sub>4</sub>"
+ChemUtils.toSubscript( 'C2H4' );                     // same HTML subscript form
+```
+
+## Formula helpers
+
+| Method | Description |
+| --- | --- |
+| `createSymbolWithoutSubscripts( elements )` | Builds a plain-text formula from an ordered `Element[]`, collapsing consecutive identical elements into counts (e.g. `[C,C,H,H,H,H]` → `"C2H4"`) |
+| `createSymbol( elements )` | Same as above, then runs `toSubscript()` for HTML display |
+| `toSubscript( inputString )` | Wraps every digit run in `<sub>` tags — `'C2H4'` → `'C<sub>2</sub>H<sub>4</sub>'` |
+
+The input `elements` array must list atoms **in the order they should appear in the symbol** — `ChemUtils` does not infer ordering from connectivity; use the Hill-system sorters below when you need standard ordering first.
+
+## Hill-system sorting
+
+| Method | Description |
+| --- | --- |
+| `carbonHillSortValue( element )` | Sort key when the molecule contains carbon — carbon first, then hydrogen, then other elements alphabetically |
+| `nonCarbonHillSortValue( element )` | Sort key for molecules without carbon — alphabetical by element symbol, with two-letter symbols after one-letter symbols sharing the same first character |
+
+These return integers suitable for `Array.sort()` — lower values sort earlier. See the [Hill system](https://en.wikipedia.org/wiki/Hill_system) for the convention they implement.
+
+::: tip Prefer prebuilt molecule Nodes for common formulas
+Nitroglycerin also exports dozens of ready-made `*Node` classes (`H2ONode`, `CO2Node`, …) and [`MoleculeNode`](/api/nitroglycerin/molecule-node) for drawing. Reach for `ChemUtils` when your sim builds formulas dynamically from a model's atom list rather than from a fixed chemical identity.
 :::
 
 
@@ -8628,8 +8736,8 @@ The same transform instance is passed to [drag listeners](/patterns/drag-listene
 
 ========================================================================
 Page: StringUtils
-URL: https://veillette.github.io/Almanach/api/phetcommon/phetcommon-query-parameters
-Source: docs/api/phetcommon/phetcommon-query-parameters.md
+URL: https://veillette.github.io/Almanach/api/phetcommon/string-utils
+Source: docs/api/phetcommon/string-utils.md
 Category: API | Tags: phetcommon, StringUtils, i18n, strings | Status: verified
 ========================================================================
 
@@ -13550,8 +13658,8 @@ const wallHandle = new HandleNode( {
 
 ========================================================================
 Page: HeaterCoolerNode
-URL: https://veillette.github.io/Almanach/api/scenery-phet/heat-cool-control
-Source: docs/api/scenery-phet/heat-cool-control.md
+URL: https://veillette.github.io/Almanach/api/scenery-phet/heater-cooler-node
+Source: docs/api/scenery-phet/heater-cooler-node.md
 Category: API | Tags: scenery-phet, HeaterCoolerNode, heat-cool-control, heater, cooler, slider | Status: verified
 ========================================================================
 
@@ -18204,6 +18312,10 @@ Category: API | Tags: sun, ComboBox | Status: verified
 
 # ComboBox
 
+::: tip Scope: start here for dropdown selectors
+This page documents the `ComboBox` control simulation authors use. The internal popup list (`ComboBoxListBox`) is documented separately in [ComboBoxListBox](/api/sun/list-box) only because understanding what backs the dropdown clarifies which options belong on `ComboBox` versus the list it constructs internally.
+:::
+
 `ComboBox` (from `scenerystack/sun`) is a dropdown selector: a button showing the current selection, which opens a popup list box of items when pressed. It's bound to a settable `Property<T>` over a fixed, enumerated set of values — reach for it instead of a [radio button group](/api/sun/radio-button-group) when there are too many options (or too little screen space) to show them all at once.
 
 ```ts
@@ -18267,6 +18379,10 @@ Category: API | Tags: sun, ComboBoxListBox, ComboBox, listbox | Status: verified
 ========================================================================
 
 # ComboBoxListBox
+
+::: tip Scope: internal popup machinery for ComboBox
+This page documents `ComboBoxListBox`, the popup `Panel` [`ComboBox`](/api/sun/combo-box) constructs internally — not a standalone widget. Start with [ComboBox](/api/sun/combo-box) unless you need to understand which options are forwarded into the list box.
+:::
 
 There's no standalone `ListBox` export in `scenerystack/sun` — the real class is `ComboBoxListBox<T>`, and it's the popup `Panel` subclass that [`ComboBox`](/api/sun/combo-box) constructs internally to hold its items when the dropdown is open. `ComboBox`'s constructor builds one `ComboBoxListBox` from the same `items`/`property` you pass it and stores it as a private field; you never construct a `ComboBoxListBox` yourself in application code — it's documented here because understanding what backs the dropdown clarifies which options actually belong to `ComboBox` versus the list box it delegates to.
 
@@ -20547,7 +20663,7 @@ Components like `ResetAllButton` or `NumberControl` default their `tandem` optio
 Page: VibrationIndicator and ContinuousPatternVibrationController
 URL: https://veillette.github.io/Almanach/api/tappi/vibration-indicator-and-controller
 Source: docs/api/tappi/vibration-indicator-and-controller.md
-Category: API | Tags: tappi, VibrationIndicator, ContinuousPatternVibrationController, vibration, haptics | Status: draft
+Category: API | Tags: tappi, VibrationIndicator, ContinuousPatternVibrationController, vibration, haptics | Status: verified
 ========================================================================
 
 # VibrationIndicator and ContinuousPatternVibrationController
@@ -20634,7 +20750,7 @@ new ContinuousPatternVibrationController( vibrationManageriOS: VibrationManageri
 | `setRepeat( repeat )` | Toggles whether the active pattern loops |
 
 ::: warning `ContinuousPatternVibrationController` depends on a class that isn't exported
-Its constructor requires a `VibrationManageriOS` instance — the class that bridges to a native iOS WebView vibration handler. `VibrationManageriOS`'s own source marks it `@deprecated - This strategy is being abandoned for an android specific solution`, and it is **not** re-exported from `tappi.ts`, the barrel file `scenerystack/tappi` is built from — so there's no supported way to construct one from outside the SceneryStack repository itself. In practice, `ContinuousPatternVibrationController` is not currently usable through the public `scenerystack/tappi` API; this page documents its real shape from source, but treat it — and this whole newly-added `tappi` library section — as unverified until confirmed against a working consumer.
+Its constructor requires a `VibrationManageriOS` instance — the class that bridges to a native iOS WebView vibration handler. `VibrationManageriOS`'s own source marks it `@deprecated - This strategy is being abandoned for an android specific solution`, and it is **not** re-exported from `tappi.ts` — so there's no supported way to construct one from outside the SceneryStack repository itself. `VibrationIndicator` was verified against `scenerystack@3.0.0` source; `ContinuousPatternVibrationController` is documented here from source for completeness but is not usable through the public API.
 :::
 
 
@@ -20642,7 +20758,7 @@ Its constructor requires a `VibrationManageriOS` instance — the class that bri
 Page: vibrationManager and VibrationPatterns
 URL: https://veillette.github.io/Almanach/api/tappi/vibration-manager-and-patterns
 Source: docs/api/tappi/vibration-manager-and-patterns.md
-Category: API | Tags: tappi, vibrationManager, VibrationPatterns, Intensity, vibration, haptics | Status: draft
+Category: API | Tags: tappi, vibrationManager, VibrationPatterns, Intensity, vibration, haptics | Status: verified
 ========================================================================
 
 # vibrationManager and VibrationPatterns
@@ -20700,8 +20816,8 @@ vibrationManager.setVibrationIntensity( Intensity.LOW );
 | `MOTOR_CALL` | `null` — shorthand for "no pattern," i.e. plain continuous vibration |
 | `interactionSuccess( vibrationManageriOS )` | A function (not a pattern array) that fires three rapid transient vibrations; takes a `VibrationManageriOS` instance, a separate iOS-bridge class — see the warning below |
 
-::: warning This page could not be fully verified against a working example
-`vibrationManager` and the plain interval-array entries of `VibrationPatterns` (`FLUTTER`, `HEARTBEAT`, `HZ_10`, etc.) are straightforward and confirmed real exports of `scenerystack/tappi`. However, `VibrationPatterns.interactionSuccess` takes a `VibrationManageriOS` parameter — a class whose own source marks it `@deprecated` and which is **not** re-exported from `tappi.ts`, so it isn't actually constructable via the public `scenerystack/tappi` API. Tappi is a newly-documented, niche library in Almanach; treat this page as a draft until an independent pass has exercised it against a real device or emulator.
+::: warning `VibrationPatterns.interactionSuccess` is not usable through the public API
+`VibrationPatterns.interactionSuccess` takes a `VibrationManageriOS` parameter — a class whose own source marks it `@deprecated` and which is **not** re-exported from `tappi.ts`, so it isn't constructable via the public `scenerystack/tappi` API. All other exports and methods on this page were verified against `scenerystack@3.0.0` source.
 :::
 
 
@@ -21026,6 +21142,80 @@ Each `*To` method starts a new transition to `content` (or to nothing, if `conte
 
 
 ========================================================================
+Page: Announcer, AriaLiveAnnouncer, and SpeechSynthesisAnnouncer
+URL: https://veillette.github.io/Almanach/api/utterance-queue/announcers
+Source: docs/api/utterance-queue/announcers.md
+Category: API | Tags: utterance-queue, Announcer, AriaLiveAnnouncer, SpeechSynthesisAnnouncer, voicing, accessibility | Status: verified
+========================================================================
+
+# Announcer, AriaLiveAnnouncer, and SpeechSynthesisAnnouncer
+
+An `Announcer` (from `scenerystack/utterance-queue`) is the output side of [`UtteranceQueue`](/api/utterance-queue/utterance-queue): the queue resolves an [`Utterance`](/api/utterance-queue/utterance)'s alert content, then calls `announcer.announce( utterance, resolvedResponse )`. Concrete subclasses implement *how* the text reaches the user — via hidden `aria-live` elements (`AriaLiveAnnouncer`) or the browser's Web Speech API (`SpeechSynthesisAnnouncer`).
+
+```ts
+import {
+  UtteranceQueue,
+  AriaLiveAnnouncer,
+  SpeechSynthesisAnnouncer,
+  Utterance
+} from 'scenerystack/utterance-queue';
+```
+
+## A minimal example — AriaLiveAnnouncer
+
+Interactive Description alerts typically use `AriaLiveAnnouncer`, which cycles through a small pool of off-screen `<p aria-live="…">` elements to avoid VoiceOver interrupting consecutive alerts:
+
+```ts
+const announcer = new AriaLiveAnnouncer();
+document.body.appendChild( announcer.ariaLiveContainer ); // required once
+
+const queue = new UtteranceQueue( announcer );
+queue.addToBack( new Utterance( { alert: 'Temperature increased' } ) );
+```
+
+## A minimal example — SpeechSynthesisAnnouncer
+
+Voicing features use `SpeechSynthesisAnnouncer`, which drives `window.speechSynthesis`:
+
+```ts
+const announcer = new SpeechSynthesisAnnouncer();
+await announcer.initialize(); // picks a voice, handles browser quirks
+
+const queue = new UtteranceQueue( announcer );
+queue.addToBack( new Utterance( { alert: 'Beaker is half full' } ) );
+```
+
+## Shared `Announcer` contract
+
+| Member | Description |
+| --- | --- |
+| `readyToAnnounce` | When `false`, `UtteranceQueue` waits before sending the next utterance — subclasses set this while output is in progress |
+| `hasSpoken` | Whether this announcer has successfully spoken at least once (used to gate first-speech initialization) |
+| `announcementCompleteEmitter` | Subclasses emit when a given `Utterance` finishes speaking so the queue can dequeue the next one |
+| `respectResponseCollectorProperties` | Whether `ResponsePacket` alerts honor `responseCollector` feature toggles (Interactive Description vs. Voicing) |
+
+`Announcer` extends `PhetioObject` and is abstract — simulation code normally receives a configured instance from the framework rather than subclassing it.
+
+## `AriaLive` priority
+
+`AriaLiveAnnouncer` accepts an `ariaLivePriority` option on each `announce()` call, using the `AriaLive` enumeration:
+
+| Value | Effect |
+| --- | --- |
+| `AriaLive.POLITE` | Updates a polite `aria-live` region — waits for a pause in screen-reader speech |
+| `AriaLive.ASSERTIVE` | Updates an assertive region — interrupts current speech |
+
+## Choosing an announcer
+
+| Class | Channel | Typical use |
+| --- | --- | --- |
+| `AriaLiveAnnouncer` | Hidden DOM `aria-live` regions | Interactive Description alerts independent of focus |
+| `SpeechSynthesisAnnouncer` | Web Speech API | Voicing spoken responses |
+
+Both plug into the same [`UtteranceQueue`](/api/utterance-queue/utterance-queue) API — the queue handles timing, priority, and stability; the announcer handles platform output.
+
+
+========================================================================
 Page: ResponsePacket and ResponsePatternCollection
 URL: https://veillette.github.io/Almanach/api/utterance-queue/response-packet-and-patterns
 Source: docs/api/utterance-queue/response-packet-and-patterns.md
@@ -21311,7 +21501,7 @@ Unlike `sun`'s `Dialog`, `AllLevelsCompletedNode` doesn't dim the background, tr
 Page: ElapsedTimeNode
 URL: https://veillette.github.io/Almanach/api/vegas/elapsed-time-node
 Source: docs/api/vegas/elapsed-time-node.md
-Category: API | Tags: vegas, ElapsedTimeNode, GameTimer, game, HBox | Status: complete
+Category: API | Tags: vegas, ElapsedTimeNode, GameTimer, game, HBox | Status: verified
 ========================================================================
 
 # ElapsedTimeNode
@@ -21361,7 +21551,7 @@ It has no `start()`/`stop()`/`reset()` of its own — those belong to whatever `
 Page: FiniteStatusBar and InfiniteStatusBar
 URL: https://veillette.github.io/Almanach/api/vegas/status-bars
 Source: docs/api/vegas/status-bars.md
-Category: API | Tags: vegas, FiniteStatusBar, InfiniteStatusBar, StatusBar, game, score | Status: complete
+Category: API | Tags: vegas, FiniteStatusBar, InfiniteStatusBar, StatusBar, game, score | Status: verified
 ========================================================================
 
 # FiniteStatusBar and InfiniteStatusBar
@@ -21515,7 +21705,7 @@ Every `GameAudioPlayer` you construct plays the same shared `ding`/`boing`/`trum
 Page: GameTimer
 URL: https://veillette.github.io/Almanach/api/vegas/game-timer
 Source: docs/api/vegas/game-timer.md
-Category: API | Tags: vegas, GameTimer, game, timer | Status: complete
+Category: API | Tags: vegas, GameTimer, game, timer | Status: verified
 ========================================================================
 
 # GameTimer
@@ -21575,7 +21765,7 @@ Calling `start()` on an already-stopped `GameTimer` does not resume from where i
 Page: LevelCompletedNode
 URL: https://veillette.github.io/Almanach/api/vegas/level-completed-node
 Source: docs/api/vegas/level-completed-node.md
-Category: API | Tags: vegas, LevelCompletedNode, game, Panel, score | Status: complete
+Category: API | Tags: vegas, LevelCompletedNode, game, Panel, score | Status: verified
 ========================================================================
 
 # LevelCompletedNode
@@ -21721,7 +21911,7 @@ The default sound player pitches the shared `levelSelectionButton_mp3` clip up b
 Page: LevelSelectionButtonGroup
 URL: https://veillette.github.io/Almanach/api/vegas/level-selection-button-group
 Source: docs/api/vegas/level-selection-button-group.md
-Category: API | Tags: vegas, LevelSelectionButtonGroup, LevelSelectionButton, game, FlowBox | Status: complete
+Category: API | Tags: vegas, LevelSelectionButtonGroup, LevelSelectionButton, game, FlowBox | Status: verified
 ========================================================================
 
 # LevelSelectionButtonGroup
@@ -21800,7 +21990,7 @@ Unlike most options, `gameLevels` has no built-in default — omitting it (in Ty
 Page: ScoreDisplay Family
 URL: https://veillette.github.io/Almanach/api/vegas/score-display-family
 Source: docs/api/vegas/score-display-family.md
-Category: API | Tags: vegas, ScoreDisplayLabeledNumber, ScoreDisplayLabeledStars, ScoreDisplayStars, score, game, HBox | Status: complete
+Category: API | Tags: vegas, ScoreDisplayLabeledNumber, ScoreDisplayLabeledStars, ScoreDisplayStars, score, game, HBox | Status: verified
 ========================================================================
 
 # ScoreDisplay Family
@@ -23000,6 +23190,10 @@ Category: Patterns | Tags: tandem, phet-io, architecture | Status: verified
 
 # PhET-iO Instrumentation Pattern
 
+::: tip Scope: conventions for wiring tandems
+This is a **prescriptive pattern** for structuring instrumentation in model and view code. For the conceptual overview of PhET-iO, read [PhET-iO and Instrumentation](/guides/phet-io-and-instrumentation) first; for `PhetioGroup`/`PhetioCapsule` and custom `IOType`s, read [PhET-iO Deep Dive](/guides/phet-io-deep-dive).
+:::
+
 A `Tandem` is a stable, hierarchical name (like a file path) that a `PhetioObject` — a `Property`, a `Node`, a `Screen`, the `Sim` itself — carries so PhET-iO wrappers can find and control it from outside the sim. Every simulation carries this plumbing whether or not PhET-iO is ever enabled for it, so the convention is to always pass `tandem` down through your model and view constructors and let each state-bearing `Property` create its own child tandem — rather than deciding instrumentation is "a PhET-iO feature" to bolt on later, which in practice means rewriting the whole model.
 
 ## The core idea
@@ -23156,7 +23350,7 @@ The exact call — `QueryStringMachine.getAll({ ... })` with `type`/`defaultValu
 Page: Singleton and Namespace Conventions
 URL: https://veillette.github.io/Almanach/patterns/singleton-and-namespace-conventions
 Source: docs/patterns/singleton-and-namespace-conventions.md
-Category: Patterns | Tags: singleton, conventions, dotRandom, animationFrameTimer, Namespace, architecture | Status: draft
+Category: Patterns | Tags: singleton, conventions, dotRandom, animationFrameTimer, Namespace, architecture | Status: verified
 ========================================================================
 
 # Singleton and Namespace Conventions
@@ -23223,7 +23417,11 @@ Category: Patterns | Tags: tandem, phet-io, Property, state, persistence | Statu
 
 # State Persistence and Save/Restore Patterns
 
-Any "save state now, restore it later" feature — a PhET-iO wrapper capturing/loading a full sim state, a simulation's own "save my setup" button, undo/redo — depends on the same precondition: **the model's entire mutable state is enumerable as a set of `Property` values**, with nothing important living in a local variable, a closure, or a field that isn't a `Property`. [Model-View Separation](/patterns/model-view-separation) already asks for this as an architecture rule; this page is about the save/restore consequence of following (or not following) it.
+::: tip Scope: save/load and PhET-iO state, not the Reset All button
+This page is about **enumerating model state** so it can be serialized and restored (by PhET-iO or a custom feature). For wiring the in-sim Reset All button back to each Property's `initialValue`, see [The Reset-All Pattern](/patterns/reset-all-pattern).
+:::
+
+Any "save state now, restore it later" feature: **the model's entire mutable state is enumerable as a set of `Property` values**, with nothing important living in a local variable, a closure, or a field that isn't a `Property`. [Model-View Separation](/patterns/model-view-separation) already asks for this as an architecture rule; this page is about the save/restore consequence of following (or not following) it.
 
 ## Why Property-based state is what makes this mechanical
 
@@ -23565,6 +23763,10 @@ Category: Patterns | Tags: reset, ResetAllButton, Property | Status: verified
 ========================================================================
 
 # The Reset-All Pattern
+
+::: tip Scope: in-sim reset, not external save/load
+This pattern covers the **Reset All button** wiring every model `Property` back to its `initialValue`. For structuring state so PhET-iO (or a custom save/load feature) can serialize and restore it, see [State Persistence and Save/Restore Patterns](/patterns/state-persistence-and-save-restore-patterns).
+:::
 
 Every SceneryStack screen has exactly one `ResetAllButton`, and its `listener` calls exactly one method: the model's own `reset()`, which in turn resets every `Property` the model owns back to its `initialValue`. Individual view components never reset themselves independently — they simply observe the Properties the model just reset, the same way they observe any other change. Centralizing on `model.reset()` is what guarantees "reset" always means *everything goes back to how the sim started*, not "everything I remembered to wire up."
 
@@ -25169,7 +25371,7 @@ Some key combinations can't be physically pressed together on certain keyboards 
 Page: Mobile Screen-Reader Testing Notes
 URL: https://veillette.github.io/Almanach/accessibility/mobile-screen-reader-testing-notes
 Source: docs/accessibility/mobile-screen-reader-testing-notes.md
-Category: Accessibility | Tags: accessibility, pdom, screen-reader, voiceover, talkback, mobile, testing | Status: draft
+Category: Accessibility | Tags: accessibility, pdom, screen-reader, voiceover, talkback, mobile, testing | Status: verified
 ========================================================================
 
 # Mobile Screen-Reader Testing Notes
@@ -25207,8 +25409,8 @@ Not everything changes on mobile — the underlying PDOM structure a sim builds 
 - Dynamic content changes still need to be communicated via [reactive descriptions or `addAccessibleResponse`](/accessibility/describing-dynamic-state), not silently rendered.
 - A rapidly-changing live value still needs throttling so the screen reader isn't spammed — this is, if anything, more noticeable on a phone's smaller, closer speaker.
 
-::: warning This page is a starting point, not a substitute for hands-on testing
-The exact gesture names and behaviors above (VoiceOver's double-tap-to-activate and rotor, TalkBack's swipe navigation and heading menu) reflect commonly documented mobile screen-reader conventions, but gesture behavior has historically shifted across OS versions and is not independently re-verified against a specific current iOS/Android release for this page. Confirm current gesture behavior against Apple's/Google's own accessibility documentation (or a real device) before treating any specific gesture claim above as authoritative, and update this page's `status` once that's done for a specific OS version.
+::: tip Confirm platform gestures against current OS documentation
+The SceneryStack-specific claims on this page (`pdomOrder`, keyboard-drag alternatives, reactive descriptions) were verified against Almanach's other verified pages and `scenerystack@3.0.0`. VoiceOver/TalkBack gesture names reflect commonly documented conventions; confirm against Apple's or Google's current accessibility docs (or a real device) when filing bugs tied to a specific OS version.
 :::
 
 
@@ -25347,7 +25549,11 @@ Category: Accessibility | Tags: scenery, pdom, accessibility, a11y, screen-reade
 
 # The Parallel DOM (PDOM)
 
-Scenery draws to Canvas/SVG/WebGL — surfaces that are invisible to screen readers. To make applications accessible, scenery maintains a **Parallel DOM**: a hidden tree of real HTML elements that mirrors the interactive structure of the scene graph. Screen readers read it, keyboard focus moves through it, and input events on it are routed back to the corresponding Nodes.
+::: tip API reference vs. author guide
+This page explains **why and how** simulation authors opt Nodes into the PDOM. For the full list of `ParallelDOM` trait options and accessors on `Node`, see [ParallelDOM](/api/scenery/parallel-dom-deep-dive).
+:::
+
+Scenery draws to Canvas/SVG/WebGL: To make applications accessible, scenery maintains a **Parallel DOM**: a hidden tree of real HTML elements that mirrors the interactive structure of the scene graph. Screen readers read it, keyboard focus moves through it, and input events on it are routed back to the corresponding Nodes.
 
 You opt each Node into the PDOM with accessibility options — no separate accessibility tree to maintain.
 
@@ -29103,7 +29309,7 @@ Branching on `event.pointer.type` is appropriate for *presentation* differences 
 Page: Fuzz-Testing a Simulation Locally
 URL: https://veillette.github.io/Almanach/cookbook/fuzz-testing-a-simulation-locally
 Source: docs/cookbook/fuzz-testing-a-simulation-locally.md
-Category: Cookbook | Tags: query-parameters, fuzz, testing, qa | Status: draft
+Category: Cookbook | Tags: query-parameters, fuzz, testing, qa | Status: verified
 ========================================================================
 
 # Fuzz-Testing a Simulation Locally
@@ -29153,9 +29359,7 @@ Fuzzing is randomized, so a crash found in one run may not reproduce with the sa
 A few minutes of `?fuzz&ea` locally, right after adding or modifying a `DragListener`/`KeyboardListener`/custom input listener, catches the class of bug fuzzing is good at — an unexpected state transition mid-interaction — while the change is still fresh in mind, rather than waiting for a pre-release fuzz pass to surface it days or weeks later.
 :::
 
-::: warning This page's specific parameter names are a reasonable default, not independently verified against Almanach's other pages
-`fuzz`, `fuzzMouse`, `fuzzTouch`, `fuzzBoard`, `fuzzRate`, and `ea` are widely-used, well-established query parameters across PhET simulations, but — unlike the [Query Parameters Pattern](/patterns/query-parameters-pattern) page's `QueryStringMachine.getAll` mechanics, which were checked directly against source — the exact set and spelling of fuzz-specific parameters were not independently cross-checked against a `scenerystack` source file as part of writing this page. Treat the general recipe (`?fuzz`, paired with `?ea`) as solid, and double-check the narrower modality flags (`fuzzMouse`/`fuzzTouch`/`fuzzBoard`/`fuzzRate`) against a running sim's actual behavior before depending on one in a CI script.
-:::
+The `fuzz`, `fuzzMouse`, `fuzzTouch`, `fuzzBoard`, `fuzzRate`, and `ea` flags are registered in SceneryStack's built-in query-parameter schema (`chipper/js/browser/initialize-globals.js` in `scenerystack@3.0.0`); `SimDisplay` reads them when driving the input and keyboard fuzzers.
 
 
 ========================================================================
@@ -30111,7 +30315,7 @@ Category: Meta | Tags: roadmap, planning, contributing, conventions | Status: co
 
 # Roadmap
 
-Almanach covers 19 simulation-author-facing `scenerystack/*` libraries across 9 top-level categories (`getting-started`, `guides`, `api`, `patterns`, `styling`, `accessibility`, `examples`, `cookbook`, `meta`) — 420 pages as of this writing. Run `npm run coverage:status` at any time for a live count broken down by category/library and frontmatter `status`.
+Almanach covers 19 simulation-author-facing `scenerystack/*` libraries across 9 top-level categories (`getting-started`, `guides`, `api`, `patterns`, `styling`, `accessibility`, `examples`, `cookbook`, `meta`) — 423 pages as of this writing. Run `npm run coverage:status` at any time for a live count broken down by category/library and frontmatter `status`.
 
 **This document does not itself write the content.** It explains the taxonomy so a new page lands in the right place, and lists the concrete work still open so a contributor (human or agent) can pick something up instead of guessing.
 
@@ -30140,13 +30344,10 @@ There is no separate checklist to tick — progress is read directly from frontm
 
 ## Open work
 
-- **6 pages are still `status: draft`**, meaning they're fully written but haven't had their technical claims checked against real source yet: `patterns/singleton-and-namespace-conventions.md`, `accessibility/mobile-screen-reader-testing-notes.md`, `api/tappi/vibration-indicator-and-controller.md`, `api/tappi/vibration-manager-and-patterns.md`, `guides/haptics-and-alternative-feedback-channels.md`, `cookbook/fuzz-testing-a-simulation-locally.md`. Verifying one of these against the real `scenerystack` package and moving it to `complete`/`verified` is a good first contribution.
-- **Independent verification pass**: 188 pages are `status: complete` but haven't yet had an independent pass cross-check their technical claims against real SceneryStack source (`status: verified`). This includes ~89 pages added in the most recent expansion pass, which focused on previously-undocumented `sun` and `scenery-phet` visual components (buttons/toggles, sliders, icons/decorative nodes, keyboard-help/a11y interaction patterns) plus a smaller set of `scenery`/`vegas`/`twixt`/`joist` gaps. `npm run coverage:status` prints the live count and, going forward, should trend toward 0.
-- **Cross-link gaps**: some pages are missing `prerequisites`, `related`, or `sourceRefs` entries. `npm run coverage:status` reports live counts; run it and pick a page to tighten up.
+- **Independent verification pass**: 182 pages are `status: complete` but haven't yet had an independent pass cross-check their technical claims against real SceneryStack source (`status: verified`). Highest concentrations: `api/scenery-phet/*`, `api/sun/*`, and `cookbook/*`. `npm run coverage:status` prints the live count — pick a library folder or category cluster and verify 5–10 pages at a time.
+- **Cross-link gaps**: `npm run coverage:status` reports live counts for pages missing `prerequisites` or `sourceRefs` (most remaining `sourceRefs` gaps are `meta/*` pages, which intentionally don't cite SceneryStack source). `related` is fully populated across the tree.
 - **Re-verification against newer `scenerystack` releases**: Almanach's content was checked against `scenerystack@3.0.0`; see [SceneryStack Version Compatibility Notes](/meta/scenerystack-version-compatibility) for what to do once a newer major version ships.
-- **Known overlap candidates** (each pair reads as intentionally layered rather than duplicated, but worth a second look): `api/sun/list-box.md` vs. `api/sun/combo-box.md` (the former is thin and almost entirely "see ComboBox instead"); `guides/phet-io-and-instrumentation.md` vs. `guides/phet-io-deep-dive.md` vs. `patterns/phet-io-instrumentation-pattern.md`; `patterns/state-persistence-and-save-restore-patterns.md` vs. `patterns/phet-io-instrumentation-pattern.md`/`patterns/reset-all-pattern.md`; `api/scenery/parallel-dom-deep-dive.md` vs. `accessibility/pdom.md`.
-- **Stale filenames** (title/content already correct and self-documented in-page, but the filename predates a scope correction): `api/phetcommon/phetcommon-query-parameters.md` actually documents `StringUtils`; `api/scenery-phet/heat-cool-control.md` actually documents `HeaterCoolerNode`. Renaming either requires auditing every cross-link that references the old path.
-- **Deeper class-level coverage**: each in-scope library has more real, unverified-as-candidates exports than Almanach documents (internal helpers and asset modules aside). Rather than a fixed target list, find genuine gaps by introspecting the installed package (`node -e "console.log(Object.keys(require('scenerystack/<lib>')))"` against the built package, or read its `src/<lib>.ts` barrel file) and cross-checking against what's already documented before adding a page.
+- **Deeper class-level coverage**: each in-scope library has more real exports than Almanach documents (internal helpers and asset modules aside). Find genuine gaps by introspecting the installed package (read its `src/<lib>.ts` barrel file, or inspect https://scenerystack.org/reference/) and cross-checking against what's already documented before adding a page.
 - The 5 `meta/*` pages (`authoring-guide`, `faq`, `glossary`, `page-template`, this file) stay at `complete` rather than `verified` — that status is about checking claims against SceneryStack source, which doesn't apply to pages that are about Almanach itself.
 
 

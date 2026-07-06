@@ -2,7 +2,11 @@
 title: Emitter vs. Property
 description: When to model state as a Property versus a discrete event as an Emitter.
 category: patterns
-tags: [axon, Emitter, Property, architecture]
+tags:
+  - axon
+  - Emitter
+  - Property
+  - architecture
 status: verified
 related:
   - /patterns/model-view-separation
@@ -11,6 +15,9 @@ related:
   - /api/axon/derived-property
 prerequisites:
   - /patterns/model-view-separation
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Emitter vs. Property

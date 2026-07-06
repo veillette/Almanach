@@ -9,6 +9,7 @@ prerequisites:
   - /api/utterance-queue/utterance
 related:
   - /api/utterance-queue/utterance
+  - /api/utterance-queue/announcers
   - /api/utterance-queue/response-packet-and-patterns
   - /accessibility/voicing
   - /accessibility/describing-dynamic-state

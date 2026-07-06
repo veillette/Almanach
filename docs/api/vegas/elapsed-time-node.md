@@ -4,7 +4,7 @@ description: An HBox that displays a clock icon next to a formatted H:MM:SS (or 
 category: api
 library: vegas
 tags: [vegas, ElapsedTimeNode, GameTimer, game, HBox]
-status: complete
+status: verified
 related:
   - /api/vegas/game-timer
   - /api/vegas/status-bars
@@ -12,6 +12,7 @@ prerequisites:
   - /api/vegas/game-timer
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # ElapsedTimeNode

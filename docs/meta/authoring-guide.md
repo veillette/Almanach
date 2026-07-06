@@ -4,6 +4,10 @@ description: Conventions for adding documents to Almanach - folder taxonomy, req
 category: meta
 tags: [conventions, frontmatter, contributing]
 status: complete
+related:
+  - /meta/roadmap
+  - /meta/page-template
+  - /meta/scenerystack-version-compatibility
 ---
 
 # Authoring Guide

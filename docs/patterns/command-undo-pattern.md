@@ -1,8 +1,13 @@
 ---
 title: Command/Undo Pattern for Interactive Sims
-description: Structuring a reversible user action as a command object with do/undo so a simulation can support undo, if it needs to - built on the same Property-based state that reset() and dispose() already rely on.
+description: 'Structuring a reversible user action as a command object with do/undo so a simulation can support undo, if it needs to - built on the same Property-based state that reset() and dispose() already rely on.'
 category: patterns
-tags: [architecture, undo, Property, state, command-pattern]
+tags:
+  - architecture
+  - undo
+  - Property
+  - state
+  - command-pattern
 status: complete
 related:
   - /patterns/reset-all-pattern
@@ -12,6 +17,9 @@ related:
 prerequisites:
   - /patterns/model-view-separation
   - /patterns/state-persistence-and-save-restore-patterns
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # Command/Undo Pattern for Interactive Sims

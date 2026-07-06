@@ -16,6 +16,10 @@ sourceRefs:
 
 # ComboBoxListBox
 
+::: tip Scope: internal popup machinery for ComboBox
+This page documents `ComboBoxListBox`, the popup `Panel` [`ComboBox`](/api/sun/combo-box) constructs internally — not a standalone widget. Start with [ComboBox](/api/sun/combo-box) unless you need to understand which options are forwarded into the list box.
+:::
+
 There's no standalone `ListBox` export in `scenerystack/sun` — the real class is `ComboBoxListBox<T>`, and it's the popup `Panel` subclass that [`ComboBox`](/api/sun/combo-box) constructs internally to hold its items when the dropdown is open. `ComboBox`'s constructor builds one `ComboBoxListBox` from the same `items`/`property` you pass it and stores it as a private field; you never construct a `ComboBoxListBox` yourself in application code — it's documented here because understanding what backs the dropdown clarifies which options actually belong to `ComboBox` versus the list box it delegates to.
 
 ```ts

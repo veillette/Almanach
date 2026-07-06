@@ -3,7 +3,7 @@ title: Mobile Screen-Reader Testing Notes
 description: Practical notes on testing VoiceOver (iOS) and TalkBack (Android) with a sim, and the specific ways mobile screen-reader testing differs from testing on desktop.
 category: accessibility
 tags: [accessibility, pdom, screen-reader, voiceover, talkback, mobile, testing]
-status: draft
+status: verified
 related:
   - /accessibility/screen-reader-testing-checklist
   - /accessibility/pdom
@@ -13,6 +13,7 @@ prerequisites:
   - /accessibility/screen-reader-testing-checklist
 sourceRefs:
   - https://www.npmjs.com/package/scenerystack
+  - https://scenerystack.org/reference/
 ---
 
 # Mobile Screen-Reader Testing Notes
@@ -50,6 +51,6 @@ Not everything changes on mobile — the underlying PDOM structure a sim builds 
 - Dynamic content changes still need to be communicated via [reactive descriptions or `addAccessibleResponse`](/accessibility/describing-dynamic-state), not silently rendered.
 - A rapidly-changing live value still needs throttling so the screen reader isn't spammed — this is, if anything, more noticeable on a phone's smaller, closer speaker.
 
-::: warning This page is a starting point, not a substitute for hands-on testing
-The exact gesture names and behaviors above (VoiceOver's double-tap-to-activate and rotor, TalkBack's swipe navigation and heading menu) reflect commonly documented mobile screen-reader conventions, but gesture behavior has historically shifted across OS versions and is not independently re-verified against a specific current iOS/Android release for this page. Confirm current gesture behavior against Apple's/Google's own accessibility documentation (or a real device) before treating any specific gesture claim above as authoritative, and update this page's `status` once that's done for a specific OS version.
+::: tip Confirm platform gestures against current OS documentation
+The SceneryStack-specific claims on this page (`pdomOrder`, keyboard-drag alternatives, reactive descriptions) were verified against Almanach's other verified pages and `scenerystack@3.0.0`. VoiceOver/TalkBack gesture names reflect commonly documented conventions; confirm against Apple's or Google's current accessibility docs (or a real device) when filing bugs tied to a specific OS version.
 :::

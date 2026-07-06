@@ -1,8 +1,13 @@
 ---
 title: State Persistence and Save/Restore Patterns
-description: Structuring model state as enumerable Properties so it can be saved and restored, whether by PhET-iO or by a simulation's own save/load feature.
+description: 'Structuring model state as enumerable Properties so it can be saved and restored, whether by PhET-iO or by a simulation''s own save/load feature.'
 category: patterns
-tags: [tandem, phet-io, Property, state, persistence]
+tags:
+  - tandem
+  - phet-io
+  - Property
+  - state
+  - persistence
 status: verified
 related:
   - /patterns/phet-io-instrumentation-pattern
@@ -11,11 +16,18 @@ related:
 prerequisites:
   - /patterns/model-view-separation
   - /patterns/phet-io-instrumentation-pattern
+sourceRefs:
+  - 'https://www.npmjs.com/package/scenerystack'
+  - 'https://scenerystack.org/reference/'
 ---
 
 # State Persistence and Save/Restore Patterns
 
-Any "save state now, restore it later" feature — a PhET-iO wrapper capturing/loading a full sim state, a simulation's own "save my setup" button, undo/redo — depends on the same precondition: **the model's entire mutable state is enumerable as a set of `Property` values**, with nothing important living in a local variable, a closure, or a field that isn't a `Property`. [Model-View Separation](/patterns/model-view-separation) already asks for this as an architecture rule; this page is about the save/restore consequence of following (or not following) it.
+::: tip Scope: save/load and PhET-iO state, not the Reset All button
+This page is about **enumerating model state** so it can be serialized and restored (by PhET-iO or a custom feature). For wiring the in-sim Reset All button back to each Property's `initialValue`, see [The Reset-All Pattern](/patterns/reset-all-pattern).
+:::
+
+Any "save state now, restore it later" feature: **the model's entire mutable state is enumerable as a set of `Property` values**, with nothing important living in a local variable, a closure, or a field that isn't a `Property`. [Model-View Separation](/patterns/model-view-separation) already asks for this as an architecture rule; this page is about the save/restore consequence of following (or not following) it.
 
 ## Why Property-based state is what makes this mechanical
 
