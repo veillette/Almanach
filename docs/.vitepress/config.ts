@@ -16,7 +16,8 @@ export default defineConfig( {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Getting Started', link: '/getting-started/what-is-scenerystack' },
-      { text: 'Authoring Guide', link: '/meta/authoring-guide' }
+      { text: 'Guides', link: '/guides/scenery-basics' },
+      { text: 'Examples', link: '/examples/demo-simulation-walkthrough' }
     ],
 
     sidebar: buildSidebar(),

@@ -77,7 +77,7 @@ const pages: PageRecord[] = [];
 for ( const file of walkMarkdownFiles( DOCS_DIR ) ) {
   const relative = path.relative( DOCS_DIR, file );
 
-  // The home page uses VitePress's `layout: home` and is not a documentation article.
+  // The home page is a VitePress landing page, not a schema-validated documentation article.
   if ( relative === 'index.md' ) {
     continue;
   }
