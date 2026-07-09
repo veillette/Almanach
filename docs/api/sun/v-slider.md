@@ -34,6 +34,8 @@ const volumeSlider = new VSlider( volumeProperty, new Range( 0, 100 ), {
 } );
 ```
 
+<SceneryDemo demo="v-slider" />
+
 As with `HSlider`, dragging the thumb (now vertically) or clicking the track sets `volumeProperty.value`, clamped to the range; the thumb's position updates automatically whenever the value or the enabled range changes elsewhere.
 
 ## Options

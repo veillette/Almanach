@@ -39,6 +39,8 @@ const shapeRadioButtonGroup = new RectangularRadioButtonGroup( shapeProperty, it
 } );
 ```
 
+<SceneryDemo demo="radio-button-group" />
+
 `AquaRadioButtonGroup` has the same `(property, items, options?)` shape, but each item's `createNode` supplies the *label* shown next to the round button, not the button's own content:
 
 ```ts

@@ -36,6 +36,8 @@ const graphAccordionBox = new AccordionBox( graphContent, {
 } );
 ```
 
+<SceneryDemo demo="accordion-box" />
+
 If you need to observe or control the expanded state from outside, supply your own `expandedProperty` instead of `expandedDefaultValue` — `AccordionBox` will use it directly rather than creating one internally:
 
 ```ts

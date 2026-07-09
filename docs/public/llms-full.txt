@@ -11773,6 +11773,8 @@ const forceArrow = new ArrowNode( 0, 0, 100, -40, {
 forceArrow.setTailAndTip( 0, 0, newTipX, newTipY );
 ```
 
+<SceneryDemo demo="arrow-node" />
+
 When the vector being drawn comes from model coordinates, convert both endpoints through a [`ModelViewTransform2`](/api/phetcommon/model-view-transform) before constructing or updating the `ArrowNode`.
 
 ## Constructor
@@ -12947,6 +12949,8 @@ else {
   faceNode.frown();
 }
 ```
+
+<SceneryDemo demo="face-node" />
 
 ## Constructor
 
@@ -16863,6 +16867,8 @@ const thermometer = new ThermometerNode( temperatureProperty, 0, 100, {
 } );
 ```
 
+<SceneryDemo demo="thermometer-node" />
+
 ## Constructor
 
 ```ts
@@ -17842,6 +17848,8 @@ const graphAccordionBox = new AccordionBox( graphContent, {
 } );
 ```
 
+<SceneryDemo demo="accordion-box" />
+
 If you need to observe or control the expanded state from outside, supply your own `expandedProperty` instead of `expandedDefaultValue` — `AccordionBox` will use it directly rather than creating one internally:
 
 ```ts
@@ -18755,6 +18763,8 @@ const countSpinner = new NumberSpinner(
 );
 ```
 
+<SceneryDemo demo="number-spinner" />
+
 The range argument is a `Property<Range>` (not a plain `Range`) so the spinner can respond if the allowed bounds change dynamically — e.g. disabling further increments once a dependent quantity runs out. Both `numberProperty.value` and the range's min/max must be integers; `NumberSpinner` asserts on construction if the initial value falls outside the initial range.
 
 ## Options
@@ -18929,6 +18939,8 @@ const controlPanel = new Panel( controls, {
 } );
 ```
 
+<SceneryDemo demo="panel" />
+
 `Panel` takes exactly one content `Node` — group multiple controls with a layout container (`VBox`, `HBox`, `GridBox`, …) first, then wrap that container in a `Panel`.
 
 ## Options
@@ -19060,6 +19072,8 @@ const shapeRadioButtonGroup = new RectangularRadioButtonGroup( shapeProperty, it
   tandem: Tandem.REQUIRED
 } );
 ```
+
+<SceneryDemo demo="radio-button-group" />
 
 `AquaRadioButtonGroup` has the same `(property, items, options?)` shape, but each item's `createNode` supplies the *label* shown next to the round button, not the button's own content:
 
@@ -19621,6 +19635,8 @@ const resetButton = new TextPushButton( 'Reset', {
 } );
 ```
 
+<SceneryDemo demo="text-push-button" />
+
 The first constructor argument is the string (or a `TReadOnlyProperty<string>`, for translated/dynamic text) — everything else is passed as options, identical to [`RectangularPushButtonOptions`](/api/sun/rectangular-push-button) minus `content`, which `TextPushButton` builds internally.
 
 ## Options
@@ -19811,6 +19827,8 @@ const unitsSwitch = new ToggleSwitch( unitsProperty, 'metric', 'imperial', {
 } );
 ```
 
+<SceneryDemo demo="toggle-switch" />
+
 The constructor is `( property, leftValue, rightValue, options? )` — the switch renders on the left when `property.value === leftValue` and on the right when it equals `rightValue`. As with [`OnOffSwitch`](/api/sun/on-off-switch), `property` must use the default `'reference'` `valueComparisonStrategy`, since `ToggleSwitch` compares with `===`.
 
 ## Interaction
@@ -19914,6 +19932,8 @@ const volumeSlider = new VSlider( volumeProperty, new Range( 0, 100 ), {
   tandem: Tandem.REQUIRED
 } );
 ```
+
+<SceneryDemo demo="v-slider" />
 
 As with `HSlider`, dragging the thumb (now vertically) or clicking the track sets `volumeProperty.value`, clamped to the range; the thumb's position updates automatically whenever the value or the enabled range changes elsewhere.
 
@@ -30084,7 +30104,7 @@ Add a live embed when the page documents an **interactive control** (button, sli
 3. Add `<SceneryDemo demo="<demo-id>" />` to the Markdown page **after** its primary code snippet.
 4. Run `npm run demos:check` and `npm run build`.
 
-`createDemo` must return a dispose function that tears down listeners, Properties, and Nodes — see [Dispose and Memory Management](/patterns/dispose-and-memory-management). Use helpers in `docs/.vitepress/demos/shared/` for common layout (centering in the fixed-size canvas).
+`createDemo` must return a dispose function that tears down listeners, Properties, and Nodes — see [Dispose and Memory Management](/patterns/dispose-and-memory-management). Use helpers in `docs/.vitepress/demos/shared/` for common layout (centering in the fixed-size canvas via `centerInDisplay`).
 
 Fixed canvas dimensions (typically 400×120–180) prevent layout shift in the VitePress page chrome. Demos load SceneryStack **client-side only** via dynamic `import()`; do not add static `scenerystack/*` imports to theme components.
 

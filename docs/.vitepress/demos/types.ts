@@ -15,4 +15,14 @@ export type DemoId =
   | 'hslider'
   | 'checkbox'
   | 'reset-all-button'
-  | 'number-control';
+  | 'number-control'
+  | 'v-slider'
+  | 'toggle-switch'
+  | 'radio-button-group'
+  | 'panel'
+  | 'accordion-box'
+  | 'text-push-button'
+  | 'number-spinner'
+  | 'thermometer-node'
+  | 'face-node'
+  | 'arrow-node';

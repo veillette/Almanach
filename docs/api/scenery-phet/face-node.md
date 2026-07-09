@@ -37,6 +37,8 @@ else {
 }
 ```
 
+<SceneryDemo demo="face-node" />
+
 ## Constructor
 
 ```ts

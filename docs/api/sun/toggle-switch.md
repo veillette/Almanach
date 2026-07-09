@@ -32,6 +32,8 @@ const unitsSwitch = new ToggleSwitch( unitsProperty, 'metric', 'imperial', {
 } );
 ```
 
+<SceneryDemo demo="toggle-switch" />
+
 The constructor is `( property, leftValue, rightValue, options? )` — the switch renders on the left when `property.value === leftValue` and on the right when it equals `rightValue`. As with [`OnOffSwitch`](/api/sun/on-off-switch), `property` must use the default `'reference'` `valueComparisonStrategy`, since `ToggleSwitch` compares with `===`.
 
 ## Interaction

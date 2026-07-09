@@ -39,6 +39,8 @@ const countSpinner = new NumberSpinner(
 );
 ```
 
+<SceneryDemo demo="number-spinner" />
+
 The range argument is a `Property<Range>` (not a plain `Range`) so the spinner can respond if the allowed bounds change dynamically — e.g. disabling further increments once a dependent quantity runs out. Both `numberProperty.value` and the range's min/max must be integers; `NumberSpinner` asserts on construction if the initial value falls outside the initial range.
 
 ## Options

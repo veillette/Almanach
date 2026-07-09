@@ -39,6 +39,8 @@ const forceArrow = new ArrowNode( 0, 0, 100, -40, {
 forceArrow.setTailAndTip( 0, 0, newTipX, newTipY );
 ```
 
+<SceneryDemo demo="arrow-node" />
+
 When the vector being drawn comes from model coordinates, convert both endpoints through a [`ModelViewTransform2`](/api/phetcommon/model-view-transform) before constructing or updating the `ArrowNode`.
 
 ## Constructor

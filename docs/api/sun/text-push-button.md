@@ -31,6 +31,8 @@ const resetButton = new TextPushButton( 'Reset', {
 } );
 ```
 
+<SceneryDemo demo="text-push-button" />
+
 The first constructor argument is the string (or a `TReadOnlyProperty<string>`, for translated/dynamic text) — everything else is passed as options, identical to [`RectangularPushButtonOptions`](/api/sun/rectangular-push-button) minus `content`, which `TextPushButton` builds internally.
 
 ## Options

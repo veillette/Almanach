@@ -2,7 +2,7 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based knowledge base of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-06T05:46:43.653Z",
+  "generated": "2026-07-09T09:37:09.196Z",
   "documentCount": 423,
   "documents": [
     {
@@ -5135,7 +5135,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 468,
+      "wordCount": 471,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/arrow-node"
     },
     {
@@ -5590,7 +5590,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 311,
+      "wordCount": 314,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/face-node"
     },
     {
@@ -7233,7 +7233,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 489,
+      "wordCount": 492,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/thermometer-node"
     },
     {
@@ -7664,7 +7664,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 479,
+      "wordCount": 482,
       "url": "https://veillette.github.io/Almanach/api/sun/accordion-box"
     },
     {
@@ -8103,7 +8103,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 402,
+      "wordCount": 405,
       "url": "https://veillette.github.io/Almanach/api/sun/number-spinner"
     },
     {
@@ -8182,7 +8182,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 329,
+      "wordCount": 332,
       "url": "https://veillette.github.io/Almanach/api/sun/panel"
     },
     {
@@ -8239,7 +8239,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 531,
+      "wordCount": 534,
       "url": "https://veillette.github.io/Almanach/api/sun/radio-button-group"
     },
     {
@@ -8495,7 +8495,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 281,
+      "wordCount": 284,
       "url": "https://veillette.github.io/Almanach/api/sun/text-push-button"
     },
     {
@@ -8576,7 +8576,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 438,
+      "wordCount": 441,
       "url": "https://veillette.github.io/Almanach/api/sun/toggle-switch"
     },
     {
@@ -8630,7 +8630,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 295,
+      "wordCount": 298,
       "url": "https://veillette.github.io/Almanach/api/sun/v-slider"
     },
     {
@@ -12002,7 +12002,7 @@
       ],
       "prerequisites": [],
       "sourceRefs": [],
-      "wordCount": 1244,
+      "wordCount": 1246,
       "url": "https://veillette.github.io/Almanach/meta/authoring-guide"
     },
     {

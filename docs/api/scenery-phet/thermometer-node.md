@@ -35,6 +35,8 @@ const thermometer = new ThermometerNode( temperatureProperty, 0, 100, {
 } );
 ```
 
+<SceneryDemo demo="thermometer-node" />
+
 ## Constructor
 
 ```ts

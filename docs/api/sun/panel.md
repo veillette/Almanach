@@ -42,6 +42,8 @@ const controlPanel = new Panel( controls, {
 } );
 ```
 
+<SceneryDemo demo="panel" />
+
 `Panel` takes exactly one content `Node` — group multiple controls with a layout container (`VBox`, `HBox`, `GridBox`, …) first, then wrap that container in a `Panel`.
 
 ## Options
