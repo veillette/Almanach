@@ -21,7 +21,7 @@
     "coverage:status": "tsx scripts/coverage-status.ts"
   },
   "devDependencies": {
-    "@types/node": "^26.1.0",
+    "@types/node": "^26.1.1",
     "gray-matter": "^4.0.3",
     "scenerystack": "3.0.0",
     "tsx": "^4.23.0",
