@@ -46,6 +46,8 @@ const linePlot = new LinePlot( chartTransform, dataSet, {
 } );
 ```
 
+<SceneryDemo demo="line-plot" />
+
 ## Constructor
 
 ```ts

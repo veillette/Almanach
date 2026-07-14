@@ -51,6 +51,8 @@ new GaugeNode(
 )
 ```
 
+<SceneryDemo demo="gauge-node" />
+
 ## Options
 
 | Option | Default | Effect |

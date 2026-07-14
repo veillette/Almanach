@@ -50,6 +50,8 @@ screenView.addChild( unitsComboBox );
 screenView.addChild( listParent );
 ```
 
+<SceneryDemo demo="combo-box" />
+
 ## Constructor arguments
 
 | Argument | Effect |

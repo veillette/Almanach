@@ -25,4 +25,16 @@ export type DemoId =
   | 'number-spinner'
   | 'thermometer-node'
   | 'face-node'
-  | 'arrow-node';
+  | 'arrow-node'
+  | 'level-selection-button'
+  | 'score-display-number-and-star'
+  | 'elapsed-time-node'
+  | 'line-plot'
+  | 'bar-plot'
+  | 'molecule-node'
+  | 'combo-box'
+  | 'on-off-switch'
+  | 'number-picker'
+  | 'gauge-node'
+  | 'faucet-node'
+  | 'heater-cooler-node';

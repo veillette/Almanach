@@ -33,6 +33,8 @@ const ammonia = new NH3Node();
 someLayerNode.children = [ water, carbonDioxide, ammonia ];
 ```
 
+<SceneryDemo demo="molecule-node" />
+
 ## Constructor (subclasses only)
 
 ```ts

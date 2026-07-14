@@ -31,6 +31,8 @@ const elapsedTimeNode = new ElapsedTimeNode( gameTimer.elapsedTimeProperty, {
 } );
 ```
 
+<SceneryDemo demo="elapsed-time-node" />
+
 ## Constructor
 
 ```ts

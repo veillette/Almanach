@@ -17,7 +17,19 @@ export const DEMO_REGISTRY: Record<DemoId, DemoLoader> = {
   'number-spinner': () => import( './number-spinner.js' ),
   'thermometer-node': () => import( './thermometer-node.js' ),
   'face-node': () => import( './face-node.js' ),
-  'arrow-node': () => import( './arrow-node.js' )
+  'arrow-node': () => import( './arrow-node.js' ),
+  'level-selection-button': () => import( './level-selection-button.js' ),
+  'score-display-number-and-star': () => import( './score-display-number-and-star.js' ),
+  'elapsed-time-node': () => import( './elapsed-time-node.js' ),
+  'line-plot': () => import( './line-plot.js' ),
+  'bar-plot': () => import( './bar-plot.js' ),
+  'molecule-node': () => import( './molecule-node.js' ),
+  'combo-box': () => import( './combo-box.js' ),
+  'on-off-switch': () => import( './on-off-switch.js' ),
+  'number-picker': () => import( './number-picker.js' ),
+  'gauge-node': () => import( './gauge-node.js' ),
+  'faucet-node': () => import( './faucet-node.js' ),
+  'heater-cooler-node': () => import( './heater-cooler-node.js' )
 };
 
 export const DEMO_IDS = Object.keys( DEMO_REGISTRY ) as DemoId[];

@@ -38,6 +38,8 @@ const soundSwitch = new OnOffSwitch( soundEnabledProperty, {
 
 Unlike `Checkbox`, `OnOffSwitch` has no separate label argument — pair it with your own `Text` (or an `HBox`/`AlignBox` layout) if you need one, and use `accessibleName` for the accessible label.
 
+<SceneryDemo demo="on-off-switch" />
+
 ## Interaction
 
 `OnOffSwitch` (via its `ToggleSwitch` base) supports both click-to-toggle and drag-to-set: clicking anywhere on the switch toggles the value; dragging the thumb past the track's midpoint and releasing snaps it to whichever side it's closest to; dragging the thumb far enough outside the track toggles the value immediately, even before release.

@@ -37,6 +37,8 @@ const levelButton = new LevelSelectionButton( levelIconNode, scoreProperty, {
 } );
 ```
 
+<SceneryDemo demo="level-selection-button" />
+
 ## Constructor
 
 ```ts

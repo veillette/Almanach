@@ -14,6 +14,8 @@ const props = withDefaults( defineProps<{
 const containerRef = ref<HTMLElement | null>( null );
 const errorMessage = ref<string | null>( null );
 const isLoading = ref( true );
+const canvasWidth = ref( props.width ?? 400 );
+const canvasHeight = ref( props.height ?? 120 );
 
 type DisplayInstance = {
   domElement: HTMLElement;
@@ -41,6 +43,8 @@ onMounted( async () => {
     const demoModule = await loadDemo( props.demo );
     const width = props.width ?? demoModule.width ?? 400;
     const height = props.height ?? demoModule.height ?? 120;
+    canvasWidth.value = width;
+    canvasHeight.value = height;
 
     const rootNode = new scenery.Node();
     disposeDemo = demoModule.createDemo( rootNode );
@@ -81,8 +85,8 @@ onBeforeUnmount( () => {
       class="scenery-demo__canvas"
       :class="{ 'scenery-demo__canvas--loading': isLoading }"
       :style="{
-        width: `${width ?? 400}px`,
-        height: `${height ?? 120}px`
+        width: `${canvasWidth}px`,
+        height: `${canvasHeight}px`
       }"
       role="img"
       :aria-label="`Interactive ${demo} demo`"
