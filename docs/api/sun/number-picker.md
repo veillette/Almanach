@@ -40,6 +40,8 @@ const countPicker = new NumberPicker( countProperty, countRangeProperty, {
 
 As with `NumberSpinner`, the range argument is a `TReadOnlyProperty<Range>` (not a plain `Range`), so the picker can respond if the allowed bounds change dynamically.
 
+<SceneryDemo demo="number-picker" />
+
 ## Options
 
 | Option | Default | Effect |

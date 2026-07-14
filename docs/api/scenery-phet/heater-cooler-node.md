@@ -38,6 +38,8 @@ const heaterCoolerNode = new HeaterCoolerNode( heatCoolAmountProperty, {
 
 Step your model's heat/cool logic off `heatCoolAmountProperty` directly (e.g. `heatCoolAmountProperty.value * maxHeatingRate`); `HeaterCoolerNode` only reflects and lets the user drag the value, it does not apply any heating/cooling itself.
 
+<SceneryDemo demo="heater-cooler-node" />
+
 ## Constructor
 
 ```ts

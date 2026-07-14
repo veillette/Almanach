@@ -36,6 +36,8 @@ const scoreDisplay = new ScoreDisplayNumberAndStar( scoreProperty, {
 
 The display listens to `scoreProperty` directly and rebuilds its children whenever the score changes — there's no separate `update()` call to make.
 
+<SceneryDemo demo="score-display-number-and-star" />
+
 ## Constructor
 
 ```ts

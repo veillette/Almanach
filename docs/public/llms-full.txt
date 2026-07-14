@@ -1098,6 +1098,10 @@ These controls have interactive embeds on their API pages. Try them here, then f
 
 [RectangularPushButton API](/api/sun/rectangular-push-button)
 
+<SceneryDemo demo="combo-box" />
+
+[ComboBox API](/api/sun/combo-box)
+
 ### `scenery-phet`
 
 <SceneryDemo demo="number-control" />
@@ -1107,6 +1111,14 @@ These controls have interactive embeds on their API pages. Try them here, then f
 <SceneryDemo demo="reset-all-button" />
 
 [ResetAllButton API](/api/scenery-phet/reset-all-button)
+
+<SceneryDemo demo="gauge-node" />
+
+[GaugeNode API](/api/scenery-phet/gauge-node)
+
+<SceneryDemo demo="heater-cooler-node" />
+
+[HeaterCoolerNode API](/api/scenery-phet/heater-cooler-node)
 
 Compose these with [`FlowBox`/`GridBox`](/guides/scenery-layout) rather than positioning each one by hand:
 
@@ -3983,6 +3995,8 @@ const barPlot = new BarPlot( chartTransform, dataSet, {
 } );
 ```
 
+<SceneryDemo demo="bar-plot" />
+
 ## Constructor
 
 ```ts
@@ -4344,6 +4358,8 @@ const linePlot = new LinePlot( chartTransform, dataSet, {
   lineWidth: 2
 } );
 ```
+
+<SceneryDemo demo="line-plot" />
 
 ## Constructor
 
@@ -8069,6 +8085,8 @@ const ammonia = new NH3Node();
 
 someLayerNode.children = [ water, carbonDioxide, ammonia ];
 ```
+
+<SceneryDemo demo="molecule-node" />
 
 ## Constructor (subclasses only)
 
@@ -13010,6 +13028,8 @@ const faucetNode = new FaucetNode( maxFlowRate, flowRateProperty, enabledPropert
 
 `FaucetNode`'s origin is the bottom-center of its spout, which makes it easy to align against wherever fluid should visually emerge.
 
+<SceneryDemo demo="faucet-node" />
+
 ## Constructor
 
 ```ts
@@ -13286,6 +13306,8 @@ new GaugeNode(
   providedOptions?: GaugeNodeOptions
 )
 ```
+
+<SceneryDemo demo="gauge-node" />
 
 ## Options
 
@@ -13717,6 +13739,8 @@ const heaterCoolerNode = new HeaterCoolerNode( heatCoolAmountProperty, {
 ```
 
 Step your model's heat/cool logic off `heatCoolAmountProperty` directly (e.g. `heatCoolAmountProperty.value * maxHeatingRate`); `HeaterCoolerNode` only reflects and lets the user drag the value, it does not apply any heating/cooling itself.
+
+<SceneryDemo demo="heater-cooler-node" />
 
 ## Constructor
 
@@ -18387,6 +18411,8 @@ screenView.addChild( unitsComboBox );
 screenView.addChild( listParent );
 ```
 
+<SceneryDemo demo="combo-box" />
+
 ## Constructor arguments
 
 | Argument | Effect |
@@ -18701,6 +18727,8 @@ const countPicker = new NumberPicker( countProperty, countRangeProperty, {
 
 As with `NumberSpinner`, the range argument is a `TReadOnlyProperty<Range>` (not a plain `Range`), so the picker can respond if the allowed bounds change dynamically.
 
+<SceneryDemo demo="number-picker" />
+
 ## Options
 
 | Option | Default | Effect |
@@ -18820,6 +18848,8 @@ const soundSwitch = new OnOffSwitch( soundEnabledProperty, {
 ```
 
 Unlike `Checkbox`, `OnOffSwitch` has no separate label argument — pair it with your own `Text` (or an `HBox`/`AlignBox` layout) if you need one, and use `accessibleName` for the accessible label.
+
+<SceneryDemo demo="on-off-switch" />
 
 ## Interaction
 
@@ -21578,6 +21608,8 @@ const elapsedTimeNode = new ElapsedTimeNode( gameTimer.elapsedTimeProperty, {
 } );
 ```
 
+<SceneryDemo demo="elapsed-time-node" />
+
 ## Constructor
 
 ```ts
@@ -21932,6 +21964,8 @@ const levelButton = new LevelSelectionButton( levelIconNode, scoreProperty, {
 } );
 ```
 
+<SceneryDemo demo="level-selection-button" />
+
 ## Constructor
 
 ```ts
@@ -22148,6 +22182,8 @@ const scoreDisplay = new ScoreDisplayNumberAndStar( scoreProperty, {
 ```
 
 The display listens to `scoreProperty` directly and rebuilds its children whenever the score changes — there's no separate `update()` call to make.
+
+<SceneryDemo demo="score-display-number-and-star" />
 
 ## Constructor
 

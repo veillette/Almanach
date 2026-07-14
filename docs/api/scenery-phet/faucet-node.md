@@ -39,6 +39,8 @@ const faucetNode = new FaucetNode( maxFlowRate, flowRateProperty, enabledPropert
 
 `FaucetNode`'s origin is the bottom-center of its spout, which makes it easy to align against wherever fluid should visually emerge.
 
+<SceneryDemo demo="faucet-node" />
+
 ## Constructor
 
 ```ts

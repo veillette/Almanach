@@ -49,6 +49,8 @@ const barPlot = new BarPlot( chartTransform, dataSet, {
 } );
 ```
 
+<SceneryDemo demo="bar-plot" />
+
 ## Constructor
 
 ```ts

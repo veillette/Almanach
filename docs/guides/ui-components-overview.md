@@ -18,6 +18,8 @@ related:
   - /api/scenery-phet/number-control
   - /api/scenery-phet/thermometer-node
   - /api/scenery-phet/arrow-node
+  - /api/scenery-phet/gauge-node
+  - /api/scenery-phet/heater-cooler-node
 prerequisites:
   - /guides/scenery-basics
 sourceRefs:
@@ -66,6 +68,10 @@ These controls have interactive embeds on their API pages. Try them here, then f
 
 [RectangularPushButton API](/api/sun/rectangular-push-button)
 
+<SceneryDemo demo="combo-box" />
+
+[ComboBox API](/api/sun/combo-box)
+
 ### `scenery-phet`
 
 <SceneryDemo demo="number-control" />
@@ -75,6 +81,14 @@ These controls have interactive embeds on their API pages. Try them here, then f
 <SceneryDemo demo="reset-all-button" />
 
 [ResetAllButton API](/api/scenery-phet/reset-all-button)
+
+<SceneryDemo demo="gauge-node" />
+
+[GaugeNode API](/api/scenery-phet/gauge-node)
+
+<SceneryDemo demo="heater-cooler-node" />
+
+[HeaterCoolerNode API](/api/scenery-phet/heater-cooler-node)
 
 Compose these with [`FlowBox`/`GridBox`](/guides/scenery-layout) rather than positioning each one by hand:
 

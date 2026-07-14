@@ -2,7 +2,7 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based knowledge base of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-10T01:08:49.728Z",
+  "generated": "2026-07-14T01:14:35.275Z",
   "documentCount": 423,
   "documents": [
     {
@@ -406,7 +406,9 @@
         "/api/scenery-phet/reset-all-button",
         "/api/scenery-phet/number-control",
         "/api/scenery-phet/thermometer-node",
-        "/api/scenery-phet/arrow-node"
+        "/api/scenery-phet/arrow-node",
+        "/api/scenery-phet/gauge-node",
+        "/api/scenery-phet/heater-cooler-node"
       ],
       "prerequisites": [
         "/guides/scenery-basics"
@@ -415,7 +417,7 @@
         "https://www.npmjs.com/package/scenerystack"
       ],
       "navOrder": 5,
-      "wordCount": 633,
+      "wordCount": 648,
       "url": "https://veillette.github.io/Almanach/guides/ui-components-overview"
     },
     {
@@ -1597,7 +1599,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 419,
+      "wordCount": 422,
       "url": "https://veillette.github.io/Almanach/api/bamboo/bar-plot"
     },
     {
@@ -1749,7 +1751,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 355,
+      "wordCount": 358,
       "url": "https://veillette.github.io/Almanach/api/bamboo/line-plot"
     },
     {
@@ -3409,7 +3411,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 446,
+      "wordCount": 449,
       "url": "https://veillette.github.io/Almanach/api/nitroglycerin/molecule-node"
     },
     {
@@ -5652,7 +5654,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 423,
+      "wordCount": 426,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/faucet-node"
     },
     {
@@ -5768,7 +5770,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 489,
+      "wordCount": 492,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/gauge-node"
     },
     {
@@ -5948,7 +5950,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 391,
+      "wordCount": 394,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/heater-cooler-node"
     },
     {
@@ -7941,7 +7943,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 495,
+      "wordCount": 498,
       "url": "https://veillette.github.io/Almanach/api/sun/combo-box"
     },
     {
@@ -8108,7 +8110,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 599,
+      "wordCount": 602,
       "url": "https://veillette.github.io/Almanach/api/sun/number-picker"
     },
     {
@@ -8161,7 +8163,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 434,
+      "wordCount": 437,
       "url": "https://veillette.github.io/Almanach/api/sun/on-off-switch"
     },
     {
@@ -9400,7 +9402,7 @@
         "https://www.npmjs.com/package/scenerystack",
         "https://scenerystack.org/reference/"
       ],
-      "wordCount": 278,
+      "wordCount": 281,
       "url": "https://veillette.github.io/Almanach/api/vegas/elapsed-time-node"
     },
     {
@@ -9548,7 +9550,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 433,
+      "wordCount": 436,
       "url": "https://veillette.github.io/Almanach/api/vegas/level-selection-button"
     },
     {
@@ -9637,7 +9639,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 308,
+      "wordCount": 311,
       "url": "https://veillette.github.io/Almanach/api/vegas/score-display-number-and-star"
     },
     {
