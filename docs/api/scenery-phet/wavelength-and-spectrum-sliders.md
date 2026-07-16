@@ -32,6 +32,8 @@ const wavelengthProperty = new NumberProperty( 550 );
 const wavelengthControl = new WavelengthNumberControl( wavelengthProperty );
 ```
 
+<SceneryDemo demo="wavelength-slider" />
+
 ## VisibleColor: the wavelength <-> RGB conversion
 
 `VisibleColor` is a static utility object (not a class) mapping between nanometer wavelengths and sRGB `Color`s using a precomputed lookup table, plus a couple of physical constants.

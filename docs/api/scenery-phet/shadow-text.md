@@ -20,6 +20,8 @@ import { ShadowText } from 'scenerystack/scenery-phet';
 import { PhetFont } from 'scenerystack/scenery-phet';
 ```
 
+<SceneryDemo demo="shadow-text" />
+
 ## A minimal example
 
 ```ts

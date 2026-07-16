@@ -23,6 +23,8 @@ import { TimeSpeedRadioButtonGroup, TimeSpeed } from 'scenerystack/scenery-phet'
 import { EnumerationProperty } from 'scenerystack/axon';
 ```
 
+<SceneryDemo demo="time-speed-radio-button-group" />
+
 ## A minimal example
 
 ```ts

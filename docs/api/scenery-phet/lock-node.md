@@ -23,6 +23,8 @@ import { LockNode } from 'scenerystack/scenery-phet';
 import { BooleanProperty } from 'scenerystack/axon';
 ```
 
+<SceneryDemo demo="lock-node" />
+
 ## A minimal example
 
 ```ts

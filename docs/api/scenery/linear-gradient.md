@@ -31,6 +31,8 @@ const gradient = new LinearGradient( 0, 0, 100, 0 )
 const bar = new Rectangle( 0, 0, 100, 20, { fill: gradient } );
 ```
 
+<SceneryDemo demo="linear-gradient" />
+
 ## Constructor
 
 `new LinearGradient( x0, y0, x1, y1 )` — the four coordinates describe the gradient line's start (ratio 0) and end (ratio 1) points, in the local coordinate frame of whatever Node it's used on. The gradient extends perpendicular to this line and repeats the end colors beyond the line's extent.

@@ -36,6 +36,8 @@ const centeredSlot = new AlignBox( icon, {
 
 If `alignBounds` isn't provided, `AlignBox` sizes itself to fit the content plus margins, with a left-top corner at `(0, 0)` — in that case it behaves mostly as a margin wrapper rather than a fixed-size slot. Passing a preferred width/height (e.g. from a parent layout container) also drives `alignBounds` automatically.
 
+<SceneryDemo demo="align-box" />
+
 ## Options
 
 | Option | Default | Effect |

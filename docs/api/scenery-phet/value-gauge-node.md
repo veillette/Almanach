@@ -26,6 +26,8 @@ import { NumberProperty, StringProperty } from 'scenerystack/axon';
 import { Range } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="value-gauge-node" />
+
 ## A minimal example
 
 ```ts

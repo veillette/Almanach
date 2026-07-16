@@ -1164,6 +1164,50 @@ These controls have interactive embeds on their API pages. Try them here, then f
 
 [StarNode API](/api/scenery-phet/star-node)
 
+<SceneryDemo demo="value-gauge-node" />
+
+[ValueGaugeNode API](/api/scenery-phet/value-gauge-node)
+
+<SceneryDemo demo="wavelength-slider" />
+
+[WavelengthSlider API](/api/scenery-phet/wavelength-and-spectrum-sliders)
+
+<SceneryDemo demo="laser-pointer-node" />
+
+[LaserPointerNode API](/api/scenery-phet/laser-pointer-node)
+
+### `scenery` primitives
+
+The building blocks under everything above are ordinary `scenery` `Node`s — shapes, text, gradients, and layout boxes.
+
+<SceneryDemo demo="circle" />
+
+[Circle API](/api/scenery/circle)
+
+<SceneryDemo demo="path" />
+
+[Path API](/api/scenery/path)
+
+<SceneryDemo demo="linear-gradient" />
+
+[LinearGradient API](/api/scenery/linear-gradient)
+
+<SceneryDemo demo="flow-box" />
+
+[FlowBox API](/api/scenery/flow-box)
+
+### `bamboo`: charts and plots
+
+`bamboo` maps model coordinates to view coordinates through a `ChartTransform`, then layers plots, axes, and gridlines on top.
+
+<SceneryDemo demo="linear-equation-plot" />
+
+[LinearEquationPlot API](/api/bamboo/linear-equation-plot)
+
+<SceneryDemo demo="canvas-line-plot" />
+
+[CanvasLinePlot API](/api/bamboo/canvas-line-plot)
+
 Compose these with [`FlowBox`/`GridBox`](/guides/scenery-layout) rather than positioning each one by hand:
 
 ```ts
@@ -3949,6 +3993,8 @@ import { Orientation } from 'scenerystack/phet-core';
 import { Range } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="axis-arrow-node" />
+
 ## A minimal example
 
 ```ts
@@ -4087,6 +4133,8 @@ Category: API | Tags: bamboo, CanvasLinePlot, ChartCanvasNode, chart, plot, canv
 import { ChartTransform, ChartCanvasNode, CanvasLinePlot } from 'scenerystack/bamboo';
 import { Range, Vector2 } from 'scenerystack/dot';
 ```
+
+<SceneryDemo demo="canvas-line-plot" />
 
 ## A minimal example
 
@@ -4244,6 +4292,8 @@ import { Orientation } from 'scenerystack/phet-core';
 import { Range } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="grid-line-set" />
+
 ## A minimal example
 
 ```ts
@@ -4323,6 +4373,8 @@ Category: API | Tags: bamboo, LinearEquationPlot, chart, plot | Status: complete
 import { ChartTransform, LinearEquationPlot } from 'scenerystack/bamboo';
 import { Range } from 'scenerystack/dot';
 ```
+
+<SceneryDemo demo="linear-equation-plot" />
 
 ## A minimal example
 
@@ -8006,6 +8058,8 @@ Category: API | Tags: nitroglycerin, Atom, Element, AtomNode, chemistry | Status
 import { Atom, Element, AtomNode } from 'scenerystack/nitroglycerin';
 ```
 
+<SceneryDemo demo="atom-node" />
+
 ## A minimal example
 
 ```ts
@@ -9046,6 +9100,8 @@ const centeredSlot = new AlignBox( icon, {
 
 If `alignBounds` isn't provided, `AlignBox` sizes itself to fit the content plus margins, with a left-top corner at `(0, 0)` — in that case it behaves mostly as a margin wrapper rather than a fixed-size slot. Passing a preferred width/height (e.g. from a parent layout container) also drives `alignBounds` automatically.
 
+<SceneryDemo demo="align-box" />
+
 ## Options
 
 | Option | Default | Effect |
@@ -9221,6 +9277,8 @@ const marker = new Circle( { radius: 5, fill: 'black' } );
 
 ball.radius = 25; // radius is also a settable property
 ```
+
+<SceneryDemo demo="circle" />
 
 ## Options
 
@@ -9637,6 +9695,8 @@ const row = new HBox( {
 
 Adding, removing, or reordering `row.children` afterward re-lays-out the remaining children automatically — no manual repositioning needed.
 
+<SceneryDemo demo="flow-box" />
+
 ## Options
 
 | Option | Default | Effect |
@@ -9819,6 +9879,8 @@ const grid = new GridBox( {
 
 Each child's cell position and span are set through that child's `layoutOptions`, not through `GridBox` options — `GridBox` itself only configures grid-wide defaults (spacing, alignment, margins) and how auto-placement behaves.
 
+<SceneryDemo demo="grid-box" />
+
 ## `GridBox`-level options
 
 | Option | Default | Effect |
@@ -9889,6 +9951,8 @@ const row = new HBox( {
 ```
 
 For a vertical (column) layout, use [`VBox`](/api/scenery/v-box) instead; for the full option table (spacing, alignment, growth, wrapping, margins) see [`FlowBox`](/api/scenery/flow-box), which documents everything `HBox` inherits.
+
+<SceneryDemo demo="h-box" />
 
 ## Options and methods
 
@@ -10414,6 +10478,8 @@ const diagonal = new Line( new Vector2( 0, 0 ), new Vector2( 50, 50 ), { stroke:
 axis.x2 = 150; // update an endpoint after construction
 ```
 
+<SceneryDemo demo="line" />
+
 ## Constructor overloads
 
 | Signature | Use case |
@@ -10460,6 +10526,8 @@ const gradient = new LinearGradient( 0, 0, 100, 0 )
 
 const bar = new Rectangle( 0, 0, 100, 20, { fill: gradient } );
 ```
+
+<SceneryDemo demo="linear-gradient" />
 
 ## Constructor
 
@@ -10707,6 +10775,8 @@ const triangleNode = new Path( triangle, {
   lineWidth: 2
 } );
 ```
+
+<SceneryDemo demo="path" />
 
 ## Options
 
@@ -11002,6 +11072,8 @@ const gradient = new RadialGradient( 0, 0, 0, 0, 0, 20 )
 const sphere = new Circle( 20, { fill: gradient } );
 ```
 
+<SceneryDemo demo="radial-gradient" />
+
 ## Constructor
 
 `new RadialGradient( x0, y0, r0, x1, y1, r1 )` — the start circle's center and radius (ratio 0), then the end circle's center and radius (ratio 1), all in the Node's local coordinate frame. A common "spherical" look uses the same center for both circles with `r0` near `0` and `r1` matching the shape's radius, as above; offsetting the start circle's center instead produces a highlight-style radial gradient.
@@ -11045,6 +11117,8 @@ const fromBounds = new Rectangle( new Bounds2( 0, 0, 200, 100 ), { fill: 'white'
 
 panel.rectWidth = 220; // resize after construction
 ```
+
+<SceneryDemo demo="rectangle" />
 
 ## Constructor overloads
 
@@ -11158,6 +11232,8 @@ const withLink = new RichText(
   }
 );
 ```
+
+<SceneryDemo demo="rich-text" />
 
 ## Supported markup
 
@@ -11465,6 +11541,8 @@ const caption = new Text( 'caption text', {
 
 Simulations conventionally use [`PhetFont`](/api/scenery-phet/phet-font) (from `scenerystack/scenery-phet`) rather than the browser default or a raw `Font` so that text renders consistently across platforms; `Font` (from `scenerystack/scenery`) is the lower-level class `PhetFont` builds on.
 
+<SceneryDemo demo="text" />
+
 ## Options
 
 | Option | Effect |
@@ -11637,6 +11715,8 @@ const column = new VBox( {
 ```
 
 For a horizontal (row) layout, use [`HBox`](/api/scenery/h-box) instead; for the full option table (spacing, alignment, growth, wrapping, margins) see [`FlowBox`](/api/scenery/flow-box), which documents everything `VBox` inherits.
+
+<SceneryDemo demo="v-box" />
 
 ## Options and methods
 
@@ -11893,6 +11973,8 @@ Category: API | Tags: scenery-phet, BackButton, button | Status: verified
 ```ts
 import { BackButton } from 'scenerystack/scenery-phet';
 ```
+
+<SceneryDemo demo="back-button" />
 
 ## A minimal example
 
@@ -12252,6 +12334,8 @@ Category: API | Tags: scenery-phet, BracketNode, bracket, label | Status: comple
 import { BracketNode } from 'scenerystack/scenery-phet';
 import { Text } from 'scenerystack/scenery';
 ```
+
+<SceneryDemo demo="bracket-node" />
 
 ## A minimal example
 
@@ -13505,6 +13589,8 @@ import { GridCheckbox, GridIcon } from 'scenerystack/scenery-phet';
 import { BooleanProperty } from 'scenerystack/axon';
 ```
 
+<SceneryDemo demo="grid-checkbox" />
+
 ## A minimal example
 
 ```ts
@@ -13562,6 +13648,8 @@ Category: API | Tags: scenery-phet, GridNode, grid, coordinates | Status: comple
 import { GridNode } from 'scenerystack/scenery-phet';
 import { Vector2 } from 'scenerystack/dot';
 ```
+
+<SceneryDemo demo="grid-node" />
 
 ## A minimal example
 
@@ -14294,6 +14382,8 @@ import { LaserPointerNode } from 'scenerystack/scenery-phet';
 import { BooleanProperty } from 'scenerystack/axon';
 ```
 
+<SceneryDemo demo="laser-pointer-node" />
+
 ## A minimal example
 
 ```ts
@@ -14407,6 +14497,8 @@ Category: API | Tags: scenery-phet, LightRaysNode, light, rays | Status: complet
 import { LightRaysNode } from 'scenerystack/scenery-phet';
 ```
 
+<SceneryDemo demo="light-rays-node" />
+
 ## A minimal example
 
 ```ts
@@ -14459,6 +14551,8 @@ Category: API | Tags: scenery-phet, LineArrowNode, arrow, vector | Status: compl
 # LineArrowNode
 
 `LineArrowNode` (from `scenerystack/scenery-phet`) draws an arrow from three separately-stroked line segments: one for the tail, and two forming a V-shaped, open (unfilled) arrowhead. It exists alongside [`ArrowNode`](/api/scenery-phet/arrow-node) as a deliberately lighter-weight alternative — read on for when to reach for which.
+
+<SceneryDemo demo="line-arrow-node" />
 
 ## LineArrowNode vs. ArrowNode
 
@@ -14537,6 +14631,8 @@ Category: API | Tags: scenery-phet, LockNode, icon, toggle, padlock | Status: co
 import { LockNode } from 'scenerystack/scenery-phet';
 import { BooleanProperty } from 'scenerystack/axon';
 ```
+
+<SceneryDemo demo="lock-node" />
 
 ## A minimal example
 
@@ -15138,6 +15234,8 @@ Category: API | Tags: scenery-phet, PaperAirplaneNode, SimpleClockIcon, icon | S
 import { PaperAirplaneNode, SimpleClockIcon } from 'scenerystack/scenery-phet';
 ```
 
+<SceneryDemo demo="simple-clock-icon" />
+
 ## PaperAirplaneNode
 
 `PaperAirplaneNode extends Path` and draws the exact paper-airplane silhouette used in the PhET logo, traced from the coordinates in PhET's logo artwork file. It's a fixed shape — there's no way to change its proportions, only how it's painted and transformed like any other `Path`.
@@ -15199,6 +15297,8 @@ The origin `(0, 0)` of a `ParametricSpringNode` is at its **left-center**, not i
 ```ts
 import { ParametricSpringNode } from 'scenerystack/scenery-phet';
 ```
+
+<SceneryDemo demo="parametric-spring-node" />
 
 ## A minimal example
 
@@ -16017,6 +16117,8 @@ import { ScientificNotationNode } from 'scenerystack/scenery-phet';
 import { NumberProperty } from 'scenerystack/axon';
 ```
 
+<SceneryDemo demo="scientific-notation-node" />
+
 ## A minimal example
 
 ```ts
@@ -16142,6 +16244,8 @@ import { ShadedRectangle, ShadedSphereNode } from 'scenerystack/scenery-phet';
 import { Bounds2 } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="shaded-sphere-node" />
+
 ## ShadedRectangle
 
 Draws a rounded rectangle with a beveled, embossed look: light and dark gradients along each edge and rounded corner, as if lit from one direction.
@@ -16221,6 +16325,8 @@ Category: API | Tags: scenery-phet, ShadowText, text, shadow | Status: complete
 import { ShadowText } from 'scenerystack/scenery-phet';
 import { PhetFont } from 'scenerystack/scenery-phet';
 ```
+
+<SceneryDemo demo="shadow-text" />
 
 ## A minimal example
 
@@ -16448,6 +16554,8 @@ Unlike most animated scenery-phet Nodes, `SpinningIndicatorNode` does **not** ho
 ```ts
 import { SpinningIndicatorNode } from 'scenerystack/scenery-phet';
 ```
+
+<SceneryDemo demo="spinning-indicator-node" />
 
 ## A minimal example
 
@@ -16893,6 +17001,8 @@ import { Range } from 'scenerystack/dot';
 import { Color } from 'scenerystack/scenery';
 ```
 
+<SceneryDemo demo="temperature-and-color-sensor-node" />
+
 ## A minimal example
 
 ```ts
@@ -17108,6 +17218,8 @@ import { TimeSpeedRadioButtonGroup, TimeSpeed } from 'scenerystack/scenery-phet'
 import { EnumerationProperty } from 'scenerystack/axon';
 ```
 
+<SceneryDemo demo="time-speed-radio-button-group" />
+
 ## A minimal example
 
 ```ts
@@ -17274,6 +17386,8 @@ import { NumberProperty, StringProperty } from 'scenerystack/axon';
 import { Range } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="value-gauge-node" />
+
 ## A minimal example
 
 ```ts
@@ -17407,6 +17521,8 @@ const wavelengthProperty = new NumberProperty( 550 );
 const wavelengthControl = new WavelengthNumberControl( wavelengthProperty );
 ```
 
+<SceneryDemo demo="wavelength-slider" />
+
 ## VisibleColor: the wavelength <-> RGB conversion
 
 `VisibleColor` is a static utility object (not a class) mapping between nanometer wavelengths and sRGB `Color`s using a precomputed lookup table, plus a couple of physical constants.
@@ -17506,6 +17622,8 @@ import { WireNode } from 'scenerystack/scenery-phet';
 import { DerivedProperty } from 'scenerystack/axon';
 import { Vector2 } from 'scenerystack/dot';
 ```
+
+<SceneryDemo demo="wire-node" />
 
 ## A minimal example
 
@@ -17679,6 +17797,8 @@ import { PlusMinusZoomButtonGroup, MagnifyingGlassZoomButtonGroup } from 'scener
 import { NumberProperty } from 'scenerystack/axon';
 import { Range } from 'scenerystack/dot';
 ```
+
+<SceneryDemo demo="zoom-button-group" />
 
 ## A minimal example
 
@@ -18039,6 +18159,8 @@ const circleButton = new AquaRadioButton( shapeProperty, 'circle', new Text( 'Ci
 
 The constructor is `( property, value, labelNode, options? )` — `property` must use the default `'reference'` `valueComparisonStrategy` (`AquaRadioButton` compares with `===`), `value` is what gets written to `property` when this button fires, and `labelNode` is vertically centered to the right of the circle. Clicking anywhere on the button or its label sets `property.value = value`; the circle fills in automatically whenever `property.value === value`, from any source.
 
+<SceneryDemo demo="aqua-radio-button" />
+
 ## Options
 
 | Option | Default | Effect |
@@ -18289,6 +18411,8 @@ const carousel = new Carousel( items, {
 ::: tip In practice, configure it through `Carousel`'s `buttonOptions`
 The snippet above imports `CarouselButton` only conceptually — you rarely instantiate it yourself. `Carousel` creates two internally (previous/next), passing your `buttonOptions` through to both while filling in `arrowDirection` itself based on `orientation`.
 :::
+
+<SceneryDemo demo="carousel-button" />
 
 ## Options
 
@@ -18776,6 +18900,8 @@ const hornButton = new RectangularMomentaryButton(
 ```
 
 `RoundMomentaryButton` has the identical `(property, valueOff, valueOn, options?)` constructor — only the button shape differs, same as `RoundPushButton`/`RectangularPushButton`.
+
+<SceneryDemo demo="round-momentary-button" />
 
 ## `MomentaryButtonModel`
 
@@ -19406,6 +19532,8 @@ const circleButton = new RectangularRadioButton( shapeProperty, 'circle', {
 
 The constructor is `( property, value, options? )` — unlike `AquaRadioButton`, there's no dedicated label argument; the button's own visible content is set via the `content` option (inherited from `RectangularButton`), same as any other rectangular button. `property` must use the default `'reference'` `valueComparisonStrategy` (`RectangularRadioButton` compares with `===`).
 
+<SceneryDemo demo="rectangular-radio-button-group" />
+
 ## Options
 
 `RectangularRadioButtonOptions` is `RectangularButtonOptions` with a few PhET-iO/accessibility-only options trimmed off (they don't make sense on a single radio button — e.g. `enabledProperty`), plus:
@@ -19504,6 +19632,8 @@ const playButton = new RoundPushButton( {
 ```
 
 Both `RoundPushButton` and `RectangularPushButton` construct the same `PushButtonModel` internally and expose the identical `addListener`/`removeListener`/`fireOnDown`/`fireOnHold*` firing behavior — the only real difference between the two classes is which button shape (`RoundButton` vs. `RectangularButton`) they extend, so switching between them later is a one-line change.
+
+<SceneryDemo demo="round-push-button" />
 
 ## Options
 
@@ -19724,6 +19854,8 @@ const recordButton = new RoundStickyToggleButton(
 
 `RectangularStickyToggleButton` has the identical `(valueProperty, valueUp, valueDown, options?)` constructor — only the button shape differs.
 
+<SceneryDemo demo="sticky-toggle-button" />
+
 ## `StickyToggleButtonModel`
 
 Both classes construct a `StickyToggleButtonModel<T>` internally (extending the shared `ButtonModel` base documented on [PushButtonModel](/api/sun/push-button-model)), which owns the latch logic: pressing while `valueProperty.value === valueUp` immediately toggles it to `valueDown`; releasing while down and *not* part of the same press-release action toggles it back to `valueUp`. `Property.valueComparisonStrategy` must be `'reference'` — the model asserts this at construction, since it compares against `valueUp`/`valueDown` with `===`.
@@ -19837,6 +19969,8 @@ const playPauseButton = new BooleanRectangularToggleButton(
 
 `BooleanRoundToggleButton` has the identical constructor signature and is used exactly the same way — only the button shape differs.
 
+<SceneryDemo demo="rectangular-toggle-button" />
+
 ## The generic form
 
 `RectangularToggleButton<T>` and `RoundToggleButton<T>` toggle a `Property<T>` between two specific values of any type (not just `boolean`), sharing one `content` Node for both states:
@@ -19904,6 +20038,8 @@ const phaseNode = new ToggleNode( phaseProperty, elements );
 ```
 
 Each `ToggleNodeElement`'s `createNode()` builds the Node shown for that value; exactly one must match `phaseProperty.value` at all times (`ToggleNode` asserts on a mismatch count). When the Property changes, `ToggleNode` shows the matching child and hides the rest.
+
+<SceneryDemo demo="toggle-node" />
 
 ## BooleanToggleNode
 
@@ -21658,6 +21794,8 @@ Category: API | Tags: vegas, AllLevelsCompletedNode, game, dialog, Panel | Statu
 import { AllLevelsCompletedNode } from 'scenerystack/vegas';
 ```
 
+<SceneryDemo demo="all-levels-completed-node" />
+
 ## A minimal example
 
 ```ts
@@ -21976,6 +22114,8 @@ Category: API | Tags: vegas, LevelCompletedNode, game, Panel, score | Status: ve
 import { LevelCompletedNode } from 'scenerystack/vegas';
 ```
 
+<SceneryDemo demo="level-completed-node" />
+
 ## A minimal example
 
 ```ts
@@ -22143,6 +22283,8 @@ const buttonGroup = new LevelSelectionButtonGroup( items, {
 } );
 ```
 
+<SceneryDemo demo="level-selection-button-group" />
+
 ## Constructor
 
 ```ts
@@ -22208,6 +22350,8 @@ Category: API | Tags: vegas, ScoreDisplayLabeledNumber, ScoreDisplayLabeledStars
 import { ScoreDisplayLabeledNumber, ScoreDisplayLabeledStars, ScoreDisplayStars } from 'scenerystack/vegas';
 import { NumberProperty } from 'scenerystack/axon';
 ```
+
+<SceneryDemo demo="score-display-stars" />
 
 ## A minimal example
 

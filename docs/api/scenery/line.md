@@ -35,6 +35,8 @@ const diagonal = new Line( new Vector2( 0, 0 ), new Vector2( 50, 50 ), { stroke:
 axis.x2 = 150; // update an endpoint after construction
 ```
 
+<SceneryDemo demo="line" />
+
 ## Constructor overloads
 
 | Signature | Use case |

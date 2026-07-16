@@ -23,6 +23,8 @@ sourceRefs:
 import { BackButton } from 'scenerystack/scenery-phet';
 ```
 
+<SceneryDemo demo="back-button" />
+
 ## A minimal example
 
 ```ts

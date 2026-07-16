@@ -25,6 +25,8 @@ import { ChartTransform, LinearEquationPlot } from 'scenerystack/bamboo';
 import { Range } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="linear-equation-plot" />
+
 ## A minimal example
 
 ```ts

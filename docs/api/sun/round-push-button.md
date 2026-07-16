@@ -36,6 +36,8 @@ const playButton = new RoundPushButton( {
 
 Both `RoundPushButton` and `RectangularPushButton` construct the same `PushButtonModel` internally and expose the identical `addListener`/`removeListener`/`fireOnDown`/`fireOnHold*` firing behavior — the only real difference between the two classes is which button shape (`RoundButton` vs. `RectangularButton`) they extend, so switching between them later is a one-line change.
 
+<SceneryDemo demo="round-push-button" />
+
 ## Options
 
 `RoundPushButtonOptions` combines `RoundButton`'s shape options with the shared `ButtonNode` appearance options and `PushButtonModel`'s firing behavior:

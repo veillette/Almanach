@@ -42,6 +42,8 @@ const playPauseButton = new BooleanRectangularToggleButton(
 
 `BooleanRoundToggleButton` has the identical constructor signature and is used exactly the same way — only the button shape differs.
 
+<SceneryDemo demo="rectangular-toggle-button" />
+
 ## The generic form
 
 `RectangularToggleButton<T>` and `RoundToggleButton<T>` toggle a `Property<T>` between two specific values of any type (not just `boolean`), sharing one `content` Node for both states:

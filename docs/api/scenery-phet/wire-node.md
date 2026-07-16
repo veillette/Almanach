@@ -26,6 +26,8 @@ import { DerivedProperty } from 'scenerystack/axon';
 import { Vector2 } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="wire-node" />
+
 ## A minimal example
 
 ```ts

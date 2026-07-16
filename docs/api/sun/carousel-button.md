@@ -45,6 +45,8 @@ const carousel = new Carousel( items, {
 The snippet above imports `CarouselButton` only conceptually — you rarely instantiate it yourself. `Carousel` creates two internally (previous/next), passing your `buttonOptions` through to both while filling in `arrowDirection` itself based on `orientation`.
 :::
 
+<SceneryDemo demo="carousel-button" />
+
 ## Options
 
 `CarouselButtonOptions` is `RectangularPushButtonOptions` (minus `content`, corner-radius-per-corner options, and pointer-area shift options, which `CarouselButton` computes itself) plus:

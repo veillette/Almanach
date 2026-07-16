@@ -44,6 +44,8 @@ const buttonGroup = new LevelSelectionButtonGroup( items, {
 } );
 ```
 
+<SceneryDemo demo="level-selection-button-group" />
+
 ## Constructor
 
 ```ts

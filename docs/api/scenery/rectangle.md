@@ -38,6 +38,8 @@ const fromBounds = new Rectangle( new Bounds2( 0, 0, 200, 100 ), { fill: 'white'
 panel.rectWidth = 220; // resize after construction
 ```
 
+<SceneryDemo demo="rectangle" />
+
 ## Constructor overloads
 
 | Signature | Use case |

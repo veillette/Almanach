@@ -32,6 +32,8 @@ import { ScoreDisplayLabeledNumber, ScoreDisplayLabeledStars, ScoreDisplayStars 
 import { NumberProperty } from 'scenerystack/axon';
 ```
 
+<SceneryDemo demo="score-display-stars" />
+
 ## A minimal example
 
 ```ts

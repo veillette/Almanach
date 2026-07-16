@@ -25,6 +25,14 @@ related:
   - /api/scenery-phet/number-display
   - /api/scenery-phet/time-control-node
   - /api/scenery-phet/star-node
+  - /api/scenery-phet/value-gauge-node
+  - /api/scenery-phet/wavelength-and-spectrum-sliders
+  - /api/scenery/circle
+  - /api/scenery/path
+  - /api/scenery/linear-gradient
+  - /api/scenery/flow-box
+  - /api/bamboo/linear-equation-plot
+  - /api/bamboo/canvas-line-plot
 prerequisites:
   - /guides/scenery-basics
 sourceRefs:
@@ -138,6 +146,50 @@ These controls have interactive embeds on their API pages. Try them here, then f
 <SceneryDemo demo="star-node" />
 
 [StarNode API](/api/scenery-phet/star-node)
+
+<SceneryDemo demo="value-gauge-node" />
+
+[ValueGaugeNode API](/api/scenery-phet/value-gauge-node)
+
+<SceneryDemo demo="wavelength-slider" />
+
+[WavelengthSlider API](/api/scenery-phet/wavelength-and-spectrum-sliders)
+
+<SceneryDemo demo="laser-pointer-node" />
+
+[LaserPointerNode API](/api/scenery-phet/laser-pointer-node)
+
+### `scenery` primitives
+
+The building blocks under everything above are ordinary `scenery` `Node`s — shapes, text, gradients, and layout boxes.
+
+<SceneryDemo demo="circle" />
+
+[Circle API](/api/scenery/circle)
+
+<SceneryDemo demo="path" />
+
+[Path API](/api/scenery/path)
+
+<SceneryDemo demo="linear-gradient" />
+
+[LinearGradient API](/api/scenery/linear-gradient)
+
+<SceneryDemo demo="flow-box" />
+
+[FlowBox API](/api/scenery/flow-box)
+
+### `bamboo`: charts and plots
+
+`bamboo` maps model coordinates to view coordinates through a `ChartTransform`, then layers plots, axes, and gridlines on top.
+
+<SceneryDemo demo="linear-equation-plot" />
+
+[LinearEquationPlot API](/api/bamboo/linear-equation-plot)
+
+<SceneryDemo demo="canvas-line-plot" />
+
+[CanvasLinePlot API](/api/bamboo/canvas-line-plot)
 
 Compose these with [`FlowBox`/`GridBox`](/guides/scenery-layout) rather than positioning each one by hand:
 

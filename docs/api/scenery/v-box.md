@@ -36,6 +36,8 @@ const column = new VBox( {
 
 For a horizontal (row) layout, use [`HBox`](/api/scenery/h-box) instead; for the full option table (spacing, alignment, growth, wrapping, margins) see [`FlowBox`](/api/scenery/flow-box), which documents everything `VBox` inherits.
 
+<SceneryDemo demo="v-box" />
+
 ## Options and methods
 
 `VBoxOptions` is `FlowBoxOptions` with `orientation` omitted — every option and method documented on [`FlowBox`](/api/scenery/flow-box) (`spacing`, `align`, `grow`, `justify`, `wrap`, `getCell()`, `dispose()`, …) applies here unchanged, just fixed to a vertical main axis. For a vertical stack, `align` takes the horizontal-alignment values (`'left'`, `'right'`, `'center'`, `'origin'`) since it controls cross-axis (horizontal) placement of each row.

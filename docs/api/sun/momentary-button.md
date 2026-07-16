@@ -43,6 +43,8 @@ const hornButton = new RectangularMomentaryButton(
 
 `RoundMomentaryButton` has the identical `(property, valueOff, valueOn, options?)` constructor — only the button shape differs, same as `RoundPushButton`/`RectangularPushButton`.
 
+<SceneryDemo demo="round-momentary-button" />
+
 ## `MomentaryButtonModel`
 
 Both classes construct a `MomentaryButtonModel<T>` internally, the non-visual model (extending the shared `ButtonModel` base documented on [PushButtonModel](/api/sun/push-button-model), not `PushButtonModel` itself) that owns the on/off logic: `downProperty` transitioning to `true` sets `valueProperty` to `valueOn`; transitioning to `false` sets it back to `valueOff`. For alternative-input (keyboard/switch) activation, it behaves like a toggle instead — one activation turns it on, the next turns it off — and it always reverts to `valueOff` if the button loses focus while on.

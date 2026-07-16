@@ -19,6 +19,8 @@ sourceRefs:
 import { LightRaysNode } from 'scenerystack/scenery-phet';
 ```
 
+<SceneryDemo demo="light-rays-node" />
+
 ## A minimal example
 
 ```ts

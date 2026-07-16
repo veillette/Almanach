@@ -25,6 +25,8 @@ import { ChartTransform, ChartCanvasNode, CanvasLinePlot } from 'scenerystack/ba
 import { Range, Vector2 } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="canvas-line-plot" />
+
 ## A minimal example
 
 ```ts

@@ -37,6 +37,8 @@ const grid = new GridBox( {
 
 Each child's cell position and span are set through that child's `layoutOptions`, not through `GridBox` options — `GridBox` itself only configures grid-wide defaults (spacing, alignment, margins) and how auto-placement behaves.
 
+<SceneryDemo demo="grid-box" />
+
 ## `GridBox`-level options
 
 | Option | Default | Effect |

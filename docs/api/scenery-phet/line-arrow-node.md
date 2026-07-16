@@ -18,6 +18,8 @@ sourceRefs:
 
 `LineArrowNode` (from `scenerystack/scenery-phet`) draws an arrow from three separately-stroked line segments: one for the tail, and two forming a V-shaped, open (unfilled) arrowhead. It exists alongside [`ArrowNode`](/api/scenery-phet/arrow-node) as a deliberately lighter-weight alternative — read on for when to reach for which.
 
+<SceneryDemo demo="line-arrow-node" />
+
 ## LineArrowNode vs. ArrowNode
 
 Both draw an arrow between two points, but they render it completely differently:
