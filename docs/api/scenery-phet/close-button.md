@@ -33,6 +33,8 @@ const closeButton = new CloseButton( {
 } );
 ```
 
+<SceneryDemo demo="close-button" />
+
 ## Options
 
 `CloseButtonOptions` adds two options on top of the [same `RectangularPushButtonOptions`](/api/sun/rectangular-push-button) every rectangular push button accepts — `content` is fixed and not settable, since the "X" icon defines this button.

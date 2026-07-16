@@ -33,6 +33,8 @@ const clearButton = new EraserButton( {
 } );
 ```
 
+<SceneryDemo demo="eraser-button" />
+
 ## Options
 
 `EraserButtonOptions` adds one option on top of the [same `RectangularPushButtonOptions`](/api/sun/rectangular-push-button) every rectangular push button accepts (`listener`, `xMargin`/`yMargin`, `fireOnHold`, `enabledProperty`, `touchAreaXDilation`/`touchAreaYDilation`, …) — note that `content` is fixed and not settable, since the icon is what defines this button.

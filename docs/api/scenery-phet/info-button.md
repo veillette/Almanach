@@ -33,6 +33,8 @@ const infoButton = new InfoButton( {
 } );
 ```
 
+<SceneryDemo demo="info-button" />
+
 ## Options
 
 `InfoButtonOptions` adds one option on top of `RoundPushButtonOptions` (`listener`, `radius`, `touchAreaDilation`, `enabledProperty`, …) — `content` is fixed and not settable, since the icon defines this button.

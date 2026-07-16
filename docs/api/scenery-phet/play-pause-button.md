@@ -35,6 +35,8 @@ const playPauseButton = new PlayPauseButton( isPlayingProperty, {
 } );
 ```
 
+<SceneryDemo demo="play-pause-button" />
+
 ## Constructor
 
 ```ts

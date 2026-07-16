@@ -37,6 +37,8 @@ protractorNode.angleProperty.link( angle => {
 } );
 ```
 
+<SceneryDemo demo="protractor-node" />
+
 ## Constructor
 
 ```ts

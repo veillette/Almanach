@@ -41,6 +41,8 @@ const shapeGroup = new AquaRadioButtonGroup( shapeProperty, items, {
 
 Each item's `createNode` builds the *label* shown beside the round button — not the button's own content, which `AquaRadioButtonGroup` always draws itself. The group extends `FlowBox`, so it lays out like an `HBox`/`VBox` depending on `orientation`.
 
+<SceneryDemo demo="aqua-radio-button-group" />
+
 ## HorizontalAquaRadioButtonGroup / VerticalAquaRadioButtonGroup
 
 Both are thin subclasses with the exact same `(property, items, options?)` constructor as `AquaRadioButtonGroup`, minus the `orientation` option (which they fix for you):

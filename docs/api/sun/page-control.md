@@ -53,6 +53,8 @@ const carouselWithPaging = new VBox( {
 
 `pageNumberProperty` must be a settable `TProperty<number>` (not just readable) precisely because `PageControl` writes to it when `interactive: true` and a dot is clicked — `Carousel.pageNumberProperty` satisfies this directly.
 
+<SceneryDemo demo="page-control" />
+
 ## Options
 
 | Option | Default | Effect |

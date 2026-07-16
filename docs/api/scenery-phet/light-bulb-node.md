@@ -36,6 +36,8 @@ const bulbNode = new LightBulbNode( brightnessProperty, {
 brightnessProperty.value = 0.75;
 ```
 
+<SceneryDemo demo="light-bulb-node" />
+
 ## Constructor
 
 ```ts

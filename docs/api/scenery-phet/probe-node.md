@@ -35,6 +35,8 @@ const probeNode = new ProbeNode( {
 
 The origin of a `ProbeNode` is the center of its circular sensor area, not its top-left bounding-box corner — useful to remember when positioning it against a model coordinate.
 
+<SceneryDemo demo="probe-node" />
+
 ## Constructor
 
 ```ts

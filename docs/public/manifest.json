@@ -2,7 +2,7 @@
   "site": "https://veillette.github.io/Almanach",
   "title": "Almanach — SceneryStack Knowledge Base",
   "description": "A file-based knowledge base of SceneryStack knowledge: API guides, software patterns, styling, and accessibility conventions for building interactive simulations. Every page is plain Markdown with structured frontmatter.",
-  "generated": "2026-07-14T01:14:35.275Z",
+  "generated": "2026-07-16T22:24:15.712Z",
   "documentCount": 423,
   "documents": [
     {
@@ -408,7 +408,12 @@
         "/api/scenery-phet/thermometer-node",
         "/api/scenery-phet/arrow-node",
         "/api/scenery-phet/gauge-node",
-        "/api/scenery-phet/heater-cooler-node"
+        "/api/scenery-phet/heater-cooler-node",
+        "/api/sun/slider",
+        "/api/sun/carousel",
+        "/api/scenery-phet/number-display",
+        "/api/scenery-phet/time-control-node",
+        "/api/scenery-phet/star-node"
       ],
       "prerequisites": [
         "/guides/scenery-basics"
@@ -417,7 +422,7 @@
         "https://www.npmjs.com/package/scenerystack"
       ],
       "navOrder": 5,
-      "wordCount": 648,
+      "wordCount": 703,
       "url": "https://veillette.github.io/Almanach/guides/ui-components-overview"
     },
     {
@@ -1540,7 +1545,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 484,
+      "wordCount": 487,
       "url": "https://veillette.github.io/Almanach/api/bamboo/area-plot"
     },
     {
@@ -1780,7 +1785,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 358,
+      "wordCount": 361,
       "url": "https://veillette.github.io/Almanach/api/bamboo/scatter-plot"
     },
     {
@@ -5287,7 +5292,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 558,
+      "wordCount": 561,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/bicycle-pump-node"
     },
     {
@@ -5429,7 +5434,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 278,
+      "wordCount": 281,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/close-button"
     },
     {
@@ -5569,7 +5574,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 248,
+      "wordCount": 251,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/eraser-button"
     },
     {
@@ -5596,7 +5601,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 503,
+      "wordCount": 506,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/eye-dropper-node"
     },
     {
@@ -5683,7 +5688,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 396,
+      "wordCount": 399,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/fine-coarse-spinner"
     },
     {
@@ -5920,7 +5925,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 405,
+      "wordCount": 408,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/handle-node"
     },
     {
@@ -6005,7 +6010,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 275,
+      "wordCount": 278,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/info-button"
     },
     {
@@ -6111,7 +6116,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 1161,
+      "wordCount": 1164,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/keypad"
     },
     {
@@ -6167,7 +6172,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 334,
+      "wordCount": 337,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/light-bulb-node"
     },
     {
@@ -6268,7 +6273,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 294,
+      "wordCount": 297,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/magnifying-glass-node"
     },
     {
@@ -6435,7 +6440,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 496,
+      "wordCount": 499,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/number-display"
     },
     {
@@ -6664,7 +6669,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 358,
+      "wordCount": 361,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/play-pause-button"
     },
     {
@@ -6691,7 +6696,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 478,
+      "wordCount": 481,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/probe-node"
     },
     {
@@ -6719,7 +6724,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 298,
+      "wordCount": 301,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/protractor-node"
     },
     {
@@ -6800,7 +6805,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 494,
+      "wordCount": 497,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/ruler-node"
     },
     {
@@ -7034,7 +7039,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 365,
+      "wordCount": 368,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/spectrum-node"
     },
     {
@@ -7082,7 +7087,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 480,
+      "wordCount": 483,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/star-node"
     },
     {
@@ -7189,7 +7194,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 263,
+      "wordCount": 266,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/stop-sign-node"
     },
     {
@@ -7215,7 +7220,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 548,
+      "wordCount": 551,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/stopwatch-node"
     },
     {
@@ -7293,7 +7298,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 425,
+      "wordCount": 428,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/time-control-node"
     },
     {
@@ -7373,7 +7378,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 248,
+      "wordCount": 251,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/triangle-node"
     },
     {
@@ -7523,7 +7528,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 234,
+      "wordCount": 237,
       "url": "https://veillette.github.io/Almanach/api/scenery-phet/x-node"
     },
     {
@@ -7613,7 +7618,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 494,
+      "wordCount": 497,
       "url": "https://veillette.github.io/Almanach/api/sun/ab-switch"
     },
     {
@@ -7754,7 +7759,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 525,
+      "wordCount": 528,
       "url": "https://veillette.github.io/Almanach/api/sun/aqua-radio-button-group"
     },
     {
@@ -7781,7 +7786,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 352,
+      "wordCount": 355,
       "url": "https://veillette.github.io/Almanach/api/sun/arrow-button"
     },
     {
@@ -7807,7 +7812,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 481,
+      "wordCount": 484,
       "url": "https://veillette.github.io/Almanach/api/sun/carousel"
     },
     {
@@ -7996,7 +8001,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 304,
+      "wordCount": 307,
       "url": "https://veillette.github.io/Almanach/api/sun/expand-collapse-button"
     },
     {
@@ -8189,7 +8194,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 409,
+      "wordCount": 412,
       "url": "https://veillette.github.io/Almanach/api/sun/page-control"
     },
     {
@@ -8444,7 +8449,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 475,
+      "wordCount": 478,
       "url": "https://veillette.github.io/Almanach/api/sun/slider"
     },
     {
@@ -8637,7 +8642,7 @@
       "sourceRefs": [
         "https://www.npmjs.com/package/scenerystack"
       ],
-      "wordCount": 385,
+      "wordCount": 388,
       "url": "https://veillette.github.io/Almanach/api/sun/vertical-checkbox-group"
     },
     {

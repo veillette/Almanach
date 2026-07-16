@@ -46,6 +46,8 @@ const scatterPlot = new ScatterPlot( chartTransform, dataSet, {
 } );
 ```
 
+<SceneryDemo demo="scatter-plot" />
+
 ## Constructor
 
 ```ts

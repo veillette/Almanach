@@ -29,6 +29,8 @@ const centerOfMassMarker = new XNode( {
 } );
 ```
 
+<SceneryDemo demo="x-node" />
+
 ## Constructor
 
 ```ts

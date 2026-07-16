@@ -40,6 +40,8 @@ const volumeSpinner = new FineCoarseSpinner( volumeProperty, {
 
 Clicking `<`/`>` changes `volumeProperty.value` by `deltaFine`; clicking `<<`/`>>` changes it by `deltaCoarse` (clamped so it never overshoots `numberProperty.range`). All four buttons automatically disable themselves when the value is already at `range.min` or `range.max`.
 
+<SceneryDemo demo="fine-coarse-spinner" />
+
 ## Constructor
 
 ```ts
