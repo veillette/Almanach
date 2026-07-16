@@ -37,6 +37,8 @@ const temperatureDisplay = new NumberDisplay( temperatureProperty, new Range( -2
 } );
 ```
 
+<SceneryDemo demo="number-display" />
+
 ## Constructor
 
 ```ts

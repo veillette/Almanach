@@ -42,6 +42,8 @@ const stopwatchNode = new StopwatchNode( stopwatch, {
 
 Call `stopwatch.reset()` from your model's `reset()` — resetting only the Node would leave the underlying time/running state untouched.
 
+<SceneryDemo demo="stopwatch-node" />
+
 ## Constructor
 
 ```ts

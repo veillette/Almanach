@@ -35,6 +35,8 @@ const emptyStar = new StarNode( { value: 0 } );
 const starShape = new StarShape( { outerRadius: 20, innerRadius: 10 } );
 ```
 
+<SceneryDemo demo="star-node" />
+
 ## `StarNode` constructor
 
 ```ts

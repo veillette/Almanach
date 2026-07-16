@@ -40,6 +40,8 @@ const fruitCarousel = new Carousel( items, {
 
 Each `CarouselItem` supplies a `createNode` factory (like `ComboBoxItem`), not a pre-built `Node` — `Carousel` wraps every created item Node in an `AlignBox` so all items share a uniform "footprint," regardless of their individual sizes.
 
+<SceneryDemo demo="carousel" />
+
 ## Options
 
 | Option | Default | Effect |

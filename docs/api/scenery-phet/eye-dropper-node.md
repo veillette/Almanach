@@ -45,6 +45,8 @@ isDispensingProperty.link( isDispensing => {
 
 `EyeDropperNode`'s origin is the bottom-center of its tip, matching the point fluid visually emerges from — the same convention [`FaucetNode`](/api/scenery-phet/faucet-node) uses for its spout.
 
+<SceneryDemo demo="eye-dropper-node" />
+
 ## Constructor
 
 ```ts

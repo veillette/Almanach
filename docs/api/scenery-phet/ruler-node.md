@@ -39,6 +39,8 @@ const rulerNode = new RulerNode(
 );
 ```
 
+<SceneryDemo demo="ruler-node" />
+
 ## Constructor
 
 ```ts

@@ -40,6 +40,8 @@ const optionsGroup = new VerticalCheckboxGroup( items, {
 
 Each `VerticalCheckboxGroupItem` needs its own `property` and a `createNode()` that builds the checkbox's label — this is the same `createNode`-per-item shape used by `ToggleNode`, `AquaRadioButtonGroup`, and `RectangularRadioButtonGroup` elsewhere in `scenerystack/sun`.
 
+<SceneryDemo demo="vertical-checkbox-group" />
+
 ## Options
 
 | Option | Default | Effect |

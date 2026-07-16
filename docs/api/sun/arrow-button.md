@@ -36,6 +36,8 @@ const incrementButton = new ArrowButton(
 
 The constructor takes the direction and the fire callback directly (not through a `listener` option — `ArrowButton` sets `options.listener` internally, so `content` and `listener` are omitted from `ArrowButtonOptions`). Unlike a plain `RectangularPushButton`, `ArrowButton` enables `fireOnHold` by default, so press-and-hold repeats the action automatically.
 
+<SceneryDemo demo="arrow-button" />
+
 ## Options
 
 `ArrowButtonOptions` combines its own arrow-drawing options with `RectangularPushButtonOptions` (minus `content`/`listener`, which `ArrowButton` supplies):

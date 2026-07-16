@@ -38,6 +38,8 @@ const spectrumNode = new SpectrumNode( {
 } );
 ```
 
+<SceneryDemo demo="spectrum-node" />
+
 ## Options
 
 | Option | Default | Effect |

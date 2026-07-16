@@ -35,6 +35,8 @@ const zoomInIcon = new MagnifyingGlassNode( {
 } );
 ```
 
+<SceneryDemo demo="magnifying-glass-node" />
+
 ## Constructor
 
 ```ts

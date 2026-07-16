@@ -30,6 +30,8 @@ const arrowHead = new TriangleNode( {
 } );
 ```
 
+<SceneryDemo demo="triangle-node" />
+
 ## Constructor
 
 ```ts

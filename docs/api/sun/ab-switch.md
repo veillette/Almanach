@@ -38,6 +38,8 @@ const unitsSwitch = new ABSwitch(
 
 The constructor takes `( property, valueA, labelA, valueB, labelB, options? )` — clicking either label selects its value directly (via an internal [`PressListener`](/api/scenery/fire-listener) on each label), and dragging or clicking the switch itself behaves like `OnOffSwitch`'s underlying `ToggleSwitch` (click anywhere to toggle, drag past the midpoint and release to snap, or drag far enough to toggle immediately).
 
+<SceneryDemo demo="ab-switch" />
+
 ## Options
 
 | Option | Default | Effect |

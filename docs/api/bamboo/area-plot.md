@@ -47,6 +47,8 @@ const areaPlot = new AreaPlot( chartTransform, dataSet, {
 } );
 ```
 
+<SceneryDemo demo="area-plot" />
+
 ## Constructor
 
 ```ts

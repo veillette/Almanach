@@ -20,6 +20,11 @@ related:
   - /api/scenery-phet/arrow-node
   - /api/scenery-phet/gauge-node
   - /api/scenery-phet/heater-cooler-node
+  - /api/sun/slider
+  - /api/sun/carousel
+  - /api/scenery-phet/number-display
+  - /api/scenery-phet/time-control-node
+  - /api/scenery-phet/star-node
 prerequisites:
   - /guides/scenery-basics
 sourceRefs:
@@ -72,6 +77,26 @@ These controls have interactive embeds on their API pages. Try them here, then f
 
 [ComboBox API](/api/sun/combo-box)
 
+<SceneryDemo demo="slider" />
+
+[Slider API](/api/sun/slider)
+
+<SceneryDemo demo="carousel" />
+
+[Carousel API](/api/sun/carousel)
+
+<SceneryDemo demo="aqua-radio-button-group" />
+
+[AquaRadioButtonGroup API](/api/sun/aqua-radio-button-group)
+
+<SceneryDemo demo="arrow-button" />
+
+[ArrowButton API](/api/sun/arrow-button)
+
+<SceneryDemo demo="ab-switch" />
+
+[ABSwitch API](/api/sun/ab-switch)
+
 ### `scenery-phet`
 
 <SceneryDemo demo="number-control" />
@@ -89,6 +114,30 @@ These controls have interactive embeds on their API pages. Try them here, then f
 <SceneryDemo demo="heater-cooler-node" />
 
 [HeaterCoolerNode API](/api/scenery-phet/heater-cooler-node)
+
+<SceneryDemo demo="number-display" />
+
+[NumberDisplay API](/api/scenery-phet/number-display)
+
+<SceneryDemo demo="time-control-node" />
+
+[TimeControlNode API](/api/scenery-phet/time-control-node)
+
+<SceneryDemo demo="stopwatch-node" />
+
+[StopwatchNode API](/api/scenery-phet/stopwatch-node)
+
+<SceneryDemo demo="fine-coarse-spinner" />
+
+[FineCoarseSpinner API](/api/scenery-phet/fine-coarse-spinner)
+
+<SceneryDemo demo="light-bulb-node" />
+
+[LightBulbNode API](/api/scenery-phet/light-bulb-node)
+
+<SceneryDemo demo="star-node" />
+
+[StarNode API](/api/scenery-phet/star-node)
 
 Compose these with [`FlowBox`/`GridBox`](/guides/scenery-layout) rather than positioning each one by hand:
 

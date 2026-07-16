@@ -32,6 +32,8 @@ const stopIcon = new StopSignNode( {
 } );
 ```
 
+<SceneryDemo demo="stop-sign-node" />
+
 ## Constructor
 
 ```ts

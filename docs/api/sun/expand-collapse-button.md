@@ -33,6 +33,8 @@ const detailsButton = new ExpandCollapseButton( detailsExpandedProperty, {
 
 Pressing the button flips `detailsExpandedProperty.value`; the button's fill and `+`/`-` symbol update automatically, from any source that changes the Property, not just from a button press.
 
+<SceneryDemo demo="expand-collapse-button" />
+
 ## Options
 
 | Option | Default | Effect |

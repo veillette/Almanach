@@ -1102,6 +1102,26 @@ These controls have interactive embeds on their API pages. Try them here, then f
 
 [ComboBox API](/api/sun/combo-box)
 
+<SceneryDemo demo="slider" />
+
+[Slider API](/api/sun/slider)
+
+<SceneryDemo demo="carousel" />
+
+[Carousel API](/api/sun/carousel)
+
+<SceneryDemo demo="aqua-radio-button-group" />
+
+[AquaRadioButtonGroup API](/api/sun/aqua-radio-button-group)
+
+<SceneryDemo demo="arrow-button" />
+
+[ArrowButton API](/api/sun/arrow-button)
+
+<SceneryDemo demo="ab-switch" />
+
+[ABSwitch API](/api/sun/ab-switch)
+
 ### `scenery-phet`
 
 <SceneryDemo demo="number-control" />
@@ -1119,6 +1139,30 @@ These controls have interactive embeds on their API pages. Try them here, then f
 <SceneryDemo demo="heater-cooler-node" />
 
 [HeaterCoolerNode API](/api/scenery-phet/heater-cooler-node)
+
+<SceneryDemo demo="number-display" />
+
+[NumberDisplay API](/api/scenery-phet/number-display)
+
+<SceneryDemo demo="time-control-node" />
+
+[TimeControlNode API](/api/scenery-phet/time-control-node)
+
+<SceneryDemo demo="stopwatch-node" />
+
+[StopwatchNode API](/api/scenery-phet/stopwatch-node)
+
+<SceneryDemo demo="fine-coarse-spinner" />
+
+[FineCoarseSpinner API](/api/scenery-phet/fine-coarse-spinner)
+
+<SceneryDemo demo="light-bulb-node" />
+
+[LightBulbNode API](/api/scenery-phet/light-bulb-node)
+
+<SceneryDemo demo="star-node" />
+
+[StarNode API](/api/scenery-phet/star-node)
 
 Compose these with [`FlowBox`/`GridBox`](/guides/scenery-layout) rather than positioning each one by hand:
 
@@ -3852,6 +3896,8 @@ const areaPlot = new AreaPlot( chartTransform, dataSet, {
 } );
 ```
 
+<SceneryDemo demo="area-plot" />
+
 ## Constructor
 
 ```ts
@@ -4419,6 +4465,8 @@ const scatterPlot = new ScatterPlot( chartTransform, dataSet, {
   fill: 'purple'
 } );
 ```
+
+<SceneryDemo demo="scatter-plot" />
 
 ## Constructor
 
@@ -12067,6 +12115,8 @@ const pumpNode = new BicyclePumpNode( numberOfParticlesProperty, rangeProperty, 
 
 Call `pumpNode.reset()` from your screen's `reset()` to snap the handle back to its initial (fully raised) position and clear internal drag-accumulation state — this does not touch `numberOfParticlesProperty` itself.
 
+<SceneryDemo demo="bicycle-pump-node" />
+
 ## Constructor
 
 ```ts
@@ -12513,6 +12563,8 @@ const closeButton = new CloseButton( {
 } );
 ```
 
+<SceneryDemo demo="close-button" />
+
 ## Options
 
 `CloseButtonOptions` adds two options on top of the [same `RectangularPushButtonOptions`](/api/sun/rectangular-push-button) every rectangular push button accepts — `content` is fixed and not settable, since the "X" icon defines this button.
@@ -12856,6 +12908,8 @@ const clearButton = new EraserButton( {
 } );
 ```
 
+<SceneryDemo demo="eraser-button" />
+
 ## Options
 
 `EraserButtonOptions` adds one option on top of the [same `RectangularPushButtonOptions`](/api/sun/rectangular-push-button) every rectangular push button accepts (`listener`, `xMargin`/`yMargin`, `fireOnHold`, `enabledProperty`, `touchAreaXDilation`/`touchAreaYDilation`, …) — note that `content` is fixed and not settable, since the icon is what defines this button.
@@ -12907,6 +12961,8 @@ isDispensingProperty.link( isDispensing => {
 ```
 
 `EyeDropperNode`'s origin is the bottom-center of its tip, matching the point fluid visually emerges from — the same convention [`FaucetNode`](/api/scenery-phet/faucet-node) uses for its spout.
+
+<SceneryDemo demo="eye-dropper-node" />
 
 ## Constructor
 
@@ -13093,6 +13149,8 @@ const volumeSpinner = new FineCoarseSpinner( volumeProperty, {
 ```
 
 Clicking `<`/`>` changes `volumeProperty.value` by `deltaFine`; clicking `<<`/`>>` changes it by `deltaCoarse` (clamped so it never overshoots `numberProperty.range`). All four buttons automatically disable themselves when the value is already at `range.min` or `range.max`.
+
+<SceneryDemo demo="fine-coarse-spinner" />
 
 ## Constructor
 
@@ -13672,6 +13730,8 @@ screenView.addChild( handleNode );
 
 Since `HandleNode` is purely visual, making it interactive means adding your own input listener (e.g. a `DragListener`) to it, the same as with any other `Node`.
 
+<SceneryDemo demo="handle-node" />
+
 ## Constructor
 
 ```ts
@@ -13861,6 +13921,8 @@ const infoButton = new InfoButton( {
   tandem: tandem.createTandem( 'infoButton' )
 } );
 ```
+
+<SceneryDemo demo="info-button" />
 
 ## Options
 
@@ -14113,6 +14175,8 @@ keypad.valueProperty.link( value => {
 keypad.clear();
 ```
 
+<SceneryDemo demo="keypad" />
+
 ## The layout / accumulator split
 
 A `Keypad` is built from two independent pieces:
@@ -14301,6 +14365,8 @@ const bulbNode = new LightBulbNode( brightnessProperty, {
 // Later, as current/voltage changes:
 brightnessProperty.value = 0.75;
 ```
+
+<SceneryDemo demo="light-bulb-node" />
 
 ## Constructor
 
@@ -14531,6 +14597,8 @@ const zoomInIcon = new MagnifyingGlassNode( {
   icon: new PlusNode( { size: new Dimension2( 1.3 * 15, 15 / 3 ) } )
 } );
 ```
+
+<SceneryDemo demo="magnifying-glass-node" />
 
 ## Constructor
 
@@ -14955,6 +15023,8 @@ const temperatureDisplay = new NumberDisplay( temperatureProperty, new Range( -2
   align: 'right'
 } );
 ```
+
+<SceneryDemo demo="number-display" />
 
 ## Constructor
 
@@ -15537,6 +15607,8 @@ const playPauseButton = new PlayPauseButton( isPlayingProperty, {
 } );
 ```
 
+<SceneryDemo demo="play-pause-button" />
+
 ## Constructor
 
 ```ts
@@ -15594,6 +15666,8 @@ const probeNode = new ProbeNode( {
 ```
 
 The origin of a `ProbeNode` is the center of its circular sensor area, not its top-left bounding-box corner — useful to remember when positioning it against a model coordinate.
+
+<SceneryDemo demo="probe-node" />
 
 ## Constructor
 
@@ -15658,6 +15732,8 @@ protractorNode.angleProperty.link( angle => {
   console.log( 'protractor angle (radians):', angle );
 } );
 ```
+
+<SceneryDemo demo="protractor-node" />
 
 ## Constructor
 
@@ -15833,6 +15909,8 @@ const rulerNode = new RulerNode(
   }
 );
 ```
+
+<SceneryDemo demo="ruler-node" />
 
 ## Constructor
 
@@ -16328,6 +16406,8 @@ const spectrumNode = new SpectrumNode( {
 } );
 ```
 
+<SceneryDemo demo="spectrum-node" />
+
 ## Options
 
 | Option | Default | Effect |
@@ -16447,6 +16527,8 @@ const emptyStar = new StarNode( { value: 0 } );
 // The bare outline shape, usable in any Path.
 const starShape = new StarShape( { outerRadius: 20, innerRadius: 10 } );
 ```
+
+<SceneryDemo demo="star-node" />
 
 ## `StarNode` constructor
 
@@ -16685,6 +16767,8 @@ const stopIcon = new StopSignNode( {
 } );
 ```
 
+<SceneryDemo demo="stop-sign-node" />
+
 ## Constructor
 
 ```ts
@@ -16742,6 +16826,8 @@ const stopwatchNode = new StopwatchNode( stopwatch, {
 ```
 
 Call `stopwatch.reset()` from your model's `reset()` — resetting only the Node would leave the underlying time/running state untouched.
+
+<SceneryDemo demo="stopwatch-node" />
 
 ## Constructor
 
@@ -16964,6 +17050,8 @@ const timeControlNode = new TimeControlNode( isPlayingProperty, {
 
 `isPlayingProperty` is the single source of truth for whether the model is stepping — read it in your model's `step` logic, or the model's animation loop, rather than having `TimeControlNode` drive time directly.
 
+<SceneryDemo demo="time-control-node" />
+
 ## Constructor
 
 ```ts
@@ -17144,6 +17232,8 @@ const arrowHead = new TriangleNode( {
   fill: 'black'
 } );
 ```
+
+<SceneryDemo demo="triangle-node" />
 
 ## Constructor
 
@@ -17486,6 +17576,8 @@ const centerOfMassMarker = new XNode( {
 } );
 ```
 
+<SceneryDemo demo="x-node" />
+
 ## Constructor
 
 ```ts
@@ -17703,6 +17795,8 @@ const unitsSwitch = new ABSwitch(
 ```
 
 The constructor takes `( property, valueA, labelA, valueB, labelB, options? )` — clicking either label selects its value directly (via an internal [`PressListener`](/api/scenery/fire-listener) on each label), and dragging or clicking the switch itself behaves like `OnOffSwitch`'s underlying `ToggleSwitch` (click anywhere to toggle, drag past the midpoint and release to snap, or drag far enough to toggle immediately).
+
+<SceneryDemo demo="ab-switch" />
 
 ## Options
 
@@ -17996,6 +18090,8 @@ const shapeGroup = new AquaRadioButtonGroup( shapeProperty, items, {
 
 Each item's `createNode` builds the *label* shown beside the round button — not the button's own content, which `AquaRadioButtonGroup` always draws itself. The group extends `FlowBox`, so it lays out like an `HBox`/`VBox` depending on `orientation`.
 
+<SceneryDemo demo="aqua-radio-button-group" />
+
 ## HorizontalAquaRadioButtonGroup / VerticalAquaRadioButtonGroup
 
 Both are thin subclasses with the exact same `(property, items, options?)` constructor as `AquaRadioButtonGroup`, minus the `orientation` option (which they fix for you):
@@ -18068,6 +18164,8 @@ const incrementButton = new ArrowButton(
 
 The constructor takes the direction and the fire callback directly (not through a `listener` option — `ArrowButton` sets `options.listener` internally, so `content` and `listener` are omitted from `ArrowButtonOptions`). Unlike a plain `RectangularPushButton`, `ArrowButton` enables `fireOnHold` by default, so press-and-hold repeats the action automatically.
 
+<SceneryDemo demo="arrow-button" />
+
 ## Options
 
 `ArrowButtonOptions` combines its own arrow-drawing options with `RectangularPushButtonOptions` (minus `content`/`listener`, which `ArrowButton` supplies):
@@ -18121,6 +18219,8 @@ const fruitCarousel = new Carousel( items, {
 ```
 
 Each `CarouselItem` supplies a `createNode` factory (like `ComboBoxItem`), not a pre-built `Node` — `Carousel` wraps every created item Node in an `AlignBox` so all items share a uniform "footprint," regardless of their individual sizes.
+
+<SceneryDemo demo="carousel" />
 
 ## Options
 
@@ -18511,6 +18611,8 @@ const detailsButton = new ExpandCollapseButton( detailsExpandedProperty, {
 ```
 
 Pressing the button flips `detailsExpandedProperty.value`; the button's fill and `+`/`-` symbol update automatically, from any source that changes the Property, not just from a button press.
+
+<SceneryDemo demo="expand-collapse-button" />
 
 ## Options
 
@@ -18917,6 +19019,8 @@ const carouselWithPaging = new VBox( {
 ```
 
 `pageNumberProperty` must be a settable `TProperty<number>` (not just readable) precisely because `PageControl` writes to it when `interactive: true` and a dot is clicked — `Carousel.pageNumberProperty` satisfies this directly.
+
+<SceneryDemo demo="page-control" />
 
 ## Options
 
@@ -19457,6 +19561,8 @@ const slider = new Slider( volumeProperty, new Range( 0, 100 ), {
 
 `Slider`'s constructor signature, `positionProperty`/`Range` handling, tick marks (`addMajorTick`/`addMinorTick`), and most options are identical to what [`HSlider`](/api/sun/hslider) documents — that page's options table (`trackSize`, `thumbSize`, `enabledRangeProperty`, `constrainValue`, `trackNode`/`thumbNode`, …) all come from `Slider` itself. The one option `HSliderOptions` removes that `Slider` still has is `orientation`.
 
+<SceneryDemo demo="slider" />
+
 ## What `HSlider`/`VSlider` fix
 
 | Class | Fixes |
@@ -19915,6 +20021,8 @@ const optionsGroup = new VerticalCheckboxGroup( items, {
 ```
 
 Each `VerticalCheckboxGroupItem` needs its own `property` and a `createNode()` that builds the checkbox's label — this is the same `createNode`-per-item shape used by `ToggleNode`, `AquaRadioButtonGroup`, and `RectangularRadioButtonGroup` elsewhere in `scenerystack/sun`.
+
+<SceneryDemo demo="vertical-checkbox-group" />
 
 ## Options
 

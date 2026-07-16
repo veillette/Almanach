@@ -39,6 +39,8 @@ const timeControlNode = new TimeControlNode( isPlayingProperty, {
 
 `isPlayingProperty` is the single source of truth for whether the model is stepping — read it in your model's `step` logic, or the model's animation loop, rather than having `TimeControlNode` drive time directly.
 
+<SceneryDemo demo="time-control-node" />
+
 ## Constructor
 
 ```ts

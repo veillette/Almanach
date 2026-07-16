@@ -42,6 +42,8 @@ const pumpNode = new BicyclePumpNode( numberOfParticlesProperty, rangeProperty, 
 
 Call `pumpNode.reset()` from your screen's `reset()` to snap the handle back to its initial (fully raised) position and clear internal drag-accumulation state — this does not touch `numberOfParticlesProperty` itself.
 
+<SceneryDemo demo="bicycle-pump-node" />
+
 ## Constructor
 
 ```ts

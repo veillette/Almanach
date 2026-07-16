@@ -33,6 +33,8 @@ screenView.addChild( handleNode );
 
 Since `HandleNode` is purely visual, making it interactive means adding your own input listener (e.g. a `DragListener`) to it, the same as with any other `Node`.
 
+<SceneryDemo demo="handle-node" />
+
 ## Constructor
 
 ```ts

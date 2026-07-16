@@ -44,6 +44,8 @@ keypad.valueProperty.link( value => {
 keypad.clear();
 ```
 
+<SceneryDemo demo="keypad" />
+
 ## The layout / accumulator split
 
 A `Keypad` is built from two independent pieces:
