@@ -25,6 +25,8 @@ import { GridCheckbox, GridIcon } from 'scenerystack/scenery-phet';
 import { BooleanProperty } from 'scenerystack/axon';
 ```
 
+<SceneryDemo demo="grid-checkbox" />
+
 ## A minimal example
 
 ```ts

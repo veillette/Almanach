@@ -37,6 +37,8 @@ const caption = new Text( 'caption text', {
 
 Simulations conventionally use [`PhetFont`](/api/scenery-phet/phet-font) (from `scenerystack/scenery-phet`) rather than the browser default or a raw `Font` so that text renders consistently across platforms; `Font` (from `scenerystack/scenery`) is the lower-level class `PhetFont` builds on.
 
+<SceneryDemo demo="text" />
+
 ## Options
 
 | Option | Effect |

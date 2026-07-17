@@ -36,6 +36,8 @@ const row = new HBox( {
 
 For a vertical (column) layout, use [`VBox`](/api/scenery/v-box) instead; for the full option table (spacing, alignment, growth, wrapping, margins) see [`FlowBox`](/api/scenery/flow-box), which documents everything `HBox` inherits.
 
+<SceneryDemo demo="h-box" />
+
 ## Options and methods
 
 `HBoxOptions` is `FlowBoxOptions` with `orientation` omitted — every option and method documented on [`FlowBox`](/api/scenery/flow-box) (`spacing`, `align`, `grow`, `justify`, `wrap`, `getCell()`, `dispose()`, …) applies here unchanged, just fixed to a horizontal main axis. For a row layout, `align` takes the vertical-alignment values (`'top'`, `'bottom'`, `'center'`, `'origin'`) since it controls cross-axis (vertical) placement of each child.

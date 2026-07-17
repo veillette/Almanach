@@ -31,6 +31,8 @@ import { Orientation } from 'scenerystack/phet-core';
 import { Range } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="axis-arrow-node" />
+
 ## A minimal example
 
 ```ts

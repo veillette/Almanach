@@ -30,6 +30,8 @@ const gradient = new RadialGradient( 0, 0, 0, 0, 0, 20 )
 const sphere = new Circle( 20, { fill: gradient } );
 ```
 
+<SceneryDemo demo="radial-gradient" />
+
 ## Constructor
 
 `new RadialGradient( x0, y0, r0, x1, y1, r1 )` — the start circle's center and radius (ratio 0), then the end circle's center and radius (ratio 1), all in the Node's local coordinate frame. A common "spherical" look uses the same center for both circles with `r0` near `0` and `r1` matching the shape's radius, as above; offsetting the start circle's center instead produces a highlight-style radial gradient.

@@ -36,6 +36,8 @@ const row = new HBox( {
 
 Adding, removing, or reordering `row.children` afterward re-lays-out the remaining children automatically — no manual repositioning needed.
 
+<SceneryDemo demo="flow-box" />
+
 ## Options
 
 | Option | Default | Effect |

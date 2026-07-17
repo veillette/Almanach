@@ -25,6 +25,8 @@ import { Range } from 'scenerystack/dot';
 import { Color } from 'scenerystack/scenery';
 ```
 
+<SceneryDemo demo="temperature-and-color-sensor-node" />
+
 ## A minimal example
 
 ```ts

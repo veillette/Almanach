@@ -34,6 +34,8 @@ const marker = new Circle( { radius: 5, fill: 'black' } );
 ball.radius = 25; // radius is also a settable property
 ```
 
+<SceneryDemo demo="circle" />
+
 ## Options
 
 | Option | Effect |

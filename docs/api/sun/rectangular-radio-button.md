@@ -36,6 +36,8 @@ const circleButton = new RectangularRadioButton( shapeProperty, 'circle', {
 
 The constructor is `( property, value, options? )` — unlike `AquaRadioButton`, there's no dedicated label argument; the button's own visible content is set via the `content` option (inherited from `RectangularButton`), same as any other rectangular button. `property` must use the default `'reference'` `valueComparisonStrategy` (`RectangularRadioButton` compares with `===`).
 
+<SceneryDemo demo="rectangular-radio-button-group" />
+
 ## Options
 
 `RectangularRadioButtonOptions` is `RectangularButtonOptions` with a few PhET-iO/accessibility-only options trimmed off (they don't make sense on a single radio button — e.g. `enabledProperty`), plus:

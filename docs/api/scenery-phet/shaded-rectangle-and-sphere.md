@@ -20,6 +20,8 @@ import { ShadedRectangle, ShadedSphereNode } from 'scenerystack/scenery-phet';
 import { Bounds2 } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="shaded-sphere-node" />
+
 ## ShadedRectangle
 
 Draws a rounded rectangle with a beveled, embossed look: light and dark gradients along each edge and rounded corner, as if lit from one direction.

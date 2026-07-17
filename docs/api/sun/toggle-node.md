@@ -38,6 +38,8 @@ const phaseNode = new ToggleNode( phaseProperty, elements );
 
 Each `ToggleNodeElement`'s `createNode()` builds the Node shown for that value; exactly one must match `phaseProperty.value` at all times (`ToggleNode` asserts on a mismatch count). When the Property changes, `ToggleNode` shows the matching child and hides the rest.
 
+<SceneryDemo demo="toggle-node" />
+
 ## BooleanToggleNode
 
 `BooleanToggleNode` fixes the two-state case so you don't need to build the `ToggleNodeElement[]` array yourself — pass the `true`-state and `false`-state `Node`s directly:

@@ -25,6 +25,8 @@ import { GridNode } from 'scenerystack/scenery-phet';
 import { Vector2 } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="grid-node" />
+
 ## A minimal example
 
 ```ts

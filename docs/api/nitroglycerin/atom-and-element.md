@@ -23,6 +23,8 @@ sourceRefs:
 import { Atom, Element, AtomNode } from 'scenerystack/nitroglycerin';
 ```
 
+<SceneryDemo demo="atom-node" />
+
 ## A minimal example
 
 ```ts

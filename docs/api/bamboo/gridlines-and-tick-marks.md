@@ -26,6 +26,8 @@ import { Orientation } from 'scenerystack/phet-core';
 import { Range } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="grid-line-set" />
+
 ## A minimal example
 
 ```ts

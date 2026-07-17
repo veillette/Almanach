@@ -21,6 +21,8 @@ Unlike most animated scenery-phet Nodes, `SpinningIndicatorNode` does **not** ho
 import { SpinningIndicatorNode } from 'scenerystack/scenery-phet';
 ```
 
+<SceneryDemo demo="spinning-indicator-node" />
+
 ## A minimal example
 
 ```ts

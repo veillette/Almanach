@@ -24,6 +24,8 @@ import { LaserPointerNode } from 'scenerystack/scenery-phet';
 import { BooleanProperty } from 'scenerystack/axon';
 ```
 
+<SceneryDemo demo="laser-pointer-node" />
+
 ## A minimal example
 
 ```ts

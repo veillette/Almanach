@@ -21,6 +21,8 @@ The origin `(0, 0)` of a `ParametricSpringNode` is at its **left-center**, not i
 import { ParametricSpringNode } from 'scenerystack/scenery-phet';
 ```
 
+<SceneryDemo demo="parametric-spring-node" />
+
 ## A minimal example
 
 ```ts

@@ -23,6 +23,8 @@ sourceRefs:
 import { PaperAirplaneNode, SimpleClockIcon } from 'scenerystack/scenery-phet';
 ```
 
+<SceneryDemo demo="simple-clock-icon" />
+
 ## PaperAirplaneNode
 
 `PaperAirplaneNode extends Path` and draws the exact paper-airplane silhouette used in the PhET logo, traced from the coordinates in PhET's logo artwork file. It's a fixed shape — there's no way to change its proportions, only how it's painted and transformed like any other `Path`.

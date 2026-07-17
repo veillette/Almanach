@@ -21,6 +21,8 @@ import { BracketNode } from 'scenerystack/scenery-phet';
 import { Text } from 'scenerystack/scenery';
 ```
 
+<SceneryDemo demo="bracket-node" />
+
 ## A minimal example
 
 ```ts

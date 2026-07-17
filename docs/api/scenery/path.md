@@ -37,6 +37,8 @@ const triangleNode = new Path( triangle, {
 } );
 ```
 
+<SceneryDemo demo="path" />
+
 ## Options
 
 | Option | Effect |

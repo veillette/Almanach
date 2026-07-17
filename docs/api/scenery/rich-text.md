@@ -38,6 +38,8 @@ const withLink = new RichText(
 );
 ```
 
+<SceneryDemo demo="rich-text" />
+
 ## Supported markup
 
 `<b>`/`<strong>`, `<i>`/`<em>`, `<sub>`, `<sup>`, `<u>`, `<s>`, `<br>`, `<span style="color: ...; font-size: ...; font-family: ...;">`, `<span dir="ltr"/"rtl">`, `<a href="...">` links, and `<node id="...">` for embedding an arbitrary `Node` inline.

@@ -26,6 +26,8 @@ import { NumberProperty } from 'scenerystack/axon';
 import { Range } from 'scenerystack/dot';
 ```
 
+<SceneryDemo demo="zoom-button-group" />
+
 ## A minimal example
 
 ```ts

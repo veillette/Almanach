@@ -24,6 +24,8 @@ sourceRefs:
 import { AllLevelsCompletedNode } from 'scenerystack/vegas';
 ```
 
+<SceneryDemo demo="all-levels-completed-node" />
+
 ## A minimal example
 
 ```ts

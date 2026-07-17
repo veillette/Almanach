@@ -24,6 +24,8 @@ import { ScientificNotationNode } from 'scenerystack/scenery-phet';
 import { NumberProperty } from 'scenerystack/axon';
 ```
 
+<SceneryDemo demo="scientific-notation-node" />
+
 ## A minimal example
 
 ```ts

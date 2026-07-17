@@ -35,6 +35,8 @@ const circleButton = new AquaRadioButton( shapeProperty, 'circle', new Text( 'Ci
 
 The constructor is `( property, value, labelNode, options? )` — `property` must use the default `'reference'` `valueComparisonStrategy` (`AquaRadioButton` compares with `===`), `value` is what gets written to `property` when this button fires, and `labelNode` is vertically centered to the right of the circle. Clicking anywhere on the button or its label sets `property.value = value`; the circle fills in automatically whenever `property.value === value`, from any source.
 
+<SceneryDemo demo="aqua-radio-button" />
+
 ## Options
 
 | Option | Default | Effect |

@@ -44,6 +44,8 @@ const recordButton = new RoundStickyToggleButton(
 
 `RectangularStickyToggleButton` has the identical `(valueProperty, valueUp, valueDown, options?)` constructor — only the button shape differs.
 
+<SceneryDemo demo="sticky-toggle-button" />
+
 ## `StickyToggleButtonModel`
 
 Both classes construct a `StickyToggleButtonModel<T>` internally (extending the shared `ButtonModel` base documented on [PushButtonModel](/api/sun/push-button-model)), which owns the latch logic: pressing while `valueProperty.value === valueUp` immediately toggles it to `valueDown`; releasing while down and *not* part of the same press-release action toggles it back to `valueUp`. `Property.valueComparisonStrategy` must be `'reference'` — the model asserts this at construction, since it compares against `valueUp`/`valueDown` with `===`.
