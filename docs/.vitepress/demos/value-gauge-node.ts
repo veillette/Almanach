@@ -1,13 +1,14 @@
-import { NumberProperty, StringProperty } from 'scenerystack/axon';
+import { BooleanProperty, NumberProperty, StringProperty } from 'scenerystack/axon';
 import { Range } from 'scenerystack/dot';
-import { HSlider } from 'scenerystack/sun';
+import { Checkbox, HSlider } from 'scenerystack/sun';
 import { ValueGaugeNode } from 'scenerystack/scenery-phet';
-import { VBox } from 'scenerystack/scenery';
+import { Text, VBox } from 'scenerystack/scenery';
+import { Tandem } from 'scenerystack/tandem';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
 export const width = 360;
-export const height = 320;
+export const height = 360;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const range = new Range( 0, 100 );
@@ -15,12 +16,25 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const labelProperty = new StringProperty( 'kPa' );
 
   const gauge = new ValueGaugeNode( valueProperty, labelProperty, range, {
-    radius: 90
+    radius: 90,
+    numberDisplayOptions: {
+      decimalPlaces: 1
+    }
   } );
 
   const slider = new HSlider( valueProperty, range, { trackSize: { width: 200, height: 5 } } );
 
-  const panel = new VBox( { spacing: 22, align: 'center', children: [ gauge, slider ] } );
+  const numberDisplayVisibleProperty = new BooleanProperty( true );
+  const numberDisplayVisibleListener = ( visible: boolean ) => {
+    gauge.numberDisplayVisible = visible;
+  };
+  numberDisplayVisibleProperty.link( numberDisplayVisibleListener );
+
+  const numberDisplayCheckbox = new Checkbox( numberDisplayVisibleProperty, new Text( 'Show numeric readout' ), {
+    tandem: Tandem.OPTIONAL
+  } );
+
+  const panel = new VBox( { spacing: 22, align: 'center', children: [ gauge, slider, numberDisplayCheckbox ] } );
 
   rootNode.addChild( panel );
   const unlinkCenter = centerInDisplay( panel, width, height );
@@ -28,6 +42,9 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   return () => {
     unlinkCenter();
     slider.dispose();
+    numberDisplayCheckbox.dispose();
+    numberDisplayVisibleProperty.unlink( numberDisplayVisibleListener );
+    numberDisplayVisibleProperty.dispose();
     gauge.dispose();
     panel.dispose();
     labelProperty.dispose();

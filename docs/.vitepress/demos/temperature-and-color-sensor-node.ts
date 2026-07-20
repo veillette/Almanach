@@ -20,7 +20,12 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   };
   temperatureProperty.link( updateColor );
 
-  const sensor = new TemperatureAndColorSensorNode( temperatureProperty, range, colorProperty );
+  const sensor = new TemperatureAndColorSensorNode( temperatureProperty, range, colorProperty, {
+    thermometerNodeOptions: {
+      bulbDiameter: 40,
+      tubeHeight: 120
+    }
+  } );
   const frame = new Node( { children: [ sensor ], localBounds: sensor.localBounds.dilated( 4 ) } );
 
   const slider = new HSlider( temperatureProperty, range, { trackSize: { width: 200, height: 5 } } );

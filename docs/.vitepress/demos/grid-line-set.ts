@@ -1,7 +1,7 @@
 import { Range } from 'scenerystack/dot';
 import { Orientation } from 'scenerystack/phet-core';
 import { Node } from 'scenerystack/scenery';
-import { ChartRectangle, ChartTransform, GridLineSet, TickMarkSet } from 'scenerystack/bamboo';
+import { ChartRectangle, ChartTransform, GridLineSet, TickLabelSet, TickMarkSet } from 'scenerystack/bamboo';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
@@ -26,8 +26,10 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const ticksX = new TickMarkSet( chartTransform, Orientation.HORIZONTAL, 2, { edge: 'min' } );
   const ticksY = new TickMarkSet( chartTransform, Orientation.VERTICAL, 2, { edge: 'min' } );
 
+  const labelsX = new TickLabelSet( chartTransform, Orientation.HORIZONTAL, 2, { edge: 'min' } );
+
   const chart = new Node( {
-    children: [ chartRectangle, minorX, minorY, majorX, majorY, ticksX, ticksY ]
+    children: [ chartRectangle, minorX, minorY, majorX, majorY, ticksX, ticksY, labelsX ]
   } );
 
   rootNode.addChild( chart );
@@ -36,6 +38,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   return () => {
     unlinkCenter();
     chart.dispose();
+    labelsX.dispose();
     ticksX.dispose();
     ticksY.dispose();
     minorX.dispose();

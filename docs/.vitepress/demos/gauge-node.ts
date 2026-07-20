@@ -1,25 +1,43 @@
-import { NumberProperty, StringProperty } from 'scenerystack/axon';
+import { BooleanProperty, Property, StringProperty } from 'scenerystack/axon';
 import { Range } from 'scenerystack/dot';
-import { HSlider } from 'scenerystack/sun';
+import { Checkbox, HSlider } from 'scenerystack/sun';
 import { GaugeNode } from 'scenerystack/scenery-phet';
-import { VBox } from 'scenerystack/scenery';
+import { Text, VBox } from 'scenerystack/scenery';
+import { Tandem } from 'scenerystack/tandem';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
 export const width = 400;
-export const height = 260;
+export const height = 300;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const speedRange = new Range( 0, 100 );
-  const speedProperty = new NumberProperty( 30, { range: speedRange } );
+
+  // A plain Property (rather than NumberProperty) is used so the value can go
+  // out of range or become NaN, to demonstrate GaugeNode's clamping/hiding behavior.
+  const speedProperty = new Property<number>( 30 );
   const labelProperty = new StringProperty( 'm/s' );
 
   const gaugeNode = new GaugeNode( speedProperty, labelProperty, speedRange, {
     radius: 90
   } );
 
-  const slider = new HSlider( speedProperty, speedRange, {
+  // Slider range extends beyond the gauge's range so the needle can be pushed
+  // out of bounds, demonstrating that it clamps rather than disappearing.
+  const sliderRange = new Range( speedRange.min - 20, speedRange.max + 20 );
+  const slider = new HSlider( speedProperty, sliderRange, {
     trackSize: { width: 200, height: 5 }
+  } );
+
+  const invalidReadingProperty = new BooleanProperty( false );
+  const invalidReadingListener = ( invalid: boolean ) => {
+    slider.enabled = !invalid;
+    speedProperty.value = invalid ? NaN : 30;
+  };
+  invalidReadingProperty.link( invalidReadingListener );
+
+  const invalidReadingCheckbox = new Checkbox( invalidReadingProperty, new Text( 'Invalid reading (NaN)' ), {
+    tandem: Tandem.OPTIONAL
   } );
 
   const panel = new VBox( {
@@ -27,7 +45,8 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     align: 'center',
     children: [
       gaugeNode,
-      slider
+      slider,
+      invalidReadingCheckbox
     ]
   } );
 
@@ -39,6 +58,9 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     panel.dispose();
     gaugeNode.dispose();
     slider.dispose();
+    invalidReadingCheckbox.dispose();
+    invalidReadingProperty.unlink( invalidReadingListener );
+    invalidReadingProperty.dispose();
     speedProperty.dispose();
     labelProperty.dispose();
   };

@@ -22,7 +22,10 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   timeSpeedProperty.link( updateReadout );
 
   const timeControl = new TimeControlNode( isPlayingProperty, {
-    timeSpeedProperty: timeSpeedProperty
+    timeSpeedProperty: timeSpeedProperty,
+    playPauseStepButtonOptions: {
+      includeStepBackwardButton: true
+    }
   } );
 
   const panel = new VBox( {

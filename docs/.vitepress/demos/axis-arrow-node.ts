@@ -1,7 +1,7 @@
 import { Range } from 'scenerystack/dot';
 import { Orientation } from 'scenerystack/phet-core';
 import { Node } from 'scenerystack/scenery';
-import { AxisArrowNode, ChartRectangle, ChartTransform, TickMarkSet } from 'scenerystack/bamboo';
+import { AxisArrowNode, AxisLine, ChartRectangle, ChartTransform, TickMarkSet } from 'scenerystack/bamboo';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
@@ -24,10 +24,11 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     fill: '#333',
     stroke: '#333'
   } );
-  const yAxis = new AxisArrowNode( chartTransform, Orientation.VERTICAL, {
+  // A vertical AxisLine (the "y axis") — a plain stroked line, no arrowheads,
+  // to contrast with the horizontal AxisArrowNode below.
+  const yAxis = new AxisLine( chartTransform, Orientation.VERTICAL, {
     value: 0,
     extension: 12,
-    fill: '#333',
     stroke: '#333'
   } );
 

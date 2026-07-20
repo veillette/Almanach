@@ -14,7 +14,13 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const checkbox = new Checkbox(
     gravityEnabledProperty,
     new Text( 'Gravity' ),
-    { tandem: Tandem.OPTIONAL }
+    {
+      boxWidth: 16,
+      checkboxColor: 'blue',
+      touchAreaXDilation: 6,
+      touchAreaYDilation: 6,
+      tandem: Tandem.OPTIONAL
+    }
   );
 
   rootNode.addChild( checkbox );

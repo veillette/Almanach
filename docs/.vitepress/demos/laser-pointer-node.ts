@@ -15,7 +15,8 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     bodySize: new Dimension2( 90, 60 ),
     nozzleSize: new Dimension2( 16, 48 ),
     hasButton: true,
-    buttonType: 'toggle'
+    buttonType: 'toggle',
+    hasGlass: true
   } );
 
   // A beam that appears while the laser is on; drawn to the right of the nozzle.

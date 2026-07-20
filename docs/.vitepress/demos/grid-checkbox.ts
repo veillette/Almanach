@@ -1,7 +1,8 @@
-import { BooleanProperty } from 'scenerystack/axon';
-import { Shape } from 'scenerystack/kite';
-import { GridCheckbox } from 'scenerystack/scenery-phet';
-import { Node, Path, Rectangle, VBox } from 'scenerystack/scenery';
+import { BooleanProperty, Property } from 'scenerystack/axon';
+import { Vector2 } from 'scenerystack/dot';
+import { ModelViewTransform2 } from 'scenerystack/phetcommon';
+import { GridCheckbox, GridNode } from 'scenerystack/scenery-phet';
+import { Node, Rectangle, VBox } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
@@ -9,20 +10,20 @@ export const width = 320;
 export const height = 260;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
-  const visibleProperty = new BooleanProperty( true );
+  const gridVisibleProperty = new BooleanProperty( true );
 
   const background = new Rectangle( 0, 0, 150, 150, { fill: 'white', stroke: '#999' } );
-  const gridShape = new Shape();
-  for ( let i = 1; i < 6; i++ ) {
-    gridShape.moveTo( i * 25, 0 ).lineTo( i * 25, 150 );
-    gridShape.moveTo( 0, i * 25 ).lineTo( 150, i * 25 );
-  }
-  const grid = new Path( gridShape, { stroke: '#8AA4C4', lineWidth: 1 } );
-  visibleProperty.link( visible => { grid.visible = visible; } );
+  const transformProperty = new Property( ModelViewTransform2.createIdentity() );
+  const grid = new GridNode( transformProperty, 25, new Vector2( 75, 75 ), 3, {
+    stroke: '#8AA4C4',
+    lineWidth: 1
+  } );
+  // Elsewhere, a GridNode reacts to the same Property:
+  grid.visibleProperty = gridVisibleProperty;
 
   const board = new Node( { children: [ background, grid ] } );
 
-  const checkbox = new GridCheckbox( visibleProperty );
+  const checkbox = new GridCheckbox( gridVisibleProperty );
 
   const panel = new VBox( { spacing: 20, align: 'center', children: [ board, checkbox ] } );
 
@@ -36,7 +37,8 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     grid.dispose();
     background.dispose();
     panel.dispose();
-    visibleProperty.dispose();
+    transformProperty.dispose();
+    gridVisibleProperty.dispose();
   };
 }
 

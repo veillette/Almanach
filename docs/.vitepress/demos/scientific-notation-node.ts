@@ -11,7 +11,7 @@ export const height = 200;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const range = new Range( 0.0001, 100000 );
-  const valueProperty = new NumberProperty( 6022, { range: range } );
+  const valueProperty = new NumberProperty( 8000, { range: range } );
 
   const notation = new ScientificNotationNode( valueProperty, {
     mantissaDecimalPlaces: 2,

@@ -12,7 +12,14 @@ export const height = 280;
 function createDataSet( phase: number ): ( Vector2 | null )[] {
   const dataSet: ( Vector2 | null )[] = [];
   for ( let x = 0; x <= 10; x += 0.1 ) {
-    dataSet.push( new Vector2( x, Math.sin( x + phase ) ) );
+    // Leave a gap in the middle of the dataset to demonstrate that a null
+    // entry breaks the line into separate segments instead of connecting through it.
+    if ( x > 4.6 && x < 5.4 ) {
+      dataSet.push( null );
+    }
+    else {
+      dataSet.push( new Vector2( x, Math.sin( x + phase ) ) );
+    }
   }
   return dataSet;
 }

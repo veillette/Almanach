@@ -1,13 +1,19 @@
 import { Text, VBox } from 'scenerystack/scenery';
 import { Keypad } from 'scenerystack/scenery-phet';
+import { RectangularPushButton } from 'scenerystack/sun';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
 export const width = 400;
-export const height = 320;
+export const height = 380;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
-  const keypad = new Keypad( Keypad.PositiveAndNegativeFloatingPointLayout );
+  const keypad = new Keypad( Keypad.PositiveAndNegativeFloatingPointLayout, {
+    accumulatorOptions: {
+      maxDigits: 4,
+      maxDigitsRightOfMantissa: 2
+    }
+  } );
 
   const readout = new Text( 'value: 0' );
   const updateReadout = ( string: string ): void => {
@@ -15,12 +21,20 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   };
   keypad.stringProperty.link( updateReadout );
 
+  const clearButton = new RectangularPushButton( {
+    content: new Text( 'Clear' ),
+    listener: () => {
+      keypad.clear();
+    }
+  } );
+
   const panel = new VBox( {
     spacing: 16,
     align: 'center',
     children: [
       readout,
-      keypad
+      keypad,
+      clearButton
     ]
   } );
 
@@ -31,6 +45,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     unlinkCenter();
     keypad.stringProperty.unlink( updateReadout );
     keypad.dispose();
+    clearButton.dispose();
     readout.dispose();
     panel.dispose();
   };

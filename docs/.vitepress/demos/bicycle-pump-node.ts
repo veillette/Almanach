@@ -1,5 +1,5 @@
 import { NumberProperty, Property } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Range, Vector2 } from 'scenerystack/dot';
 import { BicyclePumpNode } from 'scenerystack/scenery-phet';
 import { Text, VBox } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
@@ -14,7 +14,9 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const rangeProperty = new Property( range );
 
   const pump = new BicyclePumpNode( numberProperty, rangeProperty, {
-    scale: 0.9
+    width: 200,
+    height: 250,
+    hoseAttachmentOffset: new Vector2( 100, -50 )
   } );
 
   const readout = new Text( '' );

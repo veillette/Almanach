@@ -9,11 +9,18 @@ import type { DemoModule } from './types.js';
 export const width = 400;
 export const height = 300;
 
-function createDataSet(): Vector2[] {
-  const points: Vector2[] = [];
+function createDataSet(): ( Vector2 | null )[] {
+  const points: ( Vector2 | null )[] = [];
   const phase = Math.random() * Math.PI;
   for ( let x = 0; x <= 10; x += 0.25 ) {
-    points.push( new Vector2( x, 5 + 4 * Math.sin( x + phase ) ) );
+    // Leave a gap in the middle of the dataset so each run of non-null
+    // points closes independently at the baseline, forming separate islands.
+    if ( x > 4.4 && x < 5.6 ) {
+      points.push( null );
+    }
+    else {
+      points.push( new Vector2( x, 5 + 4 * Math.sin( x + phase ) ) );
+    }
   }
   return points;
 }

@@ -153,7 +153,7 @@ These controls have interactive embeds on their API pages. Try them here, then f
 
 <SceneryDemo demo="wavelength-slider" />
 
-[WavelengthSlider API](/api/scenery-phet/wavelength-and-spectrum-sliders)
+[WavelengthNumberControl API](/api/scenery-phet/wavelength-and-spectrum-sliders)
 
 <SceneryDemo demo="laser-pointer-node" />
 
