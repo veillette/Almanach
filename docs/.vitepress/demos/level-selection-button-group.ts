@@ -2,11 +2,12 @@ import { NumberProperty, Property } from 'scenerystack/axon';
 import { LevelSelectionButtonGroup, type LevelSelectionButtonGroupItem } from 'scenerystack/vegas';
 import { PhetFont } from 'scenerystack/scenery-phet';
 import { Text, VBox } from 'scenerystack/scenery';
+import { Tandem } from 'scenerystack/tandem';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
-export const width = 380;
-export const height = 220;
+export const width = 440;
+export const height = 280;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const selectedProperty = new NumberProperty( 0 );
@@ -22,7 +23,10 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const group = new LevelSelectionButtonGroup( items, {
     levelSelectionButtonOptions: { baseColor: '#DCEBFB' },
     flowBoxOptions: { spacing: 16 },
-    gameLevels: [ 1, 2, 3 ]
+    groupButtonWidth: 120,
+    groupButtonHeight: 120,
+    gameLevels: [ 1, 2, 3 ],
+    tandem: Tandem.OPTIONAL
   } );
 
   const readout = new Text( '' );

@@ -1,10 +1,10 @@
 import { BracketNode } from 'scenerystack/scenery-phet';
-import { Text } from 'scenerystack/scenery';
+import { HBox, Text } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
-export const width = 340;
-export const height = 160;
+export const width = 400;
+export const height = 200;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const bracket = new BracketNode( {
@@ -15,12 +15,25 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     bracketLineWidth: 3
   } );
 
-  rootNode.addChild( bracket );
-  const unlinkCenter = centerInDisplay( bracket, width, height );
+  const sideBracket = new BracketNode( {
+    orientation: 'right',
+    bracketLength: 80,
+    bracketTipPosition: 0.3,
+    labelNode: new Text( 'Δy', { fontSize: 16 } ),
+    bracketStroke: '#2E5F8A',
+    bracketLineWidth: 3
+  } );
+
+  const row = new HBox( { spacing: 40, align: 'center', children: [ bracket, sideBracket ] } );
+
+  rootNode.addChild( row );
+  const unlinkCenter = centerInDisplay( row, width, height );
 
   return () => {
     unlinkCenter();
     bracket.dispose();
+    sideBracket.dispose();
+    row.dispose();
   };
 }
 

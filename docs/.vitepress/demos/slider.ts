@@ -6,17 +6,18 @@ import { Text, VBox } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
-export const width = 400;
-export const height = 180;
+export const width = 280;
+export const height = 300;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const range = new Range( 0, 100 );
   const valueProperty = new NumberProperty( 40, { range: range } );
 
   // Slider is the base class; orientation is chosen explicitly rather than via HSlider/VSlider.
+  // Vertical trackSize is orientation-specific (thin × tall); Slider swaps it internally.
   const slider = new Slider( valueProperty, range, {
-    orientation: Orientation.HORIZONTAL,
-    trackSize: new Dimension2( 240, 5 ),
+    orientation: Orientation.VERTICAL,
+    trackSize: new Dimension2( 5, 160 ),
     majorTickLength: 18
   } );
   slider.addMajorTick( 0, new Text( '0', { fontSize: 14 } ) );

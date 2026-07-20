@@ -22,7 +22,9 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     CH4: 'CH4 — methane'
   };
 
-  let moleculeNode = new H2ONode();
+  const atomNodeOptions = { opacity: 0.9 };
+
+  let moleculeNode = new H2ONode( { atomNodeOptions: atomNodeOptions } );
 
   const stage = new VBox( { children: [ moleculeNode ] } );
 
@@ -36,19 +38,20 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   const createMoleculeNode = ( id: MoleculeId ) => {
     switch( id ) {
-      case 'H2O': return new H2ONode();
-      case 'CO2': return new CO2Node();
-      case 'NH3': return new NH3Node();
-      case 'CH4': return new CH4Node();
+      case 'H2O': return new H2ONode( { atomNodeOptions: atomNodeOptions } );
+      case 'CO2': return new CO2Node( { atomNodeOptions: atomNodeOptions } );
+      case 'NH3': return new NH3Node( { atomNodeOptions: atomNodeOptions } );
+      case 'CH4': return new CH4Node( { atomNodeOptions: atomNodeOptions } );
     }
   };
 
-  const unlinkMolecule = moleculeProperty.link( id => {
+  const updateMolecule = ( id: MoleculeId ): void => {
     stage.children.forEach( child => child.dispose() );
     moleculeNode = createMoleculeNode( id );
     stage.children = [ moleculeNode ];
     label.string = names[ id ];
-  } );
+  };
+  moleculeProperty.link( updateMolecule );
 
   const panel = new VBox( {
     spacing: 14,
@@ -65,7 +68,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkMolecule();
+    moleculeProperty.unlink( updateMolecule );
     panel.dispose();
     stage.children.forEach( child => child.dispose() );
     stage.dispose();

@@ -12,14 +12,13 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   const group = new TimeSpeedRadioButtonGroup(
     timeSpeedProperty,
-    [ TimeSpeed.SLOW, TimeSpeed.NORMAL, TimeSpeed.FAST ],
+    [ TimeSpeed.NORMAL, TimeSpeed.SLOW ],
     { spacing: 10 }
   );
 
   const labels = new Map<TimeSpeed, string>( [
     [ TimeSpeed.SLOW, 'slow' ],
-    [ TimeSpeed.NORMAL, 'normal' ],
-    [ TimeSpeed.FAST, 'fast' ]
+    [ TimeSpeed.NORMAL, 'normal' ]
   ] );
   const readout = new Text( '' );
   const update = ( speed: TimeSpeed ): void => {

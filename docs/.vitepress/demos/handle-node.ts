@@ -1,5 +1,5 @@
 import { HandleNode } from 'scenerystack/scenery-phet';
-import { Node } from 'scenerystack/scenery';
+import { HBox } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
@@ -12,15 +12,23 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     gripBaseColor: '#8FBF5B'
   } );
 
-  const container = new Node( { children: [ handle ] } );
+  const wallHandle = new HandleNode( {
+    scale: 0.6,
+    gripBaseColor: '#8FBF5B',
+    hasRightAttachment: false,
+    attachmentFill: 'darkgray'
+  } );
 
-  rootNode.addChild( container );
-  const unlinkCenter = centerInDisplay( container, width, height );
+  const row = new HBox( { spacing: 40, align: 'center', children: [ handle, wallHandle ] } );
+
+  rootNode.addChild( row );
+  const unlinkCenter = centerInDisplay( row, width, height );
 
   return () => {
     unlinkCenter();
     handle.dispose();
-    container.dispose();
+    wallHandle.dispose();
+    row.dispose();
   };
 }
 

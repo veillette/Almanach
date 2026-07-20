@@ -11,9 +11,16 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const cells = COLORS.map( ( color, i ) => {
     const cell = new Rectangle( 0, 0, 70, 50, { fill: color, cornerRadius: 6 } );
     cell.addChild( new Text( `${i + 1}`, { fontSize: 20, fill: 'white', center: cell.center } ) );
-    cell.layoutOptions = { column: i % 3, row: Math.floor( i / 3 ) };
     return cell;
   } );
+
+  // First cell spans two columns so spanning is visible.
+  cells[ 0 ].layoutOptions = { column: 0, row: 0, horizontalSpan: 2 };
+  cells[ 1 ].layoutOptions = { column: 2, row: 0 };
+  cells[ 2 ].layoutOptions = { column: 0, row: 1 };
+  cells[ 3 ].layoutOptions = { column: 1, row: 1 };
+  cells[ 4 ].layoutOptions = { column: 2, row: 1 };
+  cells[ 5 ].layoutOptions = { column: 0, row: 2 };
 
   const gridBox = new GridBox( {
     xSpacing: 10,

@@ -19,7 +19,8 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     majorTickLabels,
     'cm',
     {
-      minorTicksPerMajorTick: 4
+      minorTicksPerMajorTick: 4,
+      insetsWidth: 15
     }
   );
 

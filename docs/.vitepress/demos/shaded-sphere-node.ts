@@ -1,5 +1,5 @@
 import { NumberProperty } from 'scenerystack/axon';
-import { Bounds2, Range } from 'scenerystack/dot';
+import { Bounds2, Range, Dimension2 } from 'scenerystack/dot';
 import { HSlider } from 'scenerystack/sun';
 import { ShadedRectangle, ShadedSphereNode } from 'scenerystack/scenery-phet';
 import { HBox, Node, VBox } from 'scenerystack/scenery';
@@ -15,7 +15,8 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   const rectangle = new ShadedRectangle( new Bounds2( 0, 0, 110, 90 ), {
     baseColor: '#8FBF5B',
-    cornerRadius: 8
+    cornerRadius: 8,
+    lightSource: 'leftTop'
   } );
 
   const sphereContainer = new Node();
@@ -25,6 +26,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     sphere = new ShadedSphereNode( 90, {
       mainColor: '#5B9BD5',
       highlightColor: '#DCEBFB',
+      shadowColor: 'darkred',
       highlightXOffset: highlightXOffset
     } );
     sphereContainer.children = [ sphere ];
@@ -32,7 +34,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   highlightProperty.link( rebuild );
 
   const row = new HBox( { spacing: 30, align: 'center', children: [ sphereContainer, rectangle ] } );
-  const slider = new HSlider( highlightProperty, range, { trackSize: { width: 220, height: 5 } } );
+  const slider = new HSlider( highlightProperty, range, { trackSize: new Dimension2( 220, 5 ) } );
 
   const panel = new VBox( { spacing: 22, align: 'center', children: [ row, slider ] } );
 

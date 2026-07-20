@@ -1,61 +1,50 @@
-import { NumberProperty, Property } from 'scenerystack/axon';
-import { ArrowButton } from 'scenerystack/sun';
-import { PageControl } from 'scenerystack/sun';
-import { HBox, Text, VBox } from 'scenerystack/scenery';
+import { Node, Rectangle, VBox } from 'scenerystack/scenery';
+import { Carousel, PageControl, type CarouselItem } from 'scenerystack/sun';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
 export const width = 400;
-export const height = 160;
+export const height = 180;
+
+const COLORS = [ '#5B9BD5', '#8FBF5B', '#D9782D', '#B05BD5', '#D5B15B' ];
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
-  const numberOfPages = 5;
-  const pageNumberProperty = new NumberProperty( 0 );
-  const numberOfPagesProperty = new Property( numberOfPages );
+  const items: CarouselItem[] = COLORS.map( color => ( {
+    createNode: () => new Rectangle( 0, 0, 50, 50, { fill: color, cornerRadius: 8 } )
+  } ) );
 
-  const pageControl = new PageControl( pageNumberProperty, numberOfPagesProperty, {
-    interactive: true,
-    orientation: 'horizontal'
+  const carousel = new Carousel( items, {
+    orientation: 'horizontal',
+    itemsPerPage: 2,
+    margin: 8
   } );
 
-  const previousButton = new ArrowButton( 'left', () => {
-    pageNumberProperty.value = Math.max( 0, pageNumberProperty.value - 1 );
-  } );
-  const nextButton = new ArrowButton( 'right', () => {
-    pageNumberProperty.value = Math.min( numberOfPages - 1, pageNumberProperty.value + 1 );
-  } );
-
-  const readout = new Text( '' );
-  const updateReadout = ( page: number ): void => {
-    readout.string = `page ${page + 1} of ${numberOfPages}`;
-  };
-  pageNumberProperty.link( updateReadout );
-
-  const controls = new HBox( {
-    spacing: 20,
-    children: [ previousButton, pageControl, nextButton ]
-  } );
+  const pageControl = new PageControl(
+    carousel.pageNumberProperty,
+    carousel.numberOfPagesProperty,
+    {
+      interactive: true,
+      orientation: 'horizontal'
+    }
+  );
 
   const panel = new VBox( {
-    spacing: 16,
+    spacing: 10,
     align: 'center',
-    children: [ controls, readout ]
+    children: [ carousel, pageControl ]
   } );
 
-  rootNode.addChild( panel );
-  const unlinkCenter = centerInDisplay( panel, width, height );
+  const container = new Node( { children: [ panel ] } );
+
+  rootNode.addChild( container );
+  const unlinkCenter = centerInDisplay( container, width, height );
 
   return () => {
     unlinkCenter();
-    pageNumberProperty.unlink( updateReadout );
-    previousButton.dispose();
-    nextButton.dispose();
     pageControl.dispose();
-    controls.dispose();
-    readout.dispose();
+    carousel.dispose();
     panel.dispose();
-    pageNumberProperty.dispose();
-    numberOfPagesProperty.dispose();
+    container.dispose();
   };
 }
 

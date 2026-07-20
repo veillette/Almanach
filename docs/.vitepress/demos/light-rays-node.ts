@@ -1,5 +1,5 @@
 import { NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Range, Dimension2 } from 'scenerystack/dot';
 import { HSlider } from 'scenerystack/sun';
 import { LightRaysNode } from 'scenerystack/scenery-phet';
 import { Circle, Node, Text, VBox } from 'scenerystack/scenery';
@@ -18,7 +18,8 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const rays = new LightRaysNode( BULB_RADIUS, {
     stroke: '#E8B33A',
     lineWidth: 2,
-    maxRayLength: 60
+    maxRayLength: 60,
+    maxRays: 40
   } );
   const bulb = new Circle( BULB_RADIUS, { fill: '#FFE9A8', stroke: '#E8B33A', lineWidth: 2 } );
   const lamp = new Node( { children: [ rays, bulb ] } );
@@ -32,7 +33,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   };
   brightnessProperty.link( update );
 
-  const slider = new HSlider( brightnessProperty, range, { trackSize: { width: 200, height: 5 } } );
+  const slider = new HSlider( brightnessProperty, range, { trackSize: new Dimension2( 200, 5 ) } );
 
   const panel = new VBox( { spacing: 16, align: 'center', children: [ frame, readout, slider ] } );
 

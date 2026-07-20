@@ -1,14 +1,16 @@
 import { Property } from 'scenerystack/axon';
-import { RectangularRadioButtonGroup, type RectangularRadioButtonGroupItem } from 'scenerystack/sun';
+import { RectangularRadioButton, RectangularRadioButtonGroup, type RectangularRadioButtonGroupItem } from 'scenerystack/sun';
 import { Circle, Node, Path, Rectangle, Text, VBox } from 'scenerystack/scenery';
 import { Shape } from 'scenerystack/kite';
+import { Tandem } from 'scenerystack/tandem';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
 export const width = 340;
-export const height = 240;
+export const height = 280;
 
 type Shape3 = 'circle' | 'square' | 'triangle';
+type Mode = 'on' | 'off';
 
 function triangle(): Node {
   const s = new Shape().moveTo( 0, -16 ).lineTo( 16, 14 ).lineTo( -16, 14 ).close();
@@ -29,11 +31,21 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     spacing: 12
   } );
 
-  const readout = new Text( '' );
-  const update = ( shape: Shape3 ): void => { readout.string = `selected: ${shape}`; };
-  shapeProperty.link( update );
+  // Standalone RectangularRadioButton (the page's subject class), outside a group.
+  const modeProperty = new Property<Mode>( 'off' );
+  const standalone = new RectangularRadioButton( modeProperty, 'on', {
+    content: new Text( 'On' ),
+    tandem: Tandem.OPTIONAL
+  } );
 
-  const panel = new VBox( { spacing: 22, align: 'center', children: [ group, readout ] } );
+  const readout = new Text( '' );
+  const update = (): void => {
+    readout.string = `shape: ${shapeProperty.value}  |  mode: ${modeProperty.value}`;
+  };
+  shapeProperty.link( update );
+  modeProperty.link( update );
+
+  const panel = new VBox( { spacing: 22, align: 'center', children: [ group, standalone, readout ] } );
 
   rootNode.addChild( panel );
   const unlinkCenter = centerInDisplay( panel, width, height );
@@ -41,10 +53,13 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   return () => {
     unlinkCenter();
     shapeProperty.unlink( update );
+    modeProperty.unlink( update );
     group.dispose();
+    standalone.dispose();
     readout.dispose();
     panel.dispose();
     shapeProperty.dispose();
+    modeProperty.dispose();
   };
 }
 

@@ -1,5 +1,5 @@
 import { BooleanProperty } from 'scenerystack/axon';
-import { ToggleNode, ToggleSwitch, type ToggleNodeElement } from 'scenerystack/sun';
+import { BooleanToggleNode, ToggleSwitch } from 'scenerystack/sun';
 import { Circle, Node, Rectangle, Text, VBox } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
@@ -10,11 +10,9 @@ export const height = 220;
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const onProperty = new BooleanProperty( false );
 
-  const elements: ToggleNodeElement<boolean>[] = [
-    { value: false, createNode: () => new Rectangle( 0, 0, 60, 60, { fill: '#D9782D', cornerRadius: 6 } ) },
-    { value: true, createNode: () => new Circle( 32, { fill: '#5B9BD5' } ) }
-  ];
-  const toggleNode = new ToggleNode<boolean>( onProperty, elements );
+  const trueNode = new Circle( 32, { fill: '#5B9BD5' } );
+  const falseNode = new Rectangle( 0, 0, 60, 60, { fill: '#D9782D', cornerRadius: 6 } );
+  const toggleNode = new BooleanToggleNode( onProperty, trueNode, falseNode );
   // Reserve the union of both element footprints so switching does not shift layout.
   const frame = new Node( { children: [ toggleNode ], localBounds: new Rectangle( -32, -32, 64, 64 ).localBounds } );
 

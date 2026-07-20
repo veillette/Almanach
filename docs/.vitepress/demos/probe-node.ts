@@ -9,7 +9,8 @@ export const height = 240;
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const probe = new ProbeNode( {
     radius: 55,
-    color: '#3378c4'
+    color: '#3378c4',
+    sensorTypeFunction: ProbeNode.crosshairs( { intersectionRadius: 6 } )
   } );
 
   const container = new Node( { children: [ probe ] } );

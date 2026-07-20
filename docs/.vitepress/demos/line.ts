@@ -24,8 +24,10 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const readout = new Text( '' );
   const update = ( degrees: number ): void => {
     const radians = degrees * Math.PI / 180;
-    line.setPoint2( radius * Math.cos( radians ), -radius * Math.sin( radians ) );
-    line.setPoint1( -radius * Math.cos( radians ), radius * Math.sin( radians ) );
+    line.x1 = -radius * Math.cos( radians );
+    line.y1 = radius * Math.sin( radians );
+    line.x2 = radius * Math.cos( radians );
+    line.y2 = -radius * Math.sin( radians );
     readout.string = `angle: ${Math.round( degrees )}°`;
   };
   angleProperty.link( update );

@@ -1,7 +1,7 @@
 import { BooleanProperty } from 'scenerystack/axon';
-import { Dimension2 } from 'scenerystack/dot';
-import { RectangularStickyToggleButton } from 'scenerystack/sun';
-import { Text, VBox } from 'scenerystack/scenery';
+import { Shape } from 'scenerystack/kite';
+import { RoundStickyToggleButton } from 'scenerystack/sun';
+import { Path, Text, VBox } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
@@ -12,10 +12,9 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const pressedProperty = new BooleanProperty( false );
 
   // Stays "down" after a press until pressed again.
-  const button = new RectangularStickyToggleButton( pressedProperty, false, true, {
-    content: new Text( 'Sticky', { fontSize: 18 } ),
-    baseColor: '#D5B15B',
-    size: new Dimension2( 110, 46 )
+  const button = new RoundStickyToggleButton( pressedProperty, false, true, {
+    content: new Path( Shape.circle( 10 ), { fill: '#C0392B' } ),
+    baseColor: 'white'
   } );
 
   const readout = new Text( '' );

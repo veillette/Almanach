@@ -1,5 +1,6 @@
-import { MagnifyingGlassNode } from 'scenerystack/scenery-phet';
-import { Node, Text } from 'scenerystack/scenery';
+import { Dimension2 } from 'scenerystack/dot';
+import { MagnifyingGlassNode, PlusNode } from 'scenerystack/scenery-phet';
+import { HBox, Node } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
@@ -7,20 +8,29 @@ export const width = 400;
 export const height = 200;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
-  const magnifier = new MagnifyingGlassNode( {
-    glassRadius: 45,
+  const glassRadius = 45;
+  const withIcon = new MagnifyingGlassNode( {
+    glassRadius: glassRadius,
     glassFill: '#e8f4ff',
-    icon: new Text( '+', { fontSize: 36 } )
+    icon: new PlusNode( { size: new Dimension2( 1.3 * glassRadius, glassRadius / 3 ) } )
   } );
 
-  const container = new Node( { children: [ magnifier ] } );
+  // Plain magnifying glass, no icon inside.
+  const plain = new MagnifyingGlassNode( {
+    glassRadius: 20
+  } );
+
+  const row = new HBox( { spacing: 40, align: 'center', children: [ withIcon, plain ] } );
+  const container = new Node( { children: [ row ] } );
 
   rootNode.addChild( container );
   const unlinkCenter = centerInDisplay( container, width, height );
 
   return () => {
     unlinkCenter();
-    magnifier.dispose();
+    withIcon.dispose();
+    plain.dispose();
+    row.dispose();
     container.dispose();
   };
 }

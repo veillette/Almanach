@@ -1,12 +1,15 @@
-import { BooleanProperty } from 'scenerystack/axon';
-import { BooleanRectangularToggleButton } from 'scenerystack/sun';
+import { BooleanProperty, Property } from 'scenerystack/axon';
+import { BooleanRectangularToggleButton, RectangularToggleButton } from 'scenerystack/sun';
 import { Path, Text, VBox } from 'scenerystack/scenery';
 import { Shape } from 'scenerystack/kite';
+import { Tandem } from 'scenerystack/tandem';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
 export const width = 300;
-export const height = 200;
+export const height = 280;
+
+type Speed = 'normal' | 'slow';
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const isPlayingProperty = new BooleanProperty( false );
@@ -25,11 +28,28 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     { baseColor: 'yellow' }
   );
 
-  const readout = new Text( '' );
-  const update = ( isPlaying: boolean ): void => { readout.string = isPlaying ? 'playing' : 'paused'; };
-  isPlayingProperty.link( update );
+  // Generic RectangularToggleButton<T>: one content Node, flips Property between two values.
+  const speedProperty = new Property<Speed>( 'normal' );
+  const speedButton = new RectangularToggleButton(
+    speedProperty,
+    'normal', // valueOff
+    'slow',   // valueOn
+    { content: new Text( 'x' ), tandem: Tandem.OPTIONAL }
+  );
 
-  const panel = new VBox( { spacing: 20, align: 'center', children: [ button, readout ] } );
+  const readout = new Text( '' );
+  const update = (): void => {
+    const playState = isPlayingProperty.value ? 'playing' : 'paused';
+    readout.string = `${playState}  |  speed: ${speedProperty.value}`;
+  };
+  isPlayingProperty.link( update );
+  speedProperty.link( update );
+
+  const panel = new VBox( {
+    spacing: 20,
+    align: 'center',
+    children: [ button, speedButton, readout ]
+  } );
 
   rootNode.addChild( panel );
   const unlinkCenter = centerInDisplay( panel, width, height );
@@ -37,10 +57,13 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   return () => {
     unlinkCenter();
     isPlayingProperty.unlink( update );
+    speedProperty.unlink( update );
     button.dispose();
+    speedButton.dispose();
     readout.dispose();
     panel.dispose();
     isPlayingProperty.dispose();
+    speedProperty.dispose();
   };
 }
 

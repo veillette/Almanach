@@ -1,17 +1,18 @@
 import { NumberProperty } from 'scenerystack/axon';
 import { Range } from 'scenerystack/dot';
-import { PlusMinusZoomButtonGroup } from 'scenerystack/scenery-phet';
-import { HBox, Node, Rectangle } from 'scenerystack/scenery';
+import { MagnifyingGlassZoomButtonGroup, PlusMinusZoomButtonGroup } from 'scenerystack/scenery-phet';
+import { HBox, Node, Rectangle, VBox } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
-export const width = 380;
+export const width = 420;
 export const height = 220;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const zoomLevelProperty = new NumberProperty( 2, { range: new Range( 1, 5 ) } );
 
-  const buttonGroup = new PlusMinusZoomButtonGroup( zoomLevelProperty, { orientation: 'vertical' } );
+  const plusMinusGroup = new PlusMinusZoomButtonGroup( zoomLevelProperty, { orientation: 'vertical' } );
+  const magnifyingGroup = new MagnifyingGlassZoomButtonGroup( zoomLevelProperty, { orientation: 'vertical' } );
 
   const shape = new Rectangle( 0, 0, 40, 40, { fill: '#5B9BD5', cornerRadius: 4 } );
   const shapeContainer = new Node( { children: [ shape ] } );
@@ -23,7 +24,13 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   };
   zoomLevelProperty.link( update );
 
-  const panel = new HBox( { spacing: 30, align: 'center', children: [ frame, buttonGroup ] } );
+  const buttonGroups = new VBox( {
+    spacing: 16,
+    align: 'center',
+    children: [ plusMinusGroup, magnifyingGroup ]
+  } );
+
+  const panel = new HBox( { spacing: 30, align: 'center', children: [ frame, buttonGroups ] } );
 
   rootNode.addChild( panel );
   const unlinkCenter = centerInDisplay( panel, width, height );
@@ -31,7 +38,9 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   return () => {
     unlinkCenter();
     zoomLevelProperty.unlink( update );
-    buttonGroup.dispose();
+    plusMinusGroup.dispose();
+    magnifyingGroup.dispose();
+    buttonGroups.dispose();
     frame.dispose();
     shapeContainer.dispose();
     shape.dispose();

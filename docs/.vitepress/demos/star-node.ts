@@ -1,8 +1,8 @@
 import { NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Range, Dimension2 } from 'scenerystack/dot';
 import { HSlider } from 'scenerystack/sun';
-import { StarNode } from 'scenerystack/scenery-phet';
-import { Node, Text, VBox } from 'scenerystack/scenery';
+import { StarNode, StarShape } from 'scenerystack/scenery-phet';
+import { HBox, Node, Path, Text, VBox } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
@@ -16,6 +16,13 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const readout = new Text( '' );
   const starContainer = new Node();
   let star: StarNode | null = null;
+
+  // Bare StarShape outline, usable in any Path.
+  const outline = new Path( new StarShape( { outerRadius: 20, innerRadius: 10 } ), {
+    fill: '#fcff03',
+    stroke: 'black',
+    lineWidth: 1.5
+  } );
 
   const rebuild = ( value: number ): void => {
     if ( star ) {
@@ -31,14 +38,16 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   valueProperty.link( rebuild );
 
   const slider = new HSlider( valueProperty, range, {
-    trackSize: { width: 200, height: 5 }
+    trackSize: new Dimension2( 200, 5 )
   } );
+
+  const stars = new HBox( { spacing: 24, align: 'center', children: [ starContainer, outline ] } );
 
   const panel = new VBox( {
     spacing: 16,
     align: 'center',
     children: [
-      starContainer,
+      stars,
       readout,
       slider
     ]
@@ -53,8 +62,10 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     if ( star ) {
       star.dispose();
     }
+    outline.dispose();
     slider.dispose();
     starContainer.dispose();
+    stars.dispose();
     readout.dispose();
     panel.dispose();
     valueProperty.dispose();

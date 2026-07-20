@@ -9,6 +9,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const indicator = new SpinningIndicatorNode( {
     diameter: 90,
     numberOfElements: 12,
+    elementFactory: SpinningIndicatorNode.circleFactory,
     activeColor: '#2E5F8A',
     inactiveColor: 'rgba(46,95,138,0.15)'
   } );

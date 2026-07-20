@@ -1,5 +1,5 @@
 import { NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Range, Dimension2 } from 'scenerystack/dot';
 import { HSlider } from 'scenerystack/sun';
 import { LightBulbNode } from 'scenerystack/scenery-phet';
 import { Text, VBox } from 'scenerystack/scenery';
@@ -13,7 +13,9 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const range = new Range( 0, 1 );
   const brightnessProperty = new NumberProperty( 0.5, { range: range } );
 
-  const lightBulb = new LightBulbNode( brightnessProperty );
+  const lightBulb = new LightBulbNode( brightnessProperty, {
+    bulbImageScale: 0.5
+  } );
 
   const readout = new Text( '' );
   const updateReadout = ( value: number ): void => {
@@ -22,7 +24,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   brightnessProperty.link( updateReadout );
 
   const slider = new HSlider( brightnessProperty, range, {
-    trackSize: { width: 200, height: 5 }
+    trackSize: new Dimension2( 200, 5 )
   } );
 
   const panel = new VBox( {

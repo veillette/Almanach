@@ -1,10 +1,10 @@
-import { AtomNode, Element } from 'scenerystack/nitroglycerin';
+import { Atom, AtomNode, Element } from 'scenerystack/nitroglycerin';
 import { HBox, Text, VBox } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
 export const width = 400;
-export const height = 180;
+export const height = 220;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const elements = [ Element.H, Element.C, Element.N, Element.O ];
@@ -15,15 +15,24 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     return new VBox( { spacing: 8, align: 'center', children: [ atom, label ] } );
   } );
 
-  const row = new HBox( { spacing: 26, align: 'bottom', children: atoms } );
+  // Model-layer Atom (per-instance identity around Element.O).
+  const oxygenAtom = new Atom( Element.O );
+  const atomReadout = new Text( `Atom id: ${oxygenAtom.id}  weight: ${oxygenAtom.atomicWeight}`, {
+    fontSize: 14
+  } );
 
-  rootNode.addChild( row );
-  const unlinkCenter = centerInDisplay( row, width, height );
+  const row = new HBox( { spacing: 26, align: 'bottom', children: atoms } );
+  const panel = new VBox( { spacing: 18, align: 'center', children: [ row, atomReadout ] } );
+
+  rootNode.addChild( panel );
+  const unlinkCenter = centerInDisplay( panel, width, height );
 
   return () => {
     unlinkCenter();
     atoms.forEach( a => a.dispose() );
+    atomReadout.dispose();
     row.dispose();
+    panel.dispose();
   };
 }
 

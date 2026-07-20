@@ -1,45 +1,38 @@
-import { NumberProperty } from 'scenerystack/axon';
-import { CarouselButton } from 'scenerystack/sun';
-import { HBox, Text, VBox } from 'scenerystack/scenery';
+import { Dimension2 } from 'scenerystack/dot';
+import { Node, Rectangle } from 'scenerystack/scenery';
+import { Carousel, type CarouselItem } from 'scenerystack/sun';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
-export const width = 300;
-export const height = 200;
+export const width = 400;
+export const height = 160;
+
+const COLORS = [ '#5B9BD5', '#8FBF5B', '#D9782D', '#B05BD5', '#D5B15B' ];
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
-  const indexProperty = new NumberProperty( 0 );
+  const items: CarouselItem[] = COLORS.map( color => ( {
+    createNode: () => new Rectangle( 0, 0, 60, 60, { fill: color, cornerRadius: 8 } )
+  } ) );
 
-  const upButton = new CarouselButton( {
-    arrowDirection: 'up',
-    baseColor: '#e0e0e0',
-    listener: () => { indexProperty.value += 1; }
+  const carousel = new Carousel( items, {
+    orientation: 'horizontal',
+    itemsPerPage: 2,
+    margin: 10,
+    buttonOptions: {
+      baseColor: 'rgb( 220, 220, 220 )',
+      arrowSize: new Dimension2( 16, 6 )
+    }
   } );
-  const downButton = new CarouselButton( {
-    arrowDirection: 'down',
-    baseColor: '#e0e0e0',
-    listener: () => { indexProperty.value -= 1; }
-  } );
 
-  const readout = new Text( '' );
-  const update = ( index: number ): void => { readout.string = `index: ${index}`; };
-  indexProperty.link( update );
+  const container = new Node( { children: [ carousel ] } );
 
-  const buttons = new HBox( { spacing: 16, children: [ upButton, downButton ] } );
-  const panel = new VBox( { spacing: 20, align: 'center', children: [ buttons, readout ] } );
-
-  rootNode.addChild( panel );
-  const unlinkCenter = centerInDisplay( panel, width, height );
+  rootNode.addChild( container );
+  const unlinkCenter = centerInDisplay( container, width, height );
 
   return () => {
     unlinkCenter();
-    indexProperty.unlink( update );
-    upButton.dispose();
-    downButton.dispose();
-    buttons.dispose();
-    readout.dispose();
-    panel.dispose();
-    indexProperty.dispose();
+    carousel.dispose();
+    container.dispose();
   };
 }
 

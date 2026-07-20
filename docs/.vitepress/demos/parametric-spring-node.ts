@@ -1,4 +1,4 @@
-import { Range } from 'scenerystack/dot';
+import { Range, Dimension2 } from 'scenerystack/dot';
 import { HSlider } from 'scenerystack/sun';
 import { ParametricSpringNode } from 'scenerystack/scenery-phet';
 import { HBox, Node, Text, VBox } from 'scenerystack/scenery';
@@ -15,6 +15,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     backColor: '#204E7A',
     loops: 8,
     radius: 18,
+    aspectRatio: 3,
     lineWidth: 3,
     xScale: 2.5
   } );
@@ -29,10 +30,10 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     new VBox( { spacing: 6, align: 'center', children: [ new Text( label, { fontSize: 13 } ), slider ] } );
 
   const loopsSlider = new HSlider( spring.loopsProperty, loopsRange, {
-    trackSize: { width: 150, height: 4 },
+    trackSize: new Dimension2( 150, 4 ),
     constrainValue: value => Math.round( value )
   } );
-  const radiusSlider = new HSlider( spring.radiusProperty, radiusRange, { trackSize: { width: 150, height: 4 } } );
+  const radiusSlider = new HSlider( spring.radiusProperty, radiusRange, { trackSize: new Dimension2( 150, 4 ) } );
 
   const controls = new HBox( {
     spacing: 24,

@@ -1,6 +1,6 @@
 import { BooleanProperty } from 'scenerystack/axon';
 import { LockNode } from 'scenerystack/scenery-phet';
-import { ToggleSwitch } from 'scenerystack/sun';
+import { RectangularPushButton } from 'scenerystack/sun';
 import { Node, Text, VBox } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
@@ -20,7 +20,10 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   };
   isLockedProperty.link( update );
 
-  const toggle = new ToggleSwitch( isLockedProperty, false, true );
+  const toggle = new RectangularPushButton( {
+    content: new Text( 'Toggle lock', { fontSize: 16 } ),
+    listener: () => { isLockedProperty.toggle(); }
+  } );
 
   const panel = new VBox( { spacing: 18, align: 'center', children: [ frame, readout, toggle ] } );
 

@@ -1,22 +1,40 @@
-import { NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { BooleanProperty, NumberProperty, Property } from 'scenerystack/axon';
+import { Range, Dimension2 } from 'scenerystack/dot';
 import { Text, VBox } from 'scenerystack/scenery';
-import { HSlider } from 'scenerystack/sun';
+import { Checkbox, HSlider } from 'scenerystack/sun';
 import { Tandem } from 'scenerystack/tandem';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
 export const width = 400;
-export const height = 140;
+export const height = 200;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
+  const range = new Range( 0, 100 );
   const temperatureProperty = new NumberProperty( 20, {
-    range: new Range( 0, 100 )
+    range: range
   } );
+  const enabledRangeProperty = new Property( range );
+  const narrowEnabledProperty = new BooleanProperty( false );
 
   const readout = new Text( '20 °C' );
-  const slider = new HSlider( temperatureProperty, new Range( 0, 100 ), {
-    trackSize: { width: 220, height: 5 },
+  const slider = new HSlider( temperatureProperty, range, {
+    trackSize: new Dimension2( 220, 5 ),
+    enabledRangeProperty: enabledRangeProperty,
+    tandem: Tandem.OPTIONAL
+  } );
+  slider.addMajorTick( 0, new Text( '0°', { fontSize: 12 } ) );
+  slider.addMajorTick( 100, new Text( '100°', { fontSize: 12 } ) );
+  slider.addMinorTick( 25 );
+  slider.addMinorTick( 50 );
+  slider.addMinorTick( 75 );
+
+  const updateNarrow = ( narrow: boolean ): void => {
+    enabledRangeProperty.value = narrow ? new Range( 20, 80 ) : range;
+  };
+  narrowEnabledProperty.link( updateNarrow );
+
+  const narrowCheckbox = new Checkbox( narrowEnabledProperty, new Text( 'Narrow enabled range' ), {
     tandem: Tandem.OPTIONAL
   } );
 
@@ -25,22 +43,28 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     align: 'center',
     children: [
       readout,
-      slider
+      slider,
+      narrowCheckbox
     ]
   } );
 
-  const unlinkReadout = temperatureProperty.link( value => {
+  const updateReadout = ( value: number ): void => {
     readout.string = `${Math.round( value )} °C`;
-  } );
+  };
+  temperatureProperty.link( updateReadout );
 
   rootNode.addChild( panel );
   const unlinkCenter = centerInDisplay( panel, width, height );
 
   return () => {
     unlinkCenter();
-    unlinkReadout();
+    temperatureProperty.unlink( updateReadout );
+    narrowEnabledProperty.unlink( updateNarrow );
     panel.dispose();
     slider.dispose();
+    narrowCheckbox.dispose();
+    narrowEnabledProperty.dispose();
+    enabledRangeProperty.dispose();
     temperatureProperty.dispose();
     readout.dispose();
   };

@@ -1,13 +1,13 @@
 import { NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Range, Dimension2 } from 'scenerystack/dot';
 import { Text, VBox } from 'scenerystack/scenery';
 import { VSlider } from 'scenerystack/sun';
 import { Tandem } from 'scenerystack/tandem';
 import { centerInDisplay } from './shared/center-in-display.js';
 import type { DemoModule } from './types.js';
 
-export const width = 300;
-export const height = 200;
+export const width = 340;
+export const height = 240;
 
 export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): () => void {
   const volumeProperty = new NumberProperty( 50, {
@@ -17,9 +17,11 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const readout = new Text( '50%' );
 
   const slider = new VSlider( volumeProperty, new Range( 0, 100 ), {
-    trackSize: { width: 8, height: 120 },
+    trackSize: new Dimension2( 8, 120 ),
     tandem: Tandem.OPTIONAL
   } );
+  slider.addMajorTick( 0, new Text( '0%', { fontSize: 14 } ) );
+  slider.addMajorTick( 100, new Text( '100%', { fontSize: 14 } ) );
 
   const panel = new VBox( {
     spacing: 10,
@@ -30,16 +32,17 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     ]
   } );
 
-  const unlinkReadout = volumeProperty.link( value => {
+  const updateReadout = ( value: number ): void => {
     readout.string = `${Math.round( value )}%`;
-  } );
+  };
+  volumeProperty.link( updateReadout );
 
   rootNode.addChild( panel );
   const unlinkCenter = centerInDisplay( panel, width, height );
 
   return () => {
     unlinkCenter();
-    unlinkReadout();
+    volumeProperty.unlink( updateReadout );
     panel.dispose();
     slider.dispose();
     volumeProperty.dispose();
