@@ -14,8 +14,10 @@ export default defineConfig( {
 
   vite: {
     ssr: {
-      // Keep SceneryStack out of the SSR bundle — demos load it client-side only.
-      external: [ 'scenerystack', /^scenerystack\// ]
+      // Keep SceneryStack out of the SSR bundle — demos load it client-side
+      // only. Listing the package name also externalizes its subpath imports
+      // (e.g. scenerystack/scenery), which Vite matches by package name.
+      external: [ 'scenerystack' ]
     },
     optimizeDeps: {
       include: [

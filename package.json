@@ -14,10 +14,12 @@
   },
   "scripts": {
     "dev": "VITEPRESS_BASE=/ vitepress dev docs",
-    "build": "npm run generate && npm run demos:check && vitepress build docs",
+    "build": "npm run generate && npm run demos:check && npm run demos:typecheck && vitepress build docs",
     "preview": "vitepress preview docs",
     "generate": "tsx scripts/generate-llm-artifacts.ts",
     "demos:check": "tsx scripts/check-demos.ts",
+    "demos:typecheck": "tsc --noEmit -p tsconfig.demos.json",
+    "typecheck": "tsc --noEmit",
     "coverage:status": "tsx scripts/coverage-status.ts"
   },
   "devDependencies": {

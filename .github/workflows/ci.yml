@@ -25,5 +25,11 @@ jobs:
       - name: Validate frontmatter and generate LLM artifacts
         run: npm run generate
 
+      - name: Check demo registry
+        run: npm run demos:check
+
+      - name: Type-check
+        run: npm run typecheck
+
       - name: Build site
         run: npx vitepress build docs
