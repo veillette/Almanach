@@ -32,7 +32,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     ]
   } );
 
-  const unlinkStatus = isHappyProperty.link( isHappy => {
+  isHappyProperty.link( isHappy => {
     if ( isHappy ) {
       faceNode.smile();
       statusText.string = 'Status: Correct ✓';
@@ -48,7 +48,6 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkStatus();
     panel.dispose();
     faceNode.dispose();
     toggleButton.dispose();

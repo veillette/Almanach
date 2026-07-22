@@ -1,5 +1,5 @@
 import { NumberProperty, Property } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Dimension2, Range } from 'scenerystack/dot';
 import { HSlider } from 'scenerystack/sun';
 import { TemperatureAndColorSensorNode } from 'scenerystack/scenery-phet';
 import { Color, Node, type TColor, VBox } from 'scenerystack/scenery';
@@ -28,7 +28,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   } );
   const frame = new Node( { children: [ sensor ], localBounds: sensor.localBounds.dilated( 4 ) } );
 
-  const slider = new HSlider( temperatureProperty, range, { trackSize: { width: 200, height: 5 } } );
+  const slider = new HSlider( temperatureProperty, range, { trackSize: new Dimension2( 200, 5 ) } );
 
   const panel = new VBox( { spacing: 22, align: 'center', children: [ frame, slider ] } );
 

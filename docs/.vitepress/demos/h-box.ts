@@ -1,5 +1,5 @@
 import { NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Dimension2, Range } from 'scenerystack/dot';
 import { HSlider } from 'scenerystack/sun';
 import { HBox, Rectangle, Text, VBox } from 'scenerystack/scenery';
 import { centerInDisplay } from './shared/center-in-display.js';
@@ -24,7 +24,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   };
   spacingProperty.link( update );
 
-  const slider = new HSlider( spacingProperty, range, { trackSize: { width: 220, height: 5 } } );
+  const slider = new HSlider( spacingProperty, range, { trackSize: new Dimension2( 220, 5 ) } );
 
   const panel = new VBox( {
     spacing: 18,

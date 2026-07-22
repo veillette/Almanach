@@ -1,5 +1,5 @@
 import { BooleanProperty, Property, StringProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Dimension2, Range } from 'scenerystack/dot';
 import { Checkbox, HSlider } from 'scenerystack/sun';
 import { GaugeNode } from 'scenerystack/scenery-phet';
 import { Text, VBox } from 'scenerystack/scenery';
@@ -26,7 +26,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   // out of bounds, demonstrating that it clamps rather than disappearing.
   const sliderRange = new Range( speedRange.min - 20, speedRange.max + 20 );
   const slider = new HSlider( speedProperty, sliderRange, {
-    trackSize: { width: 200, height: 5 }
+    trackSize: new Dimension2( 200, 5 )
   } );
 
   const invalidReadingProperty = new BooleanProperty( false );

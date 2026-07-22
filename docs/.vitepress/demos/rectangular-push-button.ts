@@ -21,7 +21,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     tandem: Tandem.OPTIONAL
   } );
 
-  const unlinkLabel = countProperty.link( count => {
+  countProperty.link( count => {
     label.string = `Step (${count})`;
   } );
 
@@ -30,7 +30,6 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkLabel();
     button.dispose();
     countProperty.dispose();
     label.dispose();

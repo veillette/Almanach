@@ -36,7 +36,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     ]
   } );
 
-  const unlinkReadout = scoreProperty.link( score => {
+  scoreProperty.link( score => {
     readout.string = `Score: ${score}`;
   } );
 
@@ -45,7 +45,6 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkReadout();
     panel.dispose();
     levelButton.dispose();
     scoreProperty.dispose();

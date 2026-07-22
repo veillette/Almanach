@@ -1,5 +1,5 @@
 import { NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Dimension2, Range } from 'scenerystack/dot';
 import { Shape } from 'scenerystack/kite';
 import { HSlider } from 'scenerystack/sun';
 import { Node, Path, Text, VBox } from 'scenerystack/scenery';
@@ -39,7 +39,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   sidesProperty.link( update );
 
   const slider = new HSlider( sidesProperty, range, {
-    trackSize: { width: 200, height: 5 },
+    trackSize: new Dimension2( 200, 5 ),
     constrainValue: value => Math.round( value )
   } );
 

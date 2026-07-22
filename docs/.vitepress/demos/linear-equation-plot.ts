@@ -1,5 +1,5 @@
 import { BooleanProperty, NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Dimension2, Range } from 'scenerystack/dot';
 import { Checkbox, HSlider } from 'scenerystack/sun';
 import { HBox, Node, Text, VBox } from 'scenerystack/scenery';
 import { ChartRectangle, ChartTransform, LinearEquationPlot } from 'scenerystack/bamboo';
@@ -62,8 +62,8 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   const controls = new HBox( {
     spacing: 24,
     children: [
-      labeledSlider( 'slope', new HSlider( mProperty, mProperty.range, { trackSize: { width: 120, height: 4 } } ) ),
-      labeledSlider( 'intercept', new HSlider( bProperty, bProperty.range, { trackSize: { width: 120, height: 4 } } ) )
+      labeledSlider( 'slope', new HSlider( mProperty, mProperty.range, { trackSize: new Dimension2( 120, 4 ) } ) ),
+      labeledSlider( 'intercept', new HSlider( bProperty, bProperty.range, { trackSize: new Dimension2( 120, 4 ) } ) )
     ]
   } );
 

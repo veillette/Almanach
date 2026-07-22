@@ -19,7 +19,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     closeOnRelease: false
   } );
 
-  const unlinkReadout = flowRateProperty.link( rate => {
+  flowRateProperty.link( rate => {
     readout.string = `Flow rate: ${rate.toFixed( 1 )} L/s`;
   } );
 
@@ -37,7 +37,6 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkReadout();
     panel.dispose();
     faucetNode.dispose();
     flowRateProperty.dispose();

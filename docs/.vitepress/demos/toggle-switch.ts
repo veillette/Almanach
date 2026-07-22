@@ -27,7 +27,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     ]
   } );
 
-  const unlinkReadout = unitsProperty.link( value => {
+  unitsProperty.link( value => {
     readout.string = `Units: ${value}`;
   } );
 
@@ -36,7 +36,6 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkReadout();
     panel.dispose();
     toggleSwitch.dispose();
     unitsProperty.dispose();

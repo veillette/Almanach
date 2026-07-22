@@ -1,5 +1,5 @@
 import { NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Dimension2, Range } from 'scenerystack/dot';
 import { HSlider } from 'scenerystack/sun';
 import { PhetFont, ScientificNotationNode } from 'scenerystack/scenery-phet';
 import { Node, VBox } from 'scenerystack/scenery';
@@ -19,7 +19,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   } );
   const frame = new Node( { children: [ notation ], localBounds: notation.localBounds.dilatedX( 60 ) } );
 
-  const slider = new HSlider( valueProperty, range, { trackSize: { width: 220, height: 5 } } );
+  const slider = new HSlider( valueProperty, range, { trackSize: new Dimension2( 220, 5 ) } );
 
   const panel = new VBox( { spacing: 24, align: 'center', children: [ frame, slider ] } );
 

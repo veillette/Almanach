@@ -1,5 +1,5 @@
 import { BooleanProperty, NumberProperty, StringProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Dimension2, Range } from 'scenerystack/dot';
 import { Checkbox, HSlider } from 'scenerystack/sun';
 import { ValueGaugeNode } from 'scenerystack/scenery-phet';
 import { Text, VBox } from 'scenerystack/scenery';
@@ -22,7 +22,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     }
   } );
 
-  const slider = new HSlider( valueProperty, range, { trackSize: { width: 200, height: 5 } } );
+  const slider = new HSlider( valueProperty, range, { trackSize: new Dimension2( 200, 5 ) } );
 
   const numberDisplayVisibleProperty = new BooleanProperty( true );
   const numberDisplayVisibleListener = ( visible: boolean ) => {

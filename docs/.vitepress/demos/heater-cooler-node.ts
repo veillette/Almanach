@@ -19,7 +19,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     scale: 0.6
   } );
 
-  const unlinkReadout = heatCoolAmountProperty.link( amount => {
+  heatCoolAmountProperty.link( amount => {
     readout.string = `Heat/cool: ${Math.round( amount * 100 )}%`;
   } );
 
@@ -37,7 +37,6 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkReadout();
     panel.dispose();
     heaterCoolerNode.dispose();
     heatCoolAmountProperty.dispose();

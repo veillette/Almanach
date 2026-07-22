@@ -34,7 +34,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     ]
   } );
 
-  const unlinkReadout = countProperty.link( value => {
+  countProperty.link( value => {
     readout.string = `Particles: ${value}`;
   } );
 
@@ -43,7 +43,6 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkReadout();
     panel.dispose();
     spinner.dispose();
     countProperty.dispose();

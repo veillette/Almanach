@@ -17,7 +17,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     tandem: Tandem.OPTIONAL
   } );
 
-  const unlinkReadout = soundEnabledProperty.link( enabled => {
+  soundEnabledProperty.link( enabled => {
     readout.string = `Sound: ${enabled ? 'on' : 'off'}`;
   } );
 
@@ -35,7 +35,6 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkReadout();
     panel.dispose();
     soundSwitch.dispose();
     soundEnabledProperty.dispose();

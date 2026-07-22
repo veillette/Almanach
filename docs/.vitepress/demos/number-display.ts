@@ -1,5 +1,5 @@
 import { NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
+import { Dimension2, Range } from 'scenerystack/dot';
 import { HSlider } from 'scenerystack/sun';
 import { NumberDisplay } from 'scenerystack/scenery-phet';
 import { VBox } from 'scenerystack/scenery';
@@ -25,7 +25,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   } );
 
   const slider = new HSlider( voltageProperty, range, {
-    trackSize: { width: 220, height: 5 }
+    trackSize: new Dimension2( 220, 5 )
   } );
 
   const panel = new VBox( {

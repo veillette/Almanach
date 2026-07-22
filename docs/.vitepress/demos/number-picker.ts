@@ -22,7 +22,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     tandem: Tandem.OPTIONAL
   } );
 
-  const unlinkReadout = countProperty.link( count => {
+  countProperty.link( count => {
     readout.string = `Apples: ${count}`;
   } );
 
@@ -40,7 +40,6 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkReadout();
     panel.dispose();
     countPicker.dispose();
     countProperty.dispose();

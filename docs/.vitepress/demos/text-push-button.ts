@@ -28,7 +28,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     ]
   } );
 
-  const unlinkReadout = countProperty.link( count => {
+  countProperty.link( count => {
     readout.string = `Count: ${count}`;
   } );
 
@@ -37,7 +37,6 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkReadout();
     panel.dispose();
     button.dispose();
     countProperty.dispose();

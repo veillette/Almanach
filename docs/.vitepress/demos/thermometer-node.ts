@@ -1,6 +1,6 @@
 import { NumberProperty } from 'scenerystack/axon';
-import { Range } from 'scenerystack/dot';
-import { HBox, Text } from 'scenerystack/scenery';
+import { Dimension2, Range } from 'scenerystack/dot';
+import { HBox, VBox, Text } from 'scenerystack/scenery';
 import { HSlider } from 'scenerystack/sun';
 import { ThermometerNode } from 'scenerystack/scenery-phet';
 import { centerInDisplay } from './shared/center-in-display.js';
@@ -23,7 +23,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   } );
 
   const slider = new HSlider( temperatureProperty, new Range( -20, 50 ), {
-    trackSize: { width: 160, height: 5 }
+    trackSize: new Dimension2( 160, 5 )
   } );
 
   const container = new HBox( {
@@ -39,7 +39,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
     ]
   } );
 
-  const unlinkReadout = temperatureProperty.link( value => {
+  temperatureProperty.link( value => {
     readout.string = `${Math.round( value )} °C`;
   } );
 
@@ -48,7 +48,6 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
 
   return () => {
     unlinkCenter();
-    unlinkReadout();
     container.dispose();
     thermometer.dispose();
     slider.dispose();

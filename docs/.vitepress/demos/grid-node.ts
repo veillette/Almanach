@@ -1,5 +1,5 @@
 import { NumberProperty, Property } from 'scenerystack/axon';
-import { Range, Vector2 } from 'scenerystack/dot';
+import { Dimension2, Range, Vector2 } from 'scenerystack/dot';
 import { ModelViewTransform2 } from 'scenerystack/phetcommon';
 import { HSlider } from 'scenerystack/sun';
 import { GridNode } from 'scenerystack/scenery-phet';
@@ -34,7 +34,7 @@ export function createDemo( rootNode: import( 'scenerystack/scenery' ).Node ): (
   };
   spacingProperty.link( updateReadout );
 
-  const slider = new HSlider( spacingProperty, range, { trackSize: { width: 200, height: 5 } } );
+  const slider = new HSlider( spacingProperty, range, { trackSize: new Dimension2( 200, 5 ) } );
 
   const panel = new VBox( { spacing: 18, align: 'center', children: [ gridContainer, readout, slider ] } );
 
